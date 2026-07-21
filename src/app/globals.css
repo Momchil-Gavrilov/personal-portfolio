@@ -1,26 +1,127 @@
 @import "tailwindcss";
 
+/*
+  Design tokens — warm, editorial, quiet.
+  Cream dominates; maroon and gold punctuate.
+*/
+@theme {
+  /* Palette */
+  --color-cream: #faf6ef;
+  --color-cream-deep: #f2ecdf;
+  --color-maroon: #6b1f2a;
+  --color-maroon-deep: #521621;
+  --color-gold: #c9a227;
+  --color-gold-deep: #a8871e;
+  --color-ink: #2b2622;
+  --color-ink-soft: #5f574e;
+  --color-line: #e3dbc9;
+
+  /* Typography */
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-source-sans), "Segoe UI", system-ui, sans-serif;
+
+  /* Measure */
+  --spacing-measure: 68ch;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  font-size: 1.0625rem;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--color-maroon);
+  color: var(--color-cream);
+}
+
+/* Anchor targets clear the sticky nav */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* --- Editorial details ------------------------------------------- */
+
+/* Thin gold rule used under section titles */
+.rule-gold {
+  display: block;
+  width: 3.5rem;
+  height: 2px;
+  background-color: var(--color-gold);
+  border: none;
+  margin: 0;
+}
+
+/* Maroon drop cap for the story's opening paragraph */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-maroon);
+  font-size: 3.4em;
+  line-height: 0.85;
+  padding-right: 0.09em;
+  margin-top: 0.04em;
+}
+
+/* Understated text links: ink with a gold underline that warms on hover */
+.link-quiet {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--color-gold);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: color 120ms ease, text-decoration-color 120ms ease;
+}
+
+.link-quiet:hover {
+  color: var(--color-maroon);
+  text-decoration-color: var(--color-maroon);
+}
+
+/* Small-caps label used for nav links, section eyebrows, and metadata */
+.smallcaps {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* --- Scroll reveal (subtle rise; disabled under reduced motion) --- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(0.75rem);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
