@@ -16,9 +16,9 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "Momchil Gavrilov — Human Factors & UX Researcher",
+  title: "Momchil Gavrilov · Human Factors & UX Researcher",
   description:
-    "Human factors and UX researcher studying how people and technology relate — 4 years of human-machine interaction research, 5 peer-reviewed publications, M.S. Biomedical Engineering at UC Davis.",
+    "Human factors and UX researcher studying how people and technology relate. 4 years of human-machine interaction research, 5 peer-reviewed publications, M.S. Biomedical Engineering at UC Davis.",
 };
 
 export default function RootLayout({

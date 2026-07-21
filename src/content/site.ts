@@ -20,9 +20,9 @@ export const site = {
 };
 
 export const story: string[] = [
-  "I started with people, not machines. At McMaster University I studied kinesiology because it let me see people from every angle at once — biomechanics, physiology, psychology. Somewhere along the way I bought an Arduino kit out of curiosity, and tinkering turned into a job in a wearable technology lab, strapping sensors to athletes and watching data tell human stories.",
-  "Learning about brain-computer interfaces changed my trajectory. The idea that a machine could listen to a nervous system — and that designing that conversation well was a research discipline — sent me to graduate school at UC Davis, home to leading labs in neuroengineering and human-machine interfaces. There I spent three years running studies on the relationships people form with technology: how it feels to control a prosthetic hand, whether a robot's behavior changes your sense of agency, what makes clinicians trust an assessment tool. That work became five peer-reviewed publications.",
-  "It also showed me academia's quiet heartbreak: brilliant technology that gets published, celebrated, and shelved. So I added a fellowship in business development to my engineering training — learning how innovation actually reaches people, how research becomes product, how impact gets managed rather than hoped for.",
+  "I started with people, not machines. At McMaster University I studied kinesiology because it let me see people from every angle at once: biomechanics, physiology, psychology. Somewhere along the way I bought an Arduino kit out of curiosity, and tinkering turned into a job in a wearable technology lab, strapping sensors to athletes and watching data tell human stories.",
+  "Learning about brain-computer interfaces changed my trajectory. A machine could listen to a nervous system, and designing that conversation well was a research discipline of its own. That idea sent me to graduate school at UC Davis, home to leading labs in neuroengineering and human-machine interfaces. There I spent three years running studies on the relationships people form with technology: how it feels to control a prosthetic hand, whether a robot's behavior changes your sense of agency, what makes clinicians trust an assessment tool. That work became five peer-reviewed publications.",
+  "It also showed me academia's quiet heartbreak: brilliant technology that gets published, celebrated, and shelved. So I added a fellowship in business development to my engineering training, learning how innovation actually reaches people, how research becomes product, and how impact gets managed rather than hoped for.",
   "Now I want to do the translating. I like people, and I like making technology for them. Everything on this page is in service of that.",
 ];
 
@@ -33,7 +33,7 @@ export const skills = [
   },
   {
     label: "Analysis",
-    text: "Bayesian & inferential statistics, regression, factor analysis — R, Python, MATLAB",
+    text: "Bayesian & inferential statistics, regression, factor analysis (R, Python, MATLAB)",
   },
   {
     label: "Craft",

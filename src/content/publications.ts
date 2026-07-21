@@ -16,7 +16,7 @@ export const publications: Publication[] = [
       "Gavrilov, M. G., Jordan, K. A., Waraich, S. A., Zhou, W., Whittle, R. S., Joiner, W. M., Blustein, D., & Schofield, J. S.",
     title:
       "Measuring Intention: The Sense of Agency, Intentional Binding, and the Temporal Difference Limen",
-    venue: "Manuscript",
+    venue: "Manuscript under review",
     year: "2026",
   },
   {
