@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import SectionTitle from "@/components/SectionTitle";
@@ -9,26 +10,41 @@ import { productStudies } from "@/content/case-studies";
 */
 function Tile({
   monogram,
+  icon,
+  title,
   live,
 }: {
   monogram: string;
+  icon?: string;
+  title: string;
   live: boolean;
 }) {
   return (
     <div
-      className={`flex aspect-square w-full items-center justify-center rounded-3xl border transition-all ${
+      className={`flex aspect-square w-full items-center justify-center overflow-hidden rounded-3xl border transition-all ${
         live
           ? "border-line bg-cream-deep group-hover:border-gold group-hover:-translate-y-1 group-hover:shadow-[0_10px_30px_rgba(43,38,34,0.12)]"
           : "border-dashed border-line bg-cream-deep/40"
       }`}
     >
-      <span
-        className={`font-display text-4xl font-semibold md:text-5xl ${
-          live ? "text-maroon" : "text-ink-soft/50"
-        }`}
-      >
-        {monogram}
-      </span>
+      {icon ? (
+        <Image
+          src={icon}
+          alt={`${title} app icon`}
+          width={220}
+          height={220}
+          sizes="(min-width: 640px) 12rem, 40vw"
+          className="h-3/5 w-3/5 rounded-[22%]"
+        />
+      ) : (
+        <span
+          className={`font-display text-4xl font-semibold md:text-5xl ${
+            live ? "text-maroon" : "text-ink-soft/50"
+          }`}
+        >
+          {monogram}
+        </span>
+      )}
     </div>
   );
 }
@@ -46,7 +62,12 @@ export default function Projects() {
               const live = cs.status === "published";
               const inner = (
                 <>
-                  <Tile monogram={cs.monogram ?? cs.title[0]} live={live} />
+                  <Tile
+                    monogram={cs.monogram ?? cs.title[0]}
+                    icon={cs.icon}
+                    title={cs.title}
+                    live={live}
+                  />
                   <div className="mt-4">
                     <h3 className="font-display text-xl font-medium text-ink transition-colors group-hover:text-maroon">
                       {cs.title}
