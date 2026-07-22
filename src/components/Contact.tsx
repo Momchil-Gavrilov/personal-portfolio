@@ -6,23 +6,20 @@ export default function Contact() {
     <section id="contact" className="border-t border-line py-20 md:py-28">
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
-          <h2 className="max-w-[30ch] font-display text-3xl font-medium leading-snug text-ink md:text-4xl">
-            If you&rsquo;re building technology for people,{" "}
-            <em className="text-maroon">I&rsquo;d love to talk.</em>
+          <h2 className="max-w-[24ch] font-display text-3xl font-medium leading-snug text-ink md:text-4xl">
+            Let&rsquo;s build something{" "}
+            <em className="text-maroon">people make their own.</em>
           </h2>
 
-          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+          <div className="mt-10">
             <a
               href={site.booking.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-maroon px-6 py-3 text-cream transition-colors hover:bg-maroon-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon"
+              className="inline-flex items-center gap-2 rounded-full bg-maroon px-7 py-3.5 text-cream transition-colors hover:bg-maroon-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon"
             >
               {site.booking.label}
               <span aria-hidden="true">→</span>
-            </a>
-            <a className="link-quiet text-[0.95rem]" href={`mailto:${site.email}`}>
-              or email me
             </a>
           </div>
 
