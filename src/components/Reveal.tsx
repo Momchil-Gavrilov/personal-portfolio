@@ -31,7 +31,10 @@ export default function Reveal({
           }
         }
       },
-      { rootMargin: "0px 0px -10% 0px" }
+      /* Bottom margin at 0 so anything already in view on load (e.g. the
+         last section on a tall screen) reveals immediately instead of
+         staying stuck hidden. */
+      { rootMargin: "0px" }
     );
     observer.observe(node);
     return () => observer.disconnect();
