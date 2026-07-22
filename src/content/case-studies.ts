@@ -14,6 +14,10 @@ export type CaseStudy = {
   /* Short metadata shown on cards and at the top of the page,
      e.g. method · sample · platform */
   meta: string[];
+  /* "product" studies render as app-icon tiles; "research" as editorial cards */
+  category: "product" | "research";
+  /* One or two letters shown on the product tile when there is no icon yet */
+  monogram?: string;
   status: "published" | "coming-soon";
   /* Hidden studies exist in content but do not render anywhere yet */
   hidden?: boolean;
@@ -31,6 +35,8 @@ export const caseStudies: CaseStudy[] = [
       "React, TypeScript, Express, MongoDB",
       "Installable web app (PWA)",
     ],
+    category: "product",
+    monogram: "W",
     status: "published",
     sections: [
       {
@@ -75,6 +81,7 @@ export const caseStudies: CaseStudy[] = [
       "38 participants, randomized between groups",
       "Kinarm robotic platform",
     ],
+    category: "research",
     status: "published",
     sections: [
       {
@@ -119,6 +126,7 @@ export const caseStudies: CaseStudy[] = [
       "23 participants",
       "EMG-controlled prosthesis-like system",
     ],
+    category: "research",
     status: "published",
     sections: [
       {
@@ -159,6 +167,27 @@ export const caseStudies: CaseStudy[] = [
     oneLiner:
       "User research, usability testing, and prototyping for a campus app, awarded “Most User-Centered Design.”",
     meta: ["User research · usability testing · prototyping", "Figma"],
+    category: "product",
+    monogram: "UC",
+    status: "coming-soon",
+  },
+  {
+    slug: "chat-personal-trainer",
+    title: "Chat Personal Trainer",
+    oneLiner:
+      "A conversational fitness and nutrition assistant built in 24 hours, focused on usability, personalization, and rapid deployment.",
+    meta: ["Conversational UX · rapid prototyping", "Built in 24 hours"],
+    category: "product",
+    monogram: "C",
+    status: "coming-soon",
+  },
+  {
+    slug: "prosthesis-assessment-survey",
+    title: "How Professions Assess Prostheses",
+    oneLiner:
+      "A survey study of how clinicians, engineers, and researchers evaluate upper-limb prostheses, and where their priorities diverge.",
+    meta: ["Survey research · cross-professional", "Journal of Multidisciplinary Healthcare"],
+    category: "research",
     status: "coming-soon",
   },
   {
@@ -167,6 +196,7 @@ export const caseStudies: CaseStudy[] = [
     oneLiner:
       "An 8-participant methods study extending intentional-binding measurement to whole-limb movements, published at ICORR 2025.",
     meta: ["Psychophysics methods study", "8 participants", "Kinarm"],
+    category: "research",
     status: "coming-soon",
     hidden: true,
   },
@@ -176,9 +206,25 @@ export const caseStudies: CaseStudy[] = [
     oneLiner:
       "A 16-athlete, 8-month longitudinal study monitoring biomechanical and psychological state with wearable technology.",
     meta: ["Longitudinal field study", "16 athletes · 8 months", "IMUs · force plates"],
+    category: "research",
     status: "coming-soon",
     hidden: true,
   },
 ];
+
+const bySlug = (slug: string) => caseStudies.find((cs) => cs.slug === slug)!;
+
+/* Display order is defined here, decoupled from array order. */
+export const productStudies: CaseStudy[] = [
+  "wellspring",
+  "uc-davis-mobile",
+  "chat-personal-trainer",
+].map(bySlug);
+
+export const researchStudies: CaseStudy[] = [
+  "prosthetic-embodiment",
+  "sense-of-agency",
+  "prosthesis-assessment-survey",
+].map(bySlug);
 
 export const visibleCaseStudies = caseStudies.filter((cs) => !cs.hidden);
