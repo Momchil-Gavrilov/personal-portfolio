@@ -26,9 +26,9 @@ export default function Hero() {
             <h1 className="mt-6 font-display text-5xl font-semibold leading-tight text-ink md:text-7xl">
               {site.name}
             </h1>
-            <p className="mt-8 max-w-[26ch] font-display text-2xl font-light leading-snug text-ink md:text-[2rem]">
-              I study how people and technology relate, and I build technology{" "}
-              <em className="text-maroon">worth relating to</em>.
+            <p className="mt-8 max-w-[30ch] font-display text-2xl font-light leading-snug text-ink md:text-[2rem]">
+              I make technology that reaches people, and I study what makes it{" "}
+              <em className="text-maroon">theirs</em>.
             </p>
             <p className="mt-10 max-w-measure text-ink-soft">
               {site.credentials.map((credential, i) => (
@@ -72,13 +72,13 @@ export default function Hero() {
           </div>
           {headshot && (
             <div className="relative shrink-0 self-start md:self-center">
-              <div className="relative h-64 w-52 overflow-hidden rounded-[50%] md:h-80 md:w-64">
+              <div className="relative h-60 w-48 overflow-hidden rounded-[50%] border border-line shadow-[0_4px_24px_rgba(43,38,34,0.14)]">
                 <Image
                   src={headshot}
                   alt={`Portrait of ${site.name}`}
                   fill
-                  sizes="(min-width: 768px) 16rem, 13rem"
-                  className="object-cover"
+                  sizes="12rem"
+                  className="object-cover object-[center_20%]"
                   priority
                 />
               </div>
