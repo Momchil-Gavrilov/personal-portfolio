@@ -1,3 +1,11 @@
+export type CaseStudyImage = {
+  src: string;
+  alt: string;
+  caption?: string;
+  /* Portrait phone screenshots render narrower than wide figures */
+  shape?: "phone" | "wide";
+};
+
 export type CaseStudySection = {
   /*
     Narrative template (adapt headings per study):
@@ -5,6 +13,7 @@ export type CaseStudySection = {
   */
   heading: string;
   paragraphs: string[];
+  image?: CaseStudyImage;
 };
 
 export type CaseStudy = {
@@ -18,6 +27,8 @@ export type CaseStudy = {
   category: "product" | "research";
   /* One or two letters shown on the product tile when there is no icon yet */
   monogram?: string;
+  /* Optional app-icon image for the product tile (overrides the monogram) */
+  icon?: string;
   status: "published" | "coming-soon";
   /* Hidden studies exist in content but do not render anywhere yet */
   hidden?: boolean;
@@ -37,6 +48,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     category: "product",
     monogram: "W",
+    icon: "/icons/wellspring.png",
     status: "published",
     sections: [
       {
@@ -165,11 +177,54 @@ export const caseStudies: CaseStudy[] = [
     slug: "uc-davis-mobile",
     title: "UC Davis Mobile Redesign",
     oneLiner:
-      "User research, usability testing, and prototyping for a campus app, awarded “Most User-Centered Design.”",
-    meta: ["User research · usability testing · prototyping", "Figma"],
+      "The campus app was built like a social feed, not a tool students needed. We rebuilt it around why a student opens it at all, and it won “Most User-Centered Design.”",
+    meta: [
+      "User research · usability testing · prototyping",
+      "Student interviews · Figma",
+      "Awarded Most User-Centered Design",
+    ],
     category: "product",
     monogram: "UC",
-    status: "coming-soon",
+    status: "published",
+    sections: [
+      {
+        heading: "The problem",
+        paragraphs: [
+          "The existing UC Davis app was built like a social media tool rather than something a student actually needs on a Tuesday morning. It opened on an events feed that the university rarely updated, so the first thing a student saw was usually stale. Everything that mattered, your class schedule, your tuition bill, academic advising, was scattered across different corners of the web, and the app did little to gather it. Students downloaded it, found nothing useful up front, and stopped opening it.",
+        ],
+      },
+      {
+        heading: "My thinking",
+        paragraphs: [
+          "We decided not to start from the interface. The more honest question was: why would a student download a UC Davis app at all, and what do they actually open it to do? If we answered that, the layout would follow. So we went to Philz, a coffee shop where students actually are, and interviewed them about their real campus days rather than asking them to react to screens.",
+        ],
+        image: {
+          src: "/uc-davis/home.png",
+          alt: "Redesigned myucdavis home screen with a UC Davis water-tower banner and large shortcut cards for Schedule Builder, MyBill, OASIS Student Advising, and Aggie Dish, above a five-item bottom navigation bar.",
+          caption:
+            "The redesigned home screen leads with the four things students said they open the app to do.",
+          shape: "phone",
+        },
+      },
+      {
+        heading: "What I did",
+        paragraphs: [
+          "Those conversations distilled into a short list of what students genuinely come for, and we made that list the app's front door. The home screen became a launchpad to the four things people named most: their class schedule, the dining commons (hours and what is actually being served), OASIS for degree planning and advising, and MyBill for tuition. We rebuilt the bottom navigation around student priorities too: a bus schedule, the home page of quick links, a campus map for finding classrooms, and events. Everything else moved under a single “More” tab, present but out of the way. I contributed to the user interviews and the prototype iteration in Figma.",
+        ],
+      },
+      {
+        heading: "The result",
+        paragraphs: [
+          "The redesign won “Most User-Centered Design” at the competition. The judges' reasoning matched ours: we had won it not by polishing the interface or reshuffling menus, but by anchoring the whole app to the student's purpose for opening it.",
+        ],
+      },
+      {
+        heading: "The takeaway",
+        paragraphs: [
+          "The strongest design lever was not visual, it was deciding what the app was for. Looking back, there is plenty I would push further, and rebuilding it properly is something I would enjoy returning to. But the core lesson has stuck with me: figure out why someone reaches for a thing, and the design mostly tells you what it should be.",
+        ],
+      },
+    ],
   },
   {
     slug: "chat-personal-trainer",

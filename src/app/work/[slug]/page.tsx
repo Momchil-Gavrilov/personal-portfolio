@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { caseStudies } from "@/content/case-studies";
@@ -80,6 +81,35 @@ export default async function CaseStudyPage({
                     <p key={i}>{paragraph}</p>
                   ))}
                 </div>
+                {section.image && (
+                  <figure
+                    className={
+                      section.image.shape === "phone"
+                        ? "mt-8 max-w-[16rem]"
+                        : "mt-8 max-w-measure"
+                    }
+                  >
+                    <div className="overflow-hidden rounded-2xl border border-line bg-cream-deep shadow-[0_4px_24px_rgba(43,38,34,0.10)]">
+                      <Image
+                        src={section.image.src}
+                        alt={section.image.alt}
+                        width={section.image.shape === "phone" ? 331 : 1200}
+                        height={section.image.shape === "phone" ? 709 : 800}
+                        className="h-auto w-full"
+                        sizes={
+                          section.image.shape === "phone"
+                            ? "16rem"
+                            : "(min-width: 768px) 42rem, 100vw"
+                        }
+                      />
+                    </div>
+                    {section.image.caption && (
+                      <figcaption className="mt-3 text-[0.9rem] text-ink-soft">
+                        {section.image.caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                )}
               </section>
             ))}
           </div>
