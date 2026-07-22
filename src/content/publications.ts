@@ -24,8 +24,9 @@ export const publications: Publication[] = [
       "Siegel, J. R., Gavrilov, M. G., Roberts, A., Waraich, S. A., Whittle, R. S., & Schofield, J. S.",
     title:
       "Exploring the Perspectives of Different Professions on Task-Based Upper-Limb Prosthesis Assessment Techniques",
-    venue: "Journal of Multidisciplinary Healthcare (in press)",
+    venue: "Journal of Multidisciplinary Healthcare",
     year: "2026",
+    url: "https://www.dovepress.com/exploring-the-perspectives-of-different-professions-on-task-based-uppe-peer-reviewed-fulltext-article-JMDH",
   },
   {
     authors:

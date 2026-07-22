@@ -227,13 +227,13 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    slug: "chat-personal-trainer",
-    title: "Chat Personal Trainer",
+    slug: "casebase",
+    title: "CaseBase",
     oneLiner:
-      "A conversational fitness and nutrition assistant built in 24 hours, focused on usability, personalization, and rapid deployment.",
-    meta: ["Conversational UX · rapid prototyping", "Built in 24 hours"],
+      "A legal talent marketplace built and validated end to end, testing how people find trust, matching, and onboarding in a two-sided market.",
+    meta: ["Product design · MVP validation", "Two-sided marketplace"],
     category: "product",
-    monogram: "C",
+    monogram: "CB",
     status: "coming-soon",
   },
   {
@@ -273,7 +273,7 @@ const bySlug = (slug: string) => caseStudies.find((cs) => cs.slug === slug)!;
 export const productStudies: CaseStudy[] = [
   "wellspring",
   "uc-davis-mobile",
-  "chat-personal-trainer",
+  "casebase",
 ].map(bySlug);
 
 export const researchStudies: CaseStudy[] = [
