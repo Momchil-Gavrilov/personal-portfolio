@@ -2,7 +2,6 @@ import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import Nav from "@/components/Nav";
 import Projects from "@/components/Projects";
-import Publications from "@/components/Publications";
 import Research from "@/components/Research";
 import Story from "@/components/Story";
 
@@ -15,7 +14,6 @@ export default function Home() {
         <Story />
         <Projects />
         <Research />
-        <Publications />
         <Contact />
       </main>
     </>

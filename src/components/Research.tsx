@@ -2,6 +2,7 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import SectionTitle from "@/components/SectionTitle";
 import { researchStudies } from "@/content/case-studies";
+import { publications } from "@/content/publications";
 
 export default function Research() {
   return (
@@ -58,6 +59,38 @@ export default function Research() {
             );
           })}
         </ol>
+
+        {/* Publications live here as a quiet coda to the research, not a
+            section of their own, so they never compete for attention. */}
+        <Reveal>
+          <div id="publications" className="mt-14 md:grid md:grid-cols-[3.5rem_1fr]">
+            <h3 className="smallcaps mb-4 text-ink-soft md:mb-0 md:pt-1">
+              Papers
+            </h3>
+            <ol className="max-w-measure space-y-3 text-[0.9rem] leading-relaxed">
+              {publications.map((pub) => (
+                <li key={pub.title} className="text-ink-soft">
+                  {pub.url ? (
+                    <a
+                      href={pub.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-quiet text-ink"
+                    >
+                      {pub.title}
+                    </a>
+                  ) : (
+                    <span className="text-ink">{pub.title}</span>
+                  )}
+                  <span>
+                    {" "}
+                    <em>{pub.venue}</em>, {pub.year}.
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
