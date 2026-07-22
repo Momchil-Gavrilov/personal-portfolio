@@ -19,11 +19,15 @@ export const site = {
   },
 };
 
+export const storyTitle = "Why I do this";
+
 export const story: string[] = [
-  "I started with people, not machines. At McMaster University I studied kinesiology because it let me see people from every angle at once: biomechanics, physiology, psychology. Somewhere along the way I bought an Arduino kit out of curiosity, and tinkering turned into a job in a wearable technology lab, strapping sensors to athletes and watching data tell human stories.",
-  "Learning about brain-computer interfaces changed my trajectory. A machine could listen to a nervous system, and designing that conversation well was a research discipline of its own. That idea sent me to graduate school at UC Davis, home to leading labs in neuroengineering and human-machine interfaces. There I spent three years running studies on the relationships people form with technology: how it feels to control a prosthetic hand, whether a robot's behavior changes your sense of agency, what makes clinicians trust an assessment tool. That work became five peer-reviewed publications.",
-  "It also showed me academia's quiet heartbreak: brilliant technology that gets published, celebrated, and shelved. So I added a fellowship in business development to my engineering training, learning how innovation actually reaches people, how research becomes product, and how impact gets managed rather than hoped for.",
-  "Now I want to do the translating. I like people, and I like making technology for them. Everything on this page is in service of that.",
+  "The moment that set my direction was a single LED blinking on a breadboard. I had bought an Arduino kit in undergrad out of pure curiosity, and when I wired up my first circuit and that little light blinked, my world changed.",
+  "I felt all the care folded into such a simple thing: the physicists who worked out how electrons move, and the engineers who distilled a century of it down until a curious student could make a light turn on. I looked around my room differently that night. The walls, the warm air from the heater, the bed I was sitting on, every object was someone's effort, made for a person they would never meet. I felt lucky, and I felt a pull to be on the other side of that exchange.",
+  "What stayed with me was the ownership. I took pictures of that blinking LED and sent them to my friends. It was a tiny thing, but it was mine, and I could not wait to share it.",
+  "That instinct, how it feels to own what you make and to belong to something you helped build, turned out to be a research discipline. I studied kinesiology at McMaster to understand people from every angle, then spent three years at UC Davis studying the relationships people form with technology: whether a prosthetic hand can feel like part of your own body, whether controlling a robot changes your sense of authorship over your own movements, what makes a clinician trust a tool. Five peer-reviewed publications came out of it, and underneath all of them is the question I first felt that night: what makes a made thing feel like it belongs to you.",
+  "Research that stays on a shelf never reaches anyone, so I also learned to build and ship. The most recent is Wellspring, a donation app a women's center uses every day. Knowing that something I made is quietly part of people's lives gives me the same feeling that LED did, except now I am on the giving side of it.",
+  "I believe a life is fuller when you share the best of it. That is what I want from my work: to understand people well enough to build something that fits their world and becomes theirs.",
 ];
 
 export const skills = [
