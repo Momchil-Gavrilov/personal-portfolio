@@ -4,7 +4,6 @@ import Nav from "@/components/Nav";
 import Projects from "@/components/Projects";
 import Publications from "@/components/Publications";
 import Research from "@/components/Research";
-import Skills from "@/components/Skills";
 import Story from "@/components/Story";
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
         <Story />
         <Projects />
         <Research />
-        <Skills />
         <Publications />
         <Contact />
       </main>

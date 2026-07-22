@@ -11,11 +11,11 @@ export default function Publications() {
     <section
       id="publications"
       aria-label="Publications"
-      className="border-t border-line py-16 md:py-20"
+      className="pb-16 pt-4 md:pb-20"
     >
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
-          <div className="mb-8 flex items-baseline gap-4">
+          <div className="mb-6 flex items-baseline gap-4">
             <h2 className="smallcaps text-ink-soft">Publications</h2>
             <span className="h-px flex-1 bg-line" aria-hidden="true" />
           </div>

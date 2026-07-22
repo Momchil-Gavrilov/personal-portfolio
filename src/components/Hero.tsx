@@ -30,19 +30,7 @@ export default function Hero() {
               I make technology that reaches people, and I study what makes it{" "}
               <em className="text-maroon">theirs</em>.
             </p>
-            <p className="mt-10 max-w-measure text-ink-soft">
-              {site.credentials.map((credential, i) => (
-                <span key={credential}>
-                  {i > 0 && (
-                    <span aria-hidden="true" className="mx-2 text-gold">
-                      ·
-                    </span>
-                  )}
-                  {credential}
-                </span>
-              ))}
-            </p>
-            <ul className="mt-6 flex flex-wrap gap-x-7 gap-y-2 text-[0.95rem]">
+            <ul className="mt-10 flex flex-wrap gap-x-7 gap-y-2 text-[0.95rem]">
               <li>
                 <a className="link-quiet" href={`mailto:${site.email}`}>
                   {site.email}
