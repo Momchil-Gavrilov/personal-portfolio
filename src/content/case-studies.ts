@@ -298,21 +298,30 @@ export const caseStudies: CaseStudy[] = [
           "Both sides needed the same thing, each other, and neither could find it efficiently. That is a matching problem, so I designed a marketplace around it, the way Airbnb matches hosts with travelers. A marketplace also has a structural advantage: network effects. Every lawyer who joins makes it more useful to clients, and every client makes it more attractive to lawyers, so the match gets better as it grows.",
           "The detail I kept coming back to was intake. Lawyers spend hours asking every new client the same opening questions, and clients wait anxiously just to be heard. So I put an AI intake agent at the front door: it gathers a client's situation the moment they arrive, gives them immediate support instead of a waiting room, and hands the lawyer a structured case summary instead of a cold first call.",
         ],
+        image: {
+          src: "/casebase/ai-intake.png",
+          alt: "The CaseBase AI assistant mid-conversation: a client has described a landlord withholding their security deposit and threatening eviction, and the assistant responds with plain-language guidance, a clarifying follow-up question, and the type of lawyer to look for.",
+          caption:
+            "The AI intake agent in action. It meets a worried client in plain language, asks the right follow-ups, and starts shaping the case before a lawyer is ever involved.",
+          shape: "wide",
+          width: 1800,
+          height: 1056,
+        },
       },
       {
         heading: "What I built",
         paragraphs: [
           "I built the product end to end: the two-sided matching between clients and lawyers, and the AI intake agent that runs the first conversation and prepares the case. I focused the design on the three assumptions that make or break a marketplace, trust, matching, and onboarding, and used user workflows and a working prototype to pressure-test them.",
-          "The front door reflects that. Both sides enter through the same page but immediately pick their side, help-seeker or lawyer, so each sees a product shaped for them. The language stays plain and reassuring rather than legal, and the promise of privacy sits right where a nervous first-time user looks. It is the same instinct as the rest of my work: meet people where they are and make the next step obvious.",
+          "On the lawyer's side, that groundwork pays off. Because the AI has already gathered and organized each situation, incoming cases arrive structured and categorized by area of law, so a lawyer scans genuine matches instead of fielding cold calls. Throughout, I kept the language plain and reassuring rather than legal, guided by the same instinct as the rest of my work: meet people where they are and make the next step obvious.",
         ],
         image: {
-          src: "/casebase/landing.png",
-          alt: "CaseBase landing screen with the headline “Legal help, made simple,” a short list of reassurances, and a sign-in card that lets a visitor choose between “I need help” and “I'm a lawyer.”",
+          src: "/casebase/marketplace.png",
+          alt: "The lawyer's view in CaseBase: a “Client Cases” list showing eighteen incoming clients, each with a name and a categorized matter such as H-1B Visa Renewal, Employment Contract Review, Custody Modification, and Landlord Dispute.",
           caption:
-            "The entry point: one page, two audiences. Plain-language framing and a visible privacy promise lower the barrier for someone seeking help.",
+            "The other side of the market. Because intake is done up front, lawyers see incoming cases already structured and categorized, real matches instead of cold calls.",
           shape: "wide",
           width: 1800,
-          height: 1125,
+          height: 1037,
         },
       },
       {
