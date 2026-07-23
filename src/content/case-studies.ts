@@ -4,6 +4,9 @@ export type CaseStudyImage = {
   caption?: string;
   /* Portrait phone screenshots render narrower than wide figures */
   shape?: "phone" | "wide";
+  /* Intrinsic pixel dimensions, for correct aspect ratio */
+  width?: number;
+  height?: number;
 };
 
 export type CaseStudySection = {
@@ -230,20 +233,101 @@ export const caseStudies: CaseStudy[] = [
     slug: "casebase",
     title: "CaseBase",
     oneLiner:
-      "A legal talent marketplace built and validated end to end, testing how people find trust, matching, and onboarding in a two-sided market.",
-    meta: ["Product design · MVP validation", "Two-sided marketplace"],
+      "Legal help is out of reach for many who need it most. I built a marketplace that matches clients with lawyers and uses an AI intake agent to save both sides hours per case.",
+    meta: [
+      "Product design · two-sided marketplace",
+      "AI intake agent",
+      "Built end to end",
+    ],
     category: "product",
     monogram: "CB",
-    status: "coming-soon",
+    status: "published",
+    sections: [
+      {
+        heading: "The problem",
+        paragraphs: [
+          "As an international student, I kept running into how hard it is to get legal help, whether for a landlord dispute or a green card filing, and I watched friends hit the same wall. When I looked into it, the scale surprised me: in roughly a third of civil cases in the US, at least one side goes to court without a lawyer. It has a name, the justice gap, and it falls hardest on people with the least means, who go without help they genuinely need. The other side of the market is struggling too. Freelance and small-firm lawyers find it real work to reach the clients they could serve.",
+        ],
+      },
+      {
+        heading: "My thinking",
+        paragraphs: [
+          "Both sides needed the same thing, each other, and neither could find it efficiently. That is a matching problem, so I designed a marketplace around it, the way Airbnb matches hosts with travelers. The detail I kept coming back to was intake. Lawyers spend hours asking every new client the same opening questions, and clients wait anxiously just to be heard. So I put an AI intake agent at the front door: it gathers a client's situation the moment they arrive, gives them immediate support instead of a waiting room, and hands the lawyer a structured case summary instead of a cold first call.",
+        ],
+      },
+      {
+        heading: "What I built",
+        paragraphs: [
+          "I built the product end to end: the two-sided matching between clients and lawyers, and the AI intake agent that runs the first conversation and prepares the case. I focused the design on the three assumptions that make or break a marketplace, trust, matching, and onboarding, and used user workflows and a working prototype to pressure-test them.",
+        ],
+      },
+      {
+        heading: "Where it stands",
+        paragraphs: [
+          "The product is built. I have not begun the deployment process yet, so it has not met its first real users. My estimate is that the intake and matching together save meaningful time on every case, hours across research, outreach, and onboarding, for both the client and the lawyer.",
+        ],
+      },
+      {
+        heading: "The takeaway",
+        paragraphs: [
+          "I am driven by impact, by work that actually reaches people, and CaseBase is the clearest example of following a problem I felt personally all the way to something built to address it. Closing even a sliver of the justice gap means people get help they would otherwise go without.",
+        ],
+      },
+    ],
   },
   {
     slug: "prosthesis-assessment-survey",
     title: "How Professions Assess Prostheses",
     oneLiner:
-      "A survey study of how clinicians, engineers, and researchers evaluate upper-limb prostheses, and where their priorities diverge.",
-    meta: ["Survey research · cross-professional", "Journal of Multidisciplinary Healthcare"],
+      "There was no agreement on how to measure whether an upper-limb prosthesis works, which slows adoption. This survey mapped what professionals actually use and value.",
+    meta: [
+      "Survey research · cross-professional",
+      "Clinicians, prosthetists, physicians, researchers",
+      "Journal of Multidisciplinary Healthcare",
+    ],
     category: "research",
-    status: "coming-soon",
+    status: "published",
+    sections: [
+      {
+        heading: "The problem",
+        paragraphs: [
+          "The tests used to evaluate an upper-limb prosthesis vary widely, and there was no clear picture of which ones professionals actually use or what they value in a test. That gap has real consequences. Without common ground, it is hard to justify a device's performance across different professionals or to insurers, which slows how quickly advanced bionic prostheses reach the people who need them.",
+        ],
+      },
+      {
+        heading: "The question",
+        paragraphs: [
+          "If the field wants a standard everyone can trust, the honest first step is to measure the disagreement: find out what clinicians, prosthetists, physicians, and researchers each actually use and prioritize. We surveyed professionals across these groups on their familiarity and use of task-based assessments, and on the attributes they weigh when choosing one, such as validity, administration time, comprehensiveness, and the ability to track a patient's progress.",
+        ],
+      },
+      {
+        heading: "What I did",
+        paragraphs: [
+          "I contributed to the survey's design and to the analysis of the responses, including the profession-by-profession comparisons of which tests are used and how much each attribute matters to each group.",
+        ],
+      },
+      {
+        heading: "What we found",
+        paragraphs: [
+          "Priorities diverged by profession more than any single best test did. Usage of most assessments differed significantly between groups, and even the attributes professionals valued, like how comprehensive a test is or how well it tracks progress, split along professional lines. A few tests, the Box and Block Test among them, were widely used across every group, marking the rare common ground worth building on.",
+        ],
+        image: {
+          src: "/survey/usage.png",
+          alt: "Two-panel figure. The left panel plots the percent of each profession (PT/OT, prosthetists, physicians, researchers) that uses each of thirteen task-based assessments, with Kruskal-Wallis p-values; the right panel marks which pairwise comparisons between professions were statistically significant.",
+          caption:
+            "Test usage varied significantly by profession across nearly every assessment. The Box and Block Test (BBT) was among the most widely used across all groups.",
+          shape: "wide",
+          width: 3400,
+          height: 1962,
+        },
+      },
+      {
+        heading: "The impact",
+        paragraphs: [
+          "Naming where professionals agree and disagree is the groundwork for a standard testing protocol they can all accept. Shared, better evaluation techniques help professionals, users, and insurers speak the same language about what a device is worth, and that is ultimately what lets better prostheses reach the market.",
+        ],
+      },
+    ],
   },
   {
     slug: "intentional-binding-methods",
