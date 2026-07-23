@@ -8,7 +8,7 @@ export default function Contact() {
         <Reveal>
           <h2 className="max-w-[24ch] font-display text-3xl font-medium leading-snug text-ink md:text-4xl">
             Let&rsquo;s build something{" "}
-            <em className="text-maroon">people make their own.</em>
+            <em className="text-maroon">that belongs.</em>
           </h2>
 
           <div className="mt-10">
