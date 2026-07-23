@@ -301,7 +301,17 @@ export const caseStudies: CaseStudy[] = [
         heading: "What I built",
         paragraphs: [
           "I built the product end to end: the two-sided matching between clients and lawyers, and the AI intake agent that runs the first conversation and prepares the case. I focused the design on the three assumptions that make or break a marketplace, trust, matching, and onboarding, and used user workflows and a working prototype to pressure-test them.",
+          "The front door reflects that. Both sides enter through the same page but immediately pick their side, help-seeker or lawyer, so each sees a product shaped for them. The language stays plain and reassuring rather than legal, and the promise of privacy sits right where a nervous first-time user looks. It is the same instinct as the rest of my work: meet people where they are and make the next step obvious.",
         ],
+        image: {
+          src: "/casebase/landing.png",
+          alt: "CaseBase landing screen with the headline “Legal help, made simple,” a short list of reassurances, and a sign-in card that lets a visitor choose between “I need help” and “I'm a lawyer.”",
+          caption:
+            "The entry point: one page, two audiences. Plain-language framing and a visible privacy promise lower the barrier for someone seeking help.",
+          shape: "wide",
+          width: 1800,
+          height: 1125,
+        },
       },
       {
         heading: "Where it stands",
