@@ -188,6 +188,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     category: "product",
     monogram: "UC",
+    icon: "/icons/ucdavis.png",
     status: "published",
     sections: [
       {
@@ -241,6 +242,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     category: "product",
     monogram: "CB",
+    icon: "/icons/casebase.png",
     status: "published",
     sections: [
       {
@@ -252,7 +254,8 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "My thinking",
         paragraphs: [
-          "Both sides needed the same thing, each other, and neither could find it efficiently. That is a matching problem, so I designed a marketplace around it, the way Airbnb matches hosts with travelers. The detail I kept coming back to was intake. Lawyers spend hours asking every new client the same opening questions, and clients wait anxiously just to be heard. So I put an AI intake agent at the front door: it gathers a client's situation the moment they arrive, gives them immediate support instead of a waiting room, and hands the lawyer a structured case summary instead of a cold first call.",
+          "Both sides needed the same thing, each other, and neither could find it efficiently. That is a matching problem, so I designed a marketplace around it, the way Airbnb matches hosts with travelers. A marketplace also has a structural advantage: network effects. Every lawyer who joins makes it more useful to clients, and every client makes it more attractive to lawyers, so the match gets better as it grows.",
+          "The detail I kept coming back to was intake. Lawyers spend hours asking every new client the same opening questions, and clients wait anxiously just to be heard. So I put an AI intake agent at the front door: it gathers a client's situation the moment they arrive, gives them immediate support instead of a waiting room, and hands the lawyer a structured case summary instead of a cold first call.",
         ],
       },
       {
