@@ -63,12 +63,12 @@ export default function Research() {
         {/* Publications live here as a quiet coda to the research, not a
             section of their own, so they never compete for attention. */}
         <Reveal>
-          <div id="publications" className="mt-16">
-            <div className="mb-6 flex items-center gap-4">
-              <h3 className="smallcaps text-ink-soft">Papers</h3>
-              <span className="h-px flex-1 bg-line" aria-hidden="true" />
-            </div>
-            <ol className="max-w-measure space-y-3 pl-0 text-[0.9rem] leading-relaxed sm:pl-6">
+          <div
+            id="publications"
+            className="mt-8 md:grid md:grid-cols-[3.5rem_1fr] md:gap-x-8"
+          >
+            <h3 className="smallcaps mb-3 text-ink-soft md:mb-0">Papers</h3>
+            <ol className="max-w-measure space-y-2 text-[0.9rem] leading-snug">
               {publications.map((pub) => (
                 <li key={pub.title} className="text-ink-soft">
                   {pub.url ? (
