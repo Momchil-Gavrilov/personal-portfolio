@@ -26,7 +26,7 @@ export const site = {
 export const storyTitle = "Why I do this";
 
 export const story: string[] = [
-  "It all started with a single red LED blinking on a breadboard. I had bought an Arduino kit in undergrad out of pure curiosity, and when I wired up my first circuit and that little light blinked, my world changed.",
+  "One night in undergrad, out of pure curiosity, I wired up an Arduino kit and made a single light blink. It sounds like nothing. It changed the way I see everything.",
   "I felt all the care folded into such a simple thing: Faraday and the physicists who worked out the laws of electricity, and the engineers who distilled a century of it down until a curious student could make a light turn on. I looked around my room differently that night. The walls, the warm air from the heater, the bed I was sitting on, every object was someone's effort, made for a person they would never meet. I felt lucky, and I felt a pull to be on the other side of that exchange.",
   "What stayed with me was the ownership. I took pictures of that blinking LED and sent them to my friends. It was a tiny thing, but it was mine, and I could not wait to share it.",
   "My biggest fascination was always people, which is why I studied kinesiology: it let me understand a person from every angle at once, mind, body, and health. I kept gravitating to the place where the human body meets the made world.",
