@@ -27,8 +27,8 @@ export default function Hero() {
               {site.name}
             </h1>
             <p className="mt-8 max-w-[26ch] font-display text-2xl font-light leading-snug text-ink md:text-[2rem]">
-              I make technology that{" "}
-              <em className="text-maroon">feels human</em>.
+              I make technology that feels{" "}
+              <em className="text-maroon">human</em>.
             </p>
             <p className="mt-6 smallcaps text-ink-soft">
               M.S. Biomedical Engineering, UC Davis

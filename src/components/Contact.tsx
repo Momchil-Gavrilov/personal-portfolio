@@ -7,8 +7,8 @@ export default function Contact() {
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
           <h2 className="max-w-[24ch] font-display text-3xl font-medium leading-snug text-ink md:text-4xl">
-            Let&rsquo;s build something{" "}
-            <em className="text-maroon">that belongs.</em>
+            Let&rsquo;s build something that{" "}
+            <em className="text-maroon">belongs</em>.
           </h2>
 
           <div className="mt-10">
