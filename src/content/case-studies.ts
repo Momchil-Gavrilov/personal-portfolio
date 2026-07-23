@@ -46,7 +46,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "wellspring",
     title: "Wellspring Donation Tracker",
     oneLiner:
-      "A women's center needed donation tracking their volunteers would actually use. I designed, built, and deployed it end to end, and it runs the center's intake today.",
+      "A women's center's donation intake was hours of printing, handwriting, scanning, and retyping. I designed and built a voice-first web app that erased roughly ninety percent of that workflow, and it runs their intake today.",
     meta: [
       "Product design · full-stack build · live in production",
       "React, TypeScript, Express, MongoDB",
@@ -62,19 +62,21 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The problem",
         paragraphs: [
-          "The Wellspring Women's Center runs on donated goods, and donated goods arrive fast: bags of clothing, hygiene supplies, food, all logged by whichever volunteer is at the table. The center needed to know what came in, what it was worth, and how to report it, but volunteers are busy people with a line in front of them. Any tool slower than pen and paper would be abandoned by the second shift.",
+          "The Wellspring Women's Center runs on donated goods, and tracking them was a workflow built out of friction. A volunteer printed log sheets and passed a binder around for everyone to handwrite what they had taken in. The sheets were then scanned and emailed, and someone on the back end read the handwriting, typed each item into a spreadsheet, and looked up a price and a category for every single entry. Handwriting got misread constantly, which mattered all the more because the volunteers were usually high school students or retirees in their seventies. A single day of donations could eat hours.",
         ],
       },
       {
         heading: "My thinking",
         paragraphs: [
-          "I treated speed of a single log entry as the make-or-break metric, and designed everything backward from the volunteer's minute. That meant a mobile-first app on the phones already in their pockets, voice logging so a volunteer can speak items in while their hands are full, and automatic categorization rules so common items file themselves. It also meant respecting how the center actually works: one kind of account with volunteer and manager roles, self-service password help through a manager rather than fragile email flows, and guardrails that make it impossible to lock the last manager out. I prototyped the interface first and only then built the production system.",
+          "Two ideas shaped everything. First, separate logging a donation from serving the person in front of you. A volunteer at intake has a line and a lot of noise, so logging could not compete with helping someone; it had to be something quick they do around the service, not during it. Second, design for the two very different people doing the logging. The same screen had to feel natural to a sixteen-year-old and to someone in their seventies, so I made voice the primary way in: speaking an item is the one interface everyone already knows, and it keeps hands and eyes free.",
+          "From there, every feature had to make a volunteer's minute shorter, never longer. The manager tools are real and powerful, but they sit off to the side so they never crowd the one thing that matters at the table: logging an item fast.",
         ],
       },
       {
         heading: "What I built",
         paragraphs: [
-          "The full product: volunteers log items by voice or by hand; managers review daily logs by contributor, standardize a shared catalog, set prices, and export a master sheet for reporting. Behind it sits a React and TypeScript front end, an Express and MongoDB back end deployed as serverless functions, JWT authentication, automated weekly database backups, and a built-in, role-aware help guide so onboarding never depends on me. The app installs to a phone's home screen like a native app.",
+          "A volunteer opens the web app on the phone already in their pocket, no install and no training, and logs a donation by voice or by hand. It saves straight to a digital sheet the managers work from. Two features do the quiet heavy lifting. Auto-categorization learns as it goes: once an item has been given a category, every future entry of it is filed automatically. Pricing works the same way, so no one looks up the cost of diapers every two weeks; it is remembered, and updated only when prices actually change. The app also records who logged what, so a manager never has to hunt down who wrote an illegible line or made a mistake.",
+          "Underneath sits a React and TypeScript front end, an Express and MongoDB back end on serverless functions, authentication, automated backups, and a built-in help guide, but a volunteer never has to know any of that exists.",
         ],
         image: {
           src: "/wellspring/manager-dashboard.png",
@@ -89,13 +91,13 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "Where it landed",
         paragraphs: [
-          "The app is deployed and in use at the center now, tracking real donations. A fully isolated demo deployment with fake data exists so anyone can try it without touching the center's records.",
+          "It is live at the center today, and it collapsed the old process by roughly ninety percent. No more printing, no binder of handwriting passed around, no scanning, no deciphering and retyping into a spreadsheet. A volunteer takes out their phone, logs, and it is done. I do not have exact numbers, but the time it hands back is easily a full-time role's worth, and the errors that came from misread handwriting are largely gone. A fully isolated demo with fake data lets anyone try it without touching the center's records.",
         ],
       },
       {
         heading: "The takeaway",
         paragraphs: [
-          "Shipping to non-technical users taught me that adoption is designed, not hoped for. Every feature that survived is one that made a volunteer's minute shorter, and every feature I cut was one that only made sense to me.",
+          "Every decision traced back to the people using it, down to the color palette, which I pulled from the center's own logo and branding so the app felt like theirs from the first tap. Accessible enough for a teenager and a retiree, simple enough to need no training, quietly powerful for the managers. This is designing for people taken to its maximum, and it is the work I am proudest of.",
         ],
       },
     ],
@@ -369,7 +371,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "What I did",
         paragraphs: [
-          "I contributed to the survey's design and to the analysis of the responses, including the profession-by-profession comparisons of which tests are used and how much each attribute matters to each group.",
+          "I owned the analysis and the visualizations, which is where this study earns its keep. I took the raw survey responses and turned them into the profession-by-profession picture: which tests each group actually uses, where those differences are statistically real, and how the attributes professionals value diverge. The figures below are mine, built to make a messy, multi-group dataset legible at a glance.",
         ],
       },
       {
