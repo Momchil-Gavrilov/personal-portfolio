@@ -63,12 +63,12 @@ export default function Hero() {
           </div>
           {headshot && (
             <div className="relative shrink-0 self-start md:self-center">
-              <div className="relative h-60 w-48 overflow-hidden rounded-[50%] border border-line shadow-[0_4px_24px_rgba(43,38,34,0.14)]">
+              <div className="relative h-72 w-56 overflow-hidden rounded-[50%] border border-line shadow-[0_4px_24px_rgba(43,38,34,0.14)] md:h-80 md:w-64">
                 <Image
                   src={headshot}
                   alt={`Portrait of ${site.name}`}
                   fill
-                  sizes="12rem"
+                  sizes="(min-width: 768px) 16rem, 14rem"
                   className="object-cover object-[center_30%]"
                   priority
                 />
