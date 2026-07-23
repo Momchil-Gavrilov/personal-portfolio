@@ -2,8 +2,8 @@ export type CaseStudyImage = {
   src: string;
   alt: string;
   caption?: string;
-  /* Portrait phone screenshots render narrower than wide figures */
-  shape?: "phone" | "wide";
+  /* phone: narrow screenshot · portrait: standing photo · wide: full-column figure */
+  shape?: "phone" | "portrait" | "wide";
   /* Intrinsic pixel dimensions, for correct aspect ratio */
   width?: number;
   height?: number;
@@ -111,6 +111,8 @@ export const caseStudies: CaseStudy[] = [
       "Kinarm robotic platform",
     ],
     category: "research",
+    liveUrl: "https://doi.org/10.1109/ICORR66766.2025.11063055",
+    liveLabel: "Read the paper",
     status: "published",
     sections: [
       {
@@ -130,6 +132,15 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           "I ran the study end to end: developing the protocol and its psychophysical staircase logic, programming the task on the Kinarm robotic platform, taking the protocol through IRB approval, recruiting and running all 38 participants, and fitting the psychometric models for analysis.",
         ],
+        image: {
+          src: "/agency/methods.png",
+          alt: "Overview of the experiment. Panels A to D show the Kinarm apparatus, a participant operating it, and the task screens. Panel E diagrams one trial: an active move and a passive move, each followed by a delay and a tone, after which the participant judges which movement had the shorter delay.",
+          caption:
+            "The apparatus and the trial design: participants made an active and a passive movement, each followed by a tone, then judged which interval was shorter.",
+          shape: "wide",
+          width: 1477,
+          height: 902,
+        },
       },
       {
         heading: "What we found",
@@ -156,6 +167,8 @@ export const caseStudies: CaseStudy[] = [
       "EMG-controlled prosthesis-like system",
     ],
     category: "research",
+    liveUrl: "https://doi.org/10.21203/rs.3.rs-7348715/v1",
+    liveLabel: "Read the paper",
     status: "published",
     sections: [
       {
@@ -175,6 +188,15 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           "I restored the lab's non-functional EMG-controlled prosthetic hand to working order, ran formative usability evaluations of the restored system, and helped design and run the 23-participant within-subject study in which participants performed grasping tasks with the hand while we manipulated its control and feedback.",
         ],
+        image: {
+          src: "/embodiment/session.png",
+          alt: "A study session in the lab: a participant in a lab coat operates the EMG-controlled prosthetic hand to grasp a wooden block on the table, with an occluding screen, a motion-capture camera on a tripod, and an assessment poster on the wall.",
+          caption:
+            "A session in progress: a participant grasps with the prosthesis-like hand while sensorimotor cues are varied and embodiment is measured.",
+          shape: "portrait",
+          width: 1179,
+          height: 1572,
+        },
       },
       {
         heading: "What we found",
@@ -203,6 +225,9 @@ export const caseStudies: CaseStudy[] = [
     category: "product",
     monogram: "UC",
     icon: "/icons/ucdavis.png",
+    liveUrl:
+      "https://www.figma.com/proto/KGSipDKNGFWF7Y7cfg3R3b/Design-Interactive-Prototype?node-id=4-158",
+    liveLabel: "View the prototype",
     status: "published",
     sections: [
       {
@@ -303,6 +328,9 @@ export const caseStudies: CaseStudy[] = [
       "Journal of Multidisciplinary Healthcare",
     ],
     category: "research",
+    liveUrl:
+      "https://www.dovepress.com/exploring-the-perspectives-of-different-professions-on-task-based-uppe-peer-reviewed-fulltext-article-JMDH",
+    liveLabel: "Read the paper",
     status: "published",
     sections: [
       {

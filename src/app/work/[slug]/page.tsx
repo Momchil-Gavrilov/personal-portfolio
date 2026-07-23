@@ -97,7 +97,9 @@ export default async function CaseStudyPage({
                     className={
                       section.image.shape === "phone"
                         ? "mt-8 max-w-[16rem]"
-                        : "mt-8"
+                        : section.image.shape === "portrait"
+                          ? "mt-8 max-w-sm"
+                          : "mt-8"
                     }
                   >
                     <div className="overflow-hidden rounded-2xl border border-line bg-cream-deep shadow-[0_4px_24px_rgba(43,38,34,0.10)]">
