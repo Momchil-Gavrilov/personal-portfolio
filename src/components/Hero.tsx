@@ -69,7 +69,7 @@ export default function Hero() {
                   alt={`Portrait of ${site.name}`}
                   fill
                   sizes="12rem"
-                  className="object-cover object-[center_20%]"
+                  className="object-cover object-[center_30%]"
                   priority
                 />
               </div>
