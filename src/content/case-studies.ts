@@ -282,6 +282,8 @@ export const caseStudies: CaseStudy[] = [
     category: "product",
     monogram: "CB",
     icon: "/icons/casebase.png",
+    liveUrl: "https://casebase-lmp.lovable.app/",
+    liveLabel: "Open the live site",
     status: "published",
     sections: [
       {
