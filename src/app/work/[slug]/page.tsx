@@ -69,6 +69,17 @@ export default async function CaseStudyPage({
                 </li>
               ))}
             </ul>
+            {cs.liveUrl && (
+              <a
+                href={cs.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-maroon px-5 py-2.5 text-[0.95rem] text-cream transition-colors hover:bg-maroon-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon"
+              >
+                {cs.liveLabel ?? "View live"}
+                <span aria-hidden="true">→</span>
+              </a>
+            )}
           </header>
           <div className="mt-14 space-y-12">
             {cs.sections.map((section) => (

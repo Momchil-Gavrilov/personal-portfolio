@@ -32,6 +32,9 @@ export type CaseStudy = {
   monogram?: string;
   /* Optional app-icon image for the product tile (overrides the monogram) */
   icon?: string;
+  /* Optional live deployment to link from the case study page */
+  liveUrl?: string;
+  liveLabel?: string;
   status: "published" | "coming-soon";
   /* Hidden studies exist in content but do not render anywhere yet */
   hidden?: boolean;
@@ -52,6 +55,8 @@ export const caseStudies: CaseStudy[] = [
     category: "product",
     monogram: "W",
     icon: "/icons/wellspring.png",
+    liveUrl: "https://wellspring-demo.vercel.app/",
+    liveLabel: "Open the live demo",
     status: "published",
     sections: [
       {
@@ -71,6 +76,15 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           "The full product: volunteers log items by voice or by hand; managers review daily logs by contributor, standardize a shared catalog, set prices, and export a master sheet for reporting. Behind it sits a React and TypeScript front end, an Express and MongoDB back end deployed as serverless functions, JWT authentication, automated weekly database backups, and a built-in, role-aware help guide so onboarding never depends on me. The app installs to a phone's home screen like a native app.",
         ],
+        image: {
+          src: "/wellspring/manager-dashboard.png",
+          alt: "Wellspring manager view on a phone: a New Donation button, a month calendar with dots marking days that have donations, and buttons for the Master Sheet and Catalog.",
+          caption:
+            "The manager view: a running calendar of donations, one-tap logging, and the shared catalog and master sheet. Live in the demo.",
+          shape: "phone",
+          width: 860,
+          height: 1864,
+        },
       },
       {
         heading: "Where it landed",
