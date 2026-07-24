@@ -9,7 +9,7 @@ export default function Research() {
     <section id="research" className="border-t border-line py-20 md:py-28">
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
-          <SectionTitle title="Human Factors Research" />
+          <SectionTitle title="Things I've studied" />
         </Reveal>
         <ol className="list-none">
           {researchStudies.map((cs, i) => {

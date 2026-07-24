@@ -21,36 +21,7 @@ export const site = {
     label: "Book a call",
     url: "https://zcal.co/i/3ZUHG2G0",
   },
-  resume: {
-    label: "Résumé",
-    url: "/resume.pdf",
-  },
 };
-
-/* Positioning line under the tagline: carries the target domain and keywords. */
-export const positioning =
-  "Human factors research for medical, assistive, and robotic technology, from prosthetic embodiment to shipped products.";
-
-/* One-sentence thesis that makes the research and the built work cohere. */
-export const bridge =
-  "I bring the same research discipline to every interface, whether it is a prosthetic hand or a donation form: watch real users, measure the friction, and redesign until the technology disappears.";
-
-/* Methods & standards. Surfaces the usability-engineering and regulatory
-   keywords recruiters scan for; all genuinely part of the toolkit. */
-export const capabilities = [
-  {
-    label: "Usability engineering",
-    text: "Formative and summative usability testing, moderation, task and protocol design, use-error informed design, HMI evaluation.",
-  },
-  {
-    label: "Experimental design",
-    text: "Factorial, within-subject, and randomized controlled designs; A/B; Bayesian and inferential statistics; psychometrics; regression.",
-  },
-  {
-    label: "Standards",
-    text: "FDA HFE Guidance (2016 & 2026), IEC 62366-1, ISO 14971, ISO 13485 (Design Controls), IEC 60601, EU MDR.",
-  },
-];
 
 export const storyTitle = "Why I do this";
 

@@ -71,10 +71,10 @@ export default function Projects() {
     <section id="work" className="border-t border-line py-20 md:py-28">
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
-          <SectionTitle title="Product & Engineering Work" />
+          <SectionTitle title="Things I've built" />
         </Reveal>
         <Reveal>
-          <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="grid grid-cols-1 gap-8 sm:grid-cols-3">
             {productStudies.map((cs) => {
               const live = cs.status === "published";
               const inner = (

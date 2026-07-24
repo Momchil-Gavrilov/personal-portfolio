@@ -1,7 +1,5 @@
-import Bridge from "@/components/Bridge";
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
-import Methods from "@/components/Methods";
 import Nav from "@/components/Nav";
 import Projects from "@/components/Projects";
 import Research from "@/components/Research";
@@ -13,11 +11,9 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <Bridge />
-        <Research />
-        <Projects />
-        <Methods />
         <Story />
+        <Projects />
+        <Research />
         <Contact />
       </main>
     </>

@@ -46,11 +46,11 @@ export const caseStudies: CaseStudy[] = [
     slug: "wellspring",
     title: "Wellspring Donation Tracker",
     oneLiner:
-      "Stakeholder interviews and workflow analysis turned a paper intake of printing, handwriting, scanning, and retyping into a voice-first app that cut task time by roughly 90%. Deployed and in daily use.",
+      "A women's center's donation intake was hours of printing, handwriting, scanning, and retyping. I designed and built a voice-first web app that erased roughly ninety percent of that workflow, and it runs their intake today.",
     meta: [
-      "Stakeholder interviews · workflow analysis",
-      "~90% task-time reduction · in daily use",
-      "React, TypeScript, Express, MongoDB (PWA)",
+      "Product design · full-stack build · live in production",
+      "React, TypeScript, Express, MongoDB",
+      "Installable web app (PWA)",
     ],
     category: "product",
     monogram: "W",
@@ -218,7 +218,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "uc-davis-mobile",
     title: "UC Davis Mobile Redesign",
     oneLiner:
-      "Awarded “Most User-Centered Design.” User research, usability testing, and iterative prototyping to rebuild a campus app around what students actually open it to do.",
+      "The campus app was built like a social feed, not a tool students needed. We rebuilt it around why a student opens it at all, and it won “Most User-Centered Design.”",
     meta: [
       "User research · usability testing · prototyping",
       "Student interviews · Figma",
@@ -275,7 +275,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "casebase",
     title: "CaseBase",
     oneLiner:
-      "Legal help is out of reach for many who need it. I turned an intake task analysis into a two-sided marketplace with an AI agent that cuts time-on-task for clients and lawyers, from first question to matched case.",
+      "Legal help is out of reach for many who need it most. I built a marketplace that matches clients with lawyers and uses an AI intake agent to save both sides hours per case.",
     meta: [
       "Product design · two-sided marketplace",
       "AI intake agent",
@@ -336,46 +336,6 @@ export const caseStudies: CaseStudy[] = [
         heading: "The takeaway",
         paragraphs: [
           "I am driven by impact, by work that actually reaches people, and CaseBase is the clearest example of following a problem I felt personally all the way to something built to address it. Closing even a sliver of the justice gap means people get help they would otherwise go without.",
-        ],
-      },
-    ],
-  },
-  {
-    slug: "autonomous-perception",
-    title: "Autonomous Perception",
-    oneLiner:
-      "The perception that lets autonomous machines sense their world, from an instrumented wheel-loader with SLAM and sensor fusion to a full self-driving car project.",
-    meta: [
-      "Perception · SLAM · sensor fusion",
-      "Autonomous vehicles · robotics",
-      "CORE Lab, UC Davis",
-    ],
-    category: "product",
-    monogram: "AP",
-    status: "published",
-    sections: [
-      {
-        heading: "The problem",
-        paragraphs: [
-          "An autonomous machine is only as capable as its perception. Before a wheel-loader or a car can act, it has to build a reliable picture of where it is and what surrounds it, from noisy, imperfect sensors, in the real world.",
-        ],
-      },
-      {
-        heading: "What I am building",
-        paragraphs: [
-          "At the CORE Lab I instrumented a full-size wheel-loader for autonomous operation: contributing to the deployment of SLAM (simultaneous localization and mapping) so the machine can locate itself and map its surroundings, fusing data across sensors, and doing the hardware assembly and mechanical design to put it all on the vehicle. I am now extending the same perception work to a full autonomous car project.",
-        ],
-      },
-      {
-        heading: "How it connects",
-        paragraphs: [
-          "This is the machine's side of the human-machine relationship I study. My research asks how a person perceives and comes to trust a device; this asks how a device perceives its world well enough to be trusted with it. Both reduce to the same problem: making the link between an agent and its environment accurate, legible, and safe.",
-        ],
-      },
-      {
-        heading: "Where it stands",
-        paragraphs: [
-          "Active and ongoing. This is current R&D, so I am keeping the details here light; I am happy to walk through the perception stack and results in a conversation.",
         ],
       },
     ],
@@ -464,7 +424,6 @@ const bySlug = (slug: string) => caseStudies.find((cs) => cs.slug === slug)!;
 /* Display order is defined here, decoupled from array order. */
 export const productStudies: CaseStudy[] = [
   "wellspring",
-  "autonomous-perception",
   "uc-davis-mobile",
   "casebase",
 ].map(bySlug);
