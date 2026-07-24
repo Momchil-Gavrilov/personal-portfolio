@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import Image from "next/image";
-import { site } from "@/content/site";
+import { positioning, site } from "@/content/site";
 
 /*
   The portrait renders only when a headshot file exists in /public.
@@ -30,10 +30,21 @@ export default function Hero() {
               I make technology that feels{" "}
               <em className="text-maroon">human</em>.
             </p>
-            <p className="mt-6 smallcaps text-ink-soft">
+            <p className="mt-6 max-w-[42ch] text-ink-soft">{positioning}</p>
+            <p className="mt-5 smallcaps text-ink-soft">
               M.S. Biomedical Engineering, UC Davis
             </p>
             <ul className="mt-8 flex flex-wrap gap-x-7 gap-y-2 text-[0.95rem]">
+              <li>
+                <a
+                  className="font-semibold text-maroon underline decoration-gold decoration-1 underline-offset-[0.22em] transition-colors hover:decoration-maroon"
+                  href={site.resume.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {site.resume.label}
+                </a>
+              </li>
               <li>
                 <a className="link-quiet" href={`mailto:${site.email}`}>
                   {site.email}
