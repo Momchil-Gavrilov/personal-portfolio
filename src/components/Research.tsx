@@ -31,19 +31,8 @@ export default function Research() {
                   <p className="mt-2 max-w-measure text-ink-soft">
                     {cs.oneLiner}
                   </p>
-                  {/* Metadata as chips rather than one long run of small caps:
-                      all-caps is slow to read, and a scanning reader needs the
-                      method and the sample size to separate at a glance. */}
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {cs.meta.map((item) => (
-                      <li
-                        key={item}
-                        className="rounded-full border border-line bg-cream-deep/60 px-3 py-1 text-[0.78rem] leading-snug text-ink-soft"
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Method and sample metadata lives on the case study page.
+                      On the home page the one-liner already carries the scale. */}
                   {live ? (
                     <p className="mt-4 text-[0.95rem] font-semibold text-maroon">
                       Read the case study <span aria-hidden="true">→</span>
