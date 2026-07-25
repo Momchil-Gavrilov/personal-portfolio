@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import Publications from "@/components/Publications";
 import Reveal from "@/components/Reveal";
 import SectionTitle from "@/components/SectionTitle";
 import { researchStudies } from "@/content/case-studies";
-import { publications } from "@/content/publications";
 
 export default function Research() {
   return (
@@ -83,37 +83,10 @@ export default function Research() {
           })}
         </ol>
 
-        {/* Publications live here as a quiet coda to the research, not a
-            section of their own, so they never compete for attention. */}
+        {/* Publications live here as a coda to the research, not a section of
+            their own, so they never compete with the case studies above. */}
         <Reveal>
-          <div
-            id="publications"
-            className="mt-8 md:grid md:grid-cols-[3.5rem_1fr] md:gap-x-8"
-          >
-            <h3 className="smallcaps mb-3 text-ink-soft md:mb-0">Papers</h3>
-            <ol className="max-w-measure space-y-2 text-[0.9rem] leading-snug">
-              {publications.map((pub) => (
-                <li key={pub.title} className="text-ink-soft">
-                  {pub.url ? (
-                    <a
-                      href={pub.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="link-quiet text-ink"
-                    >
-                      {pub.title}
-                    </a>
-                  ) : (
-                    <span className="text-ink">{pub.title}</span>
-                  )}
-                  <span>
-                    {" "}
-                    <em>{pub.venue}</em>, {pub.year}.
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </div>
+          <Publications />
         </Reveal>
       </div>
     </section>

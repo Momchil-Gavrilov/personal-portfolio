@@ -7,11 +7,12 @@ export default function Contact() {
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
           <h2 className="max-w-[24ch] font-display text-3xl font-medium leading-snug text-ink md:text-4xl">
-            Let&rsquo;s build something that{" "}
-            <em className="text-maroon">belongs</em>.
+            Let&rsquo;s talk about the{" "}
+            <em className="text-maroon">work</em>.
           </h2>
+          <p className="mt-5 max-w-measure text-ink-soft">{contact.line}</p>
 
-          <div className="mt-10">
+          <div className="mt-8">
             <a
               href={site.booking.url}
               target="_blank"
@@ -23,7 +24,7 @@ export default function Contact() {
             </a>
           </div>
 
-          <ul className="mt-10 flex flex-wrap gap-x-7 gap-y-2 text-[0.95rem]">
+          <ul className="mt-8 flex flex-wrap gap-x-7 gap-y-2 text-[0.95rem]">
             <li>
               <a className="link-quiet" href={`mailto:${site.email}`}>
                 {site.email}
@@ -52,7 +53,7 @@ export default function Contact() {
           </ul>
         </Reveal>
       </div>
-      <footer className="mt-20 border-t border-line">
+      <footer className="mt-16 border-t border-line">
         <div className="mx-auto flex max-w-5xl flex-wrap items-baseline justify-between gap-2 px-6 py-6 md:px-8">
           <p className="text-sm text-ink-soft">{contact.footnote}</p>
           <p className="text-sm text-ink-soft">© 2026 {site.name}</p>

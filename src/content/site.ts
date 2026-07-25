@@ -79,6 +79,9 @@ export const skills = [
 ];
 
 export const contact = {
-  line: "If you're building technology for people, I'd love to talk.",
-  footnote: "Designed and built by me, with care.",
+  /* States the ask outright. A hiring manager who reaches the bottom has
+     decided they are interested; the only thing left to remove is doubt
+     about what he wants. */
+  line: "I'm looking for a human factors or UX research role where the stakes are real. If that's what you're hiring for, I'd like to hear about it.",
+  footnote: "Designed and Built with Care",
 };
