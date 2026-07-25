@@ -14,7 +14,7 @@ export default function Proof() {
     >
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
-          <ul className="grid grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-3 lg:grid-cols-5">
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-7 lg:grid-cols-4">
             {proofPoints.map((point) => (
               <li key={point.label}>
                 <p className="font-display text-3xl font-semibold leading-none text-maroon md:text-4xl">

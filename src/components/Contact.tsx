@@ -6,10 +6,10 @@ export default function Contact() {
     <section id="contact" className="border-t border-line py-20 md:py-28">
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
-          <h2 className="max-w-[24ch] font-display text-3xl font-medium leading-snug text-ink md:text-4xl">
+          <p className="smallcaps text-ink-soft">{contact.availability}</p>
+          <h2 className="mt-4 max-w-[24ch] font-display text-3xl font-medium leading-snug text-ink md:text-4xl">
             Let&rsquo;s <em className="text-maroon">talk</em>.
           </h2>
-          <p className="mt-5 max-w-measure text-ink-soft">{contact.line}</p>
 
           <div className="mt-8">
             <a

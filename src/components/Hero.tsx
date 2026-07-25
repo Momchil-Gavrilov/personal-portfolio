@@ -27,8 +27,8 @@ export default function Hero() {
               {site.name}
             </h1>
             <p className="mt-8 max-w-[24ch] font-display text-2xl font-light leading-snug text-ink md:max-w-none md:text-[2rem]">
-              I make technology feel like it&rsquo;s{" "}
-              <em className="text-maroon">yours</em>.
+              I find where technology fails{" "}
+              <em className="text-maroon">people</em>, and I fix it.
             </p>
             <p className="mt-6 smallcaps text-ink-soft">
               M.S. Biomedical Engineering, UC Davis
@@ -67,7 +67,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {site.linkedin.label}
+                  LinkedIn
                 </a>
               </li>
               <li>
@@ -77,7 +77,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {site.github.label}
+                  GitHub
                 </a>
               </li>
             </ul>

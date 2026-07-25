@@ -30,11 +30,10 @@ export const site = {
 /* One-glance credibility, answering "is this person real" before any reading.
    Every figure here has to survive being asked about in an interview. */
 export const proofPoints = [
-  { figure: "5", label: "peer-reviewed publications" },
-  { figure: "4", label: "human-participant studies I led" },
-  { figure: "185", label: "people studied" },
-  { figure: "1", label: "product live and in daily use" },
-  { figure: "2", label: "robotics platforms instrumented" },
+  { figure: "5", label: "Peer-Reviewed Publications" },
+  { figure: "4", label: "Human Research Studies" },
+  { figure: "185", label: "Participants" },
+  { figure: "1", label: "Product In Daily Use" },
 ];
 
 /* Labelled as learning on purpose. He is reading toward medical device work
@@ -76,7 +75,7 @@ export const skills = [
 ];
 
 export const contact = {
-  /* One sentence, the ask, nothing else. */
-  line: "I'm looking for a human factors or UX research role.",
+  /* Availability as a status label, not a sentence. Recruiters scan for it. */
+  availability: "Open to human factors and UX research roles",
   footnote: "Designed and Built with Care",
 };
