@@ -32,6 +32,9 @@ export type CaseStudy = {
   monogram?: string;
   /* Optional app-icon image for the product tile (overrides the monogram) */
   icon?: string;
+  /* Small proof image on the research card. A photo of a real session does
+     more to establish that a study happened than the word "participants". */
+  thumb?: CaseStudyImage;
   /* Optional live deployment to link from the case study page */
   liveUrl?: string;
   liveLabel?: string;
@@ -117,6 +120,10 @@ export const caseStudies: CaseStudy[] = [
       "Kinarm robotic platform",
     ],
     category: "research",
+    thumb: {
+      src: "/agency/thumb.png",
+      alt: "The Kinarm robotic platform used in the agency study, with a participant seated at it.",
+    },
     liveUrl: "https://doi.org/10.1109/ICORR66766.2025.11063055",
     liveLabel: "Read the paper",
     status: "published",
@@ -173,6 +180,10 @@ export const caseStudies: CaseStudy[] = [
       "EMG-controlled prosthesis-like system",
     ],
     category: "research",
+    thumb: {
+      src: "/embodiment/session.png",
+      alt: "A participant in the lab operating the EMG-controlled prosthetic hand to grasp a wooden block.",
+    },
     liveUrl: "https://doi.org/10.21203/rs.3.rs-7348715/v1",
     liveLabel: "Read the paper",
     status: "published",
@@ -357,6 +368,10 @@ export const caseStudies: CaseStudy[] = [
       "Journal of Multidisciplinary Healthcare",
     ],
     category: "research",
+    thumb: {
+      src: "/survey/thumb.png",
+      alt: "Grouped bar chart of what percent of each profession uses each assessment test.",
+    },
     liveUrl:
       "https://www.dovepress.com/exploring-the-perspectives-of-different-professions-on-task-based-uppe-peer-reviewed-fulltext-article-JMDH",
     liveLabel: "Read the paper",

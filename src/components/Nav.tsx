@@ -48,8 +48,10 @@ export default function Nav() {
           Momchil Gavrilov
         </a>
         <ul className="flex items-baseline gap-4 md:gap-7">
+          {/* Section links yield to the CTA on the narrowest phones: at 320px
+              the full row overflows and scrolls the page sideways. */}
           {links.map((link) => (
-            <li key={link.id}>
+            <li key={link.id} className="hidden sm:block">
               <a
                 href={link.href}
                 aria-current={active === link.id ? "true" : undefined}

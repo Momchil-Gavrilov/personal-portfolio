@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import SectionTitle from "@/components/SectionTitle";
@@ -16,7 +17,7 @@ export default function Research() {
             const number = String(i + 1).padStart(2, "0");
             const live = cs.status === "published";
             const body = (
-              <div className="grid gap-x-8 gap-y-2 py-8 md:grid-cols-[3.5rem_1fr]">
+              <div className="grid gap-x-8 gap-y-4 py-8 md:grid-cols-[3.5rem_1fr_11rem]">
                 <span
                   aria-hidden="true"
                   className="font-display text-lg text-gold-deep"
@@ -30,9 +31,19 @@ export default function Research() {
                   <p className="mt-2 max-w-measure text-ink-soft">
                     {cs.oneLiner}
                   </p>
-                  <p className="smallcaps mt-3 text-ink-soft/80">
-                    {cs.meta.join("  ·  ")}
-                  </p>
+                  {/* Metadata as chips rather than one long run of small caps:
+                      all-caps is slow to read, and a scanning reader needs the
+                      method and the sample size to separate at a glance. */}
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {cs.meta.map((item) => (
+                      <li
+                        key={item}
+                        className="rounded-full border border-line bg-cream-deep/60 px-3 py-1 text-[0.78rem] leading-snug text-ink-soft"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                   {live ? (
                     <p className="mt-4 text-[0.95rem] font-semibold text-maroon">
                       Read the case study <span aria-hidden="true">→</span>
@@ -41,6 +52,18 @@ export default function Research() {
                     <p className="smallcaps mt-4 text-gold-deep">Coming soon</p>
                   )}
                 </div>
+                {cs.thumb && (
+                  <div className="order-first overflow-hidden rounded-lg border border-line md:order-none md:self-start">
+                    <Image
+                      src={cs.thumb.src}
+                      alt={cs.thumb.alt}
+                      width={352}
+                      height={264}
+                      sizes="(min-width: 768px) 11rem, 100vw"
+                      className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                )}
               </div>
             );
             return (
