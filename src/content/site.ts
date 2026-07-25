@@ -26,11 +26,11 @@ export const site = {
 export const storyTitle = "Why I do this";
 
 export const story: string[] = [
-  "It started with a single LED blinking on a breadboard. I bought a circuit kit in undergrad out of pure curiosity, and when I made that little light glow, I felt how much had gone into it.",
+  "Everything started with a single LED blinking on a breadboard. I bought a circuit kit in undergrad out of pure curiosity, and when I made that little light glow, I felt how much had gone into it.",
   "I saw the physicists who gave their lives to defining electricity, and the engineers who reimagined it so a curious student could make a light turn on. Then I started seeing it everywhere: the plaster walls, the heat coming from my vent, the bed where I sat. Someone's effort poured into every object in my room, made for a person they would never meet. That's when I felt the pull to be on the other side of that exchange.",
-  "What stayed with me was the ownership. I took pictures of that blinking LED and sent them to my friends. It was a tiny thing, but it was mine, and I could not wait to share it.",
-  "My fascination with people led me to study kinesiology: how we move, think, and interact with the world. Then a professor introduced me to brain-computer interfaces, and it set my direction. A person could move a robot with nothing but the intention to move it. Technology could integrate with a body so seamlessly that it stopped feeling like a tool and started feeling like part of you. I spent the next three years researching exactly that, and five peer-reviewed publications came out of it.",
-  "But most research never leaves the lab, and I wanted what I felt with that LED again, to make something and share it. So I learned to build. The most recent is Wellspring, a donation app a women's center now uses every day. That is the whole thing for me: making something that ends up belonging to the people who use it.",
+  "I took pictures of that blinking LED and sent them to my friends. It was a tiny thing, but it was mine, and I could not wait to share it.",
+  "My fascination with people led me to study kinesiology, the science of how we move, think, and interact with the world. Then a professor introduced me to brain-computer interfaces, and one idea took hold. Technology could integrate with a body so seamlessly that it stopped feeling like a tool and started feeling like part of you. I spent the next three years researching exactly that, and five peer-reviewed publications came out of it.",
+  "Papers reach other researchers, and I wanted what I felt at that breadboard again. So I learned to build. The most recent is Wellspring, a donation app a women's center now uses every day. Now I am the stranger who made something for someone I will never meet.",
 ];
 
 export const skills = [
