@@ -79,7 +79,7 @@ function Tile({
 
 export default function Projects() {
   return (
-    <section id="work" className="border-t border-line py-20 md:py-28">
+    <section id="work" className="border-t border-line py-14 md:py-20">
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
           <SectionTitle title="Products and Engineering Work" />

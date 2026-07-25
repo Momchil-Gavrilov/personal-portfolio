@@ -18,7 +18,7 @@ export default function Hero() {
   const headshot = findHeadshot();
 
   return (
-    <section id="top" aria-label="Introduction" className="pt-20 pb-24 md:pt-28 md:pb-32">
+    <section id="top" aria-label="Introduction" className="pt-14 pb-16 md:pt-20 md:pb-20">
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <div className="flex flex-col-reverse gap-12 md:flex-row md:items-center md:justify-between">
           <div>

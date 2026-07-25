@@ -75,9 +75,9 @@ export const skills = [
 ];
 
 export const contact = {
-  /* Availability, plus the domain preference. "M.S. Biomedical Engineering"
-     says where he trained, not what he is looking for, so the target is
-     named here rather than left to be inferred. */
-  availability: "Open to human factors and UX research roles. Medical devices especially.",
+  /* Just the availability. The role is already named in the hero eyebrow and
+     the medical device intent is carried by the standards chips and the
+     prosthetics research, so naming either again here only narrows him. */
+  availability: "Open to opportunities",
   footnote: "Designed and Built with Care",
 };

@@ -7,7 +7,7 @@ import { researchStudies } from "@/content/case-studies";
 
 export default function Research() {
   return (
-    <section id="research" className="border-t border-line py-20 md:py-28">
+    <section id="research" className="border-t border-line py-14 md:py-20">
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
           <SectionTitle title="Human Factors Research" />

@@ -4,7 +4,7 @@
 */
 export default function SectionTitle({ title }: { title: string }) {
   return (
-    <div className="mb-10">
+    <div className="mb-8">
       <h2 className="font-display text-3xl font-medium text-maroon md:text-4xl">
         {title}
       </h2>

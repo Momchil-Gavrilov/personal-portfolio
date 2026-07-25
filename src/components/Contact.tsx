@@ -3,7 +3,7 @@ import { contact, site } from "@/content/site";
 
 export default function Contact() {
   return (
-    <section id="contact" className="border-t border-line py-20 md:py-28">
+    <section id="contact" className="border-t border-line py-14 md:py-20">
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
           <h2 className="max-w-[24ch] font-display text-3xl font-medium leading-snug text-ink md:text-4xl">
@@ -56,7 +56,7 @@ export default function Contact() {
           </ul>
         </Reveal>
       </div>
-      <footer className="mt-16 border-t border-line">
+      <footer className="mt-12 border-t border-line">
         <div className="mx-auto flex max-w-5xl flex-wrap items-baseline justify-between gap-2 px-6 py-6 md:px-8">
           <p className="text-sm text-ink-soft">{contact.footnote}</p>
           <p className="text-sm text-ink-soft">© 2026 {site.name}</p>
