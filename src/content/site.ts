@@ -26,12 +26,12 @@ export const site = {
 export const storyTitle = "Why I do this";
 
 export const story: string[] = [
-  "The moment that set my direction was a single LED blinking on a breadboard. I had bought an Arduino kit in undergrad out of pure curiosity, and when I wired up my first circuit and that little light blinked, my world changed.",
-  "I looked around my room differently that night. The walls, the warm air from the heater, the bed I was sitting on: every object was someone's effort, made for a person they would never meet. I felt a pull to be on the other side of that exchange. I sent pictures of the blinking LED to my friends. It was a tiny thing, but it was mine.",
-  "People were always my bigger fascination, which is why I studied kinesiology: it let me understand a person from every angle, mind, body, and health. I kept gravitating to where the body meets the made world.",
-  "Then a professor showed us brain-computer interfaces, and I was floored. You could move a robot with your intention alone, and feel the world through artificial sensors. Technology could integrate with a body so seamlessly that it stopped feeling like a tool and started feeling like part of you. That is embodiment, and I went to graduate school to study it.",
-  "At UC Davis I spent three years on that question: whether a prosthetic hand can feel like part of your own body, whether controlling a robot changes your sense of authorship over your own movements, what makes a clinician trust a tool. Five peer-reviewed publications came out of it.",
-  "Research that sits on a shelf never reaches anyone, though, and I wanted what the LED gave me: to make something and share it. So I learned to build and ship. The most recent is Wellspring, a donation app a women's center uses every day. Knowing that something I made belongs to the people using it is the feeling I chase, now from the giving side.",
+  "It started with a single LED blinking on a breadboard. I bought a circuit kit in undergrad out of pure curiosity, and when I made that little light glow, I felt how much had gone into it.",
+  "I saw the physicists who gave their lives to defining electricity, and the engineers who reimagined it so a curious student could make a light turn on. Then I started seeing it everywhere: the plaster walls, the heat coming from my vent, the bed where I sat. Someone's effort poured into every object in my room, made for a person they would never meet. That's when I felt the pull to be on the other side of that exchange.",
+  "What stayed with me was the ownership. I took pictures of that blinking LED and sent them to my friends. It was a tiny thing, but it was mine, and I could not wait to share it.",
+  "I was fascinated by people, which brought me to kinesiology: how we move, think, and stay well. What held my attention was the relationships we form with the world around us.",
+  "Then a professor introduced me to brain-computer interfaces, and it set my direction. You could move a robot with your thoughts and feel the world through artificial sensors. Technology could integrate with a body so seamlessly that it stopped feeling like a tool and started feeling like part of you. I spent the next three years researching exactly that, and five peer-reviewed publications came out of it.",
+  "But most research never leaves the lab, and I wanted what I felt with that LED again: to make something and share it. So I learned to build. Wellspring, a donation app a women's center now uses every day, came out of that. Lately it is autonomous vehicles, giving people back their time. Different problem, same pull: to make something that ends up belonging to the people who use it.",
 ];
 
 export const skills = [
