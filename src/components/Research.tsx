@@ -5,6 +5,18 @@ import Reveal from "@/components/Reveal";
 import SectionTitle from "@/components/SectionTitle";
 import { researchStudies } from "@/content/case-studies";
 
+/*
+  Evidence cards, not list rows.
+
+  This is the section that decides whether a medical device reader keeps going,
+  so it gets the weight: the real figure at a size you can actually read, the
+  specification a reviewer scans for, and the finding with its statistic left
+  visible. Everything here is already in the case study; the point is that a
+  reader who never opens one still leaves knowing what was measured and what
+  came out of it.
+
+  The figure alternates sides so three stacked cards do not read as a template.
+*/
 export default function Research() {
   return (
     <section id="research" className="border-t border-line py-14 md:py-20">
@@ -12,61 +24,70 @@ export default function Research() {
         <Reveal>
           <SectionTitle title="Human Factors Research" />
         </Reveal>
-        <ol className="list-none">
+
+        <ol className="flex list-none flex-col gap-12 md:gap-16">
           {researchStudies.map((cs, i) => {
-            const number = String(i + 1).padStart(2, "0");
-            const live = cs.status === "published";
-            const body = (
-              <div className="grid gap-x-8 gap-y-4 py-8 md:grid-cols-[3.5rem_1fr_11rem]">
-                <span
-                  aria-hidden="true"
-                  className="font-display text-lg text-gold-deep"
-                >
-                  {number}
-                </span>
-                <div>
-                  <h3 className="font-display text-2xl font-medium text-ink transition-colors group-hover:text-maroon">
-                    {cs.title}
-                  </h3>
-                  <p className="mt-2 max-w-measure text-ink-soft">
-                    {cs.oneLiner}
-                  </p>
-                  {/* Method and sample metadata lives on the case study page.
-                      On the home page the one-liner already carries the scale. */}
-                  {live ? (
-                    <p className="mt-4 text-[0.95rem] font-semibold text-maroon">
-                      Read the case study <span aria-hidden="true">→</span>
-                    </p>
-                  ) : (
-                    <p className="smallcaps mt-4 text-gold-deep">Coming soon</p>
-                  )}
-                </div>
-                {cs.thumb && (
-                  <div className="order-first overflow-hidden rounded-lg border border-line md:order-none md:self-start">
-                    <Image
-                      src={cs.thumb.src}
-                      alt={cs.thumb.alt}
-                      width={352}
-                      height={264}
-                      sizes="(min-width: 768px) 11rem, 100vw"
-                      className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                )}
-              </div>
-            );
+            const flip = i % 2 === 1;
             return (
-              <li key={cs.slug} className="border-b border-line first:border-t">
-                {live ? (
-                  <Link
-                    href={`/work/${cs.slug}`}
-                    className="group block focus-visible:outline-2 focus-visible:outline-maroon"
-                  >
-                    {body}
-                  </Link>
-                ) : (
-                  body
-                )}
+              <li key={cs.slug}>
+                <Reveal>
+                  <article className="grid items-center gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:gap-10">
+                    {cs.figure && (
+                      <figure
+                        className={
+                          flip ? "md:order-2 md:col-start-2" : undefined
+                        }
+                      >
+                        <div className="overflow-hidden rounded-xl border border-line bg-cream-deep">
+                          <Image
+                            src={cs.figure.src}
+                            alt={cs.figure.alt}
+                            width={cs.figure.width ?? 1200}
+                            height={cs.figure.height ?? 800}
+                            sizes="(min-width: 768px) 30rem, 100vw"
+                            className="h-auto w-full"
+                          />
+                        </div>
+                      </figure>
+                    )}
+
+                    <div className={flip ? "md:order-1 md:row-start-1" : undefined}>
+                      <h3 className="font-display text-2xl font-medium leading-snug text-ink md:text-[1.75rem]">
+                        {cs.title}
+                      </h3>
+
+                      {cs.spec && (
+                        <dl className="mt-5 grid grid-cols-2 gap-x-5 gap-y-3 border-y border-line py-4">
+                          {cs.spec.map((row) => (
+                            <div key={row.k}>
+                              <dt className="smallcaps text-[0.65rem] text-ink-soft">
+                                {row.k}
+                              </dt>
+                              <dd className="mt-0.5 text-[0.9rem] font-semibold leading-snug text-ink">
+                                {row.v}
+                              </dd>
+                            </div>
+                          ))}
+                        </dl>
+                      )}
+
+                      {cs.finding && (
+                        <p className="mt-5 font-display text-lg leading-snug text-ink">
+                          {cs.finding}
+                        </p>
+                      )}
+
+                      <p className="mt-5 text-[0.95rem] font-semibold text-maroon">
+                        <Link
+                          href={`/work/${cs.slug}`}
+                          className="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon hover:underline"
+                        >
+                          Read the case study <span aria-hidden="true">→</span>
+                        </Link>
+                      </p>
+                    </div>
+                  </article>
+                </Reveal>
               </li>
             );
           })}
@@ -74,7 +95,9 @@ export default function Research() {
 
         {/* Publications are part of this section, not a coda: they came out
             of the studies listed above, so they hang off the same list. */}
-        <Publications />
+        <div className="mt-10 border-t border-line md:mt-12">
+          <Publications />
+        </div>
       </div>
     </section>
   );

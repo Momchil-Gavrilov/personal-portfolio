@@ -1,5 +1,5 @@
 import Reveal from "@/components/Reveal";
-import { contact, site } from "@/content/site";
+import { contact, site, standards, standardsNote } from "@/content/site";
 
 export default function Contact() {
   return (
@@ -51,6 +51,25 @@ export default function Contact() {
               </a>
             </li>
           </ul>
+
+          {/* Honest, and now positioned honestly. He has started reading these,
+              he has not worked under them, and the label says exactly that.
+              It belongs here rather than in the first screen: a caveat is fine
+              to volunteer, just not as the second thing a medical device
+              reader learns about you. */}
+          <div className="mt-12 border-t border-line pt-6 md:flex md:items-baseline md:gap-6">
+            <h3 className="smallcaps shrink-0 text-ink-soft">{standardsNote}</h3>
+            <ul className="mt-3 flex flex-wrap gap-2 md:mt-0">
+              {standards.map((standard) => (
+                <li
+                  key={standard}
+                  className="rounded-full border border-line bg-cream-deep/60 px-3 py-1 text-[0.8rem] text-ink-soft"
+                >
+                  {standard}
+                </li>
+              ))}
+            </ul>
+          </div>
         </Reveal>
       </div>
       <footer className="mt-12 border-t border-line">

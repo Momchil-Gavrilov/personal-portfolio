@@ -1,20 +1,24 @@
 import Reveal from "@/components/Reveal";
-import { proofPoints, standards, standardsNote } from "@/content/site";
+import { proofPoints } from "@/content/site";
 
 /*
   The credibility answer, catchable in one glance and before any reading.
   It sits directly under the hero because a scanning reader decides whether
   this is a professional or a student portfolio within a few seconds.
+
+  The standards chips used to live here. They moved down beside Contact: they
+  are honestly labelled as reading, and a caveat does not belong in the first
+  screen a medical device reader sees.
 */
 export default function Proof() {
   return (
     <section
       aria-label="Credentials at a glance"
-      className="border-t border-line bg-cream-deep/40 py-10 md:py-12"
+      className="border-t border-line py-8 md:py-10"
     >
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
-          <ul className="grid grid-cols-2 gap-x-6 gap-y-7 lg:grid-cols-4">
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-6 lg:grid-cols-4">
             {proofPoints.map((point) => (
               <li key={point.label}>
                 <p className="font-display text-3xl font-semibold leading-none text-maroon md:text-4xl">
@@ -26,22 +30,6 @@ export default function Proof() {
               </li>
             ))}
           </ul>
-
-          <div className="mt-10 border-t border-line pt-6 md:flex md:items-baseline md:gap-6">
-            <h2 className="smallcaps shrink-0 text-ink-soft">
-              {standardsNote}
-            </h2>
-            <ul className="mt-3 flex flex-wrap gap-2 md:mt-0">
-              {standards.map((standard) => (
-                <li
-                  key={standard}
-                  className="rounded-full border border-line bg-cream px-3 py-1 text-[0.8rem] text-ink-soft"
-                >
-                  {standard}
-                </li>
-              ))}
-            </ul>
-          </div>
         </Reveal>
       </div>
     </section>

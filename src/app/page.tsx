@@ -5,12 +5,14 @@ import Projects from "@/components/Projects";
 import Proof from "@/components/Proof";
 import Research from "@/components/Research";
 import Story from "@/components/Story";
+import Throughline from "@/components/Throughline";
 
 /*
   Section order follows the questions a hiring manager asks, in the order
   they ask them: what is this person (Hero), are they credible (Proof),
-  what is the rarest evidence (Research), can they ship (Projects),
-  do I want to talk to them (Story), how do I reach them (Contact).
+  is this one person or three (Throughline), what is the rarest evidence
+  (Research), can they ship (Projects), do I want to talk to them (Story),
+  how do I reach them (Contact).
 */
 export default function Home() {
   return (
@@ -19,6 +21,7 @@ export default function Home() {
       <main>
         <Hero />
         <Proof />
+        <Throughline />
         <Research />
         <Projects />
         <Story />

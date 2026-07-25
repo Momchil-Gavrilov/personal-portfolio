@@ -85,7 +85,11 @@ export default function Projects() {
           <SectionTitle title="Products and Engineering Work" />
         </Reveal>
         <Reveal>
-          <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Two up on phones. At one column the app icon renders as a 342px
+              square, which made this section longer than the research on a
+              phone: the most decorative thing on the page taking the most
+              room on the smallest screen. */}
+          <ul className="grid grid-cols-2 gap-x-5 gap-y-8 sm:gap-x-8 lg:grid-cols-4">
             {productStudies.map((cs) => {
               const live = cs.status === "published";
               const inner = (
@@ -101,8 +105,10 @@ export default function Projects() {
                     <h3 className="font-display text-xl font-medium text-ink transition-colors group-hover:text-maroon">
                       {cs.title}
                     </h3>
-                    <p className="mt-1 text-[0.95rem] text-ink-soft">
-                      {cs.oneLiner}
+                    {/* The outcome, not the description. The tile and the
+                        title already say what the thing is. */}
+                    <p className="mt-1 text-[0.95rem] leading-snug text-ink-soft">
+                      {cs.outcome ?? cs.oneLiner}
                     </p>
                     {live ? (
                       <p className="mt-3 text-[0.9rem] font-semibold text-maroon">

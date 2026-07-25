@@ -17,15 +17,15 @@ export type CaseStudySection = {
   heading: string;
   paragraphs: string[];
   image?: CaseStudyImage;
+  /* An interactive block rendered after the section's image. Used sparingly:
+     only where walking the reader through something beats describing it. */
+  component?: "trial-walkthrough";
 };
 
 export type CaseStudy = {
   slug: string;
   title: string;
   oneLiner: string;
-  /* Short metadata shown on cards and at the top of the page,
-     e.g. method · sample · platform */
-  meta: string[];
   /* "product" studies render as app-icon tiles; "research" as editorial cards */
   category: "product" | "research";
   /* One or two letters shown on the product tile when there is no icon yet */
@@ -35,6 +35,21 @@ export type CaseStudy = {
   /* Small proof image on the research card. A photo of a real session does
      more to establish that a study happened than the word "participants". */
   thumb?: CaseStudyImage;
+  /* The home-page evidence card: the real figure at a size you can read and
+     the one finding with its statistic left visible. Everything here is
+     already stated in `sections` below; the card exists so a reader who never
+     opens the case study still leaves knowing what was measured and what came
+     out of it. */
+  figure?: CaseStudyImage;
+  /* The specification a reviewer scans for. Rendered as a sticky rail beside
+     the narrative on the case study page, and in the evidence card on the
+     home page. */
+  spec?: { k: string; v: string }[];
+  finding?: string;
+  /* Product tiles lead with what changed rather than what the thing is. The
+     tile and the title already say what it is. Kept honest: where nothing has
+     shipped yet, the line says so. */
+  outcome?: string;
   /* Optional live deployment to link from the case study page */
   liveUrl?: string;
   liveLabel?: string;
@@ -53,11 +68,14 @@ export const caseStudies: CaseStudy[] = [
     title: "Wellspring Donation Tracker",
     oneLiner:
       "A women's center's donation intake was hours of printing, handwriting, scanning, and retyping. I designed and built a voice-first web app that removed most of those steps entirely, and it runs their intake today.",
-    meta: [
-      "Product design · full-stack build · live in production",
-      "React, TypeScript, Express, MongoDB",
-      "Installable web app (PWA)",
+    spec: [
+      { k: "My role", v: "Design and full-stack build, solo" },
+      { k: "Users", v: "Volunteers aged 16 to 70+, and managers" },
+      { k: "Stack", v: "React, TypeScript, Express, MongoDB" },
+      { k: "Status", v: "In use at the center" },
     ],
+    outcome:
+      "Four steps gone from a volunteer's intake. It runs the center today.",
     category: "product",
     monogram: "W",
     icon: "/icons/wellspring.png",
@@ -114,16 +132,25 @@ export const caseStudies: CaseStudy[] = [
     title: "The Sense of Agency",
     oneLiner:
       "The field's standard measure of a person's sense of control stopped holding up, so we built a sharper one. A 38-participant randomized study I designed and ran end to end.",
-    meta: [
-      "Psychophysics · two-alternative forced choice",
-      "38 participants, randomized between groups",
-      "Kinarm robotic platform",
-    ],
     category: "research",
     thumb: {
       src: "/agency/thumb.png",
       alt: "The Kinarm robotic platform used in the agency study, with a participant seated at it.",
     },
+    figure: {
+      src: "/agency/methods.png",
+      alt: "Overview of the experiment. Panels A to D show the Kinarm apparatus, a participant operating it, and the task screens. Panel E diagrams one trial: an active move and a passive move, each followed by a delay and a tone, after which the participant judges which delay was shorter.",
+      width: 1477,
+      height: 902,
+    },
+    spec: [
+      { k: "Method", v: "Two-alternative forced choice" },
+      { k: "Participants", v: "38, randomized between groups" },
+      { k: "My role", v: "Protocol, IRB, every session, analysis" },
+      { k: "Output", v: "ICORR 2025" },
+    ],
+    finding:
+      "Intending a movement did not change how long the interval felt. It changed how precisely it could be perceived.",
     liveUrl: "https://doi.org/10.1109/ICORR66766.2025.11063055",
     liveLabel: "Read the paper",
     status: "published",
@@ -146,14 +173,17 @@ export const caseStudies: CaseStudy[] = [
           "I ran the study end to end: developing the protocol and its psychophysical staircase logic, programming the task on the Kinarm robotic platform, taking the protocol through IRB approval, recruiting and running all 38 participants, and fitting the psychometric models for analysis.",
         ],
         image: {
-          src: "/agency/methods.png",
-          alt: "Overview of the experiment. Panels A to D show the Kinarm apparatus, a participant operating it, and the task screens. Panel E diagrams one trial: an active move and a passive move, each followed by a delay and a tone, after which the participant judges which movement had the shorter delay.",
+          src: "/agency/apparatus.png",
+          alt: "Four photographs of the setup: the Kinarm robotic platform, a participant seated and operating it, the darkened task display, and the experimenter's screen showing a movement trace.",
           caption:
-            "The apparatus and the trial design: participants made an active and a passive movement, each followed by a tone, then judged which interval was shorter.",
+            "The apparatus: participants worked at the Kinarm, seeing only the task display in front of them.",
           shape: "wide",
           width: 1477,
-          height: 902,
+          height: 477,
         },
+        /* The trial itself is worth walking rather than describing, so panel E
+           of the same figure runs underneath as a stepped walkthrough. */
+        component: "trial-walkthrough",
       },
       {
         heading: "What we found",
@@ -174,16 +204,25 @@ export const caseStudies: CaseStudy[] = [
     title: "Embodiment of a Prosthetic Hand",
     oneLiner:
       "Bionic hands keep getting better, yet users keep abandoning them. We measured what makes a prosthesis feel like part of you, in a 23-participant closed-loop study.",
-    meta: [
-      "Formative usability evaluation · within-subject study",
-      "23 participants",
-      "EMG-controlled prosthesis-like system",
-    ],
     category: "research",
     thumb: {
       src: "/embodiment/session.png",
       alt: "A participant in the lab operating the EMG-controlled prosthetic hand to grasp a wooden block.",
     },
+    figure: {
+      src: "/embodiment/setup.jpg",
+      alt: "The study setup: a participant in a lab coat grasps a wooden block with the EMG-controlled prosthetic hand, with an occluding screen between them and the hand, and a motion-capture camera on a tripod behind.",
+      width: 1179,
+      height: 800,
+    },
+    spec: [
+      { k: "Method", v: "Formative evaluation, within-subject" },
+      { k: "Participants", v: "23" },
+      { k: "My role", v: "Restored the EMG hand, ran sessions, co-designed" },
+      { k: "Output", v: "Preprint, Research Square" },
+    ],
+    finding:
+      "Ownership tracked the sense of control (r = 0.70) but not the sense of where the hand sits in space (r = -0.03). Embodiment is not one switch, and its parts answer to different, designable cues.",
     liveUrl: "https://doi.org/10.21203/rs.3.rs-7348715/v1",
     liveLabel: "Read the paper",
     status: "published",
@@ -234,11 +273,14 @@ export const caseStudies: CaseStudy[] = [
     title: "UC Davis Mobile Redesign",
     oneLiner:
       "The campus app was built like a social feed, not a tool students needed. We rebuilt it around why a student opens it at all, and it won “Most User-Centered Design.”",
-    meta: [
-      "User research · usability testing · prototyping",
-      "Student interviews · Figma",
-      "Awarded Most User-Centered Design",
+    spec: [
+      { k: "My role", v: "User interviews and prototype iteration" },
+      { k: "Method", v: "Contextual interviews, Figma prototype" },
+      { k: "Output", v: "Most User-Centered Design" },
+      { k: "Status", v: "Prototype" },
     ],
+    outcome:
+      "Won Most User-Centered Design by asking why a student opens the app at all.",
     category: "product",
     monogram: "UC",
     icon: "/icons/ucdavis.png",
@@ -291,11 +333,14 @@ export const caseStudies: CaseStudy[] = [
     title: "CaseBase",
     oneLiner:
       "Legal help is out of reach for many who need it most. I built a marketplace that matches clients with lawyers and uses an AI intake agent to save both sides hours per case.",
-    meta: [
-      "Product design · two-sided marketplace",
-      "AI intake agent",
-      "Built end to end",
+    spec: [
+      { k: "My role", v: "Product design and build, end to end" },
+      { k: "Method", v: "Workflow analysis, working prototype" },
+      { k: "Stack", v: "Two-sided marketplace, AI intake agent" },
+      { k: "Status", v: "Working demo, not deployed" },
     ],
+    outcome:
+      "Built end to end, intake through match. Not yet deployed to real users.",
     category: "product",
     monogram: "CB",
     icon: "/icons/casebase.png",
@@ -360,16 +405,28 @@ export const caseStudies: CaseStudy[] = [
     title: "How Professions Assess Prostheses",
     oneLiner:
       "There was no agreement on how to measure whether an upper-limb prosthesis works, which slows adoption. This survey mapped what professionals actually use and value.",
-    meta: [
-      "Survey research · cross-professional",
-      "Clinicians, prosthetists, physicians, researchers",
-      "Journal of Multidisciplinary Healthcare",
-    ],
     category: "research",
     thumb: {
       src: "/survey/thumb.png",
       alt: "Grouped bar chart of what percent of each profession uses each assessment test.",
     },
+    /* Panel A only. The published figure has three panels and is unreadable
+       at card width; this is the one that carries the finding. The full
+       figure still runs at full size inside the case study. */
+    figure: {
+      src: "/survey/usage-panel-a.png",
+      alt: "Bar chart of the percent of each profession (PT/OT, prosthetists, physicians, researchers) that uses each of twelve task-based assessments, with Kruskal-Wallis p-values down the right-hand side. The Box and Block Test is highest across every group.",
+      width: 1350,
+      height: 840,
+    },
+    spec: [
+      { k: "Method", v: "Cross-professional survey" },
+      { k: "Respondents", v: "PT/OT, prosthetists, physicians, researchers" },
+      { k: "My role", v: "Analysis and visualization only" },
+      { k: "Output", v: "J. Multidisciplinary Healthcare" },
+    ],
+    finding:
+      "Which tests professionals use, and what they want from a test, split significantly along professional lines. The Box and Block Test was the rare common ground.",
     liveUrl:
       "https://www.dovepress.com/exploring-the-perspectives-of-different-professions-on-task-based-uppe-peer-reviewed-fulltext-article-JMDH",
     liveLabel: "Read the paper",
@@ -421,11 +478,14 @@ export const caseStudies: CaseStudy[] = [
     title: "Autonomous Vehicle Perception",
     oneLiner:
       "I instrumented an autonomous wheel loader and built its perception stack, fusing camera, lidar, ultrasonic positioning, and IMU into a working SLAM system. I am now designing the same pipeline for a full-size autonomous car.",
-    meta: [
-      "Robotics engineering · perception and SLAM",
-      "Camera · 2D 360° lidar · ultrasonic positioning · IMU",
-      "RTAB-Map · sensor fusion · time synchronization",
+    spec: [
+      { k: "My role", v: "Instrumentation and perception stack" },
+      { k: "Sensors", v: "Camera, 2D 360° lidar, IMU, ultrasonic beacons" },
+      { k: "Method", v: "RTAB-Map SLAM, sensor fusion, time sync" },
+      { k: "Status", v: "Loader working; car in architecture" },
     ],
+    outcome:
+      "Camera, lidar, IMU and ultrasonic beacons fused into a working SLAM map.",
     category: "product",
     monogram: "AV",
     icon: "/icons/autonomous.png",
@@ -487,7 +547,11 @@ export const caseStudies: CaseStudy[] = [
     title: "A Forced-Choice Paradigm for Intentional Binding",
     oneLiner:
       "An 8-participant methods study extending intentional-binding measurement to whole-limb movements, published at ICORR 2025.",
-    meta: ["Psychophysics methods study", "8 participants", "Kinarm"],
+    spec: [
+      { k: "Method", v: "Psychophysics methods study" },
+      { k: "Participants", v: "8" },
+      { k: "Apparatus", v: "Kinarm" },
+    ],
     category: "research",
     status: "coming-soon",
     hidden: true,
@@ -497,7 +561,11 @@ export const caseStudies: CaseStudy[] = [
     title: "Wearables in the Wild",
     oneLiner:
       "A 16-athlete, 8-month longitudinal study monitoring biomechanical and psychological state with wearable technology.",
-    meta: ["Longitudinal field study", "16 athletes · 8 months", "IMUs · force plates"],
+    spec: [
+      { k: "Method", v: "Longitudinal field study" },
+      { k: "Participants", v: "16 athletes over 8 months" },
+      { k: "Apparatus", v: "IMUs and force plates" },
+    ],
     category: "research",
     status: "coming-soon",
     hidden: true,
