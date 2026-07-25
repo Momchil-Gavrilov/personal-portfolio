@@ -25,16 +25,13 @@ export const site = {
     label: "Résumé",
     url: "/momchil-gavrilov-human-factors-resume.pdf",
   },
-  /* Domain line under the tagline: lets a medical-device reader self-identify
-     without displacing the tagline. */
-  domains: "Medical devices, assistive technology, and human-machine systems.",
 };
 
 /* One-glance credibility, answering "is this person real" before any reading.
    Every figure here has to survive being asked about in an interview. */
 export const proofPoints = [
-  { figure: "5", label: "peer-reviewed publications, 2 as first author" },
-  { figure: "4", label: "human-participant studies, all led by me" },
+  { figure: "5", label: "peer-reviewed publications" },
+  { figure: "4", label: "human-participant studies I led" },
   { figure: "185", label: "people studied" },
   { figure: "1", label: "product live and in daily use" },
   { figure: "2", label: "robotics platforms instrumented" },
@@ -43,7 +40,7 @@ export const proofPoints = [
 /* Labelled as learning on purpose. He is reading toward medical device work
    and has not yet worked under these standards; claiming otherwise would not
    survive the first interview question. */
-export const standardsNote = "Reading toward medical device work";
+export const standardsNote = "Learning";
 export const standards = [
   "FDA HFE Guidance",
   "IEC 62366-1",
@@ -53,7 +50,7 @@ export const standards = [
   "EU MDR",
 ];
 
-export const storyTitle = "Why I do this";
+export const storyTitle = "Why I Do This";
 
 export const story: string[] = [
   "Everything started with a single LED blinking on a breadboard. I bought a circuit kit in undergrad out of pure curiosity, and when I made that little light glow, I felt how much had gone into it.",
@@ -79,9 +76,7 @@ export const skills = [
 ];
 
 export const contact = {
-  /* States the ask outright. A hiring manager who reaches the bottom has
-     decided they are interested; the only thing left to remove is doubt
-     about what he wants. */
-  line: "I'm looking for a human factors or UX research role where the stakes are real. If that's what you're hiring for, I'd like to hear about it.",
+  /* One sentence, the ask, nothing else. */
+  line: "I'm looking for a human factors or UX research role.",
   footnote: "Designed and Built with Care",
 };

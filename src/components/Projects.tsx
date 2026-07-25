@@ -82,7 +82,7 @@ export default function Projects() {
     <section id="work" className="border-t border-line py-20 md:py-28">
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
-          <SectionTitle title="Products & engineering work" />
+          <SectionTitle title="Products and Engineering Work" />
         </Reveal>
         <Reveal>
           <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">

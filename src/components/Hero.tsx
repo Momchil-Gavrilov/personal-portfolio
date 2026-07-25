@@ -26,11 +26,10 @@ export default function Hero() {
             <h1 className="mt-6 font-display text-5xl font-semibold leading-tight text-ink md:text-7xl">
               {site.name}
             </h1>
-            <p className="mt-8 max-w-[30ch] font-display text-2xl font-light leading-snug text-ink md:text-[2rem]">
-              I study what makes technology feel{" "}
-              <em className="text-maroon">human</em>, then I build it.
+            <p className="mt-8 max-w-[24ch] font-display text-2xl font-light leading-snug text-ink md:max-w-none md:text-[2rem]">
+              I make technology feel like it&rsquo;s{" "}
+              <em className="text-maroon">yours</em>.
             </p>
-            <p className="mt-5 max-w-[34ch] text-ink-soft">{site.domains}</p>
             <p className="mt-6 smallcaps text-ink-soft">
               M.S. Biomedical Engineering, UC Davis
             </p>

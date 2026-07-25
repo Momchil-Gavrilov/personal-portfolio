@@ -1,63 +1,57 @@
 import { publications } from "@/content/publications";
 
 /*
-  The papers were the densest block on the page: five full academic titles
-  run together. This gives each one a year anchor, room to breathe, and
-  surfaces first authorship, which the citation data already knew and the
-  page was throwing away.
+  Collapsed to a single line by default. The papers matter to a reader who
+  wants them and are noise to everyone else, so they cost one row of height
+  until someone asks. Native <details> keeps it keyboard accessible with
+  no JavaScript.
 */
-function isFirstAuthor(authors: string) {
-  return authors.startsWith("Gavrilov");
-}
-
 export default function Publications() {
   return (
-    <div id="publications" className="mt-14">
-      <h3 className="smallcaps border-b border-line pb-3 text-ink-soft">
-        Publications
-      </h3>
-      <ol className="list-none">
-        {publications.map((pub) => {
-          const first = isFirstAuthor(pub.authors);
-          const title = pub.url ? (
-            <a
-              href={pub.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-quiet text-ink"
-            >
-              {pub.title}
-            </a>
-          ) : (
-            <span className="text-ink">{pub.title}</span>
-          );
+    <details id="publications" className="group mt-12 border-t border-line">
+      <summary className="flex cursor-pointer list-none items-center gap-3 py-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon [&::-webkit-details-marker]:hidden">
+        <span className="smallcaps text-ink-soft transition-colors group-hover:text-maroon">
+          {publications.length} publications
+        </span>
+        <span
+          aria-hidden="true"
+          className="text-gold-deep transition-transform duration-300 group-open:rotate-90"
+        >
+          &rsaquo;
+        </span>
+      </summary>
 
-          return (
-            <li
-              key={pub.title}
-              className="grid gap-x-8 gap-y-1 border-b border-line py-5 md:grid-cols-[4.5rem_1fr]"
-            >
-              <span className="font-display text-[0.95rem] tabular-nums text-gold-deep">
-                {pub.year}
-              </span>
-              <div className="max-w-measure">
-                <p className="leading-snug">{title}</p>
-                <p className="mt-1.5 text-[0.9rem] text-ink-soft">
-                  <em>{pub.venue}</em>
-                  {first && (
-                    <>
-                      {"  ·  "}
-                      <span className="font-semibold not-italic text-maroon">
-                        First author
-                      </span>
-                    </>
-                  )}
-                </p>
-              </div>
-            </li>
-          );
-        })}
+      <ol className="list-none pb-6">
+        {publications.map((pub) => (
+          <li
+            key={pub.title}
+            className="grid gap-x-8 gap-y-1 border-t border-line py-4 md:grid-cols-[4rem_1fr]"
+          >
+            <span className="font-display text-[0.9rem] tabular-nums text-gold-deep">
+              {pub.year}
+            </span>
+            <div className="max-w-measure">
+              <p className="text-[0.95rem] leading-snug">
+                {pub.url ? (
+                  <a
+                    href={pub.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-quiet text-ink"
+                  >
+                    {pub.title}
+                  </a>
+                ) : (
+                  <span className="text-ink">{pub.title}</span>
+                )}
+              </p>
+              <p className="mt-1 text-[0.85rem] italic text-ink-soft">
+                {pub.venue}
+              </p>
+            </div>
+          </li>
+        ))}
       </ol>
-    </div>
+    </details>
   );
 }

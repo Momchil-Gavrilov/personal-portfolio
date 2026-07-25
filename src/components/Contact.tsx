@@ -7,8 +7,7 @@ export default function Contact() {
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
           <h2 className="max-w-[24ch] font-display text-3xl font-medium leading-snug text-ink md:text-4xl">
-            Let&rsquo;s talk about the{" "}
-            <em className="text-maroon">work</em>.
+            Let&rsquo;s <em className="text-maroon">talk</em>.
           </h2>
           <p className="mt-5 max-w-measure text-ink-soft">{contact.line}</p>
 
