@@ -82,6 +82,13 @@ section[id] {
   margin-top: 0.04em;
 }
 
+/* Narrow capitals (I, J) are mostly serif, so the default side bearing leaves a
+   gap wide enough that "It" reads as two words. Pull the following text back in. */
+.drop-cap-narrow::first-letter {
+  padding-right: 0.02em;
+  margin-right: 0;
+}
+
 /* Understated text links: ink with a gold underline that warms on hover */
 .link-quiet {
   color: inherit;
