@@ -6,14 +6,11 @@ export default function Contact() {
     <section id="contact" className="border-t border-line py-14 md:py-20">
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
+          {/* The availability IS the heading. Previously the heading, a status
+              line and the button all said a version of the same thing. */}
           <h2 className="max-w-[24ch] font-display text-3xl font-medium leading-snug text-ink md:text-4xl">
-            Let&rsquo;s <em className="text-maroon">talk</em>.
+            Open to <em className="text-maroon">opportunities</em>.
           </h2>
-          {/* Availability sits under the heading and above the button, in the
-              reader's path to the CTA rather than floating above the title. */}
-          <p className="mt-4 max-w-measure text-ink-soft">
-            {contact.availability}
-          </p>
 
           <div className="mt-8">
             <a

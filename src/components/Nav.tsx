@@ -35,8 +35,10 @@ export default function Nav() {
     return () => observer.disconnect();
   }, []);
 
+  /* z-50 so the sticky bar stays above page content. At z-10 it tied with the
+     product tile badges, which paint later in the DOM and so won. */
   return (
-    <header className="sticky top-0 z-10 border-b border-line bg-cream/90 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-line bg-cream/90 backdrop-blur-sm">
       <nav
         aria-label="Main"
         className="mx-auto flex max-w-5xl items-baseline justify-between px-6 py-4 md:px-8"

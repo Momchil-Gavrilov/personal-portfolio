@@ -27,7 +27,7 @@ export default function Hero() {
               {site.name}
             </h1>
             <p className="mt-8 max-w-[24ch] font-display text-2xl font-light leading-snug text-ink md:max-w-none md:text-[2rem]">
-              I build and test technology that people{" "}
+              I design technology that people{" "}
               <em className="text-maroon">keep</em>.
             </p>
             <p className="mt-6 smallcaps text-ink-soft">

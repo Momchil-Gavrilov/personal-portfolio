@@ -28,7 +28,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${fraunces.variable} ${sourceSans.variable}`}>
-      <body className="min-h-svh">{children}</body>
+      {/*
+        Browser extensions (password managers, Grammarly and similar) inject
+        attributes onto <body> before React hydrates, which React reports as a
+        mismatch. Nothing in this app renders time, randomness or
+        client-only branches, so suppressing here is scoped to exactly that
+        case: it applies to this element's attributes only, not to children.
+      */}
+      <body className="min-h-svh" suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }

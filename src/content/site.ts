@@ -75,9 +75,5 @@ export const skills = [
 ];
 
 export const contact = {
-  /* Just the availability. The role is already named in the hero eyebrow and
-     the medical device intent is carried by the standards chips and the
-     prosthetics research, so naming either again here only narrows him. */
-  availability: "Open to opportunities",
   footnote: "Designed and Built with Care",
 };

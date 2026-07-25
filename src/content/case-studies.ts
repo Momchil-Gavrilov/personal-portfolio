@@ -63,7 +63,7 @@ export const caseStudies: CaseStudy[] = [
     icon: "/icons/wellspring.png",
     liveUrl: "https://wellspring-demo.vercel.app/",
     liveLabel: "Open the live demo",
-    badge: { label: "In use", kind: "in-use" },
+    badge: { label: "Live", kind: "in-use" },
     status: "published",
     sections: [
       {
@@ -245,7 +245,6 @@ export const caseStudies: CaseStudy[] = [
     liveUrl:
       "https://www.figma.com/proto/KGSipDKNGFWF7Y7cfg3R3b/Design-Interactive-Prototype?node-id=4-158",
     liveLabel: "View the prototype",
-    badge: { label: "Prototype", kind: "prototype" },
     status: "published",
     sections: [
       {
@@ -302,7 +301,6 @@ export const caseStudies: CaseStudy[] = [
     icon: "/icons/casebase.png",
     liveUrl: "https://casebase-lmp.lovable.app/",
     liveLabel: "Open the working demo",
-    badge: { label: "Demo", kind: "demo" },
     status: "published",
     sections: [
       {
@@ -431,7 +429,6 @@ export const caseStudies: CaseStudy[] = [
     category: "product",
     monogram: "AV",
     icon: "/icons/autonomous.png",
-    badge: { label: "In progress", kind: "progress" },
     status: "published",
     sections: [
       {
