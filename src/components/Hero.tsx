@@ -30,9 +30,31 @@ export default function Hero() {
               I make technology that feels{" "}
               <em className="text-maroon">human</em>.
             </p>
+            <p className="mt-5 max-w-[34ch] text-ink-soft">{site.domains}</p>
             <p className="mt-6 smallcaps text-ink-soft">
               M.S. Biomedical Engineering, UC Davis
             </p>
+            {/* The primary CTA sits here as well as in Contact: most visitors
+                never scroll to the bottom of the page. */}
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <a
+                href={site.booking.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-maroon px-6 py-3 text-cream transition-colors hover:bg-maroon-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon"
+              >
+                {site.booking.label}
+                <span aria-hidden="true">→</span>
+              </a>
+              <a
+                className="link-quiet"
+                href={site.resume.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {site.resume.label}
+              </a>
+            </div>
             <ul className="mt-8 flex flex-wrap gap-x-7 gap-y-2 text-[0.95rem]">
               <li>
                 <a className="link-quiet" href={`mailto:${site.email}`}>

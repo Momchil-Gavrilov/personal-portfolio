@@ -398,6 +398,53 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
+    slug: "autonomous-perception",
+    title: "Autonomous Vehicle Perception",
+    oneLiner:
+      "I instrumented an autonomous wheel loader and built its perception stack, fusing camera, lidar, ultrasonic positioning, and IMU into a working SLAM system. I am now designing the same pipeline for a full-size autonomous car.",
+    meta: [
+      "Robotics engineering · perception and SLAM",
+      "Camera · 2D 360° lidar · ultrasonic positioning · IMU",
+      "RTAB-Map · sensor fusion · time synchronization",
+    ],
+    category: "product",
+    monogram: "AV",
+    status: "published",
+    sections: [
+      {
+        heading: "The problem",
+        paragraphs: [
+          "A machine that moves around people has to know where it is and what is near it before it can be trusted to do anything else. The lab's autonomous wheel loader had none of that. It had no sensors mounted, no way to build a map of the space it was working in, and no estimate of its own position within that space. Everything downstream, planning a path or controlling the machine safely, depends on solving that first.",
+        ],
+      },
+      {
+        heading: "My thinking",
+        paragraphs: [
+          "No single sensor is trustworthy on its own. A camera is rich but loses depth and fails in bad light. A 2D lidar gives clean geometry but only in one plane. An IMU knows how the body is moving but drifts. Ultrasonic beacons give an absolute position but update slowly. The way through is to combine them so each covers the others' blind spots, which turns the problem from choosing a sensor into designing a fusion strategy.",
+          "That choice has a hardware consequence people underestimate: fusion is only as good as the alignment between streams. If two sensors disagree about when a measurement happened, the fused estimate is confidently wrong, which is worse than no estimate at all.",
+        ],
+      },
+      {
+        heading: "What I built",
+        paragraphs: [
+          "I instrumented the vehicle from scratch: selecting mounting positions, CAD modelling the holders for every sensor, and fabricating and fitting them. Then I built the perception system on top, combining a camera, a 2D 360-degree lidar, two ultrasonic positioning beacons, and an IMU into a SLAM pipeline built on RTAB-Map. It worked, producing a usable map and pose estimate while the vehicle drove. I also built a small rover as a test platform so the stack could be developed and debugged without tying up the loader.",
+        ],
+      },
+      {
+        heading: "Where it stands",
+        paragraphs: [
+          "On the strength of that work I was assigned to the lab's full-size autonomous vehicle, a Kia Soul, to design its perception system. That project is early. The sensors are on order and were not my selection, and my work right now is the architecture: how the pipeline fits together, and how every sensor stream gets time-synchronized well enough that fusion is honest rather than plausible-looking. Motion planning and controller design belong to other people on the team. Perception is mine.",
+        ],
+      },
+      {
+        heading: "The takeaway",
+        paragraphs: [
+          "The rest of my work asks how a machine feels to the person using it. This asks the same question from the machine's side: what it senses, how confident it is, and where that confidence breaks down. Autonomy is trusted or abandoned for the same reason a prosthesis is, because of what it does when the person and the system disagree, and you cannot reason about that boundary without understanding both halves of it.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "intentional-binding-methods",
     title: "A Forced-Choice Paradigm for Intentional Binding",
     oneLiner:
@@ -424,6 +471,7 @@ const bySlug = (slug: string) => caseStudies.find((cs) => cs.slug === slug)!;
 /* Display order is defined here, decoupled from array order. */
 export const productStudies: CaseStudy[] = [
   "wellspring",
+  "autonomous-perception",
   "uc-davis-mobile",
   "casebase",
 ].map(bySlug);
