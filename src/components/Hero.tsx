@@ -27,8 +27,8 @@ export default function Hero() {
               {site.name}
             </h1>
             <p className="mt-8 max-w-[24ch] font-display text-2xl font-light leading-snug text-ink md:max-w-none md:text-[2rem]">
-              I find where technology fails{" "}
-              <em className="text-maroon">people</em>, and I fix it.
+              I build and test technology that people{" "}
+              <em className="text-maroon">keep</em>.
             </p>
             <p className="mt-6 smallcaps text-ink-soft">
               M.S. Biomedical Engineering, UC Davis

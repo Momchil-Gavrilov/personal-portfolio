@@ -6,10 +6,14 @@ export default function Contact() {
     <section id="contact" className="border-t border-line py-20 md:py-28">
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
-          <p className="smallcaps text-ink-soft">{contact.availability}</p>
-          <h2 className="mt-4 max-w-[24ch] font-display text-3xl font-medium leading-snug text-ink md:text-4xl">
+          <h2 className="max-w-[24ch] font-display text-3xl font-medium leading-snug text-ink md:text-4xl">
             Let&rsquo;s <em className="text-maroon">talk</em>.
           </h2>
+          {/* Availability sits under the heading and above the button, in the
+              reader's path to the CTA rather than floating above the title. */}
+          <p className="mt-4 max-w-measure text-ink-soft">
+            {contact.availability}
+          </p>
 
           <div className="mt-8">
             <a

@@ -75,7 +75,9 @@ export const skills = [
 ];
 
 export const contact = {
-  /* Availability as a status label, not a sentence. Recruiters scan for it. */
-  availability: "Open to human factors and UX research roles",
+  /* Availability, plus the domain preference. "M.S. Biomedical Engineering"
+     says where he trained, not what he is looking for, so the target is
+     named here rather than left to be inferred. */
+  availability: "Open to human factors and UX research roles. Medical devices especially.",
   footnote: "Designed and Built with Care",
 };

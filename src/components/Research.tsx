@@ -83,11 +83,9 @@ export default function Research() {
           })}
         </ol>
 
-        {/* Publications live here as a coda to the research, not a section of
-            their own, so they never compete with the case studies above. */}
-        <Reveal>
-          <Publications />
-        </Reveal>
+        {/* Publications are part of this section, not a coda: they came out
+            of the studies listed above, so they hang off the same list. */}
+        <Publications />
       </div>
     </section>
   );

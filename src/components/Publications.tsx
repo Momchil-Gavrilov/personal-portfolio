@@ -5,10 +5,14 @@ import { publications } from "@/content/publications";
   wants them and are noise to everyone else, so they cost one row of height
   until someone asks. Native <details> keeps it keyboard accessible with
   no JavaScript.
+
+  No top border: the study list above already ends in one, and a second
+  rule made the papers read as a separate section rather than part of the
+  research they came out of.
 */
 export default function Publications() {
   return (
-    <details id="publications" className="group mt-12 border-t border-line">
+    <details id="publications" className="group">
       <summary className="flex cursor-pointer list-none items-center gap-3 py-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon [&::-webkit-details-marker]:hidden">
         <span className="smallcaps text-ink-soft transition-colors group-hover:text-maroon">
           {publications.length} publications
@@ -21,7 +25,7 @@ export default function Publications() {
         </span>
       </summary>
 
-      <ol className="list-none pb-6">
+      <ol className="list-none border-t border-line pb-6">
         {publications.map((pub) => (
           <li
             key={pub.title}
