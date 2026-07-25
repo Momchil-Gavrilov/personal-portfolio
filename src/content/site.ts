@@ -31,15 +31,19 @@ export const site = {
 };
 
 /* One-glance credibility, answering "is this person real" before any reading.
-   Counts are from the studies on this site: 23 + 38 + 8 participants. */
+   Every figure here has to survive being asked about in an interview. */
 export const proofPoints = [
-  { figure: "5", label: "peer-reviewed publications" },
-  { figure: "3", label: "human-machine studies" },
-  { figure: "69", label: "study participants" },
-  { figure: "~90%", label: "task time removed at Wellspring" },
-  { figure: "3", label: "products live and in use" },
+  { figure: "5", label: "peer-reviewed publications, 2 as first author" },
+  { figure: "4", label: "human-participant studies, all led by me" },
+  { figure: "185", label: "people studied" },
+  { figure: "1", label: "product live and in daily use" },
+  { figure: "2", label: "robotics platforms instrumented" },
 ];
 
+/* Labelled as learning on purpose. He is reading toward medical device work
+   and has not yet worked under these standards; claiming otherwise would not
+   survive the first interview question. */
+export const standardsNote = "Reading toward medical device work";
 export const standards = [
   "FDA HFE Guidance",
   "IEC 62366-1",
@@ -53,9 +57,10 @@ export const storyTitle = "Why I do this";
 
 export const story: string[] = [
   "Everything started with a single LED blinking on a breadboard. I bought a circuit kit in undergrad out of pure curiosity, and when I made that little light glow, I felt how much had gone into it.",
-  "I saw the physicists who gave their lives to defining electricity, and the engineers who shaped it so a student could make a light turn on. Then I started seeing it everywhere: the plaster walls, the heat coming from my vent, the bed where I sat. Someone's effort poured into every object in my room, made for a person they would never meet. I sent pictures of that LED to my friends. It was a tiny thing, but it was mine. That's when I felt the pull to be on the other side of that exchange.",
-  "My fascination with people led me to study kinesiology: how we move, think, and interact with the world. Then a professor introduced me to brain-computer interfaces, and one idea inspired me. Technology could integrate with a body so seamlessly that it stopped feeling like a tool and started feeling like part of you. I spent the next three years measuring that with real participants, and five peer-reviewed publications came out of it.",
-  "But research does not always reach the people it was for. I wanted what I felt with that LED, so I learned to build. The most recent is Wellspring, a donation app a women's center uses every day, and the volunteers use it without training. Research taught me what people need. Building taught me how to put it in their hands. The best moment is when something I made stops being mine and becomes theirs, and I want to keep making that happen.",
+  "I saw the physicists who gave their lives to defining electricity, and the engineers who shaped it so a student could make a light turn on. Then I started seeing it everywhere: the plaster walls, the heat coming from my vent, the bed where I sat. Someone's effort poured into every object in my room, made for a person they would never meet. That's when I felt the pull to be on the other side of that exchange.",
+  "I sent pictures of that LED to my friends. It was a tiny thing, but it was mine, and all I wanted to do was share it.",
+  "My fascination with people led me to study kinesiology: how we move, think, and interact with the world. Then a professor introduced me to brain-computer interfaces, and one idea inspired me. Technology could integrate with a body so seamlessly that it stopped feeling like a tool and started feeling like part of you. I spent the next three years measuring that with real people, and five peer-reviewed publications came out of it.",
+  "But I found that sometimes research didn't make it out of the lab to have the impact it was meant to, so I learned to build. The most recent is Wellspring, a donation app a women's center uses every day, and the volunteers use it without training. Research taught me what people need. Building taught me how to put it in their hands. Now I work for the moment when something I made stops being mine and becomes theirs.",
 ];
 
 export const skills = [

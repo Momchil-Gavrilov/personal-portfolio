@@ -1,5 +1,5 @@
 import Reveal from "@/components/Reveal";
-import { proofPoints, standards } from "@/content/site";
+import { proofPoints, standards, standardsNote } from "@/content/site";
 
 /*
   The credibility answer, catchable in one glance and before any reading.
@@ -29,7 +29,7 @@ export default function Proof() {
 
           <div className="mt-10 border-t border-line pt-6 md:flex md:items-baseline md:gap-6">
             <h2 className="smallcaps shrink-0 text-ink-soft">
-              Standards I work to
+              {standardsNote}
             </h2>
             <ul className="mt-3 flex flex-wrap gap-2 md:mt-0">
               {standards.map((standard) => (

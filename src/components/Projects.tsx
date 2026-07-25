@@ -8,14 +8,25 @@ import { productStudies } from "@/content/case-studies";
   Products render as a row of app-icon tiles. Published tiles link to
   their case study; coming-soon tiles are quietly disabled.
 */
-function LiveBadge() {
+/*
+  Only "in-use" earns the pulsing dot. A demo or a prototype says what it is,
+  because a badge that overstates is the fastest way to lose a careful reader.
+*/
+function Badge({ label, kind }: { label: string; kind: string }) {
+  const inUse = kind === "in-use";
   return (
     <span className="absolute right-3 top-3 z-10 flex items-center gap-1.5 rounded-full border border-line bg-cream/95 px-2.5 py-1 shadow-sm">
-      <span className="relative flex h-2 w-2">
-        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#3f9b5b] opacity-75 motion-reduce:hidden" />
-        <span className="relative inline-flex h-2 w-2 rounded-full bg-[#3f9b5b]" />
+      {inUse ? (
+        <span className="relative flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#3f9b5b] opacity-75 motion-reduce:hidden" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-[#3f9b5b]" />
+        </span>
+      ) : (
+        <span className="h-1.5 w-1.5 rounded-full bg-ink-soft/45" />
+      )}
+      <span className="smallcaps text-[0.65rem] leading-none text-ink">
+        {label}
       </span>
-      <span className="smallcaps text-[0.65rem] leading-none text-ink">Live</span>
     </span>
   );
 }
@@ -25,17 +36,17 @@ function Tile({
   icon,
   title,
   live,
-  showLive,
+  badge,
 }: {
   monogram: string;
   icon?: string;
   title: string;
   live: boolean;
-  showLive: boolean;
+  badge?: { label: string; kind: string };
 }) {
   return (
     <div className="relative">
-      {showLive && <LiveBadge />}
+      {badge && <Badge label={badge.label} kind={badge.kind} />}
       <div
         className={`flex aspect-square w-full items-center justify-center overflow-hidden rounded-3xl border transition-all ${
           live
@@ -71,7 +82,7 @@ export default function Projects() {
     <section id="work" className="border-t border-line py-20 md:py-28">
       <div className="mx-auto max-w-5xl px-6 md:px-8">
         <Reveal>
-          <SectionTitle title="Things I've built" />
+          <SectionTitle title="Products & engineering work" />
         </Reveal>
         <Reveal>
           <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -84,7 +95,7 @@ export default function Projects() {
                     icon={cs.icon}
                     title={cs.title}
                     live={live}
-                    showLive={live && Boolean(cs.liveUrl)}
+                    badge={cs.badge}
                   />
                   <div className="mt-4">
                     <h3 className="font-display text-xl font-medium text-ink transition-colors group-hover:text-maroon">

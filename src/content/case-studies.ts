@@ -35,6 +35,9 @@ export type CaseStudy = {
   /* Optional live deployment to link from the case study page */
   liveUrl?: string;
   liveLabel?: string;
+  /* Tile badge. "in-use" is the only one that earns the pulsing dot: it means
+     real people depend on it today. A demo or prototype says so plainly. */
+  badge?: { label: string; kind: "in-use" | "demo" | "prototype" | "progress" };
   status: "published" | "coming-soon";
   /* Hidden studies exist in content but do not render anywhere yet */
   hidden?: boolean;
@@ -46,7 +49,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "wellspring",
     title: "Wellspring Donation Tracker",
     oneLiner:
-      "A women's center's donation intake was hours of printing, handwriting, scanning, and retyping. I designed and built a voice-first web app that erased roughly ninety percent of that workflow, and it runs their intake today.",
+      "A women's center's donation intake was hours of printing, handwriting, scanning, and retyping. I designed and built a voice-first web app that removed most of those steps entirely, and it runs their intake today.",
     meta: [
       "Product design · full-stack build · live in production",
       "React, TypeScript, Express, MongoDB",
@@ -57,6 +60,7 @@ export const caseStudies: CaseStudy[] = [
     icon: "/icons/wellspring.png",
     liveUrl: "https://wellspring-demo.vercel.app/",
     liveLabel: "Open the live demo",
+    badge: { label: "In use", kind: "in-use" },
     status: "published",
     sections: [
       {
@@ -91,7 +95,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "Where it landed",
         paragraphs: [
-          "It is live at the center today, and it collapsed the old process by roughly ninety percent. No more printing, no binder of handwriting passed around, no scanning, no deciphering and retyping into a spreadsheet. A volunteer takes out their phone, logs, and it is done. I do not have exact numbers, but the time it hands back is easily a full-time role's worth, and the errors that came from misread handwriting are largely gone. A fully isolated demo with fake data lets anyone try it without touching the center's records.",
+          "It is live at the center today. Four steps are gone outright: printing the log sheets, passing the binder around to handwrite entries, scanning and emailing them, and deciphering the handwriting to retype every line into a spreadsheet with a looked-up price and category. What is left is a volunteer taking out their phone, logging, and being done. I have not run a timed before-and-after study, so I will not put a percentage on it, but the steps removed are concrete and the errors that came from misread handwriting are largely gone. A fully isolated demo with fake data lets anyone try it without touching the center's records.",
         ],
       },
       {
@@ -230,6 +234,7 @@ export const caseStudies: CaseStudy[] = [
     liveUrl:
       "https://www.figma.com/proto/KGSipDKNGFWF7Y7cfg3R3b/Design-Interactive-Prototype?node-id=4-158",
     liveLabel: "View the prototype",
+    badge: { label: "Prototype", kind: "prototype" },
     status: "published",
     sections: [
       {
@@ -285,7 +290,8 @@ export const caseStudies: CaseStudy[] = [
     monogram: "CB",
     icon: "/icons/casebase.png",
     liveUrl: "https://casebase-lmp.lovable.app/",
-    liveLabel: "Open the live site",
+    liveLabel: "Open the working demo",
+    badge: { label: "Demo", kind: "demo" },
     status: "published",
     sections: [
       {
@@ -409,6 +415,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     category: "product",
     monogram: "AV",
+    icon: "/icons/autonomous.png",
+    badge: { label: "In progress", kind: "progress" },
     status: "published",
     sections: [
       {
@@ -429,12 +437,30 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           "I instrumented the vehicle from scratch: selecting mounting positions, CAD modelling the holders for every sensor, and fabricating and fitting them. Then I built the perception system on top, combining a camera, a 2D 360-degree lidar, two ultrasonic positioning beacons, and an IMU into a SLAM pipeline built on RTAB-Map. It worked, producing a usable map and pose estimate while the vehicle drove. I also built a small rover as a test platform so the stack could be developed and debugged without tying up the loader.",
         ],
+        image: {
+          src: "/robotics/perception-rover.jpg",
+          alt: "The test rover: a mast carrying a 360-degree lidar and a camera, mounted on a board with two Marvelmind ultrasonic beacons and a battery, sitting on a stack of control theory and system identification textbooks.",
+          caption:
+            "The rover I built to develop the perception stack, carrying the lidar, camera, IMU, and ultrasonic beacons.",
+          shape: "portrait",
+          width: 1200,
+          height: 1600,
+        },
       },
       {
         heading: "Where it stands",
         paragraphs: [
           "On the strength of that work I was assigned to the lab's full-size autonomous vehicle, a Kia Soul, to design its perception system. That project is early. The sensors are on order and were not my selection, and my work right now is the architecture: how the pipeline fits together, and how every sensor stream gets time-synchronized well enough that fusion is honest rather than plausible-looking. Motion planning and controller design belong to other people on the team. Perception is mine.",
         ],
+        image: {
+          src: "/robotics/kia-soul.jpg",
+          alt: "The lab's Kia Soul EV with its hood open, a roof-mounted rail carrying GPS antennas and sensor hardware, parked in the research shop.",
+          caption:
+            "The full-size platform. The roof rail is where the perception suite goes once the sensors arrive.",
+          shape: "wide",
+          width: 1800,
+          height: 1350,
+        },
       },
       {
         heading: "The takeaway",
