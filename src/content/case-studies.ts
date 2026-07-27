@@ -10,7 +10,7 @@ export type CaseStudyImage = {
   /* The device a product screenshot is shown in. A phone screenshot cropped
      into a landscape box reads as a fragment; in a phone it reads as a
      product. Web apps get a browser, photographs get nothing. */
-  frame?: "phone" | "browser" | "bare";
+  frame?: "phone" | "laptop" | "browser" | "bare";
   /* Intrinsic pixel dimensions, for correct aspect ratio */
   width?: number;
   height?: number;
@@ -379,7 +379,7 @@ export const caseStudies: CaseStudy[] = [
     shot: {
       src: "/casebase/marketplace.png",
       alt: "The CaseBase client case list, showing matched cases by type and date.",
-      frame: "browser",
+      frame: "laptop",
       width: 1800,
       height: 1037,
     },

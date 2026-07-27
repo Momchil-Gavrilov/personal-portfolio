@@ -6,6 +6,10 @@ export const site = {
      The word itself moved from "adopt" to "trust" in the 2c design. */
   tagline: { lead: "I design technology that people", accent: "trust" },
   degree: "M.S. Biomedical Engineering, UC Davis",
+  /* The domain used to arrive four screens down, in the research section. For
+     a consultancy that does medical device work it is the differentiator, so
+     it belongs beside the name. A list of subjects, not of job titles. */
+  domain: "Prosthetics, rehabilitation robotics, and human-machine interaction",
   email: "mc.g.gavrilov@gmail.com",
   linkedin: {
     label: "linkedin.com/in/momchil-gavrilov-ux",
@@ -40,21 +44,21 @@ export const portrait = {
 /* One-glance credibility, answering "is this person real" before any reading.
    Every figure here has to survive being asked about in an interview. */
 /*
-  Dropped the "peer-reviewed" qualifier rather than the count. All five are
-  real output, the list below names every venue exactly, and a scientific
-  reader reads "Research Square (preprint)" correctly without being told.
-  What is no longer here is a label the page itself contradicted.
+  Ordered by magnitude, so the row reads as a descent rather than as four
+  unrelated facts and the largest number lands first.
 
-  "Sessions Run" replaces "Participants". The old figure summed everyone
-  across all four studies, including 100 survey respondents he did not field.
-  61 is the number he personally sat in a room with, and for a consultancy
-  asking whether a new hire can be put on a study next month, sessions
-  moderated is the more useful and the more defensible number.
+  No "peer-reviewed" qualifier on the publication count. Three have cleared
+  review, one is in review and one is in submission; the list below names
+  every venue exactly, and a scientific reader reads those correctly without
+  being told. The count is honest; the label it used to carry was not.
+
+  The 61 sessions he personally ran are not lost, they moved into the
+  practice band where they do more work.
 */
 export const proofPoints = [
+  { figure: "185", label: "Participants" },
   { figure: "5", label: "Publications" },
   { figure: "4", label: "Human Research Studies" },
-  { figure: "61", label: "Lab Sessions Run" },
   { figure: "1", label: "Product In Daily Use" },
 ];
 
@@ -92,9 +96,9 @@ export const practice = [
       "The EMG prosthetic hand was not working when the embodiment study needed it. I restored it before we could run a single participant.",
   },
   {
-    stage: "Recruiting and sessions",
+    stage: "Sessions and data",
     detail:
-      "I recruited and ran all 38 participants on the agency study, and the sessions on the embodiment study, to the same script every time.",
+      "I recruited and ran all 61 participants across the two lab studies, to the same script, with consent documented and data anonymized and stored to the approved protocol.",
   },
   {
     stage: "Analysis",
@@ -108,7 +112,7 @@ export const practice = [
    survive the first interview question. The label does the whole job, so it
    never gets dressed up. It sits under the credentials, where for a medical
    device reader the vocabulary itself is worth something. */
-export const standardsNote = "Currently learning";
+export const standardsNote = "Learning";
 export const standards = [
   "FDA HFE Guidance",
   "IEC 62366-1",
@@ -118,13 +122,53 @@ export const standards = [
   "EU MDR",
 ];
 
+/*
+  The judgment evidence, promoted rather than written.
+
+  Capability, ownership and reliability were all evidenced somewhere on this
+  page; judgment was not, and it is the one that separates "can follow a
+  protocol" from "worth investing in". Each of these is a real decision made
+  under uncertainty, already stated in the case study prose, where a reader
+  who never opens a case study would never find it.
+
+  Every line paraphrases his own words in the relevant case study. Nothing
+  here is a decision he has not already described making.
+*/
+export const decisionsTitle = "Three Decisions";
+export const decisionsDeck =
+  "The moments where the work could have gone another way.";
+
+export const decisions = [
+  {
+    label: "When the measure is the problem",
+    text: "The field's standard test of agency was picking up causal expectation rather than intention. Rather than work around it, I held causation constant so that intention was the only thing left varying.",
+    study: "Sense of agency",
+    slug: "sense-of-agency",
+  },
+  {
+    label: "When the obvious question is the wrong one",
+    text: "We could have started from the interface. The more honest question was why a student opens a campus app at all, so we went to the coffee shop where students actually are and asked about their day instead of their screens.",
+    study: "UC Davis Mobile",
+    slug: "uc-davis-mobile",
+  },
+  {
+    label: "When the constraint is the person, not the software",
+    text: "A volunteer at intake has a queue and a lot of noise, so logging a donation could never compete with helping the person in front of them. I separated the two rather than making the form faster.",
+    study: "Wellspring",
+    slug: "wellspring",
+  },
+];
+
 export const storyTitle = "Why I Do This";
 
 export const story: string[] = [
   "Everything started with a single LED blinking on a breadboard. I bought a circuit kit in undergrad out of pure curiosity, and when I made that little light glow, I felt how much had gone into it.",
   "I saw the physicists who gave their lives to defining electricity, and the engineers who shaped it so a student could make a light turn on. Then I started seeing it everywhere: the plaster walls, the heat coming from my vent, the bed where I sat. Someone's effort poured into every object in my room, made for a person they would never meet. That's when I felt the pull to be on the other side of that exchange.",
   "I sent pictures of that LED to my friends. It was a tiny thing, but it was mine, and all I wanted to do was share it.",
-  "My fascination with people led me to study kinesiology: how we move, think, and interact with the world. Then a professor introduced me to brain-computer interfaces, and one idea inspired me. Technology could integrate with a body so seamlessly that it stopped feeling like a tool and started feeling like part of you. I spent the next three years measuring that with real people, and five peer-reviewed publications came out of it.",
+  /* "five peer-reviewed publications" was the last place on the site making
+     that claim: three have cleared review, one is in review, one is in
+     submission. One word removed, nothing else touched. */
+  "My fascination with people led me to study kinesiology: how we move, think, and interact with the world. Then a professor introduced me to brain-computer interfaces, and one idea inspired me. Technology could integrate with a body so seamlessly that it stopped feeling like a tool and started feeling like part of you. I spent the next three years measuring that with real people, and five publications came out of it.",
   "But I found that sometimes research didn't make it out of the lab to have the impact it was meant to, so I learned to build. The most recent is Wellspring, a donation app a women's center uses every day, and the volunteers use it without training. Research taught me what people need. Building taught me how to put it in their hands. Now I work for the moment when something I made stops being mine and becomes theirs.",
 ];
 

@@ -74,7 +74,34 @@ export default function DeviceFrame({
     );
   }
 
-  /* browser: for web apps, where a phone bezel would misrepresent the product */
+  if (frame === "laptop") {
+    return (
+      <div
+        className={`flex items-center justify-center rounded-card bg-chip p-4 ${className}`}
+      >
+        <div className="flex w-full max-w-full flex-col items-center">
+          {/* Lid. The screen keeps a 16:10 window on the screenshot, which is
+              what a laptop actually shows, rather than the full page height. */}
+          <div className="w-full rounded-t-[0.5rem] bg-ink p-[0.35rem] pb-0">
+            <div className="aspect-16/10 w-full overflow-hidden rounded-t-[0.25rem] bg-white">
+              {picture}
+            </div>
+          </div>
+          {/* Hinge, then the base lipping out past the lid on both sides. */}
+          <div
+            aria-hidden="true"
+            className="h-[0.35rem] w-full bg-ink"
+          />
+          <div
+            aria-hidden="true"
+            className="h-[0.4rem] w-[108%] rounded-b-[0.35rem] bg-ink/85 shadow-[0_6px_14px_rgba(16,24,32,0.18)]"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  /* browser: a plain chrome bar, for web apps shown without a machine */
   return (
     <div
       className={`overflow-hidden rounded-card border border-line bg-white ${className}`}

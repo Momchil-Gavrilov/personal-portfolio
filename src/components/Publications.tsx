@@ -16,9 +16,6 @@ export default function Publications() {
       <details className="group">
         <summary className="flex cursor-pointer list-none items-center gap-3 border-y border-line py-5 [&::-webkit-details-marker]:hidden">
           <span className="eyebrow text-ink/45">Publications</span>
-          <span className="text-[1.0625rem]">
-            {publications.length} papers, with venues
-          </span>
           <span
             aria-hidden="true"
             className="ml-auto text-crimson transition-transform duration-300 group-open:rotate-90"

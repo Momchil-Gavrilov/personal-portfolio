@@ -33,7 +33,7 @@ export default function Projects() {
         <Reveal>
           <Link
             href={`/work/${lead.slug}`}
-            className="group mt-8 grid items-center gap-8 rounded-card border border-line bg-paper-deep p-6 md:grid-cols-[1fr_23.75rem] md:gap-11 md:p-8"
+            className="group mt-8 grid items-center gap-8 rounded-card border border-line bg-paper-deep p-6 md:grid-cols-[1fr_25rem] md:gap-12 md:p-8"
           >
             <div className="flex flex-col gap-3.5">
               {statusOf(lead) && (
@@ -55,7 +55,7 @@ export default function Projects() {
               <DeviceFrame
                 image={lead.shot}
                 sizes="(min-width: 768px) 12rem, 9rem"
-                className="h-64 w-full md:h-[19rem]"
+                className="h-72 w-full md:h-[23rem]"
               />
             )}
           </Link>
@@ -71,7 +71,10 @@ export default function Projects() {
             <li key={cs.slug}>
               <Link
                 href={`/work/${cs.slug}`}
-                className="group grid h-full grid-cols-[6rem_1fr] items-start gap-4 sm:flex sm:flex-col sm:gap-3.5"
+                /* items-start is for the phone row layout only. Left to apply
+                   at sm it stops the device frames stretching to the column,
+                   and each one collapses to its own content width. */
+                className="group grid h-full grid-cols-[6rem_1fr] items-start gap-4 sm:flex sm:flex-col sm:items-stretch sm:gap-3.5"
               >
                 {cs.shot && (
                   <>
@@ -86,10 +89,10 @@ export default function Projects() {
                       sizes="6rem"
                       className="h-24 w-full rounded-card border border-line bg-white object-cover object-top sm:hidden"
                     />
-                    <div className="hidden sm:block sm:h-[13.5rem]">
+                    <div className="hidden sm:block sm:h-[15.5rem]">
                       <DeviceFrame
                         image={cs.shot}
-                        sizes="20rem"
+                        sizes="22rem"
                         className="h-full w-full"
                       />
                     </div>

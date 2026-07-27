@@ -18,8 +18,7 @@ export default function Contact() {
             Let&rsquo;s <em className="font-normal italic text-navy">talk</em>
           </h2>
           <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-ink/70">
-            A short call is usually enough to work out whether I would be
-            useful to you.
+            A short call is usually enough to work out whether I can be useful.
           </p>
         </Reveal>
 

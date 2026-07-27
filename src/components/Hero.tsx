@@ -33,6 +33,7 @@ export default function Hero() {
               {site.name}
             </p>
             <p className="text-sm text-ink/60">{site.degree}</p>
+            <p className="text-sm text-ink/60">{site.domain}</p>
           </div>
 
           {/* The primary CTA sits here as well as in Contact: most visitors

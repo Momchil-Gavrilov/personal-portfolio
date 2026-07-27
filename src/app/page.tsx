@@ -1,6 +1,7 @@
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import Nav from "@/components/Nav";
+import Decisions from "@/components/Decisions";
 import Practice from "@/components/Practice";
 import Projects from "@/components/Projects";
 import Proof from "@/components/Proof";
@@ -18,6 +19,11 @@ import Story from "@/components/Story";
   Practice sits third on purpose. For a consultancy hiring at entry level,
   "can they run a session" is decided before "what did they find", and if the
   answer is no, nothing below it gets read.
+
+  Decisions sits after the papers rather than before them, because how someone
+  thinks only matters to a reader who already believes they can do the work.
+  It also bridges into Projects: two of its three decisions come from product
+  work, so it earns the section that follows it.
 */
 export default function Home() {
   return (
@@ -29,6 +35,7 @@ export default function Home() {
         <Practice />
         <Research />
         <Publications />
+        <Decisions />
         <Projects />
         <Story />
         <Contact />
