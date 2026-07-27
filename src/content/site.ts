@@ -65,45 +65,68 @@ export const proofPoints = [
 /*
   The billability answer, in the slot the through-line used to hold.
 
-  A consultancy hiring at entry level is asking one question before any other:
-  can this person be put on a study next month without someone standing over
-  them. Findings do not answer that. The unglamorous operational half does,
-  and it is the half a new graduate is least likely to be able to evidence.
+  An employer hiring at entry level asks one question before any other: can
+  this person be put on a study next month without someone standing over them.
+  Findings do not answer that. The operational half does, and it is the half a
+  new graduate is least likely to be able to evidence.
 
-  Four stages of a real study, in order, each with the specific thing he did.
+  The labels are deliberately the vocabulary of the job rather than of the
+  lab. An Amgen HFE posting lists "study planning, protocol development, study
+  moderation, data collection, participant recruitment, data analysis"; a
+  reader scanning this grid should see their own requisition looking back.
 
   NOTHING HERE MAY BE INFERRED. An earlier draft said he wrote the IRB, which
   he did not; the claim came from reading "Protocol, IRB" in a spec rail and
   filling in the rest. Every line now names an act he has stated in his own
-  words in the case study prose, and nothing adjacent to it.
+  words, and every one carries the study it came from, so no reader has to
+  guess which claim belongs to which piece of work. That attribution is the
+  whole defence against the error above.
 
-  Stage four ends on what he did NOT do on one study, because a reader who
-  sees credit drawn precisely stops wondering whether the rest is inflated.
+  Two lines volunteer a limit: analysis on data he neither collected nor
+  designed, and data handling under someone else's approved protocol. Both
+  read as weaknesses in a lab and as strengths in industry, where junior staff
+  almost always execute a design somebody else owns.
 */
-export const practiceTitle = "A Study, End to End";
+export const practiceTitle = "What I Run";
 export const practiceDeck =
-  "What I personally did on the studies below.";
+  "Every line names the study it came from.";
 
 export const practice = [
   {
-    stage: "Design",
+    stage: "Study design and protocol",
     detail:
-      "I designed the forced-choice paradigm for the agency study and its staircase logic, then programmed the task on the Kinarm platform.",
+      "Designed the forced-choice paradigm, developed the protocol and its psychophysical staircase logic, and programmed the task on the Kinarm platform.",
+    source: "Sense of agency",
   },
   {
-    stage: "Apparatus",
+    stage: "Participant recruitment",
     detail:
-      "The EMG prosthetic hand was not working when the embodiment study needed it. I restored it before we could run a single participant.",
+      "Recruited all 38 participants and scheduled them around a shared robotic platform.",
+    source: "Sense of agency",
   },
   {
-    stage: "Sessions and data",
+    stage: "Session moderation",
     detail:
-      "I recruited and ran all 61 participants across the two lab studies, to the same script, with consent documented and data anonymized and stored to the approved protocol.",
+      "Ran all 61 sessions in person, to the same script every time, across two separate protocols.",
+    source: "Both lab studies",
   },
   {
-    stage: "Analysis",
+    stage: "Data handling",
     detail:
-      "Psychometric models, statistics and figures. On the survey study the analysis was the whole of my contribution, and I did not field it.",
+      "Ran to the approved protocol throughout: consent documented, participant data anonymized and stored to criteria.",
+    source: "Both lab studies",
+  },
+  {
+    stage: "Analysis and reporting",
+    detail:
+      "Psychometric model fitting, statistics and figures, including on a dataset I did not collect and did not design.",
+    source: "All three studies",
+  },
+  {
+    stage: "Test equipment",
+    detail:
+      "The EMG prosthetic hand was not working when the study needed it. I restored it before we could run a single participant.",
+    source: "Prosthetic embodiment",
   },
 ];
 

@@ -53,6 +53,11 @@ export type CaseStudy = {
      scans only the eyebrows still learns the sample size and the design.
      Every value here is restated in `spec` below; nothing is claimed twice. */
   eyebrow?: string;
+  /* What the finding does not establish, in his own words.
+     Volunteering this before anyone asks is the strongest trust signal
+     available to an early-career researcher, and it is what an interviewer
+     probes for anyway. Never write one of these on his behalf. */
+  limitation?: string;
   /* A wide screenshot of the product itself. The app-icon tiles said what the
      thing was called; a screenshot says what it is. */
   shot?: CaseStudyImage;
@@ -175,6 +180,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     finding:
       "Intending a movement did not change how long the interval felt. It changed how precisely it could be perceived.",
+    limitation:
+      "We did not corroborate the result with validated questionnaires. Running one alongside the psychophysics would have made the case materially stronger.",
     liveUrl: "https://doi.org/10.1109/ICORR66766.2025.11063055",
     liveLabel: "Read the paper",
     status: "published",
@@ -249,6 +256,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     finding:
       "Ownership tracked the sense of control (r = 0.70) but not the sense of where the hand sits in space (r = -0.03). Embodiment is not one switch, and its parts answer to different, designable cues.",
+    limitation:
+      "A prosthesis can only produce as much embodiment as its sensors allow, and no hand today moves with the fidelity of a real one, so these results are bounded by current hardware. That bound redirected the lab: the work moved from psychological measures toward better biosensors and higher-fidelity control.",
     liveUrl: "https://doi.org/10.21203/rs.3.rs-7348715/v1",
     liveLabel: "Read the paper",
     status: "published",
@@ -377,11 +386,11 @@ export const caseStudies: CaseStudy[] = [
     /* The intake screenshot is a wall of body text and reads as noise at card
        size; the case list shows the product's actual shape at a glance. */
     shot: {
-      src: "/casebase/marketplace.png",
-      alt: "The CaseBase client case list, showing matched cases by type and date.",
+      src: "/casebase/home.png",
+      alt: "The CaseBase home screen: a client or lawyer chooses their side, then starts the demo or signs in.",
       frame: "laptop",
-      width: 1800,
-      height: 1037,
+      width: 1440,
+      height: 900,
     },
     category: "product",
     monogram: "CB",
@@ -471,6 +480,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     finding:
       "Which tests professionals use, and what they want from a test, split significantly along professional lines. The Box and Block Test was the rare common ground.",
+    limitation:
+      "Everything here is self-reported rather than observed, and the sample skewed away from physical therapists: 16 of them against 27 or more in every other group.",
     liveUrl:
       "https://www.dovepress.com/exploring-the-perspectives-of-different-professions-on-task-based-uppe-peer-reviewed-fulltext-article-JMDH",
     liveLabel: "Read the paper",

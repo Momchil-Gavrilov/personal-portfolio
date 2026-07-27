@@ -87,6 +87,24 @@ export default function Research() {
                         </div>
                       )}
 
+                      {/*
+                        The limitation, in his words, volunteered rather than
+                        waited for. It gets a lighter rule than the finding so
+                        the hierarchy stays honest: this qualifies the result,
+                        it does not compete with it. Almost no portfolio does
+                        this, and it is the first thing an interviewer probes.
+                      */}
+                      {cs.limitation && (
+                        <div className="border-l-2 border-line-strong pl-5">
+                          <p className="eyebrow text-ink/45">
+                            What it does not show
+                          </p>
+                          <p className="mt-2 max-w-[46ch] text-[0.9375rem] leading-relaxed text-ink/65">
+                            {cs.limitation}
+                          </p>
+                        </div>
+                      )}
+
                       <span className="text-sm text-crimson group-hover:underline">
                         Read the case study <span aria-hidden="true">→</span>
                       </span>
