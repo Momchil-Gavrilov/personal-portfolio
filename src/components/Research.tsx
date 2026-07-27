@@ -70,8 +70,10 @@ export default function Research() {
                         {cs.title}
                       </h3>
 
-                      <p className="max-w-[44ch] text-[1.0625rem] leading-relaxed text-ink/75 md:text-[1.1875rem]">
-                        {cs.oneLiner}
+                      {/* The hook, not the oneLiner. The oneLiner is written
+                          to open a case study and runs three lines here. */}
+                      <p className="max-w-[42ch] text-[1.0625rem] leading-relaxed text-ink/75 md:text-[1.1875rem]">
+                        {cs.hook ?? cs.oneLiner}
                       </p>
 
                       {/* Labelled, because a reader scanning for evidence

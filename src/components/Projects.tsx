@@ -24,7 +24,7 @@ function statusOf(cs: CaseStudy): string | undefined {
 
 export default function Projects() {
   return (
-    <section id="work" className="bg-paper-deep py-16 md:py-20">
+    <section id="work" className="border-t border-line py-16 md:py-20">
       <div className="wrap">
         <Reveal>
           <SectionTitle title="Products and Engineering Work" />
@@ -66,9 +66,9 @@ export default function Projects() {
                         {cs.title}
                       </h3>
 
-                      <p className="max-w-[46ch] text-[1.0625rem] leading-relaxed text-ink/75">
-                        {cs.oneLiner}
-                      </p>
+                      {/* The oneLiner is gone from here. The title and a
+                          legible screenshot already say what the thing is,
+                          and the outcome says the only part that matters. */}
 
                       {/* The same navy rule the research findings carry. A
                           shipped result and a measured result are both

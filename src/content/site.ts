@@ -87,46 +87,49 @@ export const proofPoints = [
   read as weaknesses in a lab and as strengths in industry, where junior staff
   almost always execute a design somebody else owns.
 */
-export const practiceTitle = "What I Run";
+export const practiceTitle = "Skills";
 export const practiceDeck =
-  "Every line names the study it came from.";
+  "61 lab sessions run, 3 studies analysed, 2 products shipped.";
 
-export const practice = [
+/*
+  Grouped rather than listed. A flat wall of twenty terms is unscannable, and
+  the groups themselves carry information: a reader looking for someone who
+  can run a study sees a column headed "Running studies" and stops there.
+
+  Every term is backed by something concrete in the case studies below.
+  Nothing aspirational sits in the first three groups; anything he has not
+  yet done lives in the fourth, under a label that says so.
+*/
+export const skillGroups = [
   {
-    stage: "Study design and protocol",
-    detail:
-      "Designed the forced-choice paradigm, developed the protocol and its psychophysical staircase logic, and programmed the task on the Kinarm platform.",
-    source: "Sense of agency",
+    group: "Running studies",
+    items: [
+      "Protocol development",
+      "Participant recruitment",
+      "Study moderation",
+      "Contextual interviews",
+      "Consent and data handling",
+    ],
   },
   {
-    stage: "Participant recruitment",
-    detail:
-      "Recruited all 38 participants and scheduled them around a shared robotic platform.",
-    source: "Sense of agency",
+    group: "Analysis",
+    items: [
+      "Psychophysics",
+      "Psychometric modelling",
+      "Statistical analysis",
+      "Survey analysis",
+      "Data visualisation",
+    ],
   },
   {
-    stage: "Session moderation",
-    detail:
-      "Ran all 61 sessions in person, to the same script every time, across two separate protocols.",
-    source: "Both lab studies",
-  },
-  {
-    stage: "Data handling",
-    detail:
-      "Ran to the approved protocol throughout: consent documented, participant data anonymized and stored to criteria.",
-    source: "Both lab studies",
-  },
-  {
-    stage: "Analysis and reporting",
-    detail:
-      "Psychometric model fitting, statistics and figures, including on a dataset I did not collect and did not design.",
-    source: "All three studies",
-  },
-  {
-    stage: "Test equipment",
-    detail:
-      "The EMG prosthetic hand was not working when the study needed it. I restored it before we could run a single participant.",
-    source: "Prosthetic embodiment",
+    group: "Design and build",
+    items: [
+      "Task programming (Kinarm)",
+      "Figma prototyping",
+      "Full-stack web apps",
+      "Sensor fusion and SLAM",
+      "EMG hardware",
+    ],
   },
 ];
 

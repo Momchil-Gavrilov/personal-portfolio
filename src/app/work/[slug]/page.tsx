@@ -68,6 +68,22 @@ export default async function CaseStudyPage({
           </header>
 
           {/*
+            The decision that shaped the work, placed at the top of the case
+            study rather than on the home page. It is judgment evidence, and
+            judgment only matters to a reader who already believes the person
+            can do the job. By the time someone has opened a case study, they
+            do, and this is the first thing worth telling them.
+          */}
+          {cs.lesson && (
+            <div className="mt-10 max-w-measure border-l-2 border-navy bg-paper-deep/60 p-6">
+              <p className="eyebrow text-ink/45">Lesson learned</p>
+              <p className="mt-3 text-[1.0625rem] leading-relaxed">
+                {cs.lesson}
+              </p>
+            </div>
+          )}
+
+          {/*
             Two columns: the narrative keeps the measure it has always had, and
             the specification moves into the ~40% of page width that used to be
             empty paper. Pinned, so a reader who is nine paragraphs deep can

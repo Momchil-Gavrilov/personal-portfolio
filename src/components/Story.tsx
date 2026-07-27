@@ -22,9 +22,10 @@ export default function Story() {
   const [open, setOpen] = useState(false);
 
   return (
-    /* On paper, not the tint: Projects took the tinted band when it moved to
-       the research row treatment, and two shaded sections in a row merge. */
-    <section id="story" className="border-t border-line py-16 md:py-[4.5rem]">
+    /* The tinted band separates the story from the call to action that
+       follows it, which is the one moment on the page that must not be
+       mistaken for part of anything else. */
+    <section id="story" className="bg-paper-deep py-16 md:py-[4.5rem]">
       <div className="wrap grid gap-10 md:grid-cols-2 md:gap-14">
         <div className="flex flex-col gap-5">
           <SectionTitle title={storyTitle} />

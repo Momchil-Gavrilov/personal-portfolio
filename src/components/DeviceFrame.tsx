@@ -49,9 +49,9 @@ export default function DeviceFrame({
 
   if (frame === "phone") {
     return (
-      <div
-        className={`flex items-center justify-center rounded-card bg-chip p-4 ${className}`}
-      >
+      /* No mat behind the device. A tinted box around a bezel is two frames
+         around one screenshot, and it shrank the thing the reader came to see. */
+      <div className={`flex items-center justify-center ${className}`}>
         {/* Aspect ratio comes from the screenshot itself, so the bezel always
             fits the content rather than cropping it to a guessed phone shape. */}
         <div
@@ -76,9 +76,7 @@ export default function DeviceFrame({
 
   if (frame === "laptop") {
     return (
-      <div
-        className={`flex items-center justify-center rounded-card bg-chip p-4 ${className}`}
-      >
+      <div className={`flex items-center justify-center ${className}`}>
         <div className="flex w-full max-w-full flex-col items-center">
           {/* Lid. The screen keeps a 16:10 window on the screenshot, which is
               what a laptop actually shows, rather than the full page height. */}

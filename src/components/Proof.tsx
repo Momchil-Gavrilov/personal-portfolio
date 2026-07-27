@@ -1,5 +1,5 @@
 import Reveal from "@/components/Reveal";
-import { proofPoints, standards, standardsNote } from "@/content/site";
+import { proofPoints } from "@/content/site";
 
 /*
   The credibility answer, catchable in one glance and before any reading.
@@ -12,10 +12,9 @@ import { proofPoints, standards, standardsNote } from "@/content/site";
   Every figure here has to survive being opened and checked, because this is
   the block a sceptical reader tests first.
 
-  The standards chips follow, labelled and quiet. For a medical device reader
-  the vocabulary itself is the signal: a candidate who names IEC 62366-1
-  unprompted has read further than most new graduates, and the label keeps it
-  honest about how far.
+  The standards chips moved into the skills band below, as their own labelled
+  group. They still arrive near the top, and now they arrive after the things
+  he can already do rather than before them.
 */
 export default function Proof() {
   return (
@@ -36,22 +35,6 @@ export default function Proof() {
             </li>
           ))}
         </ul>
-      </Reveal>
-
-      <Reveal>
-        <div className="mt-12 flex flex-wrap items-center gap-x-[1.125rem] gap-y-3">
-          <h2 className="eyebrow text-ink/45">{standardsNote}</h2>
-          <ul className="flex flex-wrap gap-2">
-            {standards.map((standard) => (
-              <li
-                key={standard}
-                className="rounded-card bg-chip px-[0.8125rem] py-[0.4375rem] text-[0.8125rem]"
-              >
-                {standard}
-              </li>
-            ))}
-          </ul>
-        </div>
       </Reveal>
     </section>
   );

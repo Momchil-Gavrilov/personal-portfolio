@@ -53,11 +53,20 @@ export type CaseStudy = {
      scans only the eyebrows still learns the sample size and the design.
      Every value here is restated in `spec` below; nothing is claimed twice. */
   eyebrow?: string;
+  /* A single short sentence for the home-page row. The oneLiner is written to
+     open a case study page and runs two or three lines in a half-width
+     column, which is more setup than a scanning reader will spend. */
+  hook?: string;
   /* What the finding does not establish, in his own words.
      Volunteering this before anyone asks is the strongest trust signal
      available to an early-career researcher, and it is what an interviewer
      probes for anyway. Never write one of these on his behalf. */
   limitation?: string;
+  /* The decision that shaped the work, surfaced on the case study page rather
+     than the home page. It is judgment evidence, which only matters to a
+     reader who already believes the person can do the job, and by the time
+     someone has opened a case study they do. */
+  lesson?: string;
   /* A wide screenshot of the product itself. The app-icon tiles said what the
      thing was called; a screenshot says what it is. */
   shot?: CaseStudyImage;
@@ -96,6 +105,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcome:
       "Four steps gone from a volunteer's intake. It runs the center today.",
+    lesson:
+      "A volunteer at intake has a queue and a lot of noise, so logging a donation was never going to compete with helping the person in front of them. Making the form faster would not have fixed that. Separating the two did.",
     shot: {
       src: "/wellspring/manager-dashboard.png",
       alt: "The Wellspring manager view on a phone: a New Donation button, a month calendar marking days with donations, and buttons for the Master Sheet and Catalog.",
@@ -165,6 +176,7 @@ export const caseStudies: CaseStudy[] = [
       alt: "The Kinarm robotic platform used in the agency study, with a participant seated at it.",
     },
     eyebrow: "38 participants · randomized",
+    hook: "The field's standard measure of control had stopped holding up, so we built a sharper one.",
     figure: {
       src: "/agency/session.jpg",
       alt: "A participant seated at the Kinarm robotic platform, both hands on the manipulanda under the display, reaching toward a target.",
@@ -181,7 +193,9 @@ export const caseStudies: CaseStudy[] = [
     finding:
       "Intending a movement did not change how long the interval felt. It changed how precisely it could be perceived.",
     limitation:
-      "We did not corroborate the result with validated questionnaires. Running one alongside the psychophysics would have made the case materially stronger.",
+      "We did not corroborate the result with validated questionnaires.",
+    lesson:
+      "When a measure stops behaving, the useful move is to find what is contaminating it rather than to work around it. Causal expectation was doing the work everyone had attributed to intention, so I held causation constant and let intention be the only thing left varying.",
     liveUrl: "https://doi.org/10.1109/ICORR66766.2025.11063055",
     liveLabel: "Read the paper",
     status: "published",
@@ -241,6 +255,7 @@ export const caseStudies: CaseStudy[] = [
       alt: "A participant in the lab operating the EMG-controlled prosthetic hand to grasp a wooden block.",
     },
     eyebrow: "23 participants · within-subject",
+    hook: "Bionic hands keep getting better, yet users keep abandoning them.",
     figure: {
       src: "/embodiment/setup.jpg",
       alt: "The study setup: a participant in a lab coat grasps a wooden block with the EMG-controlled prosthetic hand, with an occluding screen between them and the hand, and a motion-capture camera on a tripod behind.",
@@ -257,7 +272,7 @@ export const caseStudies: CaseStudy[] = [
     finding:
       "Ownership tracked the sense of control (r = 0.70) but not the sense of where the hand sits in space (r = -0.03). Embodiment is not one switch, and its parts answer to different, designable cues.",
     limitation:
-      "A prosthesis can only produce as much embodiment as its sensors allow, and no hand today moves with the fidelity of a real one, so these results are bounded by current hardware. That bound redirected the lab: the work moved from psychological measures toward better biosensors and higher-fidelity control.",
+      "No hand today moves with the fidelity of a real one, so these results are bounded by current sensors. That bound redirected the lab toward better biosensors.",
     liveUrl: "https://doi.org/10.21203/rs.3.rs-7348715/v1",
     liveLabel: "Read the paper",
     status: "published",
@@ -316,6 +331,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcome:
       "Won Most User-Centered Design by asking why a student opens the app at all.",
+    lesson:
+      "The obvious question was how to lay out the interface. The more honest one was why a student would open a campus app at all, so we went to the coffee shop where students actually are and asked about their day instead of their screens. The layout followed from the answer.",
     shot: {
       src: "/uc-davis/home.png",
       alt: "The redesigned myucdavis home screen, leading with the student's schedule instead of an events feed.",
@@ -465,6 +482,7 @@ export const caseStudies: CaseStudy[] = [
        at card width; this is the one that carries the finding. The full
        figure still runs at full size inside the case study. */
     eyebrow: "100 respondents · 4 professions",
+    hook: "Nobody agreed on how to measure whether an upper-limb prosthesis works.",
     figure: {
       src: "/survey/usage-panel-a.png",
       alt: "Bar chart of the percent of each profession (PT/OT, prosthetists, physicians, researchers) that uses each of twelve task-based assessments, with Kruskal-Wallis p-values down the right-hand side. The Box and Block Test is highest across every group.",
@@ -481,7 +499,7 @@ export const caseStudies: CaseStudy[] = [
     finding:
       "Which tests professionals use, and what they want from a test, split significantly along professional lines. The Box and Block Test was the rare common ground.",
     limitation:
-      "Everything here is self-reported rather than observed, and the sample skewed away from physical therapists: 16 of them against 27 or more in every other group.",
+      "Self-reported rather than observed, and the sample skewed away from physical therapists: 16 against 27 or more in every other group.",
     liveUrl:
       "https://www.dovepress.com/exploring-the-perspectives-of-different-professions-on-task-based-uppe-peer-reviewed-fulltext-article-JMDH",
     liveLabel: "Read the paper",
