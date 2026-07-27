@@ -1,14 +1,9 @@
 /*
-  Section heading with the thin gold rule beneath — the site's
-  quiet recurring motif.
+  Section heading. In this system the heading carries itself: 44px, tight
+  tracking, no rule and no ornament under it. The bands do the separating.
 */
 export default function SectionTitle({ title }: { title: string }) {
   return (
-    <div className="mb-8">
-      <h2 className="font-display text-3xl font-medium text-maroon md:text-4xl">
-        {title}
-      </h2>
-      <span className="rule-gold mt-4" aria-hidden="true" />
-    </div>
+    <h2 className="display text-[2rem] md:text-[2.75rem]">{title}</h2>
   );
 }

@@ -39,31 +39,30 @@ export default async function CaseStudyPage({
 
   return (
     <>
-      <header className="sticky top-0 z-10 border-b border-line bg-cream/90 backdrop-blur-sm">
+      <header className="sticky top-0 z-10 border-b border-line bg-paper/95 backdrop-blur-sm">
         <nav
           aria-label="Main"
-          className="mx-auto flex max-w-5xl items-baseline justify-between px-6 py-4 md:px-8"
+          className="wrap flex items-center justify-between gap-8 py-4"
         >
           <Link
             href="/"
-            className="font-display text-lg font-semibold text-maroon"
+            className="text-xl font-semibold tracking-[-0.02em] text-ink"
           >
             {site.name}
           </Link>
-          <Link href="/#work" className="smallcaps text-ink-soft hover:text-maroon">
+          <Link href="/#work" className="text-sm text-ink/60 hover:text-ink">
             <span aria-hidden="true">←</span> All case studies
           </Link>
         </nav>
       </header>
-      <main className="mx-auto max-w-5xl px-6 py-14 md:px-8 md:py-20">
+      <main className="wrap py-14 md:py-20">
         <article>
           <header className="max-w-measure">
-            <p className="smallcaps text-ink-soft">Case study</p>
-            <h1 className="mt-4 max-w-[24ch] font-display text-4xl font-semibold leading-tight text-ink md:text-5xl">
+            <p className="eyebrow text-crimson">Case study</p>
+            <h1 className="display mt-4 max-w-[24ch] text-4xl md:text-[3.25rem]">
               {cs.title}
             </h1>
-            <span className="rule-gold mt-6" aria-hidden="true" />
-            <p className="mt-6 text-lg leading-snug text-ink-soft">
+            <p className="mt-6 text-lg leading-relaxed text-ink/75">
               {cs.oneLiner}
             </p>
           </header>
@@ -71,17 +70,15 @@ export default async function CaseStudyPage({
           {/*
             Two columns: the narrative keeps the measure it has always had, and
             the specification moves into the ~40% of page width that used to be
-            empty cream. Pinned, so a reader who is nine paragraphs deep can
+            empty paper. Pinned, so a reader who is nine paragraphs deep can
             still see the method and the sample without scrolling back up.
           */}
           <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1fr)_15rem] lg:gap-12">
             <div className="order-2 space-y-12 lg:order-1">
               {cs.sections.map((section) => (
                 <section key={section.heading}>
-                  <h2 className="font-display text-2xl font-medium text-maroon">
-                    {section.heading}
-                  </h2>
-                  <div className="mt-4 max-w-measure space-y-5">
+                  <h2 className="display text-2xl">{section.heading}</h2>
+                  <div className="mt-4 max-w-measure space-y-5 leading-[1.75] text-ink/80">
                     {section.paragraphs.map((paragraph, i) => (
                       <p key={i}>{paragraph}</p>
                     ))}
@@ -96,7 +93,7 @@ export default async function CaseStudyPage({
                             : "mt-8"
                       }
                     >
-                      <div className="overflow-hidden rounded-2xl border border-line bg-cream-deep shadow-[0_4px_24px_rgba(43,38,34,0.10)]">
+                      <div className="overflow-hidden rounded-card border border-line bg-white">
                         <Image
                           src={section.image.src}
                           alt={section.image.alt}
@@ -117,7 +114,7 @@ export default async function CaseStudyPage({
                         />
                       </div>
                       {section.image.caption && (
-                        <figcaption className="mt-3 text-[0.9rem] text-ink-soft">
+                        <figcaption className="mt-3 text-[0.9rem] text-ink/55">
                           {section.image.caption}
                         </figcaption>
                       )}
@@ -131,16 +128,16 @@ export default async function CaseStudyPage({
             </div>
 
             <aside className="order-1 lg:order-2">
-              <div className="rounded-xl border border-line bg-cream-deep/50 p-5 lg:sticky lg:top-24">
-                <h2 className="smallcaps text-ink-soft">At a glance</h2>
+              <div className="rounded-card border-t-2 border-navy bg-paper-deep p-5 lg:sticky lg:top-24">
+                <h2 className="eyebrow text-ink/45">At a glance</h2>
                 {cs.spec && (
                   <dl className="mt-4 space-y-3.5">
                     {cs.spec.map((row) => (
                       <div key={row.k}>
-                        <dt className="smallcaps text-[0.65rem] text-ink-soft">
+                        <dt className="eyebrow text-[0.625rem] text-ink/45">
                           {row.k}
                         </dt>
-                        <dd className="mt-0.5 text-[0.9rem] font-semibold leading-snug text-ink">
+                        <dd className="mt-1 text-[0.9rem] font-medium leading-snug">
                           {row.v}
                         </dd>
                       </div>
@@ -152,7 +149,7 @@ export default async function CaseStudyPage({
                     href={cs.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-2 rounded-full bg-maroon px-4 py-2 text-[0.85rem] text-cream transition-colors hover:bg-maroon-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon"
+                    className="btn btn-primary mt-5 px-4 py-2.5 text-[0.85rem]"
                   >
                     {cs.liveLabel ?? "View live"}
                     <span aria-hidden="true">→</span>
@@ -163,7 +160,7 @@ export default async function CaseStudyPage({
           </div>
 
           <footer className="mt-16 border-t border-line pt-8">
-            <Link href="/#work" className="link-quiet text-[0.95rem]">
+            <Link href="/#work" className="text-sm text-crimson hover:underline">
               <span aria-hidden="true">←</span> Back to all case studies
             </Link>
           </footer>

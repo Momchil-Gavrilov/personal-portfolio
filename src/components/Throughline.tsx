@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import SectionTitle from "@/components/SectionTitle";
 import { throughline, throughlineTitle } from "@/content/site";
 
 /*
@@ -9,34 +8,37 @@ import { throughline, throughlineTitle } from "@/content/site";
   Written out as a sentence this reads soft, which is why it has never been on
   the page. As four scales, each with the study that measured it, it is
   concrete, it costs about forty words, and it is the thing that makes the
-  researcher, the builder and the roboticist read as one person. It sits
-  between Proof and Research because it introduces both sections below it.
+  researcher, the builder and the roboticist read as one person.
+
+  It is the only navy field on the site. The page spends its boldness once,
+  and it spends it here, because this is the single claim everything below is
+  evidence for. Everything around it stays on paper so the band reads as an
+  interruption rather than as decoration.
 */
 export default function Throughline() {
   return (
-    <section
-      id="throughline"
-      className="border-t border-line bg-cream-deep/40 py-10 md:py-14"
-    >
-      <div className="mx-auto max-w-5xl px-6 md:px-8">
+    <section id="throughline" className="bg-navy py-14 text-paper md:py-16">
+      <div className="wrap">
         <Reveal>
-          <SectionTitle title={throughlineTitle} />
+          <h2 className="display text-[1.75rem] md:text-[2.25rem]">
+            {throughlineTitle}
+          </h2>
         </Reveal>
         <Reveal>
-          {/* Two up even on the narrowest phones: four stacked cards cost
-              750px of scroll for forty words. */}
-          <ol className="grid grid-cols-2 gap-px border border-line bg-line lg:grid-cols-4">
+          {/* gap-px over a tinted ground draws exact hairlines at any column
+              count, which border utilities cannot do on a wrapping grid. */}
+          <ol className="mt-8 grid grid-cols-2 gap-px bg-paper/20 lg:grid-cols-4">
             {throughline.map((item) => (
-              <li key={item.scale} className="bg-cream">
+              <li key={item.scale} className="bg-navy">
                 <Link
                   href={`/work/${item.slug}`}
-                  className="group flex h-full flex-col gap-3 p-5 transition-colors hover:bg-cream-deep/60 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-maroon"
+                  className="group flex h-full flex-col gap-3 p-5 transition-colors hover:bg-navy-deep"
                 >
-                  <span className="smallcaps text-maroon">{item.scale}</span>
-                  <span className="font-display text-lg font-medium leading-snug text-ink">
+                  <span className="eyebrow text-paper/55">{item.scale}</span>
+                  <span className="text-lg font-medium leading-snug tracking-[-0.01em]">
                     {item.question}
                   </span>
-                  <span className="mt-auto text-[0.85rem] leading-snug text-ink-soft transition-colors group-hover:text-maroon">
+                  <span className="mt-auto pt-2 text-[0.8125rem] leading-snug text-paper/60 transition-colors group-hover:text-paper">
                     {item.study} <span aria-hidden="true">→</span>
                   </span>
                 </Link>

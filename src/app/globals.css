@@ -1,27 +1,39 @@
 @import "tailwindcss";
 
 /*
-  Design tokens — warm, editorial, quiet.
-  Cream dominates; maroon and gold punctuate.
+  Design tokens — the "2c" system.
+
+  Paper ground, near-black ink, deep navy as the single structural accent,
+  and a muted crimson reserved for labels and links. Where v2 was warm and
+  serifed, this is printed and squared: 4px corners, hairline rules, mono
+  eyebrows. Navy carries weight (headings' accent word, stat rules, buttons);
+  crimson carries direction (eyebrows, "read more" links). They never compete
+  for the same job.
 */
 @theme {
   /* Palette */
-  --color-cream: #faf6ef;
-  --color-cream-deep: #f2ecdf;
-  --color-maroon: #6b1f2a;
-  --color-maroon-deep: #521621;
-  --color-gold: #c9a227;
-  --color-gold-deep: #a8871e;
-  --color-ink: #2b2622;
-  --color-ink-soft: #5f574e;
-  --color-line: #e3dbc9;
+  --color-paper: #fcfaf6;
+  --color-paper-deep: #f1eee7;
+  --color-chip: #ebe7de;
+  --color-ink: #101820;
+  --color-navy: #1b3a5c;
+  --color-navy-deep: #142c47;
+  --color-crimson: #8a2f3b;
+  /* Translucent so one rule reads correctly on both paper and paper-deep */
+  --color-line: rgba(16, 24, 32, 0.12);
+  --color-line-strong: rgba(16, 24, 32, 0.28);
 
   /* Typography */
-  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
-  --font-body: var(--font-source-sans), "Segoe UI", system-ui, sans-serif;
+  --font-sans: var(--font-instrument-sans), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", monospace;
+  --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
+
+  /* Squared corners throughout; buttons get the only softer radius */
+  --radius-card: 4px;
+  --radius-btn: 6px;
 
   /* Measure */
-  --spacing-measure: 68ch;
+  --spacing-measure: 62ch;
 }
 
 :root {
@@ -39,18 +51,18 @@ html {
 }
 
 body {
-  background-color: var(--color-cream);
+  background-color: var(--color-paper);
   color: var(--color-ink);
-  font-family: var(--font-body);
-  line-height: 1.65;
-  font-size: 1.0625rem;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background-color: var(--color-maroon);
-  color: var(--color-cream);
+  background-color: var(--color-navy);
+  color: var(--color-paper);
 }
 
 /* Anchor targets clear the sticky nav */
@@ -58,58 +70,115 @@ section[id] {
   scroll-margin-top: 5rem;
 }
 
-/* --- Editorial details ------------------------------------------- */
+/* --- Structure ---------------------------------------------------- */
 
-/* Thin gold rule used under section titles */
-.rule-gold {
-  display: block;
-  width: 3.5rem;
-  height: 2px;
-  background-color: var(--color-gold);
-  border: none;
-  margin: 0;
+/*
+  1240px shell with 60px gutters, matching the design. Every band uses this
+  so the left edge of the type never moves between sections.
+*/
+.wrap {
+  margin-inline: auto;
+  max-width: 77.5rem;
+  padding-inline: 1.5rem;
 }
 
-/* Maroon drop cap for the story's opening paragraph */
-.drop-cap::first-letter {
-  float: left;
-  font-family: var(--font-display);
+@media (min-width: 768px) {
+  .wrap {
+    padding-inline: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrap {
+    padding-inline: 3.75rem;
+  }
+}
+
+/* --- Typographic roles -------------------------------------------- */
+
+/*
+  Mono eyebrow. Does the work small-caps did in v2, but the monospace reads
+  as instrumentation rather than ornament, which suits a page about measuring
+  things. Crimson by default; pass a colour class to mute it.
+*/
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/*
+  Display headings. Tight tracking is what makes Instrument Sans look set
+  rather than typed; it has to scale with size, so it lives here rather than
+  being re-declared per heading.
+*/
+.display {
   font-weight: 600;
-  color: var(--color-maroon);
-  font-size: 3.4em;
-  line-height: 0.85;
-  padding-right: 0.09em;
-  margin-top: 0.04em;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+  text-wrap: balance;
 }
 
-/* Narrow capitals (I, J) are mostly serif, so the default side bearing leaves a
-   gap wide enough that "It" reads as two words. Pull the following text back in. */
-.drop-cap-narrow::first-letter {
-  padding-right: 0.02em;
-  margin-right: 0;
+.display-xl {
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  text-wrap: balance;
 }
 
-/* Understated text links: ink with a gold underline that warms on hover */
+/* Quiet text link: crimson, underlined only on hover */
 .link-quiet {
   color: inherit;
-  text-decoration: underline;
-  text-decoration-color: var(--color-gold);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.22em;
-  transition: color 120ms ease, text-decoration-color 120ms ease;
+  text-decoration: none;
+  transition: color 120ms ease;
 }
 
 .link-quiet:hover {
-  color: var(--color-maroon);
-  text-decoration-color: var(--color-maroon);
+  color: var(--color-crimson);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
 }
 
-/* Small-caps label used for nav links, section eyebrows, and metadata */
-.smallcaps {
-  font-family: var(--font-body);
-  font-size: 0.8125rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+/* --- Controls ------------------------------------------------------ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-btn);
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 0.9375rem 1.5rem;
+  transition: background-color 140ms ease, border-color 140ms ease;
+}
+
+.btn-primary {
+  background-color: var(--color-navy);
+  color: var(--color-paper);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-navy-deep);
+}
+
+.btn-ghost {
+  border: 1px solid var(--color-line-strong);
+  color: var(--color-ink);
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-ink);
+}
+
+.btn:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 3px;
 }
 
 /* --- Scroll reveal (subtle rise; disabled under reduced motion) --- */

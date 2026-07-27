@@ -10,7 +10,11 @@ const links = [
 ];
 
 /*
-  Sticky, minimal top nav. Highlights the section currently in view.
+  Sticky, minimal top bar. Highlights the section currently in view.
+
+  The design draws this as a static header; it stays sticky here because the
+  booking CTA lives in it, and most visitors never reach the bottom of the
+  page where the other one is.
 */
 export default function Nav() {
   const [active, setActive] = useState<string | null>(null);
@@ -35,21 +39,19 @@ export default function Nav() {
     return () => observer.disconnect();
   }, []);
 
-  /* z-50 so the sticky bar stays above page content. At z-10 it tied with the
-     product tile badges, which paint later in the DOM and so won. */
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-cream/90 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur-sm">
       <nav
         aria-label="Main"
-        className="mx-auto flex max-w-5xl items-baseline justify-between px-6 py-4 md:px-8"
+        className="wrap flex items-center justify-between gap-8 py-4"
       >
         <a
           href="#top"
-          className="font-display text-lg font-semibold text-maroon"
+          className="text-xl font-semibold tracking-[-0.02em] text-ink"
         >
-          Momchil Gavrilov
+          {site.name}
         </a>
-        <ul className="flex items-baseline gap-4 md:gap-7">
+        <ul className="flex items-center gap-5 text-sm md:gap-[1.625rem]">
           {/* Section links yield to the CTA on the narrowest phones: at 320px
               the full row overflows and scrolls the page sideways. */}
           {links.map((link) => (
@@ -57,11 +59,11 @@ export default function Nav() {
               <a
                 href={link.href}
                 aria-current={active === link.id ? "true" : undefined}
-                className={`smallcaps transition-colors hover:text-maroon ${
+                className={
                   active === link.id
-                    ? "text-maroon border-b border-gold pb-0.5"
-                    : "text-ink-soft"
-                }`}
+                    ? "text-ink underline decoration-crimson decoration-2 underline-offset-[0.6rem]"
+                    : "text-ink/60 transition-colors hover:text-ink"
+                }
               >
                 {link.label}
               </a>
@@ -69,7 +71,7 @@ export default function Nav() {
           ))}
           <li className="hidden sm:block">
             <a
-              className="smallcaps text-ink-soft transition-colors hover:text-maroon"
+              className="text-ink/60 transition-colors hover:text-ink"
               href={site.resume.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -77,14 +79,12 @@ export default function Nav() {
               {site.resume.label}
             </a>
           </li>
-          {/* The CTA is pinned in the nav so it is reachable from any scroll
-              position, not only from the bottom of the page. */}
           <li>
             <a
               href={site.booking.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="smallcaps rounded-full bg-maroon px-3.5 py-1.5 text-cream transition-colors hover:bg-maroon-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon"
+              className="btn btn-primary px-[1.125rem] py-2.5"
             >
               {site.booking.label}
             </a>

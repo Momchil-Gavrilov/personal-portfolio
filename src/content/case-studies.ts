@@ -4,6 +4,9 @@ export type CaseStudyImage = {
   caption?: string;
   /* phone: narrow screenshot · portrait: standing photo · wide: full-column figure */
   shape?: "phone" | "portrait" | "wide";
+  /* How the image fills a fixed frame. Photographs crop happily; a chart or a
+     labelled figure must never be cropped, so it letterboxes instead. */
+  fit?: "cover" | "contain";
   /* Intrinsic pixel dimensions, for correct aspect ratio */
   width?: number;
   height?: number;
@@ -41,6 +44,14 @@ export type CaseStudy = {
      opens the case study still leaves knowing what was measured and what came
      out of it. */
   figure?: CaseStudyImage;
+  /* The scale of the study, in the fewest characters that survive scrutiny.
+     Rendered as the mono eyebrow above each research row, so a reader who
+     scans only the eyebrows still learns the sample size and the design.
+     Every value here is restated in `spec` below; nothing is claimed twice. */
+  eyebrow?: string;
+  /* A wide screenshot of the product itself. The app-icon tiles said what the
+     thing was called; a screenshot says what it is. */
+  shot?: CaseStudyImage;
   /* The specification a reviewer scans for. Rendered as a sticky rail beside
      the narrative on the case study page, and in the evidence card on the
      home page. */
@@ -76,6 +87,13 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcome:
       "Four steps gone from a volunteer's intake. It runs the center today.",
+    shot: {
+      src: "/wellspring/manager-dashboard.png",
+      alt: "The Wellspring manager view on a phone: a New Donation button, a month calendar marking days with donations, and buttons for the Master Sheet and Catalog.",
+      fit: "cover",
+      width: 860,
+      height: 1864,
+    },
     category: "product",
     monogram: "W",
     icon: "/icons/wellspring.png",
@@ -137,11 +155,13 @@ export const caseStudies: CaseStudy[] = [
       src: "/agency/thumb.png",
       alt: "The Kinarm robotic platform used in the agency study, with a participant seated at it.",
     },
+    eyebrow: "38 participants · randomized",
     figure: {
-      src: "/agency/methods.png",
-      alt: "Overview of the experiment. Panels A to D show the Kinarm apparatus, a participant operating it, and the task screens. Panel E diagrams one trial: an active move and a passive move, each followed by a delay and a tone, after which the participant judges which delay was shorter.",
-      width: 1477,
-      height: 902,
+      src: "/agency/thumb.png",
+      alt: "A participant seated at the Kinarm robotic platform, reaching under the display toward a target.",
+      fit: "cover",
+      width: 816,
+      height: 612,
     },
     spec: [
       { k: "Method", v: "Two-alternative forced choice" },
@@ -209,9 +229,11 @@ export const caseStudies: CaseStudy[] = [
       src: "/embodiment/session.png",
       alt: "A participant in the lab operating the EMG-controlled prosthetic hand to grasp a wooden block.",
     },
+    eyebrow: "23 participants · within-subject",
     figure: {
       src: "/embodiment/setup.jpg",
       alt: "The study setup: a participant in a lab coat grasps a wooden block with the EMG-controlled prosthetic hand, with an occluding screen between them and the hand, and a motion-capture camera on a tripod behind.",
+      fit: "cover",
       width: 1179,
       height: 800,
     },
@@ -281,6 +303,13 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcome:
       "Won Most User-Centered Design by asking why a student opens the app at all.",
+    shot: {
+      src: "/uc-davis/home.png",
+      alt: "The redesigned myucdavis home screen, leading with the student's schedule instead of an events feed.",
+      fit: "cover",
+      width: 331,
+      height: 709,
+    },
     category: "product",
     monogram: "UC",
     icon: "/icons/ucdavis.png",
@@ -341,6 +370,15 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcome:
       "Built end to end, intake through match. Not yet deployed to real users.",
+    /* The intake screenshot is a wall of body text and reads as noise at card
+       size; the case list shows the product's actual shape at a glance. */
+    shot: {
+      src: "/casebase/marketplace.png",
+      alt: "The CaseBase client case list, showing matched cases by type and date.",
+      fit: "cover",
+      width: 1800,
+      height: 1037,
+    },
     category: "product",
     monogram: "CB",
     icon: "/icons/casebase.png",
@@ -413,9 +451,13 @@ export const caseStudies: CaseStudy[] = [
     /* Panel A only. The published figure has three panels and is unreadable
        at card width; this is the one that carries the finding. The full
        figure still runs at full size inside the case study. */
+    /* Deliberately no respondent count: the number is not recorded anywhere in
+       this content, and the four professional groups are. */
+    eyebrow: "4 professions · cross-professional survey",
     figure: {
       src: "/survey/usage-panel-a.png",
       alt: "Bar chart of the percent of each profession (PT/OT, prosthetists, physicians, researchers) that uses each of twelve task-based assessments, with Kruskal-Wallis p-values down the right-hand side. The Box and Block Test is highest across every group.",
+      fit: "contain",
       width: 1350,
       height: 840,
     },
@@ -486,6 +528,13 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcome:
       "Camera, lidar, IMU and ultrasonic beacons fused into a working SLAM map.",
+    shot: {
+      src: "/robotics/perception-rover.jpg",
+      alt: "The test rover carrying a 360 degree lidar, a camera and ultrasonic beacons.",
+      fit: "cover",
+      width: 1200,
+      height: 1600,
+    },
     category: "product",
     monogram: "AV",
     icon: "/icons/autonomous.png",

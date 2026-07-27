@@ -2,142 +2,115 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import SectionTitle from "@/components/SectionTitle";
-import { productStudies } from "@/content/case-studies";
+import { productStudies, type CaseStudy } from "@/content/case-studies";
 
 /*
-  Products render as a row of app-icon tiles. Published tiles link to
-  their case study; coming-soon tiles are quietly disabled.
+  One lead story and three briefs, the way a page of a magazine is set.
+
+  The app-icon tiles are gone. An icon says what a thing is called; a
+  screenshot says what it is, and for a reader deciding whether this person
+  ships, that is the whole question. The one product real people depend on
+  daily gets the lead slot and twice the width.
 */
-/*
-  Only "in-use" earns the pulsing dot. A demo or a prototype says what it is,
-  because a badge that overstates is the fastest way to lose a careful reader.
-*/
-function Badge({ label, kind }: { label: string; kind: string }) {
-  const inUse = kind === "in-use";
-  return (
-    <span className="absolute right-3 top-3 z-10 flex items-center gap-1.5 rounded-full border border-line bg-cream/95 px-2.5 py-1 shadow-sm">
-      {inUse ? (
-        <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#3f9b5b] opacity-75 motion-reduce:hidden" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-[#3f9b5b]" />
-        </span>
-      ) : (
-        <span className="h-1.5 w-1.5 rounded-full bg-ink-soft/45" />
-      )}
-      <span className="smallcaps text-[0.65rem] leading-none text-ink">
-        {label}
-      </span>
-    </span>
-  );
+
+/* Phone screenshots are far taller than wide and must anchor to the top or
+   the frame shows a strip of the middle of a scrolling view. Photographs
+   centre. The ratio tells them apart without another content field. */
+function objectPosition(image: { width?: number; height?: number }) {
+  const { width, height } = image;
+  if (width && height && width / height < 0.6) return "object-top";
+  return "object-center";
 }
 
-function Tile({
-  monogram,
-  icon,
-  title,
-  live,
-  badge,
-}: {
-  monogram: string;
-  icon?: string;
-  title: string;
-  live: boolean;
-  badge?: { label: string; kind: string };
-}) {
-  return (
-    <div className="relative">
-      {badge && <Badge label={badge.label} kind={badge.kind} />}
-      <div
-        className={`flex aspect-square w-full items-center justify-center overflow-hidden rounded-3xl border transition-all ${
-          live
-            ? "border-line bg-cream-deep group-hover:border-gold group-hover:-translate-y-1 group-hover:shadow-[0_10px_30px_rgba(43,38,34,0.12)]"
-            : "border-dashed border-line bg-cream-deep/40"
-        }`}
-      >
-        {icon ? (
-          <Image
-            src={icon}
-            alt={`${title} app icon`}
-            width={220}
-            height={220}
-            sizes="(min-width: 640px) 12rem, 40vw"
-            className="h-3/5 w-3/5 rounded-[22%]"
-          />
-        ) : (
-          <span
-            className={`font-display text-4xl font-semibold md:text-5xl ${
-              live ? "text-maroon" : "text-ink-soft/50"
-            }`}
-          >
-            {monogram}
-          </span>
-        )}
-      </div>
-    </div>
-  );
+/* Drawn from the study's own "Status" spec row, so a card can never overstate
+   what has actually shipped. */
+function statusOf(cs: CaseStudy): string | undefined {
+  return cs.spec?.find((row) => row.k === "Status")?.v;
 }
 
 export default function Projects() {
+  const [lead, ...rest] = productStudies;
+
   return (
-    <section id="work" className="border-t border-line py-14 md:py-20">
-      <div className="mx-auto max-w-5xl px-6 md:px-8">
+    <section id="work" className="wrap pb-18 md:pb-24">
+      <Reveal>
+        <SectionTitle title="Products and Engineering Work" />
+      </Reveal>
+
+      {lead && (
         <Reveal>
-          <SectionTitle title="Products and Engineering Work" />
+          <Link
+            href={`/work/${lead.slug}`}
+            className="group mt-8 grid items-center gap-8 rounded-card border border-line bg-paper-deep p-6 md:grid-cols-[1fr_23.75rem] md:gap-11 md:p-8"
+          >
+            <div className="flex flex-col gap-3.5">
+              {statusOf(lead) && (
+                <p className="eyebrow text-crimson">
+                  <span aria-hidden="true">●</span> {statusOf(lead)}
+                </p>
+              )}
+              <h3 className="display text-2xl md:text-[1.8125rem]">
+                {lead.title}
+              </h3>
+              <p className="max-w-[58ch] text-[1.0625rem] leading-relaxed text-ink/72">
+                {lead.oneLiner}
+              </p>
+              <span className="text-sm text-crimson group-hover:underline">
+                Open case study <span aria-hidden="true">→</span>
+              </span>
+            </div>
+            {lead.shot && (
+              <Image
+                src={lead.shot.src}
+                alt={lead.shot.alt}
+                width={lead.shot.width ?? 800}
+                height={lead.shot.height ?? 600}
+                sizes="(min-width: 768px) 23.75rem, 100vw"
+                className={`h-52 w-full rounded-card bg-white object-cover md:h-[17.5rem] ${objectPosition(lead.shot)}`}
+              />
+            )}
+          </Link>
         </Reveal>
-        <Reveal>
-          {/* Two up on phones. At one column the app icon renders as a 342px
-              square, which made this section longer than the research on a
-              phone: the most decorative thing on the page taking the most
-              room on the smallest screen. */}
-          <ul className="grid grid-cols-2 gap-x-5 gap-y-8 sm:gap-x-8 lg:grid-cols-4">
-            {productStudies.map((cs) => {
-              const live = cs.status === "published";
-              const inner = (
-                <>
-                  <Tile
-                    monogram={cs.monogram ?? cs.title[0]}
-                    icon={cs.icon}
-                    title={cs.title}
-                    live={live}
-                    badge={cs.badge}
+      )}
+
+      <Reveal>
+        {/* Phones get horizontal rows, not stacked cards. Three full-width
+            cards with 200px images cost most of a screen each; as rows with a
+            thumbnail they cost a third of that and lose no information. */}
+        <ul className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {rest.map((cs) => (
+            <li key={cs.slug}>
+              <Link
+                href={`/work/${cs.slug}`}
+                className="group grid h-full grid-cols-[6rem_1fr] items-start gap-4 sm:flex sm:flex-col sm:gap-3.5"
+              >
+                {cs.shot && (
+                  <Image
+                    src={cs.shot.src}
+                    alt={cs.shot.alt}
+                    width={cs.shot.width ?? 800}
+                    height={cs.shot.height ?? 600}
+                    sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 6rem"
+                    className={`h-24 w-full rounded-card border border-line bg-white object-cover sm:h-[12.5rem] ${objectPosition(cs.shot)}`}
                   />
-                  <div className="mt-4">
-                    <h3 className="font-display text-xl font-medium text-ink transition-colors group-hover:text-maroon">
-                      {cs.title}
-                    </h3>
-                    {/* The outcome, not the description. The tile and the
-                        title already say what the thing is. */}
-                    <p className="mt-1 text-[0.95rem] leading-snug text-ink-soft">
-                      {cs.outcome ?? cs.oneLiner}
-                    </p>
-                    {live ? (
-                      <p className="mt-3 text-[0.9rem] font-semibold text-maroon">
-                        Open case study <span aria-hidden="true">→</span>
-                      </p>
-                    ) : (
-                      <p className="smallcaps mt-3 text-gold-deep">Coming soon</p>
-                    )}
-                  </div>
-                </>
-              );
-              return (
-                <li key={cs.slug}>
-                  {live ? (
-                    <Link
-                      href={`/work/${cs.slug}`}
-                      className="group block rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-maroon"
-                    >
-                      {inner}
-                    </Link>
-                  ) : (
-                    <div className="group block">{inner}</div>
+                )}
+                <div className="flex h-full flex-col gap-2 sm:contents">
+                  {statusOf(cs) && (
+                    <p className="eyebrow text-ink/45">{statusOf(cs)}</p>
                   )}
-                </li>
-              );
-            })}
-          </ul>
-        </Reveal>
-      </div>
+                  <h3 className="display text-xl md:text-2xl">{cs.title}</h3>
+                  <p className="text-[0.9375rem] leading-relaxed text-ink/68">
+                    {cs.outcome ?? cs.oneLiner}
+                  </p>
+                  <span className="mt-auto pt-1 text-sm text-crimson group-hover:underline">
+                    Open case study <span aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Reveal>
     </section>
   );
 }

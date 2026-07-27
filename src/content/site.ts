@@ -1,9 +1,10 @@
 export const site = {
   name: "Momchil Gavrilov",
   role: "Human factors & UX researcher",
-  /* Split so the accent word stays content, not markup. Only one word is ever
-     set in maroon italic; that pattern is deliberate and does not change. */
-  tagline: { lead: "I design technology that people", accent: "adopt" },
+  /* Split so the accent word stays content, not markup. Exactly one word is
+     ever set in navy italic; that pattern is deliberate and does not change.
+     The word itself moved from "adopt" to "trust" in the 2c design. */
+  tagline: { lead: "I design technology that people", accent: "trust" },
   degree: "M.S. Biomedical Engineering, UC Davis",
   email: "mc.g.gavrilov@gmail.com",
   linkedin: {
@@ -24,18 +25,16 @@ export const site = {
   },
 };
 
-/* The hero carries one real study photograph rather than decoration. A reader
-   screening for medical device human factors is looking for evidence that a
-   study actually happened with actual people; this is the fastest way to give
-   it to them, and it links straight into the deepest case study on the site. */
-export const heroArtifact = {
-  src: "/embodiment/hero-hand.jpg",
-  width: 640,
-  height: 400,
-  alt: "A black EMG-controlled prosthetic hand closing around a wooden block on a covered table, worn on the arm of a participant in a lab coat.",
-  spec: ["23 participants", "Within-subject", "EMG-controlled prosthesis"],
-  caption: "Measuring what makes a prosthetic hand feel like part of your body.",
-  href: "/work/prosthetic-embodiment",
+/* The portrait returns to full size in this design, as a bordered card with a
+   navy identity plate beneath it. It is a filing card, not a hero image: the
+   thesis holds the headline and the face sits beside it, captioned. The study
+   photographs moved down into the research rows, where each one sits with the
+   study it came from. */
+export const portrait = {
+  src: "/headshot-portrait-b.png",
+  width: 760,
+  height: 950,
+  alt: "Portrait of Momchil Gavrilov",
 };
 
 /* One-glance credibility, answering "is this person real" before any reading.
@@ -83,10 +82,9 @@ export const throughline = [
 
 /* Labelled as learning on purpose. He is reading toward medical device work
    and has not yet worked under these standards; claiming otherwise would not
-   survive the first interview question. It sits down beside the contact block
-   rather than in the top screen, so the second thing a medical device reader
-   learns is not what he has yet to do. */
-export const standardsNote = "Reading toward medical device work";
+   survive the first interview question. The one-word label does the whole job:
+   it reads as a candidate skilling up rather than as a credential claim. */
+export const standardsNote = "Learning";
 export const standards = [
   "FDA HFE Guidance",
   "IEC 62366-1",

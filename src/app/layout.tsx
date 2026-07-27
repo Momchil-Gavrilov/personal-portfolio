@@ -1,18 +1,31 @@
 import type { Metadata } from "next";
-import { Fraunces, Source_Sans_3 } from "next/font/google";
+import { IBM_Plex_Mono, Instrument_Sans, Newsreader } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+/*
+  Three faces, three jobs. Instrument Sans sets everything structural, IBM
+  Plex Mono is reserved for eyebrows, years and other instrumentation, and
+  Newsreader appears exactly once, on the story's opening line, where the
+  page stops arguing and starts talking.
+*/
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
   subsets: ["latin"],
   display: "swap",
-  axes: ["opsz"],
 });
 
-const sourceSans = Source_Sans_3({
-  variable: "--font-source-sans",
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
   subsets: ["latin"],
   display: "swap",
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +40,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${sourceSans.variable}`}>
+    <html
+      lang="en"
+      className={`${instrumentSans.variable} ${plexMono.variable} ${newsreader.variable}`}
+    >
       {/*
         Browser extensions (password managers, Grammarly and similar) inject
         attributes onto <body> before React hydrates, which React reports as a

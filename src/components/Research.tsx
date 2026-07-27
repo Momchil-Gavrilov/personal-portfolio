@@ -1,103 +1,101 @@
 import Image from "next/image";
 import Link from "next/link";
-import Publications from "@/components/Publications";
 import Reveal from "@/components/Reveal";
 import SectionTitle from "@/components/SectionTitle";
 import { researchStudies } from "@/content/case-studies";
 
 /*
-  Evidence cards, not list rows.
+  Full-width alternating rows, on the page's one tinted band.
 
-  This is the section that decides whether a medical device reader keeps going,
-  so it gets the weight: the real figure at a size you can actually read, the
-  specification a reviewer scans for, and the finding with its statistic left
-  visible. Everything here is already in the case study; the point is that a
-  reader who never opens one still leaves knowing what was measured and what
-  came out of it.
+  This is the section that decides whether a medical device reader keeps
+  going, so it gets the width: a photograph of the actual session at half the
+  page, the scale of the study in the eyebrow, and the finding with its
+  statistic called out under a label so it cannot be missed by someone
+  scanning. A reader who never opens a case study still leaves knowing what
+  was measured and what came out of it.
 
-  The figure alternates sides so three stacked cards do not read as a template.
+  The figure alternates sides so three stacked rows do not read as a template.
 */
 export default function Research() {
   return (
-    <section id="research" className="border-t border-line py-14 md:py-20">
-      <div className="mx-auto max-w-5xl px-6 md:px-8">
+    <section id="research" className="bg-paper-deep py-16 md:py-20">
+      <div className="wrap">
         <Reveal>
           <SectionTitle title="Human Factors Research" />
         </Reveal>
 
-        <ol className="flex list-none flex-col gap-12 md:gap-16">
+        <ol className="mt-12 flex list-none flex-col gap-14 md:gap-16">
           {researchStudies.map((cs, i) => {
             const flip = i % 2 === 1;
             return (
               <li key={cs.slug}>
                 <Reveal>
-                  <article className="grid items-center gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:gap-10">
+                  <Link
+                    href={`/work/${cs.slug}`}
+                    className="group grid items-center gap-8 md:grid-cols-2 md:gap-12"
+                  >
                     {cs.figure && (
-                      <figure
-                        className={
-                          flip ? "md:order-2 md:col-start-2" : undefined
-                        }
+                      <div
+                        className={`overflow-hidden rounded-card border border-line bg-white ${
+                          flip ? "md:order-1" : "md:order-2"
+                        }`}
                       >
-                        <div className="overflow-hidden rounded-xl border border-line bg-cream-deep">
-                          <Image
-                            src={cs.figure.src}
-                            alt={cs.figure.alt}
-                            width={cs.figure.width ?? 1200}
-                            height={cs.figure.height ?? 800}
-                            sizes="(min-width: 768px) 30rem, 100vw"
-                            className="h-auto w-full"
-                          />
-                        </div>
-                      </figure>
+                        <Image
+                          src={cs.figure.src}
+                          alt={cs.figure.alt}
+                          width={cs.figure.width ?? 1200}
+                          height={cs.figure.height ?? 800}
+                          sizes="(min-width: 768px) 34rem, 100vw"
+                          className={`aspect-4/3 w-full ${
+                            cs.figure.fit === "contain"
+                              ? "object-contain p-2"
+                              : "object-cover"
+                          }`}
+                        />
+                      </div>
                     )}
 
-                    <div className={flip ? "md:order-1 md:row-start-1" : undefined}>
-                      <h3 className="font-display text-2xl font-medium leading-snug text-ink md:text-[1.75rem]">
+                    <div
+                      className={`flex flex-col gap-[1.125rem] ${
+                        flip ? "md:order-2" : "md:order-1"
+                      }`}
+                    >
+                      <p className="eyebrow text-crimson">
+                        {String(i + 1).padStart(2, "0")}
+                        {cs.eyebrow ? ` — ${cs.eyebrow}` : ""}
+                      </p>
+
+                      <h3 className="display text-[1.625rem] md:text-[2.125rem]">
                         {cs.title}
                       </h3>
 
-                      {cs.spec && (
-                        <dl className="mt-5 grid grid-cols-2 gap-x-5 gap-y-3 border-y border-line py-4">
-                          {cs.spec.map((row) => (
-                            <div key={row.k}>
-                              <dt className="smallcaps text-[0.65rem] text-ink-soft">
-                                {row.k}
-                              </dt>
-                              <dd className="mt-0.5 text-[0.9rem] font-semibold leading-snug text-ink">
-                                {row.v}
-                              </dd>
-                            </div>
-                          ))}
-                        </dl>
-                      )}
-
-                      {cs.finding && (
-                        <p className="mt-5 font-display text-lg leading-snug text-ink">
-                          {cs.finding}
-                        </p>
-                      )}
-
-                      <p className="mt-5 text-[0.95rem] font-semibold text-maroon">
-                        <Link
-                          href={`/work/${cs.slug}`}
-                          className="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon hover:underline"
-                        >
-                          Read the case study <span aria-hidden="true">→</span>
-                        </Link>
+                      <p className="max-w-[44ch] text-[1.0625rem] leading-relaxed text-ink/75 md:text-[1.1875rem]">
+                        {cs.oneLiner}
                       </p>
+
+                      {/* Labelled, because a reader scanning for evidence
+                          should not have to work out which sentence is the
+                          result. The navy rule is the same one used on the
+                          stat figures above: it marks a measured thing. */}
+                      {cs.finding && (
+                        <div className="border-l-2 border-navy pl-5">
+                          <p className="eyebrow text-ink/45">Finding</p>
+                          <p className="mt-2 max-w-[46ch] text-[1.0625rem] leading-relaxed">
+                            {cs.finding}
+                          </p>
+                        </div>
+                      )}
+
+                      <span className="text-sm text-crimson group-hover:underline">
+                        Read the case study <span aria-hidden="true">→</span>
+                      </span>
                     </div>
-                  </article>
+                  </Link>
                 </Reveal>
               </li>
             );
           })}
         </ol>
-
-        {/* Publications are part of this section, not a coda: they came out
-            of the studies listed above, so they hang off the same list. */}
-        <div className="mt-10 border-t border-line md:mt-12">
-          <Publications />
-        </div>
       </div>
     </section>
   );

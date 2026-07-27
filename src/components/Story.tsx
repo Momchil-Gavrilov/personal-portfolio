@@ -1,40 +1,58 @@
-import Reveal from "@/components/Reveal";
+"use client";
+
+import { useState } from "react";
 import SectionTitle from "@/components/SectionTitle";
 import { story, storyTitle } from "@/content/site";
 
-/* Serifed I and J need a tighter gap so the opening word does not read as two. */
-function dropCapClass(paragraph: string): string {
-  return /^[IJ]/.test(paragraph) ? "drop-cap drop-cap-narrow" : "drop-cap";
-}
-
 /*
-  The words are finished; the container was not. Five paragraphs in one column
-  cost a full screen on desktop and 1,300px on a phone, arriving exactly where
-  a reader is deciding whether to stop. Two columns halve the perceived length
-  without cutting a sentence. Phones stay single column, where two would be
-  unreadable.
+  The words are finished; the container was not.
+
+  The opening paragraph is set in the page's only serif, at pull-quote size,
+  because it is the one moment the site stops making a case and just talks.
+  The two paragraphs that follow it are the ones a hurried reader can skip
+  without losing the thread, so they start collapsed. Nothing is rewritten
+  and nothing is cut; the full text is one click away and reads in its
+  original order when it opens.
 */
+const LEAD = 0;
+const FOLDED = [1, 2];
+const ALWAYS = [3, 4];
+
 export default function Story() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <section id="story" className="border-t border-line py-14 md:py-20">
-      <div className="mx-auto max-w-5xl px-6 md:px-8">
-        <Reveal>
+    <section id="story" className="bg-paper-deep py-16 md:py-[4.5rem]">
+      <div className="wrap grid gap-10 md:grid-cols-2 md:gap-14">
+        <div className="flex flex-col gap-5">
           <SectionTitle title={storyTitle} />
-        </Reveal>
-        <Reveal>
-          <div className="max-w-measure md:max-w-none md:columns-2 md:gap-12">
-            {story.map((paragraph, i) => (
-              <p
-                key={i}
-                className={`mb-5 break-inside-avoid last:mb-0 ${
-                  i === 0 ? dropCapClass(paragraph) : ""
-                }`}
-              >
-                {paragraph}
+          <p className="font-serif text-[1.375rem] leading-[1.45] text-ink/90 md:text-[1.625rem]">
+            {story[LEAD]}
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {open &&
+            FOLDED.map((i) => (
+              <p key={i} className="leading-[1.75] text-ink/75">
+                {story[i]}
               </p>
             ))}
-          </div>
-        </Reveal>
+          {ALWAYS.map((i) => (
+            <p key={i} className="leading-[1.75] text-ink/75">
+              {story[i]}
+            </p>
+          ))}
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            className="self-start text-sm text-crimson hover:underline"
+          >
+            {open ? "Show less" : "Read the full story"}{" "}
+            <span aria-hidden="true">{open ? "↑" : "→"}</span>
+          </button>
+        </div>
       </div>
     </section>
   );

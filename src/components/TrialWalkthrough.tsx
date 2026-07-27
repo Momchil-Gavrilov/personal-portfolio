@@ -53,8 +53,8 @@ export default function TrialWalkthrough() {
 
   return (
     <figure className="mt-8">
-      <div className="rounded-2xl border border-line bg-cream-deep p-4 shadow-[0_4px_24px_rgba(43,38,34,0.10)]">
-        <div className="relative overflow-hidden rounded-lg">
+      <div className="rounded-card border border-line bg-paper-deep p-4">
+        <div className="relative overflow-hidden rounded-card">
           <Image
             src="/agency/trial.png"
             alt="The trial filmstrip from the paper's Figure 1: an intended movement, a delay and a tone, then the same movement made passively with its own delay and tone, and finally the question asking which delay was shorter."
@@ -67,23 +67,23 @@ export default function TrialWalkthrough() {
               covered, so the highlight is always exactly one segment wide. */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 left-0 bg-cream-deep/80 transition-[width] duration-300 motion-reduce:transition-none"
+            className="pointer-events-none absolute inset-y-0 left-0 bg-paper-deep/80 transition-[width] duration-300 motion-reduce:transition-none"
             style={{ width: `${step.from}%` }}
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 right-0 bg-cream-deep/80 transition-[width] duration-300 motion-reduce:transition-none"
+            className="pointer-events-none absolute inset-y-0 right-0 bg-paper-deep/80 transition-[width] duration-300 motion-reduce:transition-none"
             style={{ width: `${100 - step.to}%` }}
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 rounded-sm ring-2 ring-inset ring-maroon transition-all duration-300 motion-reduce:transition-none"
+            className="pointer-events-none absolute inset-y-0 ring-2 ring-inset ring-navy transition-all duration-300 motion-reduce:transition-none"
             style={{ left: `${step.from}%`, width: `${step.to - step.from}%` }}
           />
         </div>
 
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-          <p className="smallcaps text-ink-soft">
+          <p className="eyebrow text-ink/45">
             Step {i + 1} of {STEPS.length}
           </p>
           <div className="flex items-center gap-2">
@@ -91,7 +91,7 @@ export default function TrialWalkthrough() {
               type="button"
               onClick={() => setI((n) => Math.max(0, n - 1))}
               disabled={i === 0}
-              className="rounded-full border border-line px-4 py-1.5 text-[0.85rem] transition-colors hover:border-maroon hover:text-maroon disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-line disabled:hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon"
+              className="rounded-btn border border-line-strong px-4 py-1.5 text-[0.85rem] transition-colors hover:border-ink disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-line-strong"
             >
               <span aria-hidden="true">←</span> Back
             </button>
@@ -99,7 +99,7 @@ export default function TrialWalkthrough() {
               type="button"
               onClick={() => setI((n) => Math.min(STEPS.length - 1, n + 1))}
               disabled={i === STEPS.length - 1}
-              className="rounded-full bg-maroon px-4 py-1.5 text-[0.85rem] text-cream transition-colors hover:bg-maroon-deep disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-maroon focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-maroon"
+              className="rounded-btn bg-navy px-4 py-1.5 text-[0.85rem] text-paper transition-colors hover:bg-navy-deep disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-navy"
             >
               Next <span aria-hidden="true">→</span>
             </button>
@@ -107,15 +107,18 @@ export default function TrialWalkthrough() {
         </div>
 
         {/* Fixed height so stepping through does not shuffle the page. */}
-        <div aria-live="polite" className="mt-4 border-t border-line pt-4 md:min-h-[5.5rem]">
-          <p className="smallcaps text-maroon">{step.label}</p>
-          <p className="mt-1.5 max-w-measure text-[0.95rem] leading-snug text-ink-soft">
+        <div
+          aria-live="polite"
+          className="mt-4 border-t border-line pt-4 md:min-h-[5.5rem]"
+        >
+          <p className="eyebrow text-crimson">{step.label}</p>
+          <p className="mt-2 max-w-measure text-[0.95rem] leading-snug text-ink/70">
             {step.text}
           </p>
         </div>
       </div>
 
-      <figcaption className="mt-3 text-[0.9rem] text-ink-soft">
+      <figcaption className="mt-3 text-[0.9rem] text-ink/55">
         One trial, from the paper&rsquo;s Figure 1. Participants judged an
         intended movement against a passive one, and only the intention differed.
       </figcaption>
