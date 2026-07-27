@@ -26,7 +26,6 @@ export default function Hero() {
             <em className="font-normal italic text-navy">
               {site.tagline.accent}
             </em>
-            .
           </h1>
 
           <div className="flex flex-col gap-1.5">

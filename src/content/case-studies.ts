@@ -7,6 +7,10 @@ export type CaseStudyImage = {
   /* How the image fills a fixed frame. Photographs crop happily; a chart or a
      labelled figure must never be cropped, so it letterboxes instead. */
   fit?: "cover" | "contain";
+  /* The device a product screenshot is shown in. A phone screenshot cropped
+     into a landscape box reads as a fragment; in a phone it reads as a
+     product. Web apps get a browser, photographs get nothing. */
+  frame?: "phone" | "browser" | "bare";
   /* Intrinsic pixel dimensions, for correct aspect ratio */
   width?: number;
   height?: number;
@@ -90,7 +94,7 @@ export const caseStudies: CaseStudy[] = [
     shot: {
       src: "/wellspring/manager-dashboard.png",
       alt: "The Wellspring manager view on a phone: a New Donation button, a month calendar marking days with donations, and buttons for the Master Sheet and Catalog.",
-      fit: "cover",
+      frame: "phone",
       width: 860,
       height: 1864,
     },
@@ -306,7 +310,7 @@ export const caseStudies: CaseStudy[] = [
     shot: {
       src: "/uc-davis/home.png",
       alt: "The redesigned myucdavis home screen, leading with the student's schedule instead of an events feed.",
-      fit: "cover",
+      frame: "phone",
       width: 331,
       height: 709,
     },
@@ -375,7 +379,7 @@ export const caseStudies: CaseStudy[] = [
     shot: {
       src: "/casebase/marketplace.png",
       alt: "The CaseBase client case list, showing matched cases by type and date.",
-      fit: "cover",
+      frame: "browser",
       width: 1800,
       height: 1037,
     },
@@ -528,8 +532,11 @@ export const caseStudies: CaseStudy[] = [
       "Camera, lidar, IMU and ultrasonic beacons fused into a working SLAM map.",
     shot: {
       src: "/robotics/perception-rover.jpg",
+      /* The rover, not the Kia. The Kia project is early: sensors on order,
+         not his selection, architecture only. A photograph of it would look
+         more impressive than the work behind it currently is. */
       alt: "The test rover carrying a 360 degree lidar, a camera and ultrasonic beacons.",
-      fit: "cover",
+      frame: "bare",
       width: 1200,
       height: 1600,
     },

@@ -6,22 +6,18 @@ import { publications } from "@/content/publications";
   they cost one row of height until someone asks. Native <details> keeps it
   keyboard accessible with no JavaScript.
 
-  The summary counts peer-reviewed entries separately from the total, because
-  the list below labels each venue honestly and the two numbers have to agree
-  with each other on sight.
+  The summary states the count and nothing about review status. Every venue is
+  named exactly in the rows below, and a scientific reader reads "Research
+  Square (preprint)" correctly without being told what it means.
 */
 export default function Publications() {
-  const reviewed = publications.filter((p) => p.peerReviewed).length;
-
   return (
     <section id="publications" className="wrap py-10 md:py-12">
       <details className="group">
         <summary className="flex cursor-pointer list-none items-center gap-3 border-y border-line py-5 [&::-webkit-details-marker]:hidden">
-          <span className="eyebrow text-ink/45">
-            Publications
-          </span>
+          <span className="eyebrow text-ink/45">Publications</span>
           <span className="text-[1.0625rem]">
-            {reviewed} peer-reviewed, {publications.length} total
+            {publications.length} papers, with venues
           </span>
           <span
             aria-hidden="true"

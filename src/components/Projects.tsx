@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import DeviceFrame from "@/components/DeviceFrame";
 import Reveal from "@/components/Reveal";
 import SectionTitle from "@/components/SectionTitle";
 import { productStudies, type CaseStudy } from "@/content/case-studies";
@@ -12,15 +13,6 @@ import { productStudies, type CaseStudy } from "@/content/case-studies";
   ships, that is the whole question. The one product real people depend on
   daily gets the lead slot and twice the width.
 */
-
-/* Phone screenshots are far taller than wide and must anchor to the top or
-   the frame shows a strip of the middle of a scrolling view. Photographs
-   centre. The ratio tells them apart without another content field. */
-function objectPosition(image: { width?: number; height?: number }) {
-  const { width, height } = image;
-  if (width && height && width / height < 0.6) return "object-top";
-  return "object-center";
-}
 
 /* Drawn from the study's own "Status" spec row, so a card can never overstate
    what has actually shipped. */
@@ -60,13 +52,10 @@ export default function Projects() {
               </span>
             </div>
             {lead.shot && (
-              <Image
-                src={lead.shot.src}
-                alt={lead.shot.alt}
-                width={lead.shot.width ?? 800}
-                height={lead.shot.height ?? 600}
-                sizes="(min-width: 768px) 23.75rem, 100vw"
-                className={`h-52 w-full rounded-card bg-white object-cover md:h-[17.5rem] ${objectPosition(lead.shot)}`}
+              <DeviceFrame
+                image={lead.shot}
+                sizes="(min-width: 768px) 12rem, 9rem"
+                className="h-64 w-full md:h-[19rem]"
               />
             )}
           </Link>
@@ -85,14 +74,26 @@ export default function Projects() {
                 className="group grid h-full grid-cols-[6rem_1fr] items-start gap-4 sm:flex sm:flex-col sm:gap-3.5"
               >
                 {cs.shot && (
-                  <Image
-                    src={cs.shot.src}
-                    alt={cs.shot.alt}
-                    width={cs.shot.width ?? 800}
-                    height={cs.shot.height ?? 600}
-                    sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 6rem"
-                    className={`h-24 w-full rounded-card border border-line bg-white object-cover sm:h-[12.5rem] ${objectPosition(cs.shot)}`}
-                  />
+                  <>
+                    {/* Phones get a plain square crop. In the 96px thumbnail
+                        of the row layout a device bezel renders the screen
+                        itself about 20px wide, which shows nothing at all. */}
+                    <Image
+                      src={cs.shot.src}
+                      alt={cs.shot.alt}
+                      width={cs.shot.width ?? 800}
+                      height={cs.shot.height ?? 600}
+                      sizes="6rem"
+                      className="h-24 w-full rounded-card border border-line bg-white object-cover object-top sm:hidden"
+                    />
+                    <div className="hidden sm:block sm:h-[13.5rem]">
+                      <DeviceFrame
+                        image={cs.shot}
+                        sizes="20rem"
+                        className="h-full w-full"
+                      />
+                    </div>
+                  </>
                 )}
                 <div className="flex h-full flex-col gap-2 sm:contents">
                   {statusOf(cs) && (

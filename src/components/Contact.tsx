@@ -1,15 +1,13 @@
 import Reveal from "@/components/Reveal";
-import { contact, site, standards, standardsNote } from "@/content/site";
+import { contact, site } from "@/content/site";
 
 /*
-  The availability IS the heading, at close to hero scale. Everything else on
-  this screen is a way to act on it.
-
-  The standards row sits down here on purpose. Volunteering what you are still
-  learning is a trust signal, but only after the evidence has landed. Up beside
-  the credentials it invites the reader to weigh six things he has not done
-  against four things he has, in the same glance, before he has earned any
-  credit. Here it reads as a candidate who knows exactly what the gap is.
+  The whole site exists to produce one action, and this is where it is asked
+  for. "Open to opportunities" described a state; it did not ask for anything,
+  and it put the reader's next move on the reader. "Let's talk" is the action,
+  and the line under it lowers the cost of taking it by naming what a call is
+  actually for: finding out whether he is useful to them, which is their
+  question rather than his.
 */
 export default function Contact() {
   return (
@@ -17,9 +15,12 @@ export default function Contact() {
       <div className="wrap flex flex-col gap-7 pt-20 pb-14 md:pt-[5.5rem]">
         <Reveal>
           <h2 className="display-xl text-[2.5rem] sm:text-5xl lg:text-[4.1875rem]">
-            Open to{" "}
-            <em className="font-normal italic text-navy">opportunities</em>.
+            Let&rsquo;s <em className="font-normal italic text-navy">talk</em>
           </h2>
+          <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-ink/70">
+            A short call is usually enough to work out whether I would be
+            useful to you.
+          </p>
         </Reveal>
 
         <Reveal>
@@ -60,22 +61,6 @@ export default function Contact() {
             >
               GitHub
             </a>
-          </div>
-        </Reveal>
-
-        <Reveal>
-          <div className="mt-6 border-t border-line pt-7 md:flex md:items-baseline md:gap-5">
-            <h3 className="eyebrow shrink-0 text-ink/45">{standardsNote}</h3>
-            <ul className="mt-3 flex flex-wrap gap-2 md:mt-0">
-              {standards.map((standard) => (
-                <li
-                  key={standard}
-                  className="rounded-card bg-chip px-[0.8125rem] py-[0.4375rem] text-[0.8125rem]"
-                >
-                  {standard}
-                </li>
-              ))}
-            </ul>
           </div>
         </Reveal>
       </div>

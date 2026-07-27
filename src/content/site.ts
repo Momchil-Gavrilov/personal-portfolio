@@ -40,57 +40,70 @@ export const portrait = {
 /* One-glance credibility, answering "is this person real" before any reading.
    Every figure here has to survive being asked about in an interview. */
 /*
-  "5 peer-reviewed" was not true and the page disproved it four screens later:
-  of the five entries, one is a preprint and one is under review. A reader who
-  opens the list finds the contradiction, and then has reason to doubt the
-  r = 0.70 as well. Three peer-reviewed papers before finishing a master's is
-  strong on its own; the inflated number bought nothing and risked everything.
+  Dropped the "peer-reviewed" qualifier rather than the count. All five are
+  real output, the list below names every venue exactly, and a scientific
+  reader reads "Research Square (preprint)" correctly without being told.
+  What is no longer here is a label the page itself contradicted.
+
+  "Sessions Run" replaces "Participants". The old figure summed everyone
+  across all four studies, including 100 survey respondents he did not field.
+  61 is the number he personally sat in a room with, and for a consultancy
+  asking whether a new hire can be put on a study next month, sessions
+  moderated is the more useful and the more defensible number.
 */
 export const proofPoints = [
-  { figure: "3", label: "Peer-Reviewed Publications" },
+  { figure: "5", label: "Publications" },
   { figure: "4", label: "Human Research Studies" },
-  { figure: "185", label: "Participants" },
+  { figure: "61", label: "Lab Sessions Run" },
   { figure: "1", label: "Product In Daily Use" },
 ];
 
-/* The through-line, drawn rather than argued. Written out as a sentence this
-   reads soft, which is why it has never been on the page; as four scales with
-   the study that measured each one, it is concrete and it is the thing that
-   makes the researcher, the builder and the roboticist read as one person.
-   Deliberately never uses the word "relationship". */
-export const throughlineTitle = "The Same Question, Four Scales";
+/*
+  The billability answer, in the slot the through-line used to hold.
 
-export const throughline = [
+  A consultancy hiring at entry level is asking one question before any other:
+  can this person be put on a study next month without someone standing over
+  them. Findings do not answer that. The unglamorous operational half does,
+  and it is the half a new graduate is least likely to be able to evidence.
+
+  Four stages of a real study, in order, each with the specific thing he did.
+  Every line is drawn from the "My role" spec of the studies below, so nothing
+  here is a claim the case studies do not already support. Stage four ends on
+  what he did NOT do on one study, because a reader who sees credit drawn
+  precisely stops wondering whether the rest is inflated.
+*/
+export const practiceTitle = "A Study, End to End";
+export const practiceDeck =
+  "What I personally did on the studies below.";
+
+export const practice = [
   {
-    scale: "The body",
-    question: "Does the hand become yours?",
-    study: "Prosthetic embodiment",
-    slug: "prosthetic-embodiment",
+    stage: "Protocol",
+    detail:
+      "I wrote the protocol and the IRB submission for the agency study, then defended the design choices that came out of review.",
   },
   {
-    scale: "The mind",
-    question: "Did you cause that, or did it just happen?",
-    study: "Sense of agency",
-    slug: "sense-of-agency",
+    stage: "Apparatus",
+    detail:
+      "The EMG prosthetic hand was not working when the embodiment study needed it. I restored it before we could run a single participant.",
   },
   {
-    scale: "The clinic",
-    question: "Do the experts trust the measure?",
-    study: "Prosthesis assessment",
-    slug: "prosthesis-assessment-survey",
+    stage: "Sessions",
+    detail:
+      "61 participants across the two lab studies, every session moderated in person, to the same script.",
   },
   {
-    scale: "The machine",
-    question: "What does it sense, and how sure is it?",
-    study: "Vehicle perception",
-    slug: "autonomous-perception",
+    stage: "Analysis",
+    detail:
+      "Mine on all three studies, including the survey, where the analysis and the figures were the whole of my contribution.",
   },
 ];
 
 /* Labelled as learning on purpose. He is reading toward medical device work
    and has not yet worked under these standards; claiming otherwise would not
    survive the first interview question. The label does the whole job, so it
-   never gets dressed up. It lives beside Contact, after the evidence. */
+   never gets dressed up. It sits under the credentials, where for a medical
+   device reader the vocabulary itself is worth something. */
 export const standardsNote = "Currently learning";
 export const standards = [
   "FDA HFE Guidance",
