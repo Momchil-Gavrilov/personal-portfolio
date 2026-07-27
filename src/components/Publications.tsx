@@ -1,32 +1,41 @@
-import Reveal from "@/components/Reveal";
 import { publications } from "@/content/publications";
 
 /*
-  Open, not collapsed.
+  Collapsed to a single line by default. The papers matter enormously to the
+  reader who wants them and are a screen of scrolling to everyone else, so
+  they cost one row of height until someone asks. Native <details> keeps it
+  keyboard accessible with no JavaScript.
 
-  In earlier versions this hid behind a disclosure to save height. For the
-  reader this site is aimed at, the paper list is not overhead: five
-  peer-reviewed entries with venues and years is the rarest thing on the page
-  and the one a research manager checks first. Set as a plain three-column
-  table, it costs about one screen and reads like a CV section, which is
-  exactly what it is.
+  The summary counts peer-reviewed entries separately from the total, because
+  the list below labels each venue honestly and the two numbers have to agree
+  with each other on sight.
 */
 export default function Publications() {
+  const reviewed = publications.filter((p) => p.peerReviewed).length;
+
   return (
-    <section id="publications" className="wrap py-16 md:py-20">
-      <Reveal>
-        <h2 className="display text-2xl md:text-4xl">
-          {publications.length} publications
-        </h2>
-      </Reveal>
-      <Reveal>
-        <ol className="mt-8 list-none">
-          {publications.map((pub, i) => (
+    <section id="publications" className="wrap py-10 md:py-12">
+      <details className="group">
+        <summary className="flex cursor-pointer list-none items-center gap-3 border-y border-line py-5 [&::-webkit-details-marker]:hidden">
+          <span className="eyebrow text-ink/45">
+            Publications
+          </span>
+          <span className="text-[1.0625rem]">
+            {reviewed} peer-reviewed, {publications.length} total
+          </span>
+          <span
+            aria-hidden="true"
+            className="ml-auto text-crimson transition-transform duration-300 group-open:rotate-90"
+          >
+            &rsaquo;
+          </span>
+        </summary>
+
+        <ol className="list-none">
+          {publications.map((pub) => (
             <li
               key={pub.title}
-              className={`grid grid-cols-[2.75rem_1fr] gap-x-4 gap-y-1 border-t border-line py-3.5 md:grid-cols-[4.375rem_1fr_17.5rem] md:gap-x-6 md:py-[1.125rem] ${
-                i === publications.length - 1 ? "border-b" : ""
-              }`}
+              className="grid grid-cols-[2.75rem_1fr] gap-x-4 gap-y-1 border-b border-line py-3.5 md:grid-cols-[4.375rem_1fr_17.5rem] md:gap-x-6 md:py-[1.125rem]"
             >
               <span className="font-mono text-xs tabular-nums text-ink/45">
                 {pub.year}
@@ -51,7 +60,7 @@ export default function Publications() {
             </li>
           ))}
         </ol>
-      </Reveal>
+      </details>
     </section>
   );
 }

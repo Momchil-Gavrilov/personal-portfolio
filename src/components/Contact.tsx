@@ -1,11 +1,15 @@
 import Reveal from "@/components/Reveal";
-import { contact, site } from "@/content/site";
+import { contact, site, standards, standardsNote } from "@/content/site";
 
 /*
   The availability IS the heading, at close to hero scale. Everything else on
-  this screen is a way to act on it. The standards row that used to sit down
-  here moved up beside the credentials, where it reads as a candidate skilling
-  up rather than as a footnote.
+  this screen is a way to act on it.
+
+  The standards row sits down here on purpose. Volunteering what you are still
+  learning is a trust signal, but only after the evidence has landed. Up beside
+  the credentials it invites the reader to weigh six things he has not done
+  against four things he has, in the same glance, before he has earned any
+  credit. Here it reads as a candidate who knows exactly what the gap is.
 */
 export default function Contact() {
   return (
@@ -56,6 +60,22 @@ export default function Contact() {
             >
               GitHub
             </a>
+          </div>
+        </Reveal>
+
+        <Reveal>
+          <div className="mt-6 border-t border-line pt-7 md:flex md:items-baseline md:gap-5">
+            <h3 className="eyebrow shrink-0 text-ink/45">{standardsNote}</h3>
+            <ul className="mt-3 flex flex-wrap gap-2 md:mt-0">
+              {standards.map((standard) => (
+                <li
+                  key={standard}
+                  className="rounded-card bg-chip px-[0.8125rem] py-[0.4375rem] text-[0.8125rem]"
+                >
+                  {standard}
+                </li>
+              ))}
+            </ul>
           </div>
         </Reveal>
       </div>

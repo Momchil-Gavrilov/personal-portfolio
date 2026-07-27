@@ -1,5 +1,5 @@
 import Reveal from "@/components/Reveal";
-import { proofPoints, standards, standardsNote } from "@/content/site";
+import { proofPoints } from "@/content/site";
 
 /*
   The credibility answer, catchable in one glance and before any reading.
@@ -9,10 +9,10 @@ import { proofPoints, standards, standardsNote } from "@/content/site";
   Each figure gets a navy rule over it rather than a box around it, so four
   numbers read as one instrument panel instead of four cards.
 
-  The standards row follows, labelled "Learning" and nothing else. He has
-  started reading these and has not worked under them; the label is the whole
-  honesty mechanism, so it never gets dressed up. Set small and grey, it reads
-  as a candidate skilling up, which is what it is.
+  Every figure here has to survive being opened and checked, because this is
+  the block a sceptical reader tests first. The standards chips are NOT here:
+  they are a statement about what he has yet to do, and that does not belong
+  in the same glance as the evidence that he has done things.
 */
 export default function Proof() {
   return (
@@ -33,22 +33,6 @@ export default function Proof() {
             </li>
           ))}
         </ul>
-      </Reveal>
-
-      <Reveal>
-        <div className="mt-14 flex flex-wrap items-center gap-x-[1.125rem] gap-y-3">
-          <h2 className="eyebrow text-ink/45">{standardsNote}</h2>
-          <ul className="flex flex-wrap gap-2">
-            {standards.map((standard) => (
-              <li
-                key={standard}
-                className="rounded-card bg-chip px-[0.8125rem] py-[0.4375rem] text-[0.8125rem]"
-              >
-                {standard}
-              </li>
-            ))}
-          </ul>
-        </div>
       </Reveal>
     </section>
   );

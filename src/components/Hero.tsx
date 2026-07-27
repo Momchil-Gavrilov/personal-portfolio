@@ -87,15 +87,17 @@ export default function Hero() {
           </ul>
         </div>
 
-        {/* Capped on phones: at full width a 4:5 portrait eats most of a
-            screen, and it is a byline, not the argument. */}
-        <figure className="max-w-[15rem] overflow-hidden rounded-card border border-line bg-white md:max-w-none">
+        {/* Hard-capped on phones. It is a byline, not the argument, and every
+            pixel it takes here is a pixel before the reader reaches the first
+            piece of evidence. At 15rem it pushed the credibility figures to
+            978px; at 10rem they arrive most of a screen earlier. */}
+        <figure className="max-w-[10rem] overflow-hidden rounded-card border border-line bg-white sm:max-w-[13rem] md:max-w-none">
           <Image
             src={portrait.src}
             alt={portrait.alt}
             width={portrait.width}
             height={portrait.height}
-            sizes="(min-width: 768px) 21.25rem, 15rem"
+            sizes="(min-width: 768px) 21.25rem, (min-width: 640px) 13rem, 10rem"
             className="block aspect-4/5 w-full object-cover"
             priority
           />

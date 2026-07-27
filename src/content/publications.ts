@@ -4,6 +4,11 @@ export type Publication = {
   venue: string;
   year: string;
   url?: string;
+  /* True only where the work has actually cleared peer review. A preprint and
+     a manuscript under review are real output and belong on the list, but
+     they are not peer-reviewed, and the counts on this page have to survive
+     someone opening the venues and checking. */
+  peerReviewed?: boolean;
 };
 
 /*
@@ -26,6 +31,7 @@ export const publications: Publication[] = [
       "Exploring the Perspectives of Different Professions on Task-Based Upper-Limb Prosthesis Assessment Techniques",
     venue: "Journal of Multidisciplinary Healthcare",
     year: "2026",
+    peerReviewed: true,
     url: "https://www.dovepress.com/exploring-the-perspectives-of-different-professions-on-task-based-uppe-peer-reviewed-fulltext-article-JMDH",
   },
   {
@@ -45,6 +51,7 @@ export const publications: Publication[] = [
     venue:
       "2025 International Conference on Rehabilitation Robotics (ICORR), Chicago, IL",
     year: "2025",
+    peerReviewed: true,
     url: "https://doi.org/10.1109/ICORR66766.2025.11063055",
   },
   {
@@ -54,6 +61,7 @@ export const publications: Publication[] = [
       "Longitudinal Monitoring of Biomechanical and Psychological State in Collegiate Female Basketball Athletes Using Principal Component Analysis",
     venue: "Translational Sports Medicine",
     year: "2024",
+    peerReviewed: true,
     url: "https://doi.org/10.1155/2024/7858835",
   },
 ];

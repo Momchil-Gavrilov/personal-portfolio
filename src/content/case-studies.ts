@@ -157,11 +157,11 @@ export const caseStudies: CaseStudy[] = [
     },
     eyebrow: "38 participants · randomized",
     figure: {
-      src: "/agency/thumb.png",
-      alt: "A participant seated at the Kinarm robotic platform, reaching under the display toward a target.",
+      src: "/agency/session.jpg",
+      alt: "A participant seated at the Kinarm robotic platform, both hands on the manipulanda under the display, reaching toward a target.",
       fit: "cover",
-      width: 816,
-      height: 612,
+      width: 1600,
+      height: 1200,
     },
     spec: [
       { k: "Method", v: "Two-alternative forced choice" },
@@ -451,9 +451,7 @@ export const caseStudies: CaseStudy[] = [
     /* Panel A only. The published figure has three panels and is unreadable
        at card width; this is the one that carries the finding. The full
        figure still runs at full size inside the case study. */
-    /* Deliberately no respondent count: the number is not recorded anywhere in
-       this content, and the four professional groups are. */
-    eyebrow: "4 professions · cross-professional survey",
+    eyebrow: "100 respondents · 4 professions",
     figure: {
       src: "/survey/usage-panel-a.png",
       alt: "Bar chart of the percent of each profession (PT/OT, prosthetists, physicians, researchers) that uses each of twelve task-based assessments, with Kruskal-Wallis p-values down the right-hand side. The Box and Block Test is highest across every group.",
@@ -463,7 +461,7 @@ export const caseStudies: CaseStudy[] = [
     },
     spec: [
       { k: "Method", v: "Cross-professional survey" },
-      { k: "Respondents", v: "PT/OT, prosthetists, physicians, researchers" },
+      { k: "Respondents", v: "100 across PT/OT, prosthetists, physicians, researchers" },
       { k: "My role", v: "Analysis and visualization only" },
       { k: "Output", v: "J. Multidisciplinary Healthcare" },
     ],

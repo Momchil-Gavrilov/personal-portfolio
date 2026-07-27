@@ -39,8 +39,15 @@ export const portrait = {
 
 /* One-glance credibility, answering "is this person real" before any reading.
    Every figure here has to survive being asked about in an interview. */
+/*
+  "5 peer-reviewed" was not true and the page disproved it four screens later:
+  of the five entries, one is a preprint and one is under review. A reader who
+  opens the list finds the contradiction, and then has reason to doubt the
+  r = 0.70 as well. Three peer-reviewed papers before finishing a master's is
+  strong on its own; the inflated number bought nothing and risked everything.
+*/
 export const proofPoints = [
-  { figure: "5", label: "Peer-Reviewed Publications" },
+  { figure: "3", label: "Peer-Reviewed Publications" },
   { figure: "4", label: "Human Research Studies" },
   { figure: "185", label: "Participants" },
   { figure: "1", label: "Product In Daily Use" },
@@ -82,9 +89,9 @@ export const throughline = [
 
 /* Labelled as learning on purpose. He is reading toward medical device work
    and has not yet worked under these standards; claiming otherwise would not
-   survive the first interview question. The one-word label does the whole job:
-   it reads as a candidate skilling up rather than as a credential claim. */
-export const standardsNote = "Learning";
+   survive the first interview question. The label does the whole job, so it
+   never gets dressed up. It lives beside Contact, after the evidence. */
+export const standardsNote = "Currently learning";
 export const standards = [
   "FDA HFE Guidance",
   "IEC 62366-1",
