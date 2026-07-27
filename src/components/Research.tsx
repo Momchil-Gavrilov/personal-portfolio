@@ -3,6 +3,7 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import SectionTitle from "@/components/SectionTitle";
 import { researchStudies } from "@/content/case-studies";
+import { site } from "@/content/site";
 
 /*
   Full-width alternating rows, on the page's one tinted band.
@@ -96,6 +97,29 @@ export default function Research() {
             );
           })}
         </ol>
+
+        {/*
+          The only CTA between the hero and the footer, and it is here because
+          this is where conviction peaks: a research reader has just seen three
+          studies with their results. Previously they had to scroll past
+          publications, four products and a personal essay before they could
+          act on that. Phrased as an offer to talk through method rather than
+          as a pitch, because method is what they would actually ask about.
+        */}
+        <Reveal>
+          <p className="mt-14 border-t border-line pt-8 text-[1.0625rem] text-ink/70 md:mt-16">
+            Happy to walk through how any of these ran, including the parts
+            that did not work.{" "}
+            <a
+              href={site.booking.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-crimson hover:underline"
+            >
+              Book a call <span aria-hidden="true">→</span>
+            </a>
+          </p>
+        </Reveal>
       </div>
     </section>
   );
