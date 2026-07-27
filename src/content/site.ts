@@ -31,9 +31,9 @@ export const site = {
    photographs moved down into the research rows, where each one sits with the
    study it came from. */
 export const portrait = {
-  src: "/headshot-portrait-b.png",
-  width: 760,
-  height: 950,
+  src: "/headshot.jpg",
+  width: 808,
+  height: 1010,
   alt: "Portrait of Momchil Gavrilov",
 };
 
@@ -67,10 +67,14 @@ export const proofPoints = [
   and it is the half a new graduate is least likely to be able to evidence.
 
   Four stages of a real study, in order, each with the specific thing he did.
-  Every line is drawn from the "My role" spec of the studies below, so nothing
-  here is a claim the case studies do not already support. Stage four ends on
-  what he did NOT do on one study, because a reader who sees credit drawn
-  precisely stops wondering whether the rest is inflated.
+
+  NOTHING HERE MAY BE INFERRED. An earlier draft said he wrote the IRB, which
+  he did not; the claim came from reading "Protocol, IRB" in a spec rail and
+  filling in the rest. Every line now names an act he has stated in his own
+  words in the case study prose, and nothing adjacent to it.
+
+  Stage four ends on what he did NOT do on one study, because a reader who
+  sees credit drawn precisely stops wondering whether the rest is inflated.
 */
 export const practiceTitle = "A Study, End to End";
 export const practiceDeck =
@@ -78,9 +82,9 @@ export const practiceDeck =
 
 export const practice = [
   {
-    stage: "Protocol",
+    stage: "Design",
     detail:
-      "I wrote the protocol and the IRB submission for the agency study, then defended the design choices that came out of review.",
+      "I designed the forced-choice paradigm for the agency study and its staircase logic, then programmed the task on the Kinarm platform.",
   },
   {
     stage: "Apparatus",
@@ -88,14 +92,14 @@ export const practice = [
       "The EMG prosthetic hand was not working when the embodiment study needed it. I restored it before we could run a single participant.",
   },
   {
-    stage: "Sessions",
+    stage: "Recruiting and sessions",
     detail:
-      "61 participants across the two lab studies, every session moderated in person, to the same script.",
+      "I recruited and ran all 38 participants on the agency study, and the sessions on the embodiment study, to the same script every time.",
   },
   {
     stage: "Analysis",
     detail:
-      "Mine on all three studies, including the survey, where the analysis and the figures were the whole of my contribution.",
+      "Psychometric models, statistics and figures. On the survey study the analysis was the whole of my contribution, and I did not field it.",
   },
 ];
 
