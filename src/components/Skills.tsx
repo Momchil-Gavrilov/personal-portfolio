@@ -1,33 +1,37 @@
 import Reveal from "@/components/Reveal";
-import { skillGroups, skillsTitle } from "@/content/site";
+import {
+  skillGroups,
+  skillsTitle,
+  standards,
+  standardsNote,
+} from "@/content/site";
 
 /*
-  Three columns, each a disclosure, all closed by default.
+  Two disclosures and one open row.
 
-  This band exists for recognition rather than reading. A hiring manager needs
-  to see terms out of their own requisition inside a couple of seconds and
-  conclude the page is worth their time; they do not need to read twenty of
-  them on the way to the research. Closed, the whole band is a heading and
-  three labels. Open, it is the detail, for the reader who wants to check.
+  The band has one job: a hiring manager should recognise their own vocabulary
+  in it before they decide whether the page is worth their time. The two
+  practice groups collapse, because nobody needs to read twelve terms on the
+  way to the research. The standards do not, because they are the fastest
+  signal to a medical device reader that this candidate is oriented to their
+  world, and behind a click most scanners would never reach them.
 
-  Native <details> so it works without JavaScript and stays keyboard
-  accessible, the same mechanism the publications list uses.
+  Native <details>, so it works without JavaScript and stays keyboard
+  accessible. Same mechanism the publications list uses.
 */
 export default function Skills() {
   return (
-    <section id="skills" className="bg-navy py-11 text-paper md:py-12">
+    <section id="skills" className="bg-navy py-10 text-paper md:py-11">
       <div className="wrap">
+        {/* The band needs a heading for structure, not for the eye: the two
+            disclosure labels already say what it is. */}
+        <h2 className="sr-only">{skillsTitle}</h2>
         <Reveal>
-          <h2 className="display text-[1.5rem] md:text-[1.75rem]">
-            {skillsTitle}
-          </h2>
-        </Reveal>
-        <Reveal>
-          <div className="mt-6 grid gap-x-10 gap-y-px sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-x-10 sm:grid-cols-2">
             {skillGroups.map((g) => (
-              <details key={g.group} className="group border-t border-paper/20">
+              <details key={g.group} className="group border-b border-paper/20">
                 <summary className="flex cursor-pointer list-none items-center gap-3 py-3.5 [&::-webkit-details-marker]:hidden">
-                  <span className="eyebrow text-paper/70 transition-colors group-hover:text-paper">
+                  <span className="eyebrow text-paper/75 transition-colors group-hover:text-paper">
                     {g.group}
                   </span>
                   <span
@@ -37,7 +41,7 @@ export default function Skills() {
                     &rsaquo;
                   </span>
                 </summary>
-                <ul className="pb-4 space-y-1.5">
+                <ul className="flex flex-wrap gap-x-5 gap-y-1.5 pb-4">
                   {g.items.map((item) => (
                     <li
                       key={item}
@@ -49,6 +53,22 @@ export default function Skills() {
                 </ul>
               </details>
             ))}
+          </div>
+        </Reveal>
+
+        <Reveal>
+          <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-3">
+            <h3 className="eyebrow text-paper/50">{standardsNote}</h3>
+            <ul className="flex flex-wrap gap-2">
+              {standards.map((standard) => (
+                <li
+                  key={standard}
+                  className="rounded-btn border border-paper/30 px-3 py-1.5 text-[0.8125rem] leading-none text-paper/80"
+                >
+                  {standard}
+                </li>
+              ))}
+            </ul>
           </div>
         </Reveal>
       </div>

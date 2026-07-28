@@ -97,18 +97,33 @@ export const skillGroups = [
       "Objective and subjective data analysis",
     ],
   },
-  {
-    group: "Learning",
-    items: [
-      "FDA HFE Guidance",
-      "IEC 62366-1",
-      "ISO 14971",
-      "ISO 13485",
-      "IEC 60601",
-      "EU MDR",
-    ],
-  },
 ];
+
+/*
+  Not a disclosure. Collapsing these undid the whole point of the band: the
+  standards vocabulary is the single fastest signal to a medical device reader
+  that this candidate is oriented to their world, and behind a click most
+  scanners never see it. It lines the bottom of the band, always open, under a
+  label that keeps the claim honest.
+*/
+export const standardsNote = "Learning";
+export const standards = [
+  "FDA HFE Guidance",
+  "IEC 62366-1",
+  "ISO 14971",
+  "ISO 13485",
+  "IEC 60601",
+  "EU MDR",
+];
+
+/*
+  Three years of patient-facing clinical work sat only on the resume. For a
+  medical device employer it answers something no lab study can: whether the
+  candidate has stood in the environment the device gets used in. One line,
+  under the numbers, where the credibility claims already are.
+*/
+export const experienceNote =
+  "Four years researching how people use technology, and three years in patient-facing clinical care before that.";
 
 export const storyTitle = "Why I Do This";
 

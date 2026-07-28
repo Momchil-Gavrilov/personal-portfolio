@@ -293,6 +293,7 @@ export const caseStudies: CaseStudy[] = [
         heading: "What I did",
         paragraphs: [
           "I restored the lab's non-functional EMG-controlled prosthetic hand to working order, ran formative usability evaluations of the restored system, and helped design and run the 23-participant within-subject study in which participants performed grasping tasks with the hand while we manipulated its control and feedback.",
+          "The first version of the protocol took four hours per participant. That is long enough that fatigue starts showing up in the data as though it were an effect, and long enough that a tired participant makes errors the task design should have prevented. I redesigned it down to two hours. Fewer participants dropped, the use-error risk fell, and the data came back cleaner than the longer protocol had produced.",
         ],
         image: {
           src: "/embodiment/session.png",
@@ -661,8 +662,8 @@ const bySlug = (slug: string) => caseStudies.find((cs) => cs.slug === slug)!;
 export const productStudies: CaseStudy[] = [
   "wellspring",
   "autonomous-perception",
-  "uc-davis-mobile",
   "casebase",
+  "uc-davis-mobile",
 ].map(bySlug);
 
 export const researchStudies: CaseStudy[] = [
