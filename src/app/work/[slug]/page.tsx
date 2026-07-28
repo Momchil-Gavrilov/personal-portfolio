@@ -39,10 +39,17 @@ export default async function CaseStudyPage({
 
   return (
     <>
+      {/*
+        The live link rides in the sticky bar, so it is reachable from any
+        scroll position rather than only from the sections that happen to
+        mention it. Back sits on the right with it: a reader looking for a way
+        out of a page looks where the controls are, and every control on this
+        bar is now on the same side.
+      */}
       <header className="sticky top-0 z-10 border-b border-line bg-paper/95 backdrop-blur-sm">
         <nav
           aria-label="Main"
-          className="wrap flex items-center justify-between gap-8 py-4"
+          className="wrap flex items-center justify-between gap-6 py-3"
         >
           <Link
             href="/"
@@ -50,9 +57,21 @@ export default async function CaseStudyPage({
           >
             {site.name}
           </Link>
-          <Link href="/#work" className="text-sm text-ink/60 hover:text-ink">
-            <span aria-hidden="true">←</span> All case studies
-          </Link>
+          <div className="flex items-center gap-5">
+            <Link href="/#work" className="text-sm text-ink/60 hover:text-ink">
+              All case studies <span aria-hidden="true">→</span>
+            </Link>
+            {cs.liveUrl && (
+              <a
+                href={cs.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary px-[1.125rem] py-2.5"
+              >
+                {cs.liveLabel ?? "View live"}
+              </a>
+            )}
+          </div>
         </nav>
       </header>
       <main className="wrap py-14 md:py-20">
@@ -84,98 +103,91 @@ export default async function CaseStudyPage({
           )}
 
           {/*
-            Two columns: the narrative keeps the measure it has always had, and
-            the specification moves into the ~40% of page width that used to be
-            empty paper. Pinned, so a reader who is nine paragraphs deep can
-            still see the method and the sample without scrolling back up.
+            The specification runs as a strip directly under the title, not as
+            a pinned card off to the right. In the rail it arrived level with
+            the third paragraph, in the margin, boxed and tinted, which is
+            where a reader has learned to expect an advertisement. Here it is
+            the first thing after the summary, it reads as a fact panel, and
+            the narrative gets the full measure back.
           */}
-          <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1fr)_15rem] lg:gap-12">
-            <div className="order-2 space-y-12 lg:order-1">
-              {cs.sections.map((section) => (
-                <section key={section.heading}>
-                  <h2 className="display text-2xl">{section.heading}</h2>
-                  <div className="mt-4 max-w-measure space-y-5 leading-[1.75] text-ink/80">
-                    {section.paragraphs.map((paragraph, i) => (
-                      <p key={i}>{paragraph}</p>
-                    ))}
-                  </div>
-                  {section.image && (
-                    <figure
-                      className={
-                        section.image.shape === "phone"
-                          ? "mt-8 max-w-[16rem]"
-                          : section.image.shape === "portrait"
-                            ? "mt-8 max-w-sm"
-                            : "mt-8"
-                      }
-                    >
-                      <div className="overflow-hidden rounded-card border border-line bg-white">
-                        <Image
-                          src={section.image.src}
-                          alt={section.image.alt}
-                          width={
-                            section.image.width ??
-                            (section.image.shape === "phone" ? 331 : 1200)
-                          }
-                          height={
-                            section.image.height ??
-                            (section.image.shape === "phone" ? 709 : 800)
-                          }
-                          className="h-auto w-full"
-                          sizes={
-                            section.image.shape === "phone"
-                              ? "16rem"
-                              : "(min-width: 768px) 42rem, 100vw"
-                          }
-                        />
-                      </div>
-                      {section.image.caption && (
-                        <figcaption className="mt-3 text-[0.9rem] text-ink/55">
-                          {section.image.caption}
-                        </figcaption>
-                      )}
-                    </figure>
-                  )}
-                  {section.component === "trial-walkthrough" && (
-                    <TrialWalkthrough />
-                  )}
-                </section>
+          {cs.spec && (
+            <dl className="mt-10 grid gap-x-10 gap-y-5 border-y border-line py-5 sm:grid-cols-2 lg:grid-cols-4">
+              {cs.spec.map((row) => (
+                <div key={row.k}>
+                  <dt className="eyebrow text-ink/40">{row.k}</dt>
+                  <dd className="mt-1.5 text-[0.9375rem] leading-snug">
+                    {row.v}
+                  </dd>
+                </div>
               ))}
-            </div>
+            </dl>
+          )}
 
-            <aside className="order-1 lg:order-2">
-              <div className="rounded-card border-t-2 border-navy bg-paper-deep p-5 lg:sticky lg:top-24">
-                <h2 className="eyebrow text-ink/45">At a glance</h2>
-                {cs.spec && (
-                  <dl className="mt-4 space-y-3.5">
-                    {cs.spec.map((row) => (
-                      <div key={row.k}>
-                        <dt className="eyebrow text-[0.625rem] text-ink/45">
-                          {row.k}
-                        </dt>
-                        <dd className="mt-1 text-[0.9rem] font-medium leading-snug">
-                          {row.v}
-                        </dd>
-                      </div>
-                    ))}
-                  </dl>
-                )}
-                {cs.liveUrl && (
-                  <a
-                    href={cs.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary mt-5 px-4 py-2.5 text-[0.85rem]"
+          <div className="mt-14 space-y-14">
+            {cs.sections.map((section) => (
+              <section key={section.heading}>
+                <h2 className="display text-2xl">{section.heading}</h2>
+                <div className="mt-4 max-w-measure space-y-5 leading-[1.75] text-ink/80">
+                  {section.paragraphs.map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
+                {section.image && (
+                  <figure
+                    className={
+                      section.image.shape === "phone"
+                        ? "mt-8 max-w-[16rem]"
+                        : section.image.shape === "portrait"
+                          ? "mt-8 max-w-sm"
+                          : "mt-8 max-w-3xl"
+                    }
                   >
-                    {cs.liveLabel ?? "View live"}
-                    <span aria-hidden="true">→</span>
-                  </a>
+                    <div className="overflow-hidden rounded-card border border-line bg-white">
+                      <Image
+                        src={section.image.src}
+                        alt={section.image.alt}
+                        width={
+                          section.image.width ??
+                          (section.image.shape === "phone" ? 331 : 1200)
+                        }
+                        height={
+                          section.image.height ??
+                          (section.image.shape === "phone" ? 709 : 800)
+                        }
+                        className="h-auto w-full"
+                        sizes={
+                          section.image.shape === "phone"
+                            ? "16rem"
+                            : "(min-width: 768px) 42rem, 100vw"
+                        }
+                      />
+                    </div>
+                    {section.image.caption && (
+                      <figcaption className="mt-3 text-[0.9rem] text-ink/55">
+                        {section.image.caption}
+                      </figcaption>
+                    )}
+                  </figure>
                 )}
-              </div>
-            </aside>
+                {section.component === "trial-walkthrough" && (
+                  <TrialWalkthrough />
+                )}
+              </section>
+            ))}
           </div>
 
-          <footer className="mt-16 border-t border-line pt-8">
+          <footer className="mt-16 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-line pt-8">
+            {cs.liveUrl && (
+              <a
+                href={cs.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                {cs.liveLabel ?? "View live"}
+                <span aria-hidden="true">→</span>
+              </a>
+            )}
             <Link href="/#work" className="text-sm text-crimson hover:underline">
               <span aria-hidden="true">←</span> Back to all case studies
             </Link>

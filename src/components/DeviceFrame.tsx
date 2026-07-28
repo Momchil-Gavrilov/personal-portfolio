@@ -91,14 +91,13 @@ export default function DeviceFrame({
               {picture}
             </div>
           </div>
-          {/* Hinge, then the base lipping out past the lid on both sides. */}
+          {/* Hinge, then the base. Both are self-stretch so they track the
+              lid's width exactly; the base used to be set to 108% of its own
+              box, which left it hanging off the screen it belongs to. */}
+          <div aria-hidden="true" className="h-[0.3rem] w-full bg-ink" />
           <div
             aria-hidden="true"
-            className="h-[0.35rem] w-full bg-ink"
-          />
-          <div
-            aria-hidden="true"
-            className="h-[0.4rem] w-[108%] rounded-b-[0.35rem] bg-ink/85 shadow-[0_6px_14px_rgba(16,24,32,0.18)]"
+            className="h-[0.4rem] w-full rounded-b-[0.4rem] bg-ink/85 shadow-[0_6px_14px_rgba(16,24,32,0.18)]"
           />
         </div>
       </div>

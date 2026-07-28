@@ -18,7 +18,7 @@ export default function Hero() {
   return (
     <section id="top" aria-label="Introduction">
       <div className="wrap grid gap-10 pt-12 pb-12 md:grid-cols-[1fr_minmax(0,21.25rem)] md:items-start md:gap-16 md:pt-16 md:pb-16">
-        <div className="flex flex-col gap-8 md:gap-11">
+        <div className="flex flex-col gap-8 md:gap-10">
           <p className="eyebrow text-crimson">{site.role}</p>
 
           <h1 className="display-xl text-[2.75rem] sm:text-6xl lg:text-[5.25rem]">
@@ -33,55 +33,58 @@ export default function Hero() {
             <p className="text-sm text-ink/60">{site.degree}</p>
           </div>
 
-          {/* The primary CTA sits here as well as in Contact: most visitors
-              never scroll to the bottom of the page. */}
-          <div className="flex flex-wrap gap-3">
-            <a
-              href={site.booking.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              {site.booking.label}
-              <span aria-hidden="true">→</span>
-            </a>
-            <a
-              href={site.resume.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-ghost"
-            >
-              {site.resume.label}
-            </a>
-          </div>
+          {/* Buttons and links are one block, not two. Spread evenly they read
+              as four unrelated rows under the headline; grouped, the name and
+              degree get the space instead. */}
+          <div className="flex flex-col gap-5">
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={site.booking.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                {site.booking.label}
+                <span aria-hidden="true">→</span>
+              </a>
+              <a
+                href={site.resume.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-ghost"
+              >
+                {site.resume.label}
+              </a>
+            </div>
 
-          <ul className="flex flex-wrap gap-x-[1.125rem] gap-y-2 text-[0.8125rem] text-ink/60">
-            <li>
-              <a className="link-quiet" href={`mailto:${site.email}`}>
-                {site.email}
-              </a>
-            </li>
-            <li>
-              <a
-                className="link-quiet"
-                href={site.linkedin.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-              </a>
-            </li>
-            <li>
-              <a
-                className="link-quiet"
-                href={site.github.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
-            </li>
-          </ul>
+            <ul className="flex flex-wrap gap-x-[1.125rem] gap-y-2 text-[0.8125rem] text-ink/60">
+              <li>
+                <a className="link-quiet" href={`mailto:${site.email}`}>
+                  {site.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  className="link-quiet"
+                  href={site.linkedin.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  className="link-quiet"
+                  href={site.github.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* Hard-capped on phones. It is a byline, not the argument, and every

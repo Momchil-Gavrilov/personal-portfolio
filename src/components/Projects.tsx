@@ -42,7 +42,7 @@ export default function Projects() {
             >
               <div className="flex flex-col gap-4">
                 {statusOf(lead) && (
-                  <p className="eyebrow text-crimson">{statusOf(lead)}</p>
+                  <p className="eyebrow text-ink/45">{statusOf(lead)}</p>
                 )}
                 <h3 className="display text-[1.5rem] md:text-[1.75rem]">
                   {lead.title}
@@ -63,7 +63,7 @@ export default function Projects() {
                   desktop={lead.bundle.desktop}
                   laptop={lead.bundle.laptop}
                   tablet={lead.bundle.tablet}
-                  phone={lead.shot}
+                  phone={lead.bundle.phone}
                   className="aspect-[7/5] w-full"
                 />
               )}
@@ -90,7 +90,7 @@ export default function Projects() {
                   )}
                   <div className="mt-6 flex flex-1 flex-col gap-2 border-t border-line pt-4">
                     {statusOf(cs) && (
-                      <p className="eyebrow text-crimson">{statusOf(cs)}</p>
+                      <p className="eyebrow text-ink/45">{statusOf(cs)}</p>
                     )}
                     <h3 className="display text-[1.25rem]">{cs.title}</h3>
                     <p className="text-[0.9375rem] leading-relaxed text-ink/70">

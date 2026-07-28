@@ -76,6 +76,7 @@ export type CaseStudy = {
     desktop: CaseStudyImage;
     laptop: CaseStudyImage;
     tablet: CaseStudyImage;
+    phone: CaseStudyImage;
   };
   /* The specification a reviewer scans for. Rendered as a sticky rail beside
      the narrative on the case study page, and in the evidence card on the
@@ -122,25 +123,33 @@ export const caseStudies: CaseStudy[] = [
       height: 1864,
     },
     /* The centre runs this on whatever screen is to hand, so the showcase
-       shows it on three. Captured from the live demo. */
+    /* Four real screens off the live demo, captured through the login gate:
+       the monitor and the tablet show the app doing its actual job, the
+       laptop the way in, the phone the brand. */
     bundle: {
       desktop: {
-        src: "/wellspring/desktop.png",
-        alt: "Wellspring on a desktop monitor, at the screen where a volunteer or manager picks their role.",
-        width: 960,
-        height: 600,
+        src: "/wellspring/desktop-dashboard.png",
+        alt: "The Wellspring manager dashboard on a desktop monitor: a New Donation button and a month calendar marking every day with donations.",
+        width: 1440,
+        height: 900,
       },
       laptop: {
         src: "/wellspring/desktop.png",
-        alt: "The same view on a laptop.",
+        alt: "Wellspring on a laptop, at the screen where a volunteer or manager picks their role.",
         width: 960,
         height: 600,
       },
       tablet: {
-        src: "/wellspring/tablet.png",
-        alt: "The same view on a tablet.",
-        width: 720,
-        height: 960,
+        src: "/wellspring/tablet-log.png",
+        alt: "A day's log open on a tablet: every item, count, unit and category, with a tab for each volunteer who logged that day.",
+        width: 820,
+        height: 1093,
+      },
+      phone: {
+        src: "/wellspring/phone-splash.png",
+        alt: "The Wellspring Women's Center splash screen on a phone.",
+        width: 645,
+        height: 1398,
       },
     },
     category: "product",

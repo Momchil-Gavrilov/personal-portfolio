@@ -60,10 +60,12 @@ export default function Research() {
                         flip ? "md:order-2" : "md:order-1"
                       }`}
                     >
-                      <p className="eyebrow text-crimson">
-                        {String(i + 1).padStart(2, "0")}
-                        {cs.eyebrow ? ` — ${cs.eyebrow}` : ""}
-                      </p>
+                      {/* No index and no crimson. The number counted nothing a
+                          reader needed, and colour on a line this small read
+                          as decoration competing with the title under it. */}
+                      {cs.eyebrow && (
+                        <p className="eyebrow text-ink/45">{cs.eyebrow}</p>
+                      )}
 
                       <h3 className="display text-[1.5rem] md:text-[1.75rem]">
                         {cs.title}
@@ -71,7 +73,7 @@ export default function Research() {
 
                       {/* The hook, not the oneLiner. The oneLiner is written
                           to open a case study and runs three lines here. */}
-                      <p className="max-w-[42ch] text-[1.0625rem] leading-relaxed text-ink/75 md:text-[1.1875rem]">
+                      <p className="max-w-[44ch] text-[1.0625rem] leading-relaxed text-ink/75">
                         {cs.hook ?? cs.oneLiner}
                       </p>
 

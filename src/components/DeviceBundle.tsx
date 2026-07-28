@@ -52,7 +52,7 @@ export default function DeviceBundle({
   return (
     <div className={`relative ${className}`}>
       {/* Monitor: centred, back, and the largest thing in the cluster. */}
-      <div className="absolute left-[22%] top-0 w-[56%]">
+      <div className="absolute left-[20%] top-0 w-[60%]">
         <div className="rounded-[0.5rem] bg-ink p-[0.4rem] shadow-[0_14px_34px_rgba(16,24,32,0.18)]">
           <div className="aspect-16/10 overflow-hidden rounded-[0.2rem] bg-white">
             <Screen
@@ -75,7 +75,7 @@ export default function DeviceBundle({
       </div>
 
       {/* Laptop: front left, its base overlapping the monitor's foot. */}
-      <div className="absolute bottom-[6%] left-0 w-[40%]">
+      <div className="absolute bottom-[4%] left-0 w-[43%]">
         <div className="rounded-t-[0.35rem] bg-ink p-[0.25rem] pb-0 shadow-[0_10px_26px_rgba(16,24,32,0.2)]">
           <div className="aspect-16/10 overflow-hidden rounded-t-[0.15rem] bg-white">
             <Screen
@@ -93,7 +93,7 @@ export default function DeviceBundle({
       </div>
 
       {/* Tablet: front right. */}
-      <div className="absolute bottom-0 right-0 w-[26%]">
+      <div className="absolute bottom-0 right-[1%] w-[27%]">
         <div className="rounded-[0.55rem] bg-ink p-[0.28rem] shadow-[0_12px_26px_rgba(16,24,32,0.24)]">
           <div className="aspect-3/4 overflow-hidden rounded-[0.35rem] bg-white">
             <Screen
@@ -106,7 +106,7 @@ export default function DeviceBundle({
       </div>
 
       {/* Phone: frontmost, carrying the screen that actually matters. */}
-      <div className="absolute bottom-[2%] right-[24%] w-[15%]">
+      <div className="absolute bottom-[1%] right-[26%] w-[16%]">
         <div className="rounded-[0.6rem] bg-ink p-[0.18rem] shadow-[0_14px_28px_rgba(16,24,32,0.3)]">
           <div className="relative aspect-[9/19] overflow-hidden rounded-[0.48rem] bg-white">
             <Screen

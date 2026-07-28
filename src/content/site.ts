@@ -60,22 +60,20 @@ export const skillGroups = [
     group: "Usability engineering",
     items: [
       "Formative usability testing",
-      "Study moderation",
-      "Task and protocol design",
+      "Task analysis",
       "Use-error informed design",
       "Root cause analysis",
-      "HMI evaluation",
+      "Human-machine interface evaluation",
     ],
   },
   {
     group: "Research",
     items: [
-      "Study design",
-      "Protocol development",
-      "Participant recruitment",
-      "Data collection",
+      "Study design and protocol development",
+      "Participant recruitment and screening",
+      "Session moderation",
       "Consent and data handling",
-      "Qualitative and quantitative data analysis",
+      "Qualitative and quantitative analysis",
     ],
   },
 ];

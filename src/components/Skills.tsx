@@ -27,10 +27,10 @@ export default function Skills() {
       <div className="wrap">
         <h2 className="sr-only">{skillsTitle}</h2>
 
-        <div className="grid gap-x-14 gap-y-9 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+        <div className="grid gap-x-14 gap-y-9 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <Reveal>
             <div>
-              <h3 className="eyebrow text-paper/45">Can do</h3>
+              <h3 className="eyebrow text-paper/45">Skills</h3>
               <div className="mt-4">
                 {skillGroups.map((g) => (
                   <details
@@ -67,9 +67,9 @@ export default function Skills() {
           <Reveal>
             <div>
               <h3 className="eyebrow text-paper/45">{standardsNote}</h3>
-              <ul className="mt-4 flex flex-wrap gap-x-8 gap-y-3 border-t border-paper/20 pt-4">
+              <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2.5 border-t border-paper/20 pt-4">
                 {standards.map((standard) => (
-                  <li key={standard} className="text-[1.0625rem] text-paper/80">
+                  <li key={standard} className="text-[0.875rem] text-paper/80">
                     {standard}
                   </li>
                 ))}
