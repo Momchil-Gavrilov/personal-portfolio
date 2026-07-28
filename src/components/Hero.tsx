@@ -18,27 +18,24 @@ export default function Hero() {
   return (
     <section id="top" aria-label="Introduction">
       <div className="wrap grid gap-10 pt-12 pb-12 md:grid-cols-[1fr_minmax(0,21.25rem)] md:items-start md:gap-16 md:pt-16 md:pb-14">
-        <div className="flex flex-col gap-6 md:gap-[1.625rem]">
+        <div className="flex flex-col gap-7 md:gap-9">
           <p className="eyebrow text-crimson">{site.role}</p>
 
           <h1 className="display-xl text-[2.75rem] sm:text-6xl lg:text-[5.25rem]">
             {site.tagline.lead}{" "}
-            <em className="font-normal italic text-navy">
-              {site.tagline.accent}
-            </em>
+            <em className="not-italic text-navy">{site.tagline.accent}</em>
           </h1>
 
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-1">
             <p className="text-2xl font-semibold tracking-[-0.01em]">
               {site.name}
             </p>
             <p className="text-sm text-ink/60">{site.degree}</p>
-            <p className="text-sm text-ink/60">{site.domain}</p>
           </div>
 
           {/* The primary CTA sits here as well as in Contact: most visitors
               never scroll to the bottom of the page. */}
-          <div className="flex flex-wrap gap-3">
+          <div className="-mt-2 flex flex-wrap gap-3">
             <a
               href={site.booking.url}
               target="_blank"
@@ -58,7 +55,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <ul className="flex flex-wrap gap-x-[1.125rem] gap-y-2 text-[0.8125rem] text-ink/60">
+          <ul className="-mt-3 flex flex-wrap gap-x-[1.125rem] gap-y-2 text-[0.8125rem] text-ink/60">
             <li>
               <a className="link-quiet" href={`mailto:${site.email}`}>
                 {site.email}

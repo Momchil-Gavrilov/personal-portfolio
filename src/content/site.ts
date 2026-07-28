@@ -2,14 +2,10 @@ export const site = {
   name: "Momchil Gavrilov",
   role: "Human factors & UX researcher",
   /* Split so the accent word stays content, not markup. Exactly one word is
-     ever set in navy italic; that pattern is deliberate and does not change.
-     The word itself moved from "adopt" to "trust" in the 2c design. */
+     ever set in navy; the italic came off because at 84px it read as a
+     different typeface rather than as emphasis. */
   tagline: { lead: "I design technology that people", accent: "trust" },
   degree: "M.S. Biomedical Engineering, UC Davis",
-  /* The domain used to arrive four screens down, in the research section. For
-     a consultancy that does medical device work it is the differentiator, so
-     it belongs beside the name. A list of subjects, not of job titles. */
-  domain: "Prosthetics, rehabilitation robotics, and human-machine interaction",
   email: "mc.g.gavrilov@gmail.com",
   linkedin: {
     label: "linkedin.com/in/momchil-gavrilov-ux",
@@ -24,7 +20,7 @@ export const site = {
     url: "https://zcal.co/i/3ZUHG2G0",
   },
   resume: {
-    label: "Résumé",
+    label: "Resume",
     url: "/momchil-gavrilov-human-factors-resume.pdf",
   },
 };
@@ -52,8 +48,6 @@ export const portrait = {
   every venue exactly, and a scientific reader reads those correctly without
   being told. The count is honest; the label it used to carry was not.
 
-  The 61 sessions he personally ran are not lost, they moved into the
-  practice band where they do more work.
 */
 export const proofPoints = [
   { figure: "185", label: "Participants" },
@@ -62,126 +56,67 @@ export const proofPoints = [
   { figure: "1", label: "Product In Daily Use" },
 ];
 
-/*
-  The billability answer, in the slot the through-line used to hold.
-
-  An employer hiring at entry level asks one question before any other: can
-  this person be put on a study next month without someone standing over them.
-  Findings do not answer that. The operational half does, and it is the half a
-  new graduate is least likely to be able to evidence.
-
-  The labels are deliberately the vocabulary of the job rather than of the
-  lab. An Amgen HFE posting lists "study planning, protocol development, study
-  moderation, data collection, participant recruitment, data analysis"; a
-  reader scanning this grid should see their own requisition looking back.
-
-  NOTHING HERE MAY BE INFERRED. An earlier draft said he wrote the IRB, which
-  he did not; the claim came from reading "Protocol, IRB" in a spec rail and
-  filling in the rest. Every line now names an act he has stated in his own
-  words, and every one carries the study it came from, so no reader has to
-  guess which claim belongs to which piece of work. That attribution is the
-  whole defence against the error above.
-
-  Two lines volunteer a limit: analysis on data he neither collected nor
-  designed, and data handling under someone else's approved protocol. Both
-  read as weaknesses in a lab and as strengths in industry, where junior staff
-  almost always execute a design somebody else owns.
-*/
 export const practiceTitle = "Skills";
-export const practiceDeck =
-  "61 lab sessions run, 3 studies analysed, 2 products shipped.";
 
 /*
-  Grouped rather than listed. A flat wall of twenty terms is unscannable, and
-  the groups themselves carry information: a reader looking for someone who
-  can run a study sees a column headed "Running studies" and stops there.
+  Grouped exactly as his resume groups them, so a recruiter holding both
+  documents sees the same four headings in the same order. The terms are his
+  too; this is the resume's skills block, set as chips.
 
-  Every term is backed by something concrete in the case studies below.
-  Nothing aspirational sits in the first three groups; anything he has not
-  yet done lives in the fourth, under a label that says so.
+  Rendered as tags rather than stacked lists. Four columns of short lines read
+  as four paragraphs of prose from any distance, which is the opposite of what
+  this band is for.
+
+  Regulatory knowledge keeps his resume's wording. Knowing a standard and
+  having worked under one are different claims, and "knowledge" makes only the
+  first. Nothing here says he has run a submission.
 */
 export const skillGroups = [
   {
-    group: "Running studies",
+    group: "Usability engineering",
     items: [
-      "Protocol development",
-      "Participant recruitment",
-      "Study moderation",
-      "Contextual interviews",
-      "Consent and data handling",
+      "Formative testing",
+      "Session moderation",
+      "Task and protocol design",
+      "Use-error informed design",
+      "HMI evaluation",
     ],
   },
   {
-    group: "Analysis",
+    group: "Experimental design and statistics",
     items: [
-      "Psychophysics",
-      "Psychometric modelling",
-      "Statistical analysis",
-      "Survey analysis",
-      "Data visualisation",
+      "Within-subject",
+      "Factorial",
+      "RCT and A/B",
+      "Psychometrics",
+      "Bayesian and inferential stats",
+      "Regression",
     ],
   },
   {
-    group: "Design and build",
+    group: "Regulatory knowledge",
     items: [
-      "Task programming (Kinarm)",
-      "Figma prototyping",
-      "Full-stack web apps",
-      "Sensor fusion and SLAM",
-      "EMG hardware",
+      "FDA HFE Guidance",
+      "IEC 62366-1",
+      "ISO 14971",
+      "ISO 13485",
+      "IEC 60601",
+      "EU MDR",
     ],
   },
-];
-
-/* Labelled as learning on purpose. He is reading toward medical device work
-   and has not yet worked under these standards; claiming otherwise would not
-   survive the first interview question. The label does the whole job, so it
-   never gets dressed up. It sits under the credentials, where for a medical
-   device reader the vocabulary itself is worth something. */
-export const standardsNote = "Learning";
-export const standards = [
-  "FDA HFE Guidance",
-  "IEC 62366-1",
-  "ISO 14971",
-  "ISO 13485",
-  "IEC 60601",
-  "EU MDR",
-];
-
-/*
-  The judgment evidence, promoted rather than written.
-
-  Capability, ownership and reliability were all evidenced somewhere on this
-  page; judgment was not, and it is the one that separates "can follow a
-  protocol" from "worth investing in". Each of these is a real decision made
-  under uncertainty, already stated in the case study prose, where a reader
-  who never opens a case study would never find it.
-
-  Every line paraphrases his own words in the relevant case study. Nothing
-  here is a decision he has not already described making.
-*/
-export const decisionsTitle = "Three Decisions";
-export const decisionsDeck =
-  "The moments where the work could have gone another way.";
-
-export const decisions = [
   {
-    label: "When the measure is the problem",
-    text: "The field's standard test of agency was picking up causal expectation rather than intention. Rather than work around it, I held causation constant so that intention was the only thing left varying.",
-    study: "Sense of agency",
-    slug: "sense-of-agency",
-  },
-  {
-    label: "When the obvious question is the wrong one",
-    text: "We could have started from the interface. The more honest question was why a student opens a campus app at all, so we went to the coffee shop where students actually are and asked about their day instead of their screens.",
-    study: "UC Davis Mobile",
-    slug: "uc-davis-mobile",
-  },
-  {
-    label: "When the constraint is the person, not the software",
-    text: "A volunteer at intake has a queue and a lot of noise, so logging a donation could never compete with helping the person in front of them. I separated the two rather than making the form faster.",
-    study: "Wellspring",
-    slug: "wellspring",
+    group: "Technical",
+    items: [
+      "R",
+      "MATLAB",
+      "Python",
+      "C/C++",
+      "Figma",
+      "EMG and biosignal processing",
+      "ROS2",
+      "CAD",
+      "Git",
+    ],
   },
 ];
 

@@ -125,13 +125,13 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The problem",
         paragraphs: [
-          "The Wellspring Women's Center runs on donated goods, and tracking them was a workflow built out of friction. A volunteer printed log sheets and passed a binder around for everyone to handwrite what they had taken in. The sheets were then scanned and emailed, and someone on the back end read the handwriting, typed each item into a spreadsheet, and looked up a price and a category for every single entry. Handwriting got misread constantly, which mattered all the more because the volunteers were usually high school students or retirees in their seventies. A single day of donations could eat hours.",
+          "The Wellspring Women's Center runs on donated goods, and tracking them was a workflow built out of friction. A volunteer printed log sheets and passed a binder around for everyone to handwrite what they had taken in. The sheets were then scanned and emailed, and someone on the back end read the handwriting, typed each item into a spreadsheet, and looked up a price and a category for every single entry. Handwriting got misread constantly, a use error the workflow made close to inevitable, and it mattered all the more because the volunteers were usually high school students or retirees in their seventies. A single day of donations could eat hours.",
         ],
       },
       {
         heading: "My thinking",
         paragraphs: [
-          "Two ideas shaped everything. First, separate logging a donation from serving the person in front of you. A volunteer at intake has a line and a lot of noise, so logging could not compete with helping someone; it had to be something quick they do around the service, not during it. Second, design for the two very different people doing the logging. The same screen had to feel natural to a sixteen-year-old and to someone in their seventies, so I made voice the primary way in: speaking an item is the one interface everyone already knows, and it keeps hands and eyes free.",
+          "I started with stakeholder interviews across the center, managers and volunteers both, and translated what they described into requirements before writing anything. Two ideas shaped everything. First, separate logging a donation from serving the person in front of you. A volunteer at intake has a line and a lot of noise, so logging could not compete with helping someone; it had to be something quick they do around the service, not during it. Second, design for the two very different people doing the logging. The same screen had to feel natural to a sixteen-year-old and to someone in their seventies, so I made voice the primary way in: speaking an item is the one interface everyone already knows, and it keeps hands and eyes free.",
           "From there, every feature had to make a volunteer's minute shorter, never longer. The manager tools are real and powerful, but they sit off to the side so they never crowd the one thing that matters at the table: logging an item fast.",
         ],
       },
@@ -154,7 +154,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "Where it landed",
         paragraphs: [
-          "It is live at the center today. Four steps are gone outright: printing the log sheets, passing the binder around to handwrite entries, scanning and emailing them, and deciphering the handwriting to retype every line into a spreadsheet with a looked-up price and category. What is left is a volunteer taking out their phone, logging, and being done. I have not run a timed before-and-after study, so I will not put a percentage on it, but the steps removed are concrete and the errors that came from misread handwriting are largely gone. A fully isolated demo with fake data lets anyone try it without touching the center's records.",
+          "It is live at the center today. Four steps are gone outright: printing the log sheets, passing the binder around to handwrite entries, scanning and emailing them, and deciphering the handwriting to retype every line into a spreadsheet with a looked-up price and category. What is left is a volunteer taking out their phone, logging, and being done. I have not run a timed before-and-after study, so I will not put a percentage on it, but the steps removed are concrete and the use errors that came from misread handwriting are largely gone. A fully isolated demo with fake data lets anyone try it without touching the center's records.",
         ],
       },
       {
@@ -191,7 +191,7 @@ export const caseStudies: CaseStudy[] = [
       { k: "Output", v: "ICORR 2025" },
     ],
     finding:
-      "Intending a movement did not change how long the interval felt. It changed how precisely it could be perceived.",
+      "Intending a movement did not change how long the delay felt, only how precisely it could be perceived.",
     limitation:
       "We did not corroborate the result with validated questionnaires.",
     lesson:
@@ -209,13 +209,13 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "My thinking",
         paragraphs: [
-          "If causal expectations were contaminating the measure, the fix was to hold causation constant and let intention be the only thing that varied. I designed a two-alternative forced-choice study around that idea: every participant judged the same kind of causal event, and only whether they had initiated the movement differed. Forced-choice psychophysics also lightened the cognitive load, replacing time estimation with a simple which-was-shorter judgment. A randomized between-groups design, with one group comparing active against passive movements and the other comparing two passive movements, kept each participant's judgments clean.",
+          "Before this was a study design problem it was a root cause analysis of a measure: two mechanisms could produce the same effect, and the field had been attributing all of it to one of them. If causal expectations were contaminating the measure, the fix was to hold causation constant and let intention be the only thing that varied. I designed a two-alternative forced-choice study around that idea: every participant judged the same kind of causal event, and only whether they had initiated the movement differed. Forced-choice psychophysics also lightened the cognitive load, replacing time estimation with a simple which-was-shorter judgment. A randomized between-groups design, with one group comparing active against passive movements and the other comparing two passive movements, kept each participant's judgments clean.",
         ],
       },
       {
         heading: "What I did",
         paragraphs: [
-          "I ran the study end to end: developing the protocol and its psychophysical staircase logic, programming the task on the Kinarm robotic platform, taking the protocol through IRB approval, recruiting and running all 38 participants, and fitting the psychometric models for analysis.",
+          "I ran the study end to end: developing the protocol and its psychophysical staircase logic, programming the task on the Kinarm robotic platform, running it under the lab's approved IRB protocol, recruiting and running all 38 participants, and fitting the psychometric models for analysis.",
         ],
         image: {
           src: "/agency/apparatus.png",
@@ -270,7 +270,7 @@ export const caseStudies: CaseStudy[] = [
       { k: "Output", v: "Preprint, Research Square" },
     ],
     finding:
-      "Ownership tracked the sense of control (r = 0.70) but not the sense of where the hand sits in space (r = -0.03). Embodiment is not one switch, and its parts answer to different, designable cues.",
+      "Ownership tracked the sense of control (r = 0.70), but not the sense of where the hand sat in space (r = -0.03).",
     limitation:
       "No hand today moves with the fidelity of a real one, so these results are bounded by current sensors. That bound redirected the lab toward better biosensors.",
     liveUrl: "https://doi.org/10.21203/rs.3.rs-7348715/v1",
@@ -497,7 +497,7 @@ export const caseStudies: CaseStudy[] = [
       { k: "Output", v: "J. Multidisciplinary Healthcare" },
     ],
     finding:
-      "Which tests professionals use, and what they want from a test, split significantly along professional lines. The Box and Block Test was the rare common ground.",
+      "Test choice split significantly along professional lines, with the Box and Block Test the rare common ground.",
     limitation:
       "Self-reported rather than observed, and the sample skewed away from physical therapists: 16 against 27 or more in every other group.",
     liveUrl:
