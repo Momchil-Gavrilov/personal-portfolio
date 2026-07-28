@@ -23,43 +23,50 @@ export default function Contact() {
         </Reveal>
 
         <Reveal>
-          <div className="flex flex-wrap items-center gap-5 text-sm">
-            <a
-              href={site.booking.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary px-[1.625rem]"
-            >
-              {site.booking.label}
-              <span aria-hidden="true">→</span>
-            </a>
-            <a
-              href={site.resume.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-ghost px-[1.625rem]"
-            >
-              {site.resume.label} (PDF)
-            </a>
-            <a className="link-quiet text-ink/70" href={`mailto:${site.email}`}>
-              {site.email}
-            </a>
-            <a
-              className="link-quiet text-ink/70"
-              href={site.linkedin.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn
-            </a>
-            <a
-              className="link-quiet text-ink/70"
-              href={site.github.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
+          <div className="flex flex-col gap-6 text-sm">
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={site.booking.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary px-[1.625rem]"
+              >
+                {site.booking.label}
+                <span aria-hidden="true">→</span>
+              </a>
+              <a
+                href={site.resume.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-ghost px-[1.625rem]"
+              >
+                {site.resume.label} (PDF)
+              </a>
+            </div>
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              <a
+                className="link-quiet text-ink/70"
+                href={`mailto:${site.email}`}
+              >
+                {site.email}
+              </a>
+              <a
+                className="link-quiet text-ink/70"
+                href={site.linkedin.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+              <a
+                className="link-quiet text-ink/70"
+                href={site.github.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+            </div>
           </div>
         </Reveal>
       </div>

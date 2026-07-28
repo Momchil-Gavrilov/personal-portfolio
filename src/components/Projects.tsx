@@ -5,15 +5,13 @@ import SectionTitle from "@/components/SectionTitle";
 import { productStudies, type CaseStudy } from "@/content/case-studies";
 
 /*
-  The same row treatment as the research section, for the same reason.
+  Four cards on a two by two grid: device above, name below.
 
-  Cropped thumbnails in a grid asked the reader to squint at four products at
-  once. As full-width alternating rows each one gets half the page, the device
-  is legible, and the outcome is stated under a label rather than buried in a
-  caption. It costs height, and it buys a products section that carries the
-  same evidentiary weight as the research above it. For a medical device
-  employer that matters: translating requirements into a shipped interface is
-  half of what the job is.
+  As full-width alternating rows this section was as tall as the research
+  above it, which put the products at the same weight as the studies and cost
+  most of two screens. As cards it costs half that, and a product is a thing
+  you recognise by looking at it rather than by reading about it, so the
+  device does the work and the words underneath stay to a line.
 */
 
 /* Drawn from the study's own "Status" spec row, so a card can never overstate
@@ -30,68 +28,43 @@ export default function Projects() {
           <SectionTitle title="Products and Engineering Work" />
         </Reveal>
 
-        <ol className="mt-12 flex list-none flex-col gap-14 md:gap-16">
-          {productStudies.map((cs, i) => {
-            const flip = i % 2 === 1;
-            return (
-              <li key={cs.slug}>
-                <Reveal>
-                  <Link
-                    href={`/work/${cs.slug}`}
-                    className="group grid items-center gap-8 md:grid-cols-2 md:gap-12"
-                  >
-                    {cs.shot && (
-                      <div className={flip ? "md:order-1" : "md:order-2"}>
-                        <DeviceFrame
-                          image={cs.shot}
-                          sizes="(min-width: 768px) 34rem, 100vw"
-                          className="h-52 w-full md:h-[21rem]"
-                        />
-                      </div>
+        <ul className="mt-10 grid list-none gap-x-12 gap-y-12 sm:grid-cols-2">
+          {productStudies.map((cs) => (
+            <li key={cs.slug} className="flex">
+              {/* h-full through the reveal wrapper too, or the cards in a row
+                  size independently and their titles stop lining up. */}
+              <Reveal className="flex w-full">
+                <Link
+                  href={`/work/${cs.slug}`}
+                  className="group flex w-full flex-col"
+                >
+                  {cs.shot && (
+                    <DeviceFrame
+                      image={cs.shot}
+                      sizes="(min-width: 640px) 32rem, 100vw"
+                      className="h-56 w-full md:h-[17rem]"
+                    />
+                  )}
+
+                  <div className="mt-6 flex flex-col gap-2.5 border-t border-line pt-5">
+                    {statusOf(cs) && (
+                      <p className="eyebrow text-crimson">{statusOf(cs)}</p>
                     )}
-
-                    <div
-                      className={`flex flex-col gap-[1.125rem] ${
-                        flip ? "md:order-2" : "md:order-1"
-                      }`}
-                    >
-                      {statusOf(cs) && (
-                        <p className="eyebrow text-crimson">
-                          {String(i + 1).padStart(2, "0")} &mdash;{" "}
-                          {statusOf(cs)}
-                        </p>
-                      )}
-
-                      <h3 className="display text-[1.625rem] md:text-[2.125rem]">
-                        {cs.title}
-                      </h3>
-
-                      {/* The oneLiner is gone from here. The title and a
-                          legible screenshot already say what the thing is,
-                          and the outcome says the only part that matters. */}
-
-                      {/* The same navy rule the research findings carry. A
-                          shipped result and a measured result are both
-                          results, and the page should say so. */}
-                      {cs.outcome && (
-                        <div className="border-l-2 border-navy pl-5">
-                          <p className="eyebrow text-ink/45">Outcome</p>
-                          <p className="mt-2 max-w-[46ch] text-[1.0625rem] leading-relaxed">
-                            {cs.outcome}
-                          </p>
-                        </div>
-                      )}
-
-                      <span className="text-sm text-crimson group-hover:underline">
-                        Open case study <span aria-hidden="true">→</span>
-                      </span>
-                    </div>
-                  </Link>
-                </Reveal>
-              </li>
-            );
-          })}
-        </ol>
+                    <h3 className="display text-[1.375rem] md:text-[1.625rem]">
+                      {cs.title}
+                    </h3>
+                    <p className="text-[0.9375rem] leading-relaxed text-ink/70">
+                      {cs.outcome ?? cs.oneLiner}
+                    </p>
+                    <span className="mt-auto pt-2 text-sm text-crimson group-hover:underline">
+                      Open case study <span aria-hidden="true">→</span>
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

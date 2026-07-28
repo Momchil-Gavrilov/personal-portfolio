@@ -56,45 +56,49 @@ export const proofPoints = [
   { figure: "1", label: "Product In Daily Use" },
 ];
 
-export const practiceTitle = "Skills";
-
 /*
-  Grouped exactly as his resume groups them, so a recruiter holding both
-  documents sees the same four headings in the same order. The terms are his
-  too; this is the resume's skills block, set as chips.
+  Three groups, collapsed by default.
 
-  Rendered as tags rather than stacked lists. Four columns of short lines read
-  as four paragraphs of prose from any distance, which is the opposite of what
-  this band is for.
+  The point of this band is recognition, not reading: a hiring manager should
+  see terms from their own requisition inside two seconds and conclude the
+  page is worth their time. Collapsed, that is three labels on one line.
+  Expanded, it is the detail, for the reader who wants to check.
 
-  Regulatory knowledge keeps his resume's wording. Knowing a standard and
-  having worked under one are different claims, and "knowledge" makes only the
-  first. Nothing here says he has run a submission.
+  Trimmed to what the postings actually ask for. The tooling list and the
+  statistics vocabulary came off: they are on the resume, they are not what an
+  HFE requisition screens on, and they diluted the terms that are.
+
+  "Learning" rather than "Regulatory knowledge". He has read toward these and
+  has not worked under them, and the label is the only thing keeping that
+  distinction visible.
 */
+export const skillsTitle = "Skills";
+
 export const skillGroups = [
   {
     group: "Usability engineering",
     items: [
-      "Formative testing",
-      "Session moderation",
+      "Formative usability testing",
+      "Study moderation",
       "Task and protocol design",
       "Use-error informed design",
+      "Root cause analysis",
       "HMI evaluation",
     ],
   },
   {
-    group: "Experimental design and statistics",
+    group: "Running studies",
     items: [
-      "Within-subject",
-      "Factorial",
-      "RCT and A/B",
-      "Psychometrics",
-      "Bayesian and inferential stats",
-      "Regression",
+      "Study design",
+      "Protocol development",
+      "Participant recruitment",
+      "Data collection",
+      "Consent and data handling",
+      "Objective and subjective data analysis",
     ],
   },
   {
-    group: "Regulatory knowledge",
+    group: "Learning",
     items: [
       "FDA HFE Guidance",
       "IEC 62366-1",
@@ -102,20 +106,6 @@ export const skillGroups = [
       "ISO 13485",
       "IEC 60601",
       "EU MDR",
-    ],
-  },
-  {
-    group: "Technical",
-    items: [
-      "R",
-      "MATLAB",
-      "Python",
-      "C/C++",
-      "Figma",
-      "EMG and biosignal processing",
-      "ROS2",
-      "CAD",
-      "Git",
     ],
   },
 ];

@@ -1,58 +1,55 @@
 import Reveal from "@/components/Reveal";
-import { practiceTitle, skillGroups } from "@/content/site";
+import { skillGroups, skillsTitle } from "@/content/site";
 
 /*
-  Four labelled rows of tags, not four columns of stacked lines.
+  Three columns, each a disclosure, all closed by default.
 
-  As columns this band read as four short paragraphs from any distance, which
-  is the opposite of what it is for: a recruiter should be able to find a term
-  here without reading a word of it. Tags in a flowing row scan at a glance,
-  the left-hand label tells them which row to look in, and the whole band is
-  about half the height it was.
+  This band exists for recognition rather than reading. A hiring manager needs
+  to see terms out of their own requisition inside a couple of seconds and
+  conclude the page is worth their time; they do not need to read twenty of
+  them on the way to the research. Closed, the whole band is a heading and
+  three labels. Open, it is the detail, for the reader who wants to check.
 
-  Regulatory knowledge is dimmed rather than hidden. It is real vocabulary he
-  has read toward and not experience he has, and the lighter treatment says
-  which of the four rows is the aspiration without a caveat sentence.
+  Native <details> so it works without JavaScript and stays keyboard
+  accessible, the same mechanism the publications list uses.
 */
 export default function Skills() {
   return (
-    <section id="skills" className="bg-navy py-12 text-paper md:py-14">
+    <section id="skills" className="bg-navy py-11 text-paper md:py-12">
       <div className="wrap">
         <Reveal>
-          <h2 className="display text-[1.75rem] md:text-[2rem]">
-            {practiceTitle}
+          <h2 className="display text-[1.5rem] md:text-[1.75rem]">
+            {skillsTitle}
           </h2>
         </Reveal>
         <Reveal>
-          <dl className="mt-8 space-y-px">
-            {skillGroups.map((g) => {
-              const muted = g.group === "Regulatory knowledge";
-              return (
-                <div
-                  key={g.group}
-                  className="grid gap-x-8 gap-y-3 border-t border-paper/20 py-4 md:grid-cols-[13rem_minmax(0,1fr)] md:items-baseline"
-                >
-                  <dt className="eyebrow text-paper/55">{g.group}</dt>
-                  <dd>
-                    <ul className="flex flex-wrap gap-2">
-                      {g.items.map((item) => (
-                        <li
-                          key={item}
-                          className={`rounded-btn px-3 py-1.5 text-[0.875rem] leading-none ${
-                            muted
-                              ? "border border-paper/25 text-paper/65"
-                              : "bg-paper/10 text-paper"
-                          }`}
-                        >
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </dd>
-                </div>
-              );
-            })}
-          </dl>
+          <div className="mt-6 grid gap-x-10 gap-y-px sm:grid-cols-2 lg:grid-cols-3">
+            {skillGroups.map((g) => (
+              <details key={g.group} className="group border-t border-paper/20">
+                <summary className="flex cursor-pointer list-none items-center gap-3 py-3.5 [&::-webkit-details-marker]:hidden">
+                  <span className="eyebrow text-paper/70 transition-colors group-hover:text-paper">
+                    {g.group}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="ml-auto text-paper/50 transition-transform duration-300 group-open:rotate-90"
+                  >
+                    &rsaquo;
+                  </span>
+                </summary>
+                <ul className="pb-4 space-y-1.5">
+                  {g.items.map((item) => (
+                    <li
+                      key={item}
+                      className="text-[0.9375rem] leading-snug text-paper/85"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ))}
+          </div>
         </Reveal>
       </div>
     </section>

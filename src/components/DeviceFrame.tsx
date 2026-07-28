@@ -77,11 +77,17 @@ export default function DeviceFrame({
   if (frame === "laptop") {
     return (
       <div className={`flex items-center justify-center ${className}`}>
-        <div className="flex w-full max-w-full flex-col items-center">
+        {/* Height drives width, not the other way round. Sized from its own
+            width the lid was taller than the box it sits in, so it spilled
+            past the card and pushed the grid row out of alignment. */}
+        <div className="flex h-full max-w-full flex-col items-center justify-center">
           {/* Lid. The screen keeps a 16:10 window on the screenshot, which is
               what a laptop actually shows, rather than the full page height. */}
-          <div className="w-full rounded-t-[0.5rem] bg-ink p-[0.35rem] pb-0">
-            <div className="aspect-16/10 w-full overflow-hidden rounded-t-[0.25rem] bg-white">
+          <div
+            className="min-h-0 rounded-t-[0.5rem] bg-ink p-[0.35rem] pb-0"
+            style={{ height: "calc(100% - 0.75rem)" }}
+          >
+            <div className="aspect-16/10 h-full overflow-hidden rounded-t-[0.25rem] bg-white">
               {picture}
             </div>
           </div>

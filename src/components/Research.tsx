@@ -75,36 +75,36 @@ export default function Research() {
                         {cs.hook ?? cs.oneLiner}
                       </p>
 
-                      {/* Labelled, because a reader scanning for evidence
-                          should not have to work out which sentence is the
-                          result. The navy rule is the same one used on the
-                          stat figures above: it marks a measured thing. */}
-                      {cs.finding && (
-                        <div className="border-l-2 border-navy pl-5">
-                          <p className="eyebrow text-ink/45">Finding</p>
-                          <p className="mt-2 max-w-[46ch] text-[1.0625rem] leading-relaxed">
-                            {cs.finding}
-                          </p>
-                        </div>
-                      )}
-
                       {/*
-                        The limitation, in his words, volunteered rather than
-                        waited for. It gets a lighter rule than the finding so
-                        the hierarchy stays honest: this qualifies the result,
-                        it does not compete with it. Almost no portfolio does
-                        this, and it is the first thing an interviewer probes.
+                        Finding and limitation as a two-row table rather than
+                        two left-ruled callouts. Stacked bracket shapes with
+                        mono labels inside them read as clutter at this size;
+                        a hairline and a label in the margin is the same
+                        information with nothing drawn around it, and it
+                        matches how the rest of the site separates things.
+
+                        The label sits in its own column on wide screens so
+                        the two bodies of text share one left edge with the
+                        heading above them.
                       */}
-                      {cs.limitation && (
-                        <div className="border-l-2 border-line-strong pl-5">
-                          <p className="eyebrow text-ink/45">
-                            What it does not show
-                          </p>
-                          <p className="mt-2 max-w-[46ch] text-[0.9375rem] leading-relaxed text-ink/65">
-                            {cs.limitation}
-                          </p>
-                        </div>
-                      )}
+                      <dl className="mt-1 border-t border-line">
+                        {cs.finding && (
+                          <div className="grid gap-1 border-b border-line py-4 lg:grid-cols-[7rem_minmax(0,1fr)] lg:gap-5">
+                            <dt className="eyebrow pt-1 text-ink/40">Finding</dt>
+                            <dd className="max-w-[46ch] text-[1.0625rem] leading-relaxed">
+                              {cs.finding}
+                            </dd>
+                          </div>
+                        )}
+                        {cs.limitation && (
+                          <div className="grid gap-1 border-b border-line py-4 lg:grid-cols-[7rem_minmax(0,1fr)] lg:gap-5">
+                            <dt className="eyebrow pt-1 text-ink/40">Limits</dt>
+                            <dd className="max-w-[46ch] text-[0.9375rem] leading-relaxed text-ink/60">
+                              {cs.limitation}
+                            </dd>
+                          </div>
+                        )}
+                      </dl>
 
                       <span className="text-sm text-crimson group-hover:underline">
                         Read the case study <span aria-hidden="true">→</span>
