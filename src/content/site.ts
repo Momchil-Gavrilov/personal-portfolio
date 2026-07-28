@@ -87,14 +87,14 @@ export const skillGroups = [
     ],
   },
   {
-    group: "Running studies",
+    group: "Research",
     items: [
       "Study design",
       "Protocol development",
       "Participant recruitment",
       "Data collection",
       "Consent and data handling",
-      "Objective and subjective data analysis",
+      "Qualitative and quantitative data analysis",
     ],
   },
 ];
@@ -123,7 +123,7 @@ export const standards = [
   under the numbers, where the credibility claims already are.
 */
 export const experienceNote =
-  "Four years researching how people use technology, and three years in patient-facing clinical care before that.";
+  "Four years researching how people use technology. Three years in patient-facing clinical care before that.";
 
 export const storyTitle = "Why I Do This";
 

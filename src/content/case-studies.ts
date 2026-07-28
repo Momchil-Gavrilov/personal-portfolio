@@ -70,6 +70,9 @@ export type CaseStudy = {
   /* A wide screenshot of the product itself. The app-icon tiles said what the
      thing was called; a screenshot says what it is. */
   shot?: CaseStudyImage;
+  /* Extra screens for the showcase slot. `shot` supplies the phone; these two
+     put it on a laptop and a tablet beside it. */
+  bundle?: { laptop: CaseStudyImage; tablet: CaseStudyImage };
   /* The specification a reviewer scans for. Rendered as a sticky rail beside
      the narrative on the case study page, and in the evidence card on the
      home page. */
@@ -113,6 +116,22 @@ export const caseStudies: CaseStudy[] = [
       frame: "phone",
       width: 860,
       height: 1864,
+    },
+    /* The centre runs this on whatever screen is to hand, so the showcase
+       shows it on three. Captured from the live demo. */
+    bundle: {
+      laptop: {
+        src: "/wellspring/desktop.png",
+        alt: "Wellspring open on a laptop, at the screen where a volunteer or manager picks their role.",
+        width: 960,
+        height: 600,
+      },
+      tablet: {
+        src: "/wellspring/tablet.png",
+        alt: "The same screen on a tablet.",
+        width: 720,
+        height: 960,
+      },
     },
     category: "product",
     monogram: "W",
@@ -255,7 +274,7 @@ export const caseStudies: CaseStudy[] = [
       alt: "A participant in the lab operating the EMG-controlled prosthetic hand to grasp a wooden block.",
     },
     eyebrow: "23 participants · within-subject",
-    hook: "Bionic hands keep getting better, yet users keep abandoning them.",
+    hook: "Bionic hands are improving, yet users keep abandoning them.",
     figure: {
       src: "/embodiment/setup.jpg",
       alt: "The study setup: a participant in a lab coat grasps a wooden block with the EMG-controlled prosthetic hand, with an occluding screen between them and the hand, and a motion-capture camera on a tripod behind.",
