@@ -58,9 +58,6 @@ export default async function CaseStudyPage({
             {site.name}
           </Link>
           <div className="flex items-center gap-5">
-            <Link href="/#work" className="text-sm text-ink/60 hover:text-ink">
-              All case studies <span aria-hidden="true">→</span>
-            </Link>
             {cs.liveUrl && (
               <a
                 href={cs.liveUrl}
@@ -71,36 +68,44 @@ export default async function CaseStudyPage({
                 {cs.liveLabel ?? "View live"}
               </a>
             )}
+            <Link href="/#work" className="text-sm text-ink/60 hover:text-ink">
+              All case studies <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </nav>
       </header>
       <main className="wrap py-14 md:py-20">
         <article>
           <header className="max-w-measure">
-            <p className="eyebrow text-crimson">Case study</p>
-            <h1 className="display mt-4 max-w-[24ch] text-4xl md:text-[3.25rem]">
+            {/* The label said "Case study" to someone already reading one.
+                The same slot now does something: it is the way back, at the
+                top left, where a reader looks for it. */}
+            <Link
+              href="/#work"
+              className="eyebrow text-ink/45 transition-colors hover:text-ink"
+            >
+              <span aria-hidden="true">&larr;</span> Back to all case studies
+            </Link>
+            <h1 className="display mt-5 max-w-[24ch] text-4xl md:text-[3.25rem]">
               {cs.title}
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-ink/75">
               {cs.oneLiner}
             </p>
+            {/* The first place a reader wants this, and the reason most of
+                them opened the page. */}
+            {cs.liveUrl && (
+              <a
+                href={cs.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary mt-7"
+              >
+                {cs.liveLabel ?? "View live"}
+                <span aria-hidden="true">→</span>
+              </a>
+            )}
           </header>
-
-          {/*
-            The decision that shaped the work, placed at the top of the case
-            study rather than on the home page. It is judgment evidence, and
-            judgment only matters to a reader who already believes the person
-            can do the job. By the time someone has opened a case study, they
-            do, and this is the first thing worth telling them.
-          */}
-          {cs.lesson && (
-            <div className="mt-10 max-w-measure border-l-2 border-navy bg-paper-deep/60 p-6">
-              <p className="eyebrow text-ink/45">Lesson learned</p>
-              <p className="mt-3 text-[1.0625rem] leading-relaxed">
-                {cs.lesson}
-              </p>
-            </div>
-          )}
 
           {/*
             The specification runs as a strip directly under the title, not as
@@ -176,7 +181,24 @@ export default async function CaseStudyPage({
             ))}
           </div>
 
-          <footer className="mt-16 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-line pt-8">
+          {/*
+            The decision that shaped the work, at the end rather than the
+            start. It is the thing worth carrying away, and a reader only
+            recognises it as one after they have read what it produced.
+          */}
+          {cs.lesson && (
+            <div className="mt-14 max-w-measure border-l-2 border-navy bg-paper-deep/60 p-6">
+              <p className="eyebrow text-ink/45">Lesson learned</p>
+              <p className="mt-3 text-[1.0625rem] leading-relaxed">
+                {cs.lesson}
+              </p>
+            </div>
+          )}
+
+          <footer className="mt-14 flex flex-wrap items-center justify-between gap-x-8 gap-y-4 border-t border-line pt-8">
+            <Link href="/#work" className="text-sm text-crimson hover:underline">
+              <span aria-hidden="true">←</span> Back to all case studies
+            </Link>
             {cs.liveUrl && (
               <a
                 href={cs.liveUrl}
@@ -188,9 +210,6 @@ export default async function CaseStudyPage({
                 <span aria-hidden="true">→</span>
               </a>
             )}
-            <Link href="/#work" className="text-sm text-crimson hover:underline">
-              <span aria-hidden="true">←</span> Back to all case studies
-            </Link>
           </footer>
         </article>
       </main>

@@ -75,29 +75,35 @@ export default function DeviceFrame({
   }
 
   if (frame === "laptop") {
+    /*
+      Rebuilt as one box with a fixed outer ratio and both parts positioned
+      inside it as percentages of that box.
+
+      Every earlier version stacked lid, hinge and base as flex siblings and
+      let each one work out its own width, which meant the base's width
+      depended on the lid's, and the lid's depended on a height that was
+      itself a percentage. The resolution order was never guaranteed, so the
+      base kept detaching from the screen. Nothing here depends on anything
+      else: the wrapper's aspect ratio fixes the whole silhouette, the lid
+      occupies the top 94% inset 6% from each side, the base takes the
+      remaining strip at full width, and they meet by construction.
+
+      1.7 is the outer ratio that leaves the screen itself at 16:10.
+    */
     return (
       <div className={`flex items-center justify-center ${className}`}>
-        {/* Height drives width, not the other way round. Sized from its own
-            width the lid was taller than the box it sits in, so it spilled
-            past the card and pushed the grid row out of alignment. */}
-        <div className="flex h-full max-w-full flex-col items-center justify-center">
-          {/* Lid. The screen keeps a 16:10 window on the screenshot, which is
-              what a laptop actually shows, rather than the full page height. */}
-          <div
-            className="min-h-0 rounded-t-[0.5rem] bg-ink p-[0.35rem] pb-0"
-            style={{ height: "calc(100% - 0.75rem)" }}
-          >
-            <div className="aspect-16/10 h-full overflow-hidden rounded-t-[0.25rem] bg-white">
+        {/* Width drives, not height. With h-full the box was clamped to the
+            column's width as well, so the ratio could not hold and the screen
+            cropped into the middle of the screenshot. */}
+        <div className="relative w-full" style={{ aspectRatio: "1.7" }}>
+          <div className="absolute inset-x-[6%] bottom-[6%] top-0 rounded-t-[0.4rem] bg-ink p-[0.3rem] pb-0 shadow-[0_10px_24px_rgba(16,24,32,0.18)]">
+            <div className="h-full w-full overflow-hidden rounded-t-[0.2rem] bg-white">
               {picture}
             </div>
           </div>
-          {/* Hinge, then the base. Both are self-stretch so they track the
-              lid's width exactly; the base used to be set to 108% of its own
-              box, which left it hanging off the screen it belongs to. */}
-          <div aria-hidden="true" className="h-[0.3rem] w-full bg-ink" />
           <div
             aria-hidden="true"
-            className="h-[0.4rem] w-full rounded-b-[0.4rem] bg-ink/85 shadow-[0_6px_14px_rgba(16,24,32,0.18)]"
+            className="absolute inset-x-0 bottom-0 h-[6%] rounded-b-[0.35rem] bg-ink"
           />
         </div>
       </div>

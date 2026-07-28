@@ -130,8 +130,8 @@ export const caseStudies: CaseStudy[] = [
       desktop: {
         src: "/wellspring/desktop-dashboard.png",
         alt: "The Wellspring manager dashboard on a desktop monitor: a New Donation button and a month calendar marking every day with donations.",
-        width: 1440,
-        height: 900,
+        width: 1347,
+        height: 842,
       },
       laptop: {
         src: "/wellspring/desktop.png",
@@ -142,14 +142,14 @@ export const caseStudies: CaseStudy[] = [
       tablet: {
         src: "/wellspring/tablet-log.png",
         alt: "A day's log open on a tablet: every item, count, unit and category, with a tab for each volunteer who logged that day.",
-        width: 820,
-        height: 1093,
+        width: 684,
+        height: 912,
       },
       phone: {
         src: "/wellspring/phone-splash.png",
-        alt: "The Wellspring Women's Center splash screen on a phone.",
-        width: 645,
-        height: 1398,
+        alt: "The Wellspring Women's Center loading screen on a phone: the centre's own crest, dignity and love since 1987.",
+        width: 387,
+        height: 840,
       },
     },
     category: "product",

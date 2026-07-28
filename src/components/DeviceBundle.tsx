@@ -2,27 +2,28 @@ import Image from "next/image";
 import type { CaseStudyImage } from "@/content/case-studies";
 
 /*
-  The conventional four-device product shot: monitor centred and behind,
-  laptop to its left, phone and tablet in front on the right.
+  The conventional four-device product shot.
 
-  It is conventional because it reads instantly. One product on this site runs
-  on whatever screen the centre has to hand, and a single phone screenshot
-  said none of that.
+  Monitor centred and behind at full height, then the other three overlapping
+  its lower edge rather than standing beside it: laptop left, phone and tablet
+  right. Standing apart they read as four separate pictures at four unrelated
+  sizes; overlapping, they read as one object.
+
+  Sizes are set against the monitor deliberately. A tablet is roughly half a
+  monitor's height and a phone roughly a third, so those proportions hold
+  here, which is what stops the cluster looking like clip art.
 
   Composed in CSS from real captures rather than baked into an image, so every
   screen stays sharp at any size and any one of them can be swapped without
-  opening an editor. Percentages throughout, so the cluster scales with its
-  container. Stacking order runs back to front in the DOM.
+  opening an editor. Stacking order runs back to front in the DOM.
 */
 
 function Screen({
   image,
   sizes,
-  className,
 }: {
   image: CaseStudyImage;
   sizes: string;
-  className: string;
 }) {
   return (
     <Image
@@ -31,7 +32,7 @@ function Screen({
       width={image.width ?? 960}
       height={image.height ?? 600}
       sizes={sizes}
-      className={className}
+      className="h-full w-full object-cover object-top"
     />
   );
 }
@@ -51,72 +52,55 @@ export default function DeviceBundle({
 }) {
   return (
     <div className={`relative ${className}`}>
-      {/* Monitor: centred, back, and the largest thing in the cluster. */}
-      <div className="absolute left-[20%] top-0 w-[60%]">
-        <div className="rounded-[0.5rem] bg-ink p-[0.4rem] shadow-[0_14px_34px_rgba(16,24,32,0.18)]">
+      {/* Monitor, back and centre. Everything else is scaled against it. */}
+      <div className="absolute left-[16%] top-0 w-[68%]">
+        <div className="rounded-[0.5rem] bg-ink p-[0.4rem] shadow-[0_16px_38px_rgba(16,24,32,0.2)]">
           <div className="aspect-16/10 overflow-hidden rounded-[0.2rem] bg-white">
-            <Screen
-              image={desktop}
-              sizes="(min-width: 768px) 20rem, 45vw"
-              className="h-full w-full object-cover object-top"
-            />
+            <Screen image={desktop} sizes="(min-width: 768px) 24rem, 52vw" />
           </div>
         </div>
-        {/* Stand: neck, then foot. */}
         <div
           aria-hidden="true"
-          className="mx-auto h-[9%] w-[12%] bg-ink/80"
-          style={{ height: "1.6rem" }}
+          className="mx-auto w-[11%] bg-ink/80"
+          style={{ height: "1.5rem" }}
         />
         <div
           aria-hidden="true"
-          className="mx-auto h-[0.35rem] w-[34%] rounded-full bg-ink/80"
+          className="mx-auto h-[0.35rem] w-[30%] rounded-full bg-ink/80"
         />
       </div>
 
-      {/* Laptop: front left, its base overlapping the monitor's foot. */}
-      <div className="absolute bottom-[4%] left-0 w-[43%]">
-        <div className="rounded-t-[0.35rem] bg-ink p-[0.25rem] pb-0 shadow-[0_10px_26px_rgba(16,24,32,0.2)]">
+      {/* Laptop, overlapping the monitor's lower left. */}
+      <div className="absolute bottom-0 left-0 w-[46%]">
+        <div className="rounded-t-[0.35rem] bg-ink p-[0.25rem] pb-0 shadow-[0_12px_28px_rgba(16,24,32,0.22)]">
           <div className="aspect-16/10 overflow-hidden rounded-t-[0.15rem] bg-white">
-            <Screen
-              image={laptop}
-              sizes="(min-width: 768px) 14rem, 34vw"
-              className="h-full w-full object-cover object-top"
-            />
+            <Screen image={laptop} sizes="(min-width: 768px) 16rem, 36vw" />
           </div>
         </div>
         <div aria-hidden="true" className="h-[0.25rem] w-full bg-ink" />
         <div
           aria-hidden="true"
-          className="mx-auto h-[0.3rem] w-[112%] -translate-x-[5.4%] rounded-b-[0.25rem] bg-ink/85"
+          className="h-[0.32rem] w-full rounded-b-[0.3rem] bg-ink/85"
         />
       </div>
 
-      {/* Tablet: front right. */}
-      <div className="absolute bottom-0 right-[1%] w-[27%]">
-        <div className="rounded-[0.55rem] bg-ink p-[0.28rem] shadow-[0_12px_26px_rgba(16,24,32,0.24)]">
-          <div className="aspect-3/4 overflow-hidden rounded-[0.35rem] bg-white">
-            <Screen
-              image={tablet}
-              sizes="(min-width: 768px) 9rem, 22vw"
-              className="h-full w-full object-cover object-top"
-            />
+      {/* Tablet, overlapping the monitor's lower right. */}
+      <div className="absolute bottom-[3%] right-[2%] w-[21%]">
+        <div className="rounded-[0.5rem] bg-ink p-[0.25rem] shadow-[0_12px_26px_rgba(16,24,32,0.26)]">
+          <div className="aspect-3/4 overflow-hidden rounded-[0.3rem] bg-white">
+            <Screen image={tablet} sizes="(min-width: 768px) 7rem, 18vw" />
           </div>
         </div>
       </div>
 
-      {/* Phone: frontmost, carrying the screen that actually matters. */}
-      <div className="absolute bottom-[1%] right-[26%] w-[16%]">
-        <div className="rounded-[0.6rem] bg-ink p-[0.18rem] shadow-[0_14px_28px_rgba(16,24,32,0.3)]">
-          <div className="relative aspect-[9/19] overflow-hidden rounded-[0.48rem] bg-white">
-            <Screen
-              image={phone}
-              sizes="(min-width: 768px) 5rem, 14vw"
-              className="h-full w-full object-cover object-top"
-            />
+      {/* Phone, frontmost, tucked against the tablet. */}
+      <div className="absolute bottom-0 right-[19%] w-[11.5%]">
+        <div className="rounded-[0.5rem] bg-ink p-[0.15rem] shadow-[0_14px_26px_rgba(16,24,32,0.32)]">
+          <div className="relative aspect-[9/19.5] overflow-hidden rounded-[0.4rem] bg-white">
+            <Screen image={phone} sizes="(min-width: 768px) 4rem, 11vw" />
             <span
               aria-hidden="true"
-              className="absolute left-1/2 top-[0.22rem] h-[0.1rem] w-[24%] -translate-x-1/2 rounded-full bg-ink/25"
+              className="absolute left-1/2 top-[0.18rem] h-[0.09rem] w-[26%] -translate-x-1/2 rounded-full bg-ink/25"
             />
           </div>
         </div>
