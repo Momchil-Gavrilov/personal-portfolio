@@ -4,7 +4,7 @@ export const site = {
   /* Split so the accent word stays content, not markup. Exactly one word is
      ever set in navy; the italic came off because at 84px it read as a
      different typeface rather than as emphasis. */
-  tagline: { lead: "I design technology that people", accent: "trust" },
+  tagline: { lead: "I design technology people", accent: "trust" },
   degree: "M.S. Biomedical Engineering, UC Davis",
   email: "mc.g.gavrilov@gmail.com",
   linkedin: {
@@ -37,41 +37,22 @@ export const portrait = {
   alt: "Portrait of Momchil Gavrilov",
 };
 
-/* One-glance credibility, answering "is this person real" before any reading.
-   Every figure here has to survive being asked about in an interview. */
 /*
-  Ordered by magnitude, so the row reads as a descent rather than as four
-  unrelated facts and the largest number lands first.
+  One-glance credibility, answering "is this person real" before any reading.
+  Every figure here has to survive being asked about in an interview.
 
-  No "peer-reviewed" qualifier on the publication count. Three have cleared
-  review, one is in review and one is in submission; the list below names
-  every venue exactly, and a scientific reader reads those correctly without
-  being told. The count is honest; the label it used to carry was not.
-
+  "4 human research studies" came out: it restated what 185 participants and
+  5 publications already said. Its slot went to the three clinical years,
+  which say something nothing else on the page does, that he has stood in the
+  environment a medical device actually gets used in.
 */
 export const proofPoints = [
-  { figure: "185", label: "Participants" },
+  { figure: "185", label: "Research Participants" },
   { figure: "5", label: "Publications" },
-  { figure: "4", label: "Human Research Studies" },
+  { figure: "3", label: "Years in Clinical Care" },
   { figure: "1", label: "Product In Daily Use" },
 ];
 
-/*
-  Three groups, collapsed by default.
-
-  The point of this band is recognition, not reading: a hiring manager should
-  see terms from their own requisition inside two seconds and conclude the
-  page is worth their time. Collapsed, that is three labels on one line.
-  Expanded, it is the detail, for the reader who wants to check.
-
-  Trimmed to what the postings actually ask for. The tooling list and the
-  statistics vocabulary came off: they are on the resume, they are not what an
-  HFE requisition screens on, and they diluted the terms that are.
-
-  "Learning" rather than "Regulatory knowledge". He has read toward these and
-  has not worked under them, and the label is the only thing keeping that
-  distinction visible.
-*/
 export const skillsTitle = "Skills";
 
 export const skillGroups = [
@@ -115,15 +96,6 @@ export const standards = [
   "IEC 60601",
   "EU MDR",
 ];
-
-/*
-  Three years of patient-facing clinical work sat only on the resume. For a
-  medical device employer it answers something no lab study can: whether the
-  candidate has stood in the environment the device gets used in. One line,
-  under the numbers, where the credibility claims already are.
-*/
-export const experienceNote =
-  "Four years researching how people use technology. Three years in patient-facing clinical care before that.";
 
 export const storyTitle = "Why I Do This";
 

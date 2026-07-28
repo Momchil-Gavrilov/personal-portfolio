@@ -65,7 +65,7 @@ export default function Research() {
                         {cs.eyebrow ? ` — ${cs.eyebrow}` : ""}
                       </p>
 
-                      <h3 className="display text-[1.625rem] md:text-[2.125rem]">
+                      <h3 className="display text-[1.5rem] md:text-[1.75rem]">
                         {cs.title}
                       </h3>
 

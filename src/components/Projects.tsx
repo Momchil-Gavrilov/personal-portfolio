@@ -33,15 +33,18 @@ export default function Projects() {
 
         {lead && (
           <Reveal>
+            {/* The showcase takes the tint so the one product real people
+                depend on daily is visibly a different order of thing from the
+                three below it, which stay on paper. */}
             <Link
               href={`/work/${lead.slug}`}
-              className="group mt-10 grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] md:gap-14"
+              className="group mt-10 grid items-center gap-10 rounded-card bg-paper-deep p-7 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] md:gap-12 md:p-10"
             >
               <div className="flex flex-col gap-4">
                 {statusOf(lead) && (
                   <p className="eyebrow text-crimson">{statusOf(lead)}</p>
                 )}
-                <h3 className="display text-[1.75rem] md:text-[2.25rem]">
+                <h3 className="display text-[1.5rem] md:text-[1.75rem]">
                   {lead.title}
                 </h3>
                 <p className="max-w-[44ch] text-[1.0625rem] leading-relaxed text-ink/75">
@@ -57,10 +60,11 @@ export default function Projects() {
 
               {lead.bundle && lead.shot && (
                 <DeviceBundle
+                  desktop={lead.bundle.desktop}
                   laptop={lead.bundle.laptop}
                   tablet={lead.bundle.tablet}
                   phone={lead.shot}
-                  className="aspect-8/5 w-full"
+                  className="aspect-[7/5] w-full"
                 />
               )}
             </Link>

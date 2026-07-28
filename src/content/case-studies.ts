@@ -72,7 +72,11 @@ export type CaseStudy = {
   shot?: CaseStudyImage;
   /* Extra screens for the showcase slot. `shot` supplies the phone; these two
      put it on a laptop and a tablet beside it. */
-  bundle?: { laptop: CaseStudyImage; tablet: CaseStudyImage };
+  bundle?: {
+    desktop: CaseStudyImage;
+    laptop: CaseStudyImage;
+    tablet: CaseStudyImage;
+  };
   /* The specification a reviewer scans for. Rendered as a sticky rail beside
      the narrative on the case study page, and in the evidence card on the
      home page. */
@@ -120,15 +124,21 @@ export const caseStudies: CaseStudy[] = [
     /* The centre runs this on whatever screen is to hand, so the showcase
        shows it on three. Captured from the live demo. */
     bundle: {
+      desktop: {
+        src: "/wellspring/desktop.png",
+        alt: "Wellspring on a desktop monitor, at the screen where a volunteer or manager picks their role.",
+        width: 960,
+        height: 600,
+      },
       laptop: {
         src: "/wellspring/desktop.png",
-        alt: "Wellspring open on a laptop, at the screen where a volunteer or manager picks their role.",
+        alt: "The same view on a laptop.",
         width: 960,
         height: 600,
       },
       tablet: {
         src: "/wellspring/tablet.png",
-        alt: "The same screen on a tablet.",
+        alt: "The same view on a tablet.",
         width: 720,
         height: 960,
       },
@@ -347,7 +357,7 @@ export const caseStudies: CaseStudy[] = [
       { k: "My role", v: "User interviews and prototype iteration" },
       { k: "Method", v: "Contextual interviews, Figma prototype" },
       { k: "Output", v: "Most User-Centered Design" },
-      { k: "Status", v: "Prototype" },
+      { k: "Status", v: "Interactive demo" },
     ],
     outcome:
       "Won Most User-Centered Design by asking why a student opens the app at all.",
@@ -365,7 +375,7 @@ export const caseStudies: CaseStudy[] = [
     icon: "/icons/ucdavis.png",
     liveUrl:
       "https://www.figma.com/proto/KGSipDKNGFWF7Y7cfg3R3b/Design-Interactive-Prototype?node-id=4-158",
-    liveLabel: "View the prototype",
+    liveLabel: "Open the demo",
     status: "published",
     sections: [
       {
@@ -416,24 +426,24 @@ export const caseStudies: CaseStudy[] = [
       { k: "My role", v: "Product design and build, end to end" },
       { k: "Method", v: "Workflow analysis, working prototype" },
       { k: "Stack", v: "Two-sided marketplace, AI intake agent" },
-      { k: "Status", v: "Working demo, not deployed" },
+      { k: "Status", v: "Prototype" },
     ],
     outcome:
-      "Built end to end, intake through match. Not yet deployed to real users.",
+      "Built end to end, intake through match. A prototype, not yet with real users.",
     /* The intake screenshot is a wall of body text and reads as noise at card
        size; the case list shows the product's actual shape at a glance. */
     shot: {
       src: "/casebase/home.png",
-      alt: "The CaseBase home screen: a client or lawyer chooses their side, then starts the demo or signs in.",
+      alt: "The CaseBase home screen: a client or lawyer chooses their side, then starts the prototype or signs in.",
       frame: "laptop",
-      width: 1440,
-      height: 900,
+      width: 1180,
+      height: 738,
     },
     category: "product",
     monogram: "CB",
     icon: "/icons/casebase.png",
     liveUrl: "https://casebase-lmp.lovable.app/",
-    liveLabel: "Open the working demo",
+    liveLabel: "Open the prototype",
     status: "published",
     sections: [
       {
