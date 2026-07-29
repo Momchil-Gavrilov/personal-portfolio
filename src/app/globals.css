@@ -73,24 +73,23 @@ section[id] {
 /* --- Structure ---------------------------------------------------- */
 
 /*
-  1240px shell with 60px gutters, matching the design. Every band uses this
-  so the left edge of the type never moves between sections.
+  1024px shell with 24/32px gutters: exactly v2's measure, restored.
+
+  The 2c mock-up drew everything at 1240px, and at that width a laptop reader
+  has to move their eyes across the full screen for every line, which is what
+  made a page of ordinary length feel like work. 960px of content is the
+  width the earlier site read so easily, and every band uses this so the left
+  edge of the type never moves between sections.
 */
 .wrap {
   margin-inline: auto;
-  max-width: 77.5rem;
+  max-width: 64rem;
   padding-inline: 1.5rem;
 }
 
 @media (min-width: 768px) {
   .wrap {
-    padding-inline: 2.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .wrap {
-    padding-inline: 3.75rem;
+    padding-inline: 2rem;
   }
 }
 

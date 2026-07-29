@@ -32,7 +32,7 @@ export default function Research() {
                   className="group flex w-full flex-col"
                 >
                   {cs.figure && (
-                    <div className="h-44 w-full overflow-hidden rounded-card border border-line bg-white">
+                    <div className="h-52 w-full overflow-hidden rounded-card border border-line bg-white md:h-56">
                       <Image
                         src={cs.figure.src}
                         alt={cs.figure.alt}
@@ -57,20 +57,19 @@ export default function Research() {
                         {cs.finding}
                       </p>
                     )}
-                    {/* The limit stays: volunteering it is the strongest trust
-                        signal on the page, and at one small line it costs
-                        almost nothing. */}
-                    {cs.limitation && (
-                      <p className="text-[0.8125rem] leading-relaxed text-ink/50">
-                        <span className="eyebrow text-ink/40">
-                          Limits&nbsp;
-                        </span>{" "}
-                        {cs.limitation}
-                      </p>
-                    )}
                     <span className="mt-auto pt-2 text-sm text-crimson group-hover:underline">
                       Read the case study <span aria-hidden="true">→</span>
                     </span>
+                    {/* Below the link, not above it. The limit is a footnote to
+                        the claim, and putting it last lets the card read
+                        insight then door then caveat, which is the order a
+                        reader actually wants them in. */}
+                    {cs.limitation && (
+                      <p className="mt-2 border-t border-line pt-2.5 text-[0.8125rem] leading-relaxed text-ink/50">
+                        <span className="eyebrow text-ink/40">Limits</span>{" "}
+                        {cs.limitation}
+                      </p>
+                    )}
                   </div>
                 </Link>
               </Reveal>

@@ -26,13 +26,24 @@ export default function Skills() {
         <h2 className="sr-only">{skillsTitle}</h2>
 
         <Reveal>
-          <div className="grid gap-x-12 gap-y-6 md:grid-cols-3">
+          <div className="grid gap-x-10 gap-y-7 md:grid-cols-3">
             {skillGroups.map((g) => (
               <div key={g.group}>
                 <h3 className="eyebrow text-paper/50">{g.group}</h3>
-                <p className="mt-3 border-t border-paper/20 pt-3 text-[0.9375rem] leading-relaxed text-paper/85">
-                  {g.items.join(", ")}
-                </p>
+                {/* Spacing does the separating, so there is no punctuation to
+                    read and no box to draw. Set quiet on purpose: this band is
+                    a reference strip, and it should not compete with the
+                    evidence underneath it. */}
+                <ul className="mt-3 flex flex-col gap-2 border-t border-paper/20 pt-3.5">
+                  {g.items.map((item) => (
+                    <li
+                      key={item}
+                      className="text-[0.8125rem] leading-snug text-paper/65"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -41,9 +52,9 @@ export default function Skills() {
         <Reveal>
           <div className="mt-7 flex flex-wrap items-baseline gap-x-6 gap-y-2 border-t border-paper/20 pt-4">
             <h3 className="eyebrow shrink-0 text-paper/50">{standardsNote}</h3>
-            <ul className="flex flex-wrap gap-x-7 gap-y-2">
+            <ul className="flex flex-wrap gap-x-8 gap-y-2">
               {standards.map((standard) => (
-                <li key={standard} className="text-[0.875rem] text-paper/80">
+                <li key={standard} className="text-[0.8125rem] text-paper/65">
                   {standard}
                 </li>
               ))}

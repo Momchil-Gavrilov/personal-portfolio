@@ -26,10 +26,10 @@ export default function Story() {
        follows it, which is the one moment on the page that must not be
        mistaken for part of anything else. */
     <section id="story" className="bg-paper-deep py-12 md:py-14">
-      <div className="wrap grid gap-10 md:grid-cols-2 md:gap-14">
+      <div className="wrap grid gap-8 md:grid-cols-2 md:gap-12">
         <div className="flex flex-col gap-5">
           <SectionTitle title={storyTitle} />
-          <p className="font-serif text-[1.375rem] leading-[1.45] text-ink/90 md:text-[1.625rem]">
+          <p className="font-serif text-[1.125rem] leading-[1.5] text-ink/85 md:text-[1.25rem]">
             {story[LEAD]}
           </p>
         </div>
@@ -37,12 +37,12 @@ export default function Story() {
         <div className="flex flex-col gap-4">
           {open &&
             FOLDED.map((i) => (
-              <p key={i} className="leading-[1.75] text-ink/75">
+              <p key={i} className="text-[0.9375rem] leading-[1.7] text-ink/70">
                 {story[i]}
               </p>
             ))}
           {ALWAYS.map((i) => (
-            <p key={i} className="leading-[1.75] text-ink/75">
+            <p key={i} className="text-[0.9375rem] leading-[1.7] text-ink/70">
               {story[i]}
             </p>
           ))}

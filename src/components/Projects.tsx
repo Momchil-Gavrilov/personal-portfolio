@@ -25,7 +25,7 @@ export default function Projects() {
   const [lead, ...rest] = productStudies;
 
   return (
-    <section id="work" className="border-t border-line py-12 md:py-14">
+    <section id="work" className="pt-4 pb-12 md:pt-6 md:pb-14">
       <div className="wrap">
         <Reveal>
           <SectionTitle title="Products and Engineering Work" />
@@ -38,7 +38,7 @@ export default function Projects() {
                 three below it, which stay on paper. */}
             <Link
               href={`/work/${lead.slug}`}
-              className="group mt-8 grid items-center gap-8 rounded-card bg-paper-deep p-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] md:gap-10 md:p-8"
+              className="group mt-8 grid items-center gap-8 rounded-card bg-paper-deep p-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-10 md:p-8"
             >
               {/* No status eyebrow and no oneLiner: the devices say what it
                   is, and the outcome line is the hook. Detail lives one
@@ -61,7 +61,7 @@ export default function Projects() {
                   laptop={lead.bundle.laptop}
                   tablet={lead.bundle.tablet}
                   phone={lead.bundle.phone}
-                  className="aspect-[9/5] w-full"
+                  className="aspect-[9/5] w-full max-w-[26rem] justify-self-end"
                 />
               )}
             </Link>
