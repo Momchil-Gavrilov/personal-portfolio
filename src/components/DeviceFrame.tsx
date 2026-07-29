@@ -22,6 +22,24 @@ export default function DeviceFrame({
 }) {
   const frame = image.frame ?? "bare";
 
+  /*
+    A laptop screen shows a whole page, so it letterboxes rather than crops.
+    `object-cover` was silently cutting the right-hand edge off the CaseBase
+    screenshot: the screen well works out to about 1.58:1 once the bezel
+    padding is subtracted, the source is 16:10, and cover resolves that
+    mismatch by trimming rather than by scaling. `contain` keeps the page
+    whole and lets the tiny difference show as background instead.
+
+    Phones still cover, because a phone screenshot is a scrolling view where
+    trimming the bottom edge is exactly what a real device does.
+  */
+  const fit =
+    frame === "laptop"
+      ? "object-contain object-top"
+      : frame === "bare"
+        ? "object-cover object-center"
+        : "object-cover object-top";
+
   const picture = (
     <Image
       src={image.src}
@@ -29,11 +47,7 @@ export default function DeviceFrame({
       width={image.width ?? 800}
       height={image.height ?? 600}
       sizes={sizes}
-      className={
-        frame === "bare"
-          ? "h-full w-full object-cover object-center"
-          : "block h-full w-full object-cover object-top"
-      }
+      className={`block h-full w-full ${fit}`}
     />
   );
 

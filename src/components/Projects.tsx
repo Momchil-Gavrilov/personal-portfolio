@@ -64,7 +64,7 @@ export default function Projects() {
                   laptop={lead.bundle.laptop}
                   tablet={lead.bundle.tablet}
                   phone={lead.bundle.phone}
-                  className="aspect-[7/5] w-full"
+                  className="aspect-[9/5] w-full"
                 />
               )}
             </Link>

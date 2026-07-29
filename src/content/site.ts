@@ -55,25 +55,40 @@ export const proofPoints = [
 
 export const skillsTitle = "Skills";
 
+/*
+  Checked against four live HFE postings (Apple, Amgen, Akkodis, US Tech
+  Solutions) rather than guessed. Three phrases came directly from that
+  exercise: "mixed methods" and "task and workflow analysis" are Apple's own
+  words, "human performance analysis (cognitive, perceptual, motor)" appears
+  almost verbatim in both Akkodis's and US Tech Solutions' postings and is the
+  one term that maps precisely onto the agency study. "Root cause analysis"
+  came out: three of four postings use it to mean CAPA-style investigation
+  inside a quality system, which he has not done, and the term he actually
+  earned, holding causation constant to isolate a variable, is now named for
+  what it is under Research instead.
+
+  Every remaining line is something a case study below already demonstrates;
+  nothing here is aspirational.
+*/
 export const skillGroups = [
   {
     group: "Usability engineering",
     items: [
-      "Formative usability testing",
-      "Task analysis",
+      "Formative & validation usability testing",
+      "Task and workflow analysis",
       "Use-error informed design",
-      "Root cause analysis",
-      "Human-machine interface evaluation",
+      "Human performance analysis (cognitive, perceptual, motor)",
+      "HMI evaluation",
     ],
   },
   {
     group: "Research",
     items: [
-      "Study design and protocol development",
+      "End-to-end study design and protocol development",
       "Participant recruitment and screening",
-      "Session moderation",
-      "Consent and data handling",
-      "Qualitative and quantitative analysis",
+      "Mixed methods: qualitative and quantitative",
+      "Isolating variables in a contaminated measure",
+      "Translating findings into design recommendations",
     ],
   },
 ];

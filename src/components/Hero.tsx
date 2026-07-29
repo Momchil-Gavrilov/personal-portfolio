@@ -19,9 +19,11 @@ export default function Hero() {
     <section id="top" aria-label="Introduction">
       <div className="wrap grid gap-10 pt-12 pb-12 md:grid-cols-[1fr_minmax(0,21.25rem)] md:items-stretch md:gap-16 md:pt-16 md:pb-16">
         <div className="flex flex-col gap-8 md:gap-0">
-          <p className="eyebrow text-crimson">{site.role}</p>
-
-          <h1 className="display-xl text-[2.75rem] sm:text-6xl lg:text-[5.25rem] md:mt-8">
+          {/* The role used to run as an eyebrow here, restating in words what
+              the portrait's caption already says a few hundred pixels to the
+              right. Cutting it lets the headline lead the page outright,
+              which is the whole point of this layout. */}
+          <h1 className="display-xl text-[2.75rem] sm:text-6xl lg:text-[5.25rem]">
             {site.tagline.lead}{" "}
             <em className="not-italic text-navy">{site.tagline.accent}</em>
           </h1>

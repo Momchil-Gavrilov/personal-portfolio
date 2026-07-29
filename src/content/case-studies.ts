@@ -122,7 +122,6 @@ export const caseStudies: CaseStudy[] = [
       width: 860,
       height: 1864,
     },
-    /* The centre runs this on whatever screen is to hand, so the showcase
     /* Four real screens off the live demo, captured through the login gate:
        the monitor and the tablet show the app doing its actual job, the
        laptop the way in, the phone the brand. */
@@ -229,7 +228,7 @@ export const caseStudies: CaseStudy[] = [
       { k: "Output", v: "ICORR 2025" },
     ],
     finding:
-      "Intending a movement did not change how long the delay felt, only how precisely it could be perceived.",
+      "We can now measure how much control a person actually has over a device, so a system can be built to be implicitly, quantifiably controllable rather than merely feeling that way.",
     limitation:
       "We did not corroborate the result with validated questionnaires.",
     lesson:
@@ -308,7 +307,7 @@ export const caseStudies: CaseStudy[] = [
       { k: "Output", v: "Preprint, Research Square" },
     ],
     finding:
-      "Ownership tracked the sense of control (r = 0.70), but not the sense of where the hand sat in space (r = -0.03).",
+      "Ownership and control are separate cues a prosthesis can target on their own, rather than one feeling a single design has to chase all at once.",
     limitation:
       "No hand today moves with the fidelity of a real one, so these results are bounded by current sensors. That bound redirected the lab toward better biosensors.",
     liveUrl: "https://doi.org/10.21203/rs.3.rs-7348715/v1",
@@ -536,7 +535,7 @@ export const caseStudies: CaseStudy[] = [
       { k: "Output", v: "J. Multidisciplinary Healthcare" },
     ],
     finding:
-      "Test choice split significantly along professional lines, with the Box and Block Test the rare common ground.",
+      "A quick, rigorous test built around common ground like the Box and Block Test carries the most value across every profession it has to satisfy at once.",
     limitation:
       "Self-reported rather than observed, and the sample skewed away from physical therapists: 16 against 27 or more in every other group.",
     liveUrl:
