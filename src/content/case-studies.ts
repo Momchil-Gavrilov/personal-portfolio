@@ -111,8 +111,10 @@ export const caseStudies: CaseStudy[] = [
       { k: "Stack", v: "React, TypeScript, Express, MongoDB" },
       { k: "Status", v: "In use at the center" },
     ],
+    /* No daily-user count: none has ever been measured, so none is claimed.
+       "Live" and "every shift" are both true and both checkable. */
     outcome:
-      "Four steps gone from a volunteer's intake. It runs the center today.",
+      "Live at the center today, run by volunteers on every shift without training.",
     lesson:
       "A volunteer at intake has a queue and a lot of noise, so logging a donation was never going to compete with helping the person in front of them. Making the form faster would not have fixed that. Separating the two did.",
     shot: {

@@ -47,11 +47,11 @@ export default function Nav() {
       >
         <a
           href="#top"
-          className="text-xl font-semibold tracking-[-0.02em] text-ink"
+          className="text-base font-semibold tracking-[-0.02em] text-ink sm:text-xl"
         >
           {site.name}
         </a>
-        <ul className="flex items-center gap-5 text-sm md:gap-[1.625rem]">
+        <ul className="flex items-center gap-3 text-[0.8125rem] sm:gap-5 sm:text-sm md:gap-[1.625rem]">
           {/* Section links yield to the CTA on the narrowest phones: at 320px
               the full row overflows and scrolls the page sideways. */}
           {links.map((link) => (
@@ -84,7 +84,11 @@ export default function Nav() {
               href={site.booking.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-primary px-[1.125rem] py-2.5"
+              /* .btn hardcodes its own padding and font-size, which beats a
+                 same-specificity utility at any breakpoint since .btn is
+                 declared after the utilities layer; ! forces every value
+                 here, mobile and sm:, to actually apply. */
+              className="btn btn-primary !px-3 !py-2 !text-[0.8125rem] sm:!px-[1.125rem] sm:!py-2.5 sm:!text-sm"
             >
               {site.booking.label}
             </a>

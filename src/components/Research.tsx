@@ -57,17 +57,17 @@ export default function Research() {
                         {cs.finding}
                       </p>
                     )}
-                    <span className="mt-auto pt-2 text-sm text-crimson group-hover:underline">
+                    <span className="mt-auto pt-1 text-sm text-crimson group-hover:underline">
                       Read the case study <span aria-hidden="true">→</span>
                     </span>
-                    {/* Below the link, not above it. The limit is a footnote to
-                        the claim, and putting it last lets the card read
-                        insight then door then caveat, which is the order a
-                        reader actually wants them in. */}
+                    {/* No rule here: one line separating the photo from the
+                        text already does the dividing this card needs, and a
+                        second line this close to the first read as clutter
+                        rather than structure. Limits trails the link as a
+                        plain quiet note instead. */}
                     {cs.limitation && (
-                      <p className="mt-2 border-t border-line pt-2.5 text-[0.8125rem] leading-relaxed text-ink/50">
-                        <span className="eyebrow text-ink/40">Limits</span>{" "}
-                        {cs.limitation}
+                      <p className="text-[0.8125rem] leading-relaxed text-ink/45">
+                        Limits: {cs.limitation}
                       </p>
                     )}
                   </div>

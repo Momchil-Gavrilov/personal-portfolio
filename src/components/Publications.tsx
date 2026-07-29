@@ -14,7 +14,7 @@ export default function Publications() {
   return (
     <section id="publications" className="wrap pt-6 pb-2 md:pt-8 md:pb-2">
       <details className="group">
-        <summary className="flex cursor-pointer list-none items-center gap-3 border-t border-line py-4 [&::-webkit-details-marker]:hidden">
+        <summary className="flex cursor-pointer list-none items-center gap-3 border-y border-line py-4 [&::-webkit-details-marker]:hidden">
           <span className="eyebrow text-ink/45">Publications</span>
           <span
             aria-hidden="true"

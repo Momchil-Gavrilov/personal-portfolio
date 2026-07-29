@@ -74,9 +74,9 @@ export const skillGroups = [
   {
     group: "Usability engineering",
     items: [
-      "Formative usability testing",
-      "Task and workflow analysis",
-      "Use-error informed design",
+      "Formative testing",
+      "Task analysis",
+      "Use-error design",
       "Human performance analysis",
       "HMI evaluation",
     ],
@@ -84,24 +84,17 @@ export const skillGroups = [
   {
     group: "Research",
     items: [
-      "Study design and protocol development",
+      "Study design",
+      "Protocol development",
       "Participant recruitment",
       "Session moderation",
-      "Mixed methods analysis",
+      "Mixed methods",
       "Psychometrics",
     ],
   },
   {
     group: "Technical",
-    items: [
-      "R",
-      "Python",
-      "MATLAB",
-      "C/C++",
-      "Figma",
-      "EMG and biosignal processing",
-      "ROS2",
-    ],
+    items: ["R", "Python", "MATLAB", "C/C++", "Figma", "EMG processing", "ROS2"],
   },
 ];
 
@@ -124,17 +117,14 @@ export const standards = [
 
 export const storyTitle = "Why I Do This";
 
+/* His latest rewrite, verbatim. He has now revised this passage several
+   times and been right each time; the only edits here are his own. */
 export const story: string[] = [
-  "Everything started with a single LED blinking on a breadboard. I bought a circuit kit in undergrad out of pure curiosity, and when I made that little light glow, I felt how much had gone into it.",
-  "I saw the physicists who gave their lives to defining electricity, and the engineers who shaped it so a student could make a light turn on. Then I started seeing it everywhere: the plaster walls, the heat coming from my vent, the bed where I sat. Someone's effort poured into every object in my room, made for a person they would never meet. That's when I felt the pull to be on the other side of that exchange.",
-  "I sent pictures of that LED to my friends. It was a tiny thing, but it was mine, and all I wanted to do was share it.",
-  /* Two cuts, both of the same kind. The publication count and the Wellspring
-     name were the story reaching back for credentials the rest of the page
-     has already made, and by the time a reader arrives here they have seen
-     both. Removing them leaves the paragraphs doing the one thing this
-     section is for. His sentences otherwise untouched. */
-  "My fascination with people led me to study kinesiology: how we move, think, and interact with the world. Then a professor introduced me to brain-computer interfaces, and one idea inspired me. Technology could integrate with a body so seamlessly that it stopped feeling like a tool and started feeling like part of you. I spent the next three years measuring that with real people.",
-  "But I found that sometimes research didn't make it out of the lab to have the impact it was meant to, so I learned to build. Research taught me what people need. Building taught me how to put it in their hands. Now I work for the moment when something I made stops being mine and becomes theirs.",
+  "Everything started with a single LED blinking on a breadboard. I bought a circuit kit in undergrad out of pure curiosity, and when I made that little light glow, my whole world changed.",
+  "I saw the physicists who gave their lives to define electricity, and the engineers who shaped it so a student like me could make a simple light blink. Then I started seeing it everywhere: the plaster walls, the heat coming from my vent, the bed where I sat. Someone's effort poured into every object in my room, made for a person they would never meet. That's when I felt the pull to be on the other side of that exchange.",
+  "I sent pictures of that LED to my friends. All I wanted to do was share it.",
+  "My fascination with people led me to study kinesiology: how we move, think, and interact with the world. When a professor introduced me to brain-computer interfaces, the concept inspired me. Technology that could integrate with a body so seamlessly that it stopped feeling like a tool and started feeling like part of you. I spent the next three years measuring that relationship between people and machines.",
+  "But I found that sometimes research didn't make it out of the lab to have the impact it was meant to, so I learned to develop technology. Research taught me what people need. Engineering taught me how to put it in their hands. Now I work for the moment when something I make stops being mine and becomes someone else's.",
 ];
 
 export const contact = {
