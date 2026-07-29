@@ -12,7 +12,7 @@ import { publications } from "@/content/publications";
 */
 export default function Publications() {
   return (
-    <section id="publications" className="wrap py-10 md:py-12">
+    <section id="publications" className="wrap py-8 md:py-10">
       <details className="group">
         <summary className="flex cursor-pointer list-none items-center gap-3 border-y border-line py-5 [&::-webkit-details-marker]:hidden">
           <span className="eyebrow text-ink/45">Publications</span>

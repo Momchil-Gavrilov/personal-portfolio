@@ -18,7 +18,7 @@ import { proofPoints } from "@/content/site";
 */
 export default function Proof() {
   return (
-    <section aria-label="Credentials at a glance" className="wrap pb-14">
+    <section aria-label="Credentials at a glance" className="wrap pb-12">
       <Reveal>
         <ul className="grid grid-cols-2 gap-6 lg:grid-cols-4 lg:gap-8">
           {proofPoints.map((point) => (
@@ -26,7 +26,7 @@ export default function Proof() {
               key={point.label}
               className="flex flex-col gap-2 border-t-2 border-navy pt-4"
             >
-              <span className="text-5xl font-semibold leading-[0.92] tracking-[-0.02em] tabular-nums text-navy lg:text-[4rem]">
+              <span className="text-4xl font-semibold leading-[0.92] tracking-[-0.02em] tabular-nums text-navy lg:text-5xl">
                 {point.figure}
               </span>
               <span className="text-sm leading-snug text-ink/65">

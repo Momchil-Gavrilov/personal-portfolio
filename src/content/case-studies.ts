@@ -228,9 +228,9 @@ export const caseStudies: CaseStudy[] = [
       { k: "Output", v: "ICORR 2025" },
     ],
     finding:
-      "We can now measure how much control a person actually has over a device, so a system can be built to be implicitly, quantifiably controllable rather than merely feeling that way.",
+      "We can now measure how much control a person really has over a device, and design systems that are provably controllable.",
     limitation:
-      "We did not corroborate the result with validated questionnaires.",
+      "Not yet corroborated with validated questionnaires.",
     lesson:
       "When a measure stops behaving, the useful move is to find what is contaminating it rather than to work around it. Causal expectation was doing the work everyone had attributed to intention, so I held causation constant and let intention be the only thing left varying.",
     liveUrl: "https://doi.org/10.1109/ICORR66766.2025.11063055",
@@ -307,9 +307,9 @@ export const caseStudies: CaseStudy[] = [
       { k: "Output", v: "Preprint, Research Square" },
     ],
     finding:
-      "Ownership and control are separate cues a prosthesis can target on their own, rather than one feeling a single design has to chase all at once.",
+      "Ownership and control are separate, separately designable cues, not one feeling a design has to chase.",
     limitation:
-      "No hand today moves with the fidelity of a real one, so these results are bounded by current sensors. That bound redirected the lab toward better biosensors.",
+      "Bounded by the fidelity of today's prosthetic hardware.",
     liveUrl: "https://doi.org/10.21203/rs.3.rs-7348715/v1",
     liveLabel: "Read the paper",
     status: "published",
@@ -535,9 +535,9 @@ export const caseStudies: CaseStudy[] = [
       { k: "Output", v: "J. Multidisciplinary Healthcare" },
     ],
     finding:
-      "A quick, rigorous test built around common ground like the Box and Block Test carries the most value across every profession it has to satisfy at once.",
+      "Quick, rigorous tests built on common ground carry the most value across every profession at once.",
     limitation:
-      "Self-reported rather than observed, and the sample skewed away from physical therapists: 16 against 27 or more in every other group.",
+      "Self-reported use, with physical therapists under-represented.",
     liveUrl:
       "https://www.dovepress.com/exploring-the-perspectives-of-different-professions-on-task-based-uppe-peer-reviewed-fulltext-article-JMDH",
     liveLabel: "Read the paper",

@@ -7,76 +7,49 @@ import {
 } from "@/content/site";
 
 /*
-  Two things side by side: what he can already do, and what he is reading
-  toward. Putting them in the same band is the honest arrangement and the
-  persuasive one. A reader sees the gap named without being asked to guess at
-  it, and the terms on the left get more credit for the admission on the right.
+  Everything visible, nothing behind a click.
 
-  No boxes and no separators. Nothing here is a button, and dots between
-  twenty short phrases are twenty pieces of punctuation doing work that white
-  space does better. Terms are spaced far enough apart to read as a list
-  rather than as a sentence.
+  The disclosures saved height and cost the one thing this band exists for:
+  a recruiter matching the page against a requisition in a few seconds.
+  Three labelled groups now read in one pass, comma-run like a resume's
+  skills block, because that is the document this band stands in for.
 
-  The two practice groups collapse; the standards never do. They are the
-  fastest signal to a medical device reader that this candidate is oriented to
-  their world, and behind a click most scanners would never reach them.
+  "Learning" stays "Learning" rather than "knowledge of". Knowledge of a
+  standard is a claim an interviewer can test; learning toward one is a
+  direction they can trust. At entry level the honest label is also the
+  rarer one, and rare is what gets remembered.
 */
 export default function Skills() {
   return (
-    <section id="skills" className="bg-navy py-12 text-paper md:py-14">
+    <section id="skills" className="bg-navy py-10 text-paper md:py-12">
       <div className="wrap">
         <h2 className="sr-only">{skillsTitle}</h2>
 
-        <div className="grid gap-x-14 gap-y-9 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-          <Reveal>
-            <div>
-              <h3 className="eyebrow text-paper/45">Skills</h3>
-              <div className="mt-4">
-                {skillGroups.map((g) => (
-                  <details
-                    key={g.group}
-                    className="group border-t border-paper/20"
-                  >
-                    <summary className="flex cursor-pointer list-none items-center gap-3 py-3 [&::-webkit-details-marker]:hidden">
-                      <span className="text-[1.0625rem] transition-colors group-hover:text-paper/70">
-                        {g.group}
-                      </span>
-                      <span
-                        aria-hidden="true"
-                        className="ml-auto text-paper/40 transition-transform duration-300 group-open:rotate-90"
-                      >
-                        &rsaquo;
-                      </span>
-                    </summary>
-                    <ul className="flex flex-wrap gap-x-7 gap-y-2 pb-4">
-                      {g.items.map((item) => (
-                        <li
-                          key={item}
-                          className="text-[0.9375rem] text-paper/70"
-                        >
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
-                ))}
+        <Reveal>
+          <div className="grid gap-x-12 gap-y-6 md:grid-cols-3">
+            {skillGroups.map((g) => (
+              <div key={g.group}>
+                <h3 className="eyebrow text-paper/50">{g.group}</h3>
+                <p className="mt-3 border-t border-paper/20 pt-3 text-[0.9375rem] leading-relaxed text-paper/85">
+                  {g.items.join(", ")}
+                </p>
               </div>
-            </div>
-          </Reveal>
+            ))}
+          </div>
+        </Reveal>
 
-          <Reveal>
-            <div>
-              <h3 className="eyebrow text-paper/45">{standardsNote}</h3>
-              <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2.5 border-t border-paper/20 pt-4">
-                {standards.map((standard) => (
-                  <li key={standard} className="text-[0.875rem] text-paper/80">
-                    {standard}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-        </div>
+        <Reveal>
+          <div className="mt-7 flex flex-wrap items-baseline gap-x-6 gap-y-2 border-t border-paper/20 pt-4">
+            <h3 className="eyebrow shrink-0 text-paper/50">{standardsNote}</h3>
+            <ul className="flex flex-wrap gap-x-7 gap-y-2">
+              {standards.map((standard) => (
+                <li key={standard} className="text-[0.875rem] text-paper/80">
+                  {standard}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -25,7 +25,7 @@ export default function Story() {
     /* The tinted band separates the story from the call to action that
        follows it, which is the one moment on the page that must not be
        mistaken for part of anything else. */
-    <section id="story" className="bg-paper-deep py-16 md:py-[4.5rem]">
+    <section id="story" className="bg-paper-deep py-12 md:py-14">
       <div className="wrap grid gap-10 md:grid-cols-2 md:gap-14">
         <div className="flex flex-col gap-5">
           <SectionTitle title={storyTitle} />

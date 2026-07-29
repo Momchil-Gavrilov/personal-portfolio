@@ -12,9 +12,9 @@ import { contact, site } from "@/content/site";
 export default function Contact() {
   return (
     <section id="contact">
-      <div className="wrap flex flex-col gap-7 pt-14 pb-10 md:pt-16">
+      <div className="wrap flex flex-col gap-6 pt-12 pb-10 md:pt-14">
         <Reveal>
-          <h2 className="display-xl text-[2.5rem] sm:text-5xl lg:text-[4.1875rem]">
+          <h2 className="display text-[2rem] sm:text-[2.5rem] lg:text-[3rem]">
             Let&rsquo;s <em className="not-italic text-navy">talk</em>
           </h2>
           <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-ink/70">

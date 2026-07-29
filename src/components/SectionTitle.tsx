@@ -14,7 +14,7 @@ export default function SectionTitle({ title }: { title: string }) {
         aria-hidden="true"
         className="block h-[3px] w-10 bg-navy"
       />
-      <h2 className="display mt-5 text-[2rem] md:text-[2.75rem]">{title}</h2>
+      <h2 className="display mt-5 text-[1.625rem] md:text-[2.125rem]">{title}</h2>
     </div>
   );
 }

@@ -25,7 +25,7 @@ export default function Projects() {
   const [lead, ...rest] = productStudies;
 
   return (
-    <section id="work" className="border-t border-line py-16 md:py-20">
+    <section id="work" className="border-t border-line py-12 md:py-14">
       <div className="wrap">
         <Reveal>
           <SectionTitle title="Products and Engineering Work" />
@@ -38,19 +38,16 @@ export default function Projects() {
                 three below it, which stay on paper. */}
             <Link
               href={`/work/${lead.slug}`}
-              className="group mt-10 grid items-center gap-10 rounded-card bg-paper-deep p-7 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] md:gap-12 md:p-10"
+              className="group mt-8 grid items-center gap-8 rounded-card bg-paper-deep p-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] md:gap-10 md:p-8"
             >
-              <div className="flex flex-col gap-4">
-                {statusOf(lead) && (
-                  <p className="eyebrow text-ink/45">{statusOf(lead)}</p>
-                )}
+              {/* No status eyebrow and no oneLiner: the devices say what it
+                  is, and the outcome line is the hook. Detail lives one
+                  click away. */}
+              <div className="flex flex-col gap-3.5">
                 <h3 className="display text-[1.5rem] md:text-[1.75rem]">
                   {lead.title}
                 </h3>
-                <p className="max-w-[44ch] text-[1.0625rem] leading-relaxed text-ink/75">
-                  {lead.oneLiner}
-                </p>
-                <p className="max-w-[44ch] border-t border-line pt-4 text-[1.0625rem] leading-relaxed">
+                <p className="max-w-[44ch] text-[1.0625rem] leading-relaxed">
                   {lead.outcome}
                 </p>
                 <span className="text-sm text-crimson group-hover:underline">
@@ -73,7 +70,7 @@ export default function Projects() {
 
         {/* The image leads and it is the tallest thing in the card. These are
             visual pieces of work; a reader recognises them by looking. */}
-        <ul className="mt-16 grid list-none gap-x-10 gap-y-12 sm:grid-cols-3 md:mt-20">
+        <ul className="mt-10 grid list-none gap-x-10 gap-y-10 sm:grid-cols-3 md:mt-12">
           {rest.map((cs) => (
             <li key={cs.slug} className="flex">
               <Reveal className="flex w-full">
@@ -85,7 +82,7 @@ export default function Projects() {
                     <DeviceFrame
                       image={cs.shot}
                       sizes="(min-width: 640px) 21rem, 100vw"
-                      className="h-56 w-full md:h-[15.5rem]"
+                      className="h-44 w-full md:h-48"
                     />
                   )}
                   <div className="mt-6 flex flex-1 flex-col gap-2 border-t border-line pt-4">

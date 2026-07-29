@@ -1,10 +1,14 @@
 export const site = {
   name: "Momchil Gavrilov",
   role: "Human factors & UX researcher",
-  /* Split so the accent word stays content, not markup. Exactly one word is
-     ever set in navy; the italic came off because at 84px it read as a
-     different typeface rather than as emphasis. */
-  tagline: { lead: "I design technology people", accent: "trust" },
+  /* Split three ways so the accent word stays content, not markup. Exactly
+     one word is ever set in navy, and it is now "people": the sentence
+     describes the work, the accent names who it is for. */
+  tagline: {
+    lead: "I design how",
+    accent: "people",
+    tail: "interact with physical and digital systems",
+  },
   degree: "M.S. Biomedical Engineering, UC Davis",
   email: "mc.g.gavrilov@gmail.com",
   linkedin: {
@@ -56,39 +60,47 @@ export const proofPoints = [
 export const skillsTitle = "Skills";
 
 /*
-  Checked against four live HFE postings (Apple, Amgen, Akkodis, US Tech
-  Solutions) rather than guessed. Three phrases came directly from that
-  exercise: "mixed methods" and "task and workflow analysis" are Apple's own
-  words, "human performance analysis (cognitive, perceptual, motor)" appears
-  almost verbatim in both Akkodis's and US Tech Solutions' postings and is the
-  one term that maps precisely onto the agency study. "Root cause analysis"
-  came out: three of four postings use it to mean CAPA-style investigation
-  inside a quality system, which he has not done, and the term he actually
-  earned, holding causation constant to isolate a variable, is now named for
-  what it is under Research instead.
+  Three groups, all visible, none behind a click.
 
-  Every remaining line is something a case study below already demonstrates;
-  nothing here is aspirational.
+  Grouped the way his resume groups them, because this band stands in for the
+  resume's skills block for a reader who has not downloaded it. Terms stay
+  checked against the four live postings (Apple, Amgen, Akkodis, US Tech
+  Solutions): "task and workflow analysis" and "mixed methods" are their
+  words, "human performance analysis" appears almost verbatim in two of them.
+  Everything here is demonstrated by a case study below; nothing is
+  aspirational, which is what the Learning row underneath is for.
 */
 export const skillGroups = [
   {
     group: "Usability engineering",
     items: [
-      "Formative & validation usability testing",
+      "Formative usability testing",
       "Task and workflow analysis",
       "Use-error informed design",
-      "Human performance analysis (cognitive, perceptual, motor)",
+      "Human performance analysis",
       "HMI evaluation",
     ],
   },
   {
     group: "Research",
     items: [
-      "End-to-end study design and protocol development",
-      "Participant recruitment and screening",
-      "Mixed methods: qualitative and quantitative",
-      "Isolating variables in a contaminated measure",
-      "Translating findings into design recommendations",
+      "Study design and protocol development",
+      "Participant recruitment",
+      "Session moderation",
+      "Mixed methods analysis",
+      "Psychometrics",
+    ],
+  },
+  {
+    group: "Technical",
+    items: [
+      "R",
+      "Python",
+      "MATLAB",
+      "C/C++",
+      "Figma",
+      "EMG and biosignal processing",
+      "ROS2",
     ],
   },
 ];

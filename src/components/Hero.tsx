@@ -4,42 +4,38 @@ import { portrait, site } from "@/content/site";
 /*
   The thesis is the headline; the name is the byline.
 
-  This is the structural argument of the 2c design and the one real departure
-  from every earlier version. A hiring manager scanning a portfolio already
-  knows they are looking at a person, so the first line of type spends itself
-  on the only thing they do not know yet: what this person is for. The name,
-  the degree and the face all follow, at the size a byline deserves.
+  The headline came down from 84px to 48px when the sentence grew from five
+  words to nine: a longer, more concrete claim carries its own weight and no
+  longer needs display scale to land. Two lines instead of three also puts
+  the name, the buttons and the portrait back inside one comfortable screen,
+  which is the snapshot the whole page is being tuned toward.
 
-  The portrait is a filing card rather than a hero image: bordered, squared,
-  captioned on a navy plate. On a phone the text still comes first in the DOM,
-  so the page opens on the sentence, not the face.
+  The column stretches to the portrait's height: headline at the top, the
+  name centred in the space between, the buttons and links pinned level with
+  the portrait's bottom edge.
 */
 export default function Hero() {
   return (
     <section id="top" aria-label="Introduction">
-      <div className="wrap grid gap-10 pt-12 pb-12 md:grid-cols-[1fr_minmax(0,21.25rem)] md:items-stretch md:gap-16 md:pt-16 md:pb-16">
+      <div className="wrap grid gap-10 pt-10 pb-10 md:grid-cols-[1fr_minmax(0,18rem)] md:items-stretch md:gap-14 md:pt-12 md:pb-12">
         <div className="flex flex-col gap-8 md:gap-0">
-          {/* The role used to run as an eyebrow here, restating in words what
-              the portrait's caption already says a few hundred pixels to the
-              right. Cutting it lets the headline lead the page outright,
-              which is the whole point of this layout. */}
-          <h1 className="display-xl text-[2.75rem] sm:text-6xl lg:text-[5.25rem]">
+          <h1 className="display max-w-[26ch] text-[1.875rem] sm:text-[2.375rem] lg:text-[3rem]">
             {site.tagline.lead}{" "}
-            <em className="not-italic text-navy">{site.tagline.accent}</em>
+            <em className="not-italic text-navy">{site.tagline.accent}</em>{" "}
+            {site.tagline.tail}
           </h1>
 
           {/* Centred in the gap the two blocks leave, rather than sitting
               just under the headline with the rest floating above the photo. */}
-          <div className="flex flex-col gap-1.5 md:my-auto md:py-8">
+          <div className="flex flex-col gap-1.5 md:my-auto md:py-6">
             <p className="text-2xl font-semibold tracking-[-0.01em]">
               {site.name}
             </p>
             <p className="text-sm text-ink/60">{site.degree}</p>
           </div>
 
-          {/* Buttons and links are one block, not two. Spread evenly they read
-              as four unrelated rows under the headline; grouped, the name and
-              degree get the space instead. */}
+          {/* Buttons and links are one block, pinned to the column's bottom,
+              which the stretch makes the portrait's bottom edge. */}
           <div className="flex flex-col gap-5">
             <div className="flex flex-wrap gap-3">
               <a
@@ -91,21 +87,19 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Hard-capped on phones. It is a byline, not the argument, and every
-            pixel it takes here is a pixel before the reader reaches the first
-            piece of evidence. At 15rem it pushed the credibility figures to
-            978px; at 10rem they arrive most of a screen earlier. */}
-        <figure className="max-w-[10rem] overflow-hidden rounded-card border border-line bg-white sm:max-w-[13rem] md:max-w-none">
+        {/* Smaller than it was: it is a byline, not the argument, and every
+            rem it gives up comes back as page the reader reaches sooner. */}
+        <figure className="max-w-[10rem] overflow-hidden rounded-card border border-line bg-white sm:max-w-[12rem] md:max-w-none">
           <Image
             src={portrait.src}
             alt={portrait.alt}
             width={portrait.width}
             height={portrait.height}
-            sizes="(min-width: 768px) 21.25rem, (min-width: 640px) 13rem, 10rem"
+            sizes="(min-width: 768px) 18rem, (min-width: 640px) 12rem, 10rem"
             className="block aspect-4/5 w-full object-cover"
             priority
           />
-          <figcaption className="flex flex-col gap-[3px] bg-navy px-4 py-3.5 text-paper">
+          <figcaption className="flex flex-col gap-[3px] bg-navy px-4 py-3 text-paper">
             <span className="text-[0.9375rem] font-semibold tracking-[-0.01em]">
               {site.name}
             </span>
