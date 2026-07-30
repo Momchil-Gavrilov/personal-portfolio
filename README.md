@@ -1,8 +1,9 @@
 # Momchil Gavrilov: Portfolio
 
 Personal portfolio for Momchil Gavrilov, human factors & UX researcher.
-Built with Next.js (App Router), TypeScript, and Tailwind CSS. Fully static,
-with no server dependencies, and designed for deployment on Vercel.
+Built with Next.js (App Router), TypeScript, and Tailwind CSS. Every page is
+statically prerendered; the one exception is `/api/vote`, which keeps the
+colourway tally. Deployed on Vercel.
 
 ## Develop
 
@@ -25,12 +26,28 @@ All copy lives in `src/content/`; no component changes are needed for edits:
 
 ## Design
 
-Warm editorial direction: cream background (`#faf6ef`), deep maroon
-(`#6b1f2a`), muted gold (`#c9a227`), warm charcoal text (`#2b2622`).
-Fraunces for display type, Source Sans 3 for body. Tokens are defined in
-`src/app/globals.css` under `@theme`.
+Paper and ink with one accent hue at three weights: paper (`#fcfaf6`), ink
+(`#101820`), and a `primary` / `primary-deep` / `primary-soft` trio. Tokens
+are defined in `src/app/globals.css` under `@theme`.
+
+The accent is a visitor setting. Green (`#1a4a32`) is the default; navy and
+maroon are the alternatives, listed in `src/components/themes.ts` and applied
+as `data-theme` on `<html>` by an inline script that runs before first paint.
+A theme's `swatch` there and its `--color-primary` in `globals.css` are the
+same value written twice, and have to be changed together.
 
 ## Deploy
 
-Import the repo in Vercel (no configuration needed). Every page is
-statically generated at build time.
+Import the repo in Vercel; the build needs no configuration. Two environment
+variables matter, both optional and both only for the colourway tally in the
+footer:
+
+- `KV_REST_API_URL` / `KV_REST_API_TOKEN`: an Upstash Redis database, either
+  through Vercel's KV integration (which sets these names for you) or a direct
+  Upstash database (which sets `UPSTASH_REDIS_REST_URL` / `_TOKEN`; both pairs
+  are read). Without them `/api/vote` counts in memory per server instance and
+  resets on deploy, which is fine in development and not a real tally in
+  production. `GET /api/vote` reports which mode it is in as `live`.
+- `VOTE_SALT`: any random string. Votes are deduplicated by a salted hash of
+  the caller's address, never the address itself; the salt only makes that
+  digest harder to brute force.
