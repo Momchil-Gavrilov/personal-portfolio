@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import DeviceBundle from "@/components/DeviceBundle";
 import TrialWalkthrough from "@/components/TrialWalkthrough";
 import { caseStudies } from "@/content/case-studies";
 import { site } from "@/content/site";
@@ -126,6 +127,25 @@ export default async function CaseStudyPage({
                 </div>
               ))}
             </dl>
+          )}
+
+          {/*
+            The four-device cluster, moved here off the home page. On a card
+            it was decoration competing with a photograph of the place; here
+            it is the lead visual for a reader who has already decided they
+            want to see the product, and it answers "what does it actually
+            look like" before the narrative starts explaining.
+          */}
+          {cs.bundle && (
+            <figure className="mt-10">
+              <DeviceBundle
+                desktop={cs.bundle.desktop}
+                laptop={cs.bundle.laptop}
+                tablet={cs.bundle.tablet}
+                phone={cs.bundle.phone}
+                className="aspect-[9/5] w-full max-w-lg"
+              />
+            </figure>
           )}
 
           <div className="mt-14 space-y-14">

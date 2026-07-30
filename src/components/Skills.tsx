@@ -15,10 +15,7 @@ import {
   than wrapping to two, which is what was costing the height.
 */
 export default function Skills() {
-  const rows = [
-    ...skillGroups,
-    { group: standardsNote, items: standards, pending: true },
-  ];
+  const rows = [...skillGroups, { group: standardsNote, items: standards }];
 
   return (
     <section id="skills" className="bg-navy py-7 text-paper md:py-8">
@@ -36,11 +33,16 @@ export default function Skills() {
                 <dd>
                   <ul className="flex flex-wrap gap-x-5 gap-y-1">
                     {row.items.map((item) => (
+                      /* One weight for every term, the lighter one the
+                         standards row already used. At 70% the skills sat
+                         close enough to the labels to make the band feel
+                         like a wall of type; at 55% the navy reads as a
+                         quiet strip and the eye picks out the group names
+                         first, which is the order this band is meant to be
+                         read in. */
                       <li
                         key={item}
-                        className={`whitespace-nowrap text-[0.8125rem] leading-relaxed ${
-                          "pending" in row ? "text-paper/55" : "text-paper/70"
-                        }`}
+                        className="whitespace-nowrap text-[0.8125rem] leading-relaxed text-paper/55"
                       >
                         {item}
                       </li>

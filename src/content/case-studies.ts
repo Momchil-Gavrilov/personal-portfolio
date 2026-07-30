@@ -70,6 +70,11 @@ export type CaseStudy = {
   /* A wide screenshot of the product itself. The app-icon tiles said what the
      thing was called; a screenshot says what it is. */
   shot?: CaseStudyImage;
+  /* A photograph of the work in its actual setting. Where there is one, it
+     takes the showcase slot ahead of the device cluster: a rendered mock-up
+     shows what was built, a photograph shows that it was built for somewhere
+     real, and only one of those is hard to fake. */
+  photo?: CaseStudyImage;
   /* Extra screens for the showcase slot. `shot` supplies the phone; these two
      put it on a laptop and a tablet beside it. */
   bundle?: {
@@ -104,9 +109,14 @@ export const caseStudies: CaseStudy[] = [
     slug: "wellspring",
     title: "Wellspring Donation Tracker",
     oneLiner:
-      "A women's center's donation intake was hours of printing, handwriting, scanning, and retyping. I designed and built a voice-first web app that removed most of those steps entirely, and it runs their intake today.",
+      "A women's center's donation intake was hours of printing, handwriting, scanning, and retyping. I led the design and built a voice-first web app that removed most of those steps entirely, and it runs their intake today.",
     spec: [
-      { k: "My role", v: "Design and full-stack build, solo" },
+      /* Not solo. He led the team and had help on the design; the build, the
+         deployment and the maintenance were his. The spec row states the
+         part that is his alone and stays short enough to scan; the shared
+         design is credited in "What I built", where there is room to say it
+         properly rather than in a fragment. */
+      { k: "My role", v: "Team lead; full-stack build and deployment" },
       { k: "Users", v: "Volunteers aged 16 to 70+, and managers" },
       { k: "Stack", v: "React, TypeScript, Express, MongoDB" },
       { k: "Status", v: "In use at the center" },
@@ -124,9 +134,17 @@ export const caseStudies: CaseStudy[] = [
       width: 860,
       height: 1864,
     },
+    photo: {
+      src: "/wellspring/photo-at-wellspring.jpg",
+      alt: "Five people standing together outside the Wellspring Women's Center, under the center's sign.",
+      width: 990,
+      height: 990,
+    },
     /* Four real screens off the live demo, captured through the login gate:
        the monitor and the tablet show the app doing its actual job, the
-       laptop the way in, the phone the brand. */
+       laptop the way in, the phone the brand. The cluster moved off the home
+       page and on to the case study, where a reader who has decided to look
+       at the product is the one seeing it. */
     bundle: {
       desktop: {
         src: "/wellspring/desktop-dashboard.png",
@@ -179,6 +197,7 @@ export const caseStudies: CaseStudy[] = [
         paragraphs: [
           "A volunteer opens the web app on the phone already in their pocket, no install and no training, and logs a donation by voice or by hand. It saves straight to a digital sheet the managers work from. Two features do the quiet heavy lifting. Auto-categorization learns as it goes: once an item has been given a category, every future entry of it is filed automatically. Pricing works the same way, so no one looks up the cost of diapers every two weeks; it is remembered, and updated only when prices actually change. The app also records who logged what, so a manager never has to hunt down who wrote an illegible line or made a mistake.",
           "Underneath sits a React and TypeScript front end, an Express and MongoDB back end on serverless functions, authentication, automated backups, and a built-in help guide, but a volunteer never has to know any of that exists.",
+          "I led the team on this and had help on parts of the design. The build, the deployment and the maintenance since have been mine.",
         ],
         image: {
           src: "/wellspring/manager-dashboard.png",

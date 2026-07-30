@@ -57,7 +57,7 @@ export default function Research() {
                         {cs.finding}
                       </p>
                     )}
-                    <span className="mt-auto pt-1 text-sm text-crimson group-hover:underline">
+                    <span className="btn-quiet mt-auto w-fit group-hover:bg-crimson group-hover:text-paper">
                       Read the case study <span aria-hidden="true">→</span>
                     </span>
                     {/* No rule here: one line separating the photo from the

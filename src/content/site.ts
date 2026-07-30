@@ -72,7 +72,10 @@ export const skillsTitle = "Skills";
 */
 export const skillGroups = [
   {
-    group: "Usability engineering",
+    /* One word, so the label column holds one line. "Usability engineering"
+       was the only group name that wrapped, and the wrap pushed its whole
+       row of terms down against the next one. */
+    group: "Usability",
     items: [
       "Formative testing",
       "Task analysis",
@@ -85,7 +88,6 @@ export const skillGroups = [
     group: "Research",
     items: [
       "Study design",
-      "Protocol development",
       "Participant recruitment",
       "Session moderation",
       "Mixed methods",
@@ -122,7 +124,6 @@ export const storyTitle = "Why I Do This";
 export const story: string[] = [
   "Everything started with a single LED blinking on a breadboard. I bought a circuit kit in undergrad out of pure curiosity, and when I made that little light glow, my whole world changed.",
   "I saw the physicists who gave their lives to define electricity, and the engineers who shaped it so a student like me could make a simple light blink. Then I started seeing it everywhere: the plaster walls, the heat coming from my vent, the bed where I sat. Someone's effort poured into every object in my room, made for a person they would never meet. That's when I felt the pull to be on the other side of that exchange.",
-  "I sent pictures of that LED to my friends. All I wanted to do was share it.",
   "My fascination with people led me to study kinesiology: how we move, think, and interact with the world. When a professor introduced me to brain-computer interfaces, the concept inspired me. Technology that could integrate with a body so seamlessly that it stopped feeling like a tool and started feeling like part of you. I spent the next three years measuring that relationship between people and machines.",
   "But I found that sometimes research didn't make it out of the lab to have the impact it was meant to, so I learned to develop technology. Research taught me what people need. Engineering taught me how to put it in their hands. Now I work for the moment when something I make stops being mine and becomes someone else's.",
 ];

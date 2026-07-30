@@ -15,14 +15,21 @@ import type { CaseStudyImage } from "@/content/case-studies";
   The laptop, tablet and phone overlap the monitor deeply rather than
   touching its edge, which is what makes four screenshots read as one
   cluster instead of four separate pictures scattered around a page.
+
+  Every `sizes` here is written for the case study, where the cluster lives
+  at up to 32rem wide, in the column above the narrative rather than filling
+  it. At 48rem it was the biggest thing on the page and the reader met a
+  product render before a sentence of the story.
 */
 
 function Screen({
   image,
   sizes,
+  priority,
 }: {
   image: CaseStudyImage;
   sizes: string;
+  priority?: boolean;
 }) {
   return (
     <Image
@@ -31,6 +38,7 @@ function Screen({
       width={image.width ?? 960}
       height={image.height ?? 600}
       sizes={sizes}
+      priority={priority}
       className="h-full w-full object-cover object-top"
     />
   );
@@ -64,7 +72,13 @@ export default function DeviceBundle({
       >
         <div className="rounded-[0.5rem] bg-ink p-[0.4rem] shadow-[0_16px_38px_rgba(16,24,32,0.2)]">
           <div className="aspect-16/10 overflow-hidden rounded-[0.2rem] bg-white">
-            <Screen image={desktop} sizes="(min-width: 768px) 26rem, 56vw" />
+            {/* The largest image on the case study page and above the fold,
+                so it loads eagerly rather than waiting its turn. */}
+            <Screen
+              image={desktop}
+              sizes="(min-width: 768px) 23rem, 56vw"
+              priority
+            />
           </div>
         </div>
         <div
@@ -84,7 +98,7 @@ export default function DeviceBundle({
       <div className="absolute left-0 w-[38%]" style={{ bottom: FLOOR }}>
         <div className="rounded-t-[0.35rem] bg-ink p-[0.28rem] pb-0 shadow-[0_14px_30px_rgba(16,24,32,0.26)]">
           <div className="aspect-16/10 overflow-hidden rounded-t-[0.15rem] bg-white">
-            <Screen image={laptop} sizes="(min-width: 768px) 14rem, 32vw" />
+            <Screen image={laptop} sizes="(min-width: 768px) 13rem, 32vw" />
           </div>
         </div>
         <div aria-hidden="true" className="h-[0.28rem] w-full bg-ink" />

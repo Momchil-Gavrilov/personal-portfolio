@@ -172,6 +172,27 @@ section[id] {
   border-color: var(--color-ink);
 }
 
+/* Small outline button for in-card "open this" links: crimson, the same
+   colour the plain text link used, so the change reads as weight added
+   rather than a new colour introduced. */
+.btn-quiet {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: var(--radius-btn);
+  border: 1px solid var(--color-crimson);
+  color: var(--color-crimson);
+  font-size: 0.8125rem;
+  line-height: 1;
+  padding: 0.5rem 0.875rem;
+  transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease;
+}
+
+.btn-quiet:hover {
+  background-color: var(--color-crimson);
+  color: var(--color-paper);
+}
+
 .btn:focus-visible,
 a:focus-visible,
 summary:focus-visible,
