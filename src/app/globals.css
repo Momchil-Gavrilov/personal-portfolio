@@ -3,12 +3,27 @@
 /*
   Design tokens — the "2c" system.
 
-  Paper ground, near-black ink, deep navy as the single structural accent,
-  and a muted crimson reserved for labels and links. Where v2 was warm and
-  serifed, this is printed and squared: 4px corners, hairline rules, mono
-  eyebrows. Navy carries weight (headings' accent word, stat rules, buttons);
-  crimson carries direction (eyebrows, "read more" links). They never compete
-  for the same job.
+  Paper ground, near-black ink, and one hue at three weights. Where v2 was
+  warm and serifed, this is printed and squared: 4px corners, hairline
+  rules, mono eyebrows, pill buttons.
+
+  The colour used to be two hues, navy and a muted crimson, on the theory
+  that navy would carry weight (accent word, stat rules, buttons) and
+  crimson would carry direction (eyebrows, "read more" links) without the
+  two ever competing. In practice the crimson was inherited from the older
+  maroon identity and never stopped looking inherited: it read as a second
+  brand rather than a second job, and next to a navy primary it made the
+  page look like a maroon design someone had recoloured.
+
+  One hue, three weights, does the same work and reads as one decision:
+  `deep` for the pressed state of a filled control, the base for everything
+  structural, `soft` for the small type that points somewhere. Direction and
+  weight are told apart by size, case and shape — 11px mono uppercase
+  against a 50px heading, an outlined pill against a filled one — which is
+  what was actually doing the work before. Ink and paper carry the rest.
+
+  Tokens are named for the job, not the colour, because the colour is a
+  visitor setting; see the colourway block below.
 */
 @theme {
   /* Palette */
@@ -16,9 +31,21 @@
   --color-paper-deep: #f1eee7;
   --color-chip: #ebe7de;
   --color-ink: #101820;
-  --color-navy: #1b3a5c;
-  --color-navy-deep: #142c47;
-  --color-crimson: #8a2f3b;
+  /*
+    Green is the shipped default, and the default is what matters: it is
+    what everyone who never touches the switcher sees.
+
+    The navy that held this slot through the trial lost on one word, said
+    independently by two readers: washed out. It is close enough to the cool
+    paper in temperature that at page scale the contrast reads as low even
+    though the measured ratio is fine. The green sits at the same lightness
+    and does not do that.
+  */
+  --color-primary: #1a4a32;
+  --color-primary-deep: #123522;
+  /* Around 6:1 on paper, which is where the secondary has to sit: it is
+     used at 11px in mono more often than anywhere else. */
+  --color-primary-soft: #2a6d49;
   /* Translucent so one rule reads correctly on both paper and paper-deep */
   --color-line: rgba(16, 24, 32, 0.12);
   --color-line-strong: rgba(16, 24, 32, 0.28);
@@ -28,9 +55,16 @@
   --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", monospace;
   --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
 
-  /* Squared corners throughout; buttons get the only softer radius */
+  /*
+    Squared cards, pill buttons. The card corners are what make the page
+    read as printed, and they stay; the buttons are the one place a reader
+    is being invited rather than informed, and a 6px rectangle reads as a
+    control from an older web. Everything clickable is fully round: the two
+    hero buttons, the nav CTA, the "open case study" outlines, the
+    walkthrough stepper.
+  */
   --radius-card: 4px;
-  --radius-btn: 6px;
+  --radius-btn: 999px;
 
   /* Measure */
   --spacing-measure: 62ch;
@@ -38,6 +72,52 @@
 
 :root {
   color-scheme: light;
+}
+
+/*
+  --- Colourways ----------------------------------------------------
+
+  Three of them, and the visitor picks. `data-theme` lands on <html> from an
+  inline script in the layout before first paint, so a returning reader never
+  sees the default flash past their choice.
+
+  Every utility Tailwind generates for these tokens resolves `var(...)` at
+  the element, not at `:root`, so redefining the three tokens on <html>
+  repaints the whole site: the skills band, the portrait plate, the headline
+  accent word, the figures, the section rules, the buttons, the eyebrows and
+  links, the Wellspring card's border, the walkthrough highlight, selection
+  and focus rings. Nothing else has to know a theme exists, which is why this
+  costs three rules rather than three copies of the site.
+
+  Each is one hue at three weights, so none is a recolour of another. The
+  maroon read as the most finished of the three during the trial precisely
+  because it was the only one whose secondary belonged to it; that is now
+  true of all three. They sit at roughly matched lightness, so hue is the
+  only thing changing between them, which is what makes the vote a question
+  about colour rather than about contrast.
+
+  Green repeats the @theme values rather than inheriting them: the switcher
+  has to be able to set it explicitly to get back from navy or maroon.
+*/
+[data-theme="green"] {
+  --color-primary: #1a4a32;
+  --color-primary-deep: #123522;
+  --color-primary-soft: #2a6d49;
+}
+
+[data-theme="navy"] {
+  --color-primary: #1b3a5c;
+  --color-primary-deep: #142c47;
+  --color-primary-soft: #2a6191;
+}
+
+[data-theme="maroon"] {
+  /* Deep wine. Gemini's #4C0519 is near-black on paper and turns the skills
+     band into a void; this holds the same hue with enough light in it to
+     still read as a colour at full-band size. */
+  --color-primary: #5a1526;
+  --color-primary-deep: #43101c;
+  --color-primary-soft: #a03a4d;
 }
 
 html {
@@ -61,7 +141,7 @@ body {
 }
 
 ::selection {
-  background-color: var(--color-navy);
+  background-color: var(--color-primary);
   color: var(--color-paper);
 }
 
@@ -98,7 +178,7 @@ section[id] {
 /*
   Mono eyebrow. Does the work small-caps did in v2, but the monospace reads
   as instrumentation rather than ornament, which suits a page about measuring
-  things. Crimson by default; pass a colour class to mute it.
+  things. Set in the soft weight by default; pass a colour class to mute it.
 */
 .eyebrow {
   font-family: var(--font-mono);
@@ -127,7 +207,7 @@ section[id] {
   text-wrap: balance;
 }
 
-/* Quiet text link: crimson, underlined only on hover */
+/* Quiet text link: soft weight, underlined only on hover */
 .link-quiet {
   color: inherit;
   text-decoration: none;
@@ -135,7 +215,7 @@ section[id] {
 }
 
 .link-quiet:hover {
-  color: var(--color-crimson);
+  color: var(--color-primary-soft);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.22em;
@@ -155,12 +235,12 @@ section[id] {
 }
 
 .btn-primary {
-  background-color: var(--color-navy);
+  background-color: var(--color-primary);
   color: var(--color-paper);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-navy-deep);
+  background-color: var(--color-primary-deep);
 }
 
 .btn-ghost {
@@ -172,24 +252,31 @@ section[id] {
   border-color: var(--color-ink);
 }
 
-/* Small outline button for in-card "open this" links: crimson, the same
-   colour the plain text link used, so the change reads as weight added
+/* Small outline button for in-card "open this" links: the soft weight, the
+   same colour the plain text link used, so the change reads as weight added
    rather than a new colour introduced. */
 .btn-quiet {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   border-radius: var(--radius-btn);
-  border: 1px solid var(--color-crimson);
-  color: var(--color-crimson);
+  border: 1px solid var(--color-primary-soft);
+  color: var(--color-primary-soft);
   font-size: 0.8125rem;
   line-height: 1;
   padding: 0.5rem 0.875rem;
   transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease;
 }
 
+/* Plain descendant selector, not Tailwind's `group-hover:` variant: that
+   variant compiles with deliberately low specificity in this Tailwind
+   version (a `:where()`-wrapped parent), so it lost the tie against the
+   `.btn-quiet` rule above and the button filled on hover with the text left
+   the same colour, on top of itself, so it disappeared. This wins outright
+   instead of tying. */
+.group:hover .btn-quiet,
 .btn-quiet:hover {
-  background-color: var(--color-crimson);
+  background-color: var(--color-primary-soft);
   color: var(--color-paper);
 }
 
@@ -197,7 +284,7 @@ section[id] {
 a:focus-visible,
 summary:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--color-navy);
+  outline: 2px solid var(--color-primary);
   outline-offset: 3px;
 }
 

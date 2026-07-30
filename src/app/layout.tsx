@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Instrument_Sans, Newsreader } from "next/font/google";
+import { DEFAULT_THEME, THEME_SCRIPT } from "@/components/themes";
 import "./globals.css";
 
 /*
@@ -42,8 +43,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      /* The server renders the shipped default and the script in <head>
+         corrects it during parsing, before first paint. `suppressHydration
+         Warning` is what stops React treating that correction as a mismatch
+         and re-rendering the page back to green. */
+      data-theme={DEFAULT_THEME}
+      suppressHydrationWarning
       className={`${instrumentSans.variable} ${plexMono.variable} ${newsreader.variable}`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      </head>
       {/*
         Browser extensions (password managers, Grammarly and similar) inject
         attributes onto <body> before React hydrates, which React reports as a

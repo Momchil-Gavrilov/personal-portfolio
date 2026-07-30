@@ -61,7 +61,7 @@ export default function Nav() {
                 aria-current={active === link.id ? "true" : undefined}
                 className={
                   active === link.id
-                    ? "text-ink underline decoration-crimson decoration-2 underline-offset-[0.6rem]"
+                    ? "text-ink underline decoration-primary-soft decoration-2 underline-offset-[0.6rem]"
                     : "text-ink/60 transition-colors hover:text-ink"
                 }
               >

@@ -23,7 +23,7 @@ export default function Hero() {
         <div className="flex max-w-[30rem] flex-col justify-between gap-8">
           <h1 className="display text-[2.125rem] sm:text-[2.625rem] lg:text-[3.125rem]">
             {site.tagline.lead}{" "}
-            <em className="not-italic text-navy">{site.tagline.accent}</em>{" "}
+            <em className="not-italic text-primary">{site.tagline.accent}</em>{" "}
             {site.tagline.tail}
           </h1>
 
@@ -108,7 +108,7 @@ export default function Hero() {
               className="block aspect-4/5 w-full object-cover"
               priority
             />
-            <figcaption className="flex flex-col gap-[3px] bg-navy px-3 py-2.5 text-paper">
+            <figcaption className="flex flex-col gap-[3px] bg-primary px-3 py-2.5 text-paper">
               <span className="text-[0.875rem] font-semibold tracking-[-0.01em] sm:text-[1rem] lg:text-[1.125rem] whitespace-nowrap">
                 {site.name}
               </span>
@@ -128,28 +128,38 @@ export default function Hero() {
             </figcaption>
           </figure>
 
-          {/* Hairlines, not navy bars. Four 2px navy rules stacked in one
+          {/* Hairlines, not primary bars. Four 2px primary rules stacked in one
               narrow column read as a chart with no data in it, and they were
               the heaviest thing in the header despite being the least
               important. The same hairline the rest of the page separates
-              things with does the job, and the navy figures carry the
+              things with does the job, and the primary figures carry the
               colour.
 
               `self-stretch` makes this column exactly as tall as the
               portrait at every breakpoint, since the portrait is the taller
               of the two and so is what actually sets the row's height;
               `justify-between` then spreads the four figures across that
-              full height instead of stacking at the bottom. */}
+              full height instead of stacking at the bottom, so the first
+              rule and the last label sit on the photograph's two edges.
+
+              That only holds while the four figures are shorter than the
+              portrait. On a phone they were not: at 375px the portrait is
+              247px tall and four figures at desktop size came to 283px, so
+              the list became the taller item, set the row's height itself,
+              and pushed its own first rule 35px above the top of the
+              photograph. The figure size and the minimum gap both step down
+              on the smallest screens for that reason; `justify-between` takes
+              the slack back and the two columns start on the same line. */}
           <ul
             aria-label="Credentials at a glance"
-            className="flex min-w-0 flex-1 flex-col justify-between gap-4 self-stretch lg:w-40 lg:flex-none"
+            className="flex min-w-0 flex-1 flex-col justify-between gap-2 self-stretch sm:gap-4 lg:w-40 lg:flex-none"
           >
             {proofPoints.map((point) => (
               <li
                 key={point.label}
-                className="flex flex-col gap-0.5 border-t border-line pt-2.5"
+                className="flex flex-col gap-0.5 border-t border-line pt-2 sm:pt-2.5"
               >
-                <span className="text-[1.75rem] font-semibold leading-[1] tracking-[-0.02em] tabular-nums text-navy lg:text-[2rem]">
+                <span className="text-[1.5rem] font-semibold leading-[1] tracking-[-0.02em] tabular-nums text-primary sm:text-[1.75rem] lg:text-[2rem]">
                   {point.figure}
                 </span>
                 <span className="text-[0.8125rem] leading-snug text-ink/65">

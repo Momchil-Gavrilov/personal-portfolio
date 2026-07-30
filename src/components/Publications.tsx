@@ -18,7 +18,7 @@ export default function Publications() {
           <span className="eyebrow text-ink/45">Publications</span>
           <span
             aria-hidden="true"
-            className="ml-auto text-crimson transition-transform duration-300 group-open:rotate-90"
+            className="ml-auto text-primary-soft transition-transform duration-300 group-open:rotate-90"
           >
             &rsaquo;
           </span>

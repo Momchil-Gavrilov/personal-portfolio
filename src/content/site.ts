@@ -131,3 +131,24 @@ export const story: string[] = [
 export const contact = {
   footnote: "Designed and Built with Care",
 };
+
+/*
+  The colourway widget in the footer. Three strings, and no sentences at all.
+
+  It has been through a heading with two paragraphs and a bar chart, then a
+  label with one line of prose, and is now a label, three swatches and a
+  link. Each cut was the same correction: it is a toy in the footer, not a
+  section, and every word it spends explaining itself makes it look like it
+  needs explaining. A reader who has just been asked to book a call should
+  not then be asked to read anything about paint.
+
+  What is left says it by being usable. The label names the offer, the
+  swatches are self-evident, and the vote link changes to "Change my vote"
+  with the results beside it, which is the entire feedback loop in two words
+  and three percentages.
+*/
+export const colourway = {
+  label: "Customize your experience",
+  cta: "Vote for this one",
+  change: "Change my vote",
+};

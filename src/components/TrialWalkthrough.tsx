@@ -77,7 +77,7 @@ export default function TrialWalkthrough() {
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 ring-2 ring-inset ring-navy transition-all duration-300 motion-reduce:transition-none"
+            className="pointer-events-none absolute inset-y-0 ring-2 ring-inset ring-primary transition-all duration-300 motion-reduce:transition-none"
             style={{ left: `${step.from}%`, width: `${step.to - step.from}%` }}
           />
         </div>
@@ -99,7 +99,7 @@ export default function TrialWalkthrough() {
               type="button"
               onClick={() => setI((n) => Math.min(STEPS.length - 1, n + 1))}
               disabled={i === STEPS.length - 1}
-              className="rounded-btn bg-navy px-4 py-1.5 text-[0.85rem] text-paper transition-colors hover:bg-navy-deep disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-navy"
+              className="rounded-btn bg-primary px-4 py-1.5 text-[0.85rem] text-paper transition-colors hover:bg-primary-deep disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-primary"
             >
               Next <span aria-hidden="true">→</span>
             </button>
@@ -111,7 +111,7 @@ export default function TrialWalkthrough() {
           aria-live="polite"
           className="mt-4 border-t border-line pt-4 md:min-h-[5.5rem]"
         >
-          <p className="eyebrow text-crimson">{step.label}</p>
+          <p className="eyebrow text-primary-soft">{step.label}</p>
           <p className="mt-2 max-w-measure text-[0.95rem] leading-snug text-ink/70">
             {step.text}
           </p>

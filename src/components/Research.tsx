@@ -47,29 +47,34 @@ export default function Research() {
                       />
                     </div>
                   )}
+                  {/* No sample-size eyebrow. It was credible and it was also
+                      the third thing a reader had to get past before the
+                      insight; the n and the design are both in the spec rows
+                      one click away, where someone who wants them looks. */}
                   <div className="mt-4 flex flex-1 flex-col gap-2 border-t border-line pt-3.5">
-                    {cs.eyebrow && (
-                      <p className="eyebrow text-ink/45">{cs.eyebrow}</p>
-                    )}
-                    <h3 className="display text-[1.25rem]">{cs.title}</h3>
+                    {/* Two lines of room whether the title needs them or not.
+                        Two of these titles wrap and one does not, and without
+                        the floor the short one started its insight a line
+                        above the others, which read as three cards rather
+                        than one row. */}
+                    <h3 className="display text-[1.25rem] md:min-h-[2lh]">
+                      {cs.title}
+                    </h3>
                     {cs.finding && (
                       <p className="text-[0.9375rem] leading-relaxed text-ink/75">
                         {cs.finding}
                       </p>
                     )}
-                    <span className="btn-quiet mt-auto w-fit group-hover:bg-crimson group-hover:text-paper">
+                    {/* The caveat is not here. It is the strongest trust
+                        signal in the content and it still gets volunteered
+                        before anyone asks, but a card is three lines long and
+                        the caveat was competing with the insight for the same
+                        glance. It now opens the case study's closing section,
+                        where a reader who has decided to look is the one
+                        reading it. */}
+                    <span className="btn-quiet mt-auto w-fit">
                       Read the case study <span aria-hidden="true">→</span>
                     </span>
-                    {/* No rule here: one line separating the photo from the
-                        text already does the dividing this card needs, and a
-                        second line this close to the first read as clutter
-                        rather than structure. Limits trails the link as a
-                        plain quiet note instead. */}
-                    {cs.limitation && (
-                      <p className="text-[0.8125rem] leading-relaxed text-ink/45">
-                        Limits: {cs.limitation}
-                      </p>
-                    )}
                   </div>
                 </Link>
               </Reveal>

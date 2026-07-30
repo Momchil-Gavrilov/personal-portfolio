@@ -1,13 +1,22 @@
 import Reveal from "@/components/Reveal";
-import { contact, site } from "@/content/site";
+import { site } from "@/content/site";
 
 /*
   The whole site exists to produce one action, and this is where it is asked
   for. "Open to opportunities" described a state; it did not ask for anything,
-  and it put the reader's next move on the reader. "Let's talk" is the action,
-  and the line under it lowers the cost of taking it by naming what a call is
-  actually for: finding out whether he is useful to them, which is their
-  question rather than his.
+  and it put the reader's next move on the reader. "Let's talk" is the action.
+
+  Nothing under the heading. The line that used to sit there explained what a
+  call was for, which is a thing the button already says and the reader already
+  knows; explaining it argued the reader into something they had reached this
+  section having already decided. Heading, then the two buttons.
+
+  The site footer used to close this section. It moved to its own component
+  outside `<main>`, which is where a site-wide footer belongs: a `<footer>`
+  nested in a `<section>` is scoped to that section as far as assistive
+  technology is concerned, so the copyright was announced as part of the
+  contact block. Moving it also left somewhere for the colourway block to sit
+  between the CTA and the copyright rather than below it.
 */
 export default function Contact() {
   return (
@@ -15,11 +24,8 @@ export default function Contact() {
       <div className="wrap flex flex-col gap-6 pt-12 pb-10 md:pt-14">
         <Reveal>
           <h2 className="display text-[2rem] sm:text-[2.5rem] lg:text-[3rem]">
-            Let&rsquo;s <em className="not-italic text-navy">talk</em>
+            Let&rsquo;s <em className="not-italic text-primary">talk</em>
           </h2>
-          <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-ink/70">
-            A short call is usually enough to work out whether I can be useful.
-          </p>
         </Reveal>
 
         <Reveal>
@@ -70,13 +76,6 @@ export default function Contact() {
           </div>
         </Reveal>
       </div>
-
-      <footer className="wrap">
-        <div className="flex flex-wrap justify-between gap-5 border-t border-line pt-6 pb-20 md:pb-24">
-          <p className="eyebrow text-ink/50">{contact.footnote}</p>
-          <p className="eyebrow text-ink/50">© 2026 {site.name}</p>
-        </div>
-      </footer>
     </section>
   );
 }

@@ -48,6 +48,9 @@ export default function DeviceFrame({
       height={image.height ?? 600}
       sizes={sizes}
       className={`block h-full w-full ${fit}`}
+      /* Only set when the content asks for it, so the utility class above
+         stays in charge everywhere else. */
+      style={image.position ? { objectPosition: image.position } : undefined}
     />
   );
 
@@ -62,6 +65,22 @@ export default function DeviceFrame({
   }
 
   if (frame === "phone") {
+    /* Corner radius as a percentage of width, not a fixed rem. A fixed
+       1.6rem corner looked right at the roughly 17rem width this frame was
+       first drawn at, but this same box also renders as small as 3rem wide
+       in the three-up grid, where a fixed radius eats half the frame and
+       reads as a rounded blob rather than a phone. Percentages resolve
+       against each axis of the box's own size (horizontal against width,
+       vertical against height), so a single percentage on a tall rectangle
+       would draw an elliptical corner; scaling the vertical side by the
+       image's own aspect ratio keeps the corner arc circular at any size or
+       aspect. */
+    const w = image.width ?? 9;
+    const h = image.height ?? 19;
+    const outerPctX = 13;
+    const outerPctY = (outerPctX * w) / h;
+    const innerPctX = 11;
+    const innerPctY = (innerPctX * w) / h;
     return (
       /* No mat behind the device. A tinted box around a bezel is two frames
          around one screenshot, and it shrank the thing the reader came to see. */
@@ -69,12 +88,16 @@ export default function DeviceFrame({
         {/* Aspect ratio comes from the screenshot itself, so the bezel always
             fits the content rather than cropping it to a guessed phone shape. */}
         <div
-          className="relative h-full max-w-full rounded-[1.6rem] bg-ink p-[0.3rem] shadow-[0_8px_24px_rgba(16,24,32,0.22)]"
+          className="relative h-full max-w-full bg-ink p-[0.3rem] shadow-[0_8px_24px_rgba(16,24,32,0.22)]"
           style={{
-            aspectRatio: `${image.width ?? 9} / ${image.height ?? 19}`,
+            aspectRatio: `${w} / ${h}`,
+            borderRadius: `${outerPctX}% / ${outerPctY}%`,
           }}
         >
-          <div className="relative h-full w-full overflow-hidden rounded-[1.35rem] bg-white">
+          <div
+            className="relative h-full w-full overflow-hidden bg-white"
+            style={{ borderRadius: `${innerPctX}% / ${innerPctY}%` }}
+          >
             {picture}
             {/* The speaker slot. Small enough to read as a phone without
                 pretending to be a specific manufacturer's handset. */}

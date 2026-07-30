@@ -7,6 +7,11 @@ export type CaseStudyImage = {
   /* How the image fills a fixed frame. Photographs crop happily; a chart or a
      labelled figure must never be cropped, so it letterboxes instead. */
   fit?: "cover" | "contain";
+  /* Which part of a cropped photograph survives, as a CSS object-position.
+     Centre is right for most photographs and wrong for one taken looking up
+     at a sign: the subject is in the bottom third and the default crop
+     spends the frame on the wall above them. */
+  position?: string;
   /* The device a product screenshot is shown in. A phone screenshot cropped
      into a landscape box reads as a fragment; in a phone it reads as a
      product. Web apps get a browser, photographs get nothing. */
@@ -39,24 +44,12 @@ export type CaseStudy = {
   monogram?: string;
   /* Optional app-icon image for the product tile (overrides the monogram) */
   icon?: string;
-  /* Small proof image on the research card. A photo of a real session does
-     more to establish that a study happened than the word "participants". */
-  thumb?: CaseStudyImage;
   /* The home-page evidence card: the real figure at a size you can read and
      the one finding with its statistic left visible. Everything here is
      already stated in `sections` below; the card exists so a reader who never
      opens the case study still leaves knowing what was measured and what came
      out of it. */
   figure?: CaseStudyImage;
-  /* The scale of the study, in the fewest characters that survive scrutiny.
-     Rendered as the mono eyebrow above each research row, so a reader who
-     scans only the eyebrows still learns the sample size and the design.
-     Every value here is restated in `spec` below; nothing is claimed twice. */
-  eyebrow?: string;
-  /* A single short sentence for the home-page row. The oneLiner is written to
-     open a case study page and runs two or three lines in a half-width
-     column, which is more setup than a scanning reader will spend. */
-  hook?: string;
   /* What the finding does not establish, in his own words.
      Volunteering this before anyone asks is the strongest trust signal
      available to an early-career researcher, and it is what an interviewer
@@ -107,7 +100,7 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "wellspring",
-    title: "Wellspring Donation Tracker",
+    title: "Wellspring Donation Platform",
     oneLiner:
       "A women's center's donation intake was hours of printing, handwriting, scanning, and retyping. I led the design and built a voice-first web app that removed most of those steps entirely, and it runs their intake today.",
     spec: [
@@ -122,9 +115,8 @@ export const caseStudies: CaseStudy[] = [
       { k: "Status", v: "In use at the center" },
     ],
     /* No daily-user count: none has ever been measured, so none is claimed.
-       "Live" and "every shift" are both true and both checkable. */
-    outcome:
-      "Live at the center today, run by volunteers on every shift without training.",
+       Four words, all of them checkable. */
+    outcome: "Used by volunteers everyday.",
     lesson:
       "A volunteer at intake has a queue and a lot of noise, so logging a donation was never going to compete with helping the person in front of them. Making the form faster would not have fixed that. Separating the two did.",
     shot: {
@@ -134,11 +126,26 @@ export const caseStudies: CaseStudy[] = [
       width: 860,
       height: 1864,
     },
+    /* Rotated 3.6 degrees to level the sign, then cropped to the sign and the
+       people under it. The sign is mounted crooked and was shot from below, so
+       its top and bottom edges run at different angles; 3.6 is the wordmark's
+       own line, which is the thing a reader looks at. The card this renders in
+       is now the same shape as the research cards, which has room for the whole
+       logo rather than the wordmark alone.
+
+       Anchored to the bottom of the frame rather than the centre. The photo
+       was taken looking up at the sign, so the people are in its bottom
+       third and a centred crop spent the card on wall and leaves: the
+       showcase image for the one product real people use should be the
+       people, with the sign there to say where. The crop eats the top of the
+       tree and stops well above the wordmark, which is the part that
+       identifies the place. */
     photo: {
       src: "/wellspring/photo-at-wellspring.jpg",
-      alt: "Five people standing together outside the Wellspring Women's Center, under the center's sign.",
-      width: 990,
-      height: 990,
+      alt: "Five people standing together outside the Wellspring Women's Center, under the center's tree logo and sign, cropped at the shoulders.",
+      position: "50% 100%",
+      width: 950,
+      height: 768,
     },
     /* Four real screens off the live demo, captured through the login gate:
        the monitor and the tablet show the app doing its actual job, the
@@ -229,12 +236,6 @@ export const caseStudies: CaseStudy[] = [
     oneLiner:
       "The field's standard measure of a person's sense of control stopped holding up, so we built a sharper one. A 38-participant randomized study I designed and ran end to end.",
     category: "research",
-    thumb: {
-      src: "/agency/thumb.png",
-      alt: "The Kinarm robotic platform used in the agency study, with a participant seated at it.",
-    },
-    eyebrow: "38 participants · randomized",
-    hook: "The field's standard measure of control had stopped holding up, so we built a sharper one.",
     figure: {
       src: "/agency/session.jpg",
       alt: "A participant seated at the Kinarm robotic platform, both hands on the manipulanda under the display, reaching toward a target.",
@@ -249,9 +250,8 @@ export const caseStudies: CaseStudy[] = [
       { k: "Output", v: "ICORR 2025" },
     ],
     finding:
-      "We can now measure how much control a person really has over a device, and design systems that are provably controllable.",
-    limitation:
-      "Not yet corroborated with validated questionnaires.",
+      "We can measure how much control a person feels over their device.",
+    limitation: "Not yet corroborated with questionnaires.",
     lesson:
       "When a measure stops behaving, the useful move is to find what is contaminating it rather than to work around it. Causal expectation was doing the work everyone had attributed to intention, so I held causation constant and let intention be the only thing left varying.",
     liveUrl: "https://doi.org/10.1109/ICORR66766.2025.11063055",
@@ -308,12 +308,6 @@ export const caseStudies: CaseStudy[] = [
     oneLiner:
       "Bionic hands keep getting better, yet users keep abandoning them. We measured what makes a prosthesis feel like part of you, in a 23-participant closed-loop study.",
     category: "research",
-    thumb: {
-      src: "/embodiment/session.png",
-      alt: "A participant in the lab operating the EMG-controlled prosthetic hand to grasp a wooden block.",
-    },
-    eyebrow: "23 participants · within-subject",
-    hook: "Bionic hands are improving, yet users keep abandoning them.",
     figure: {
       src: "/embodiment/setup.jpg",
       alt: "The study setup: a participant in a lab coat grasps a wooden block with the EMG-controlled prosthetic hand, with an occluding screen between them and the hand, and a motion-capture camera on a tripod behind.",
@@ -327,10 +321,8 @@ export const caseStudies: CaseStudy[] = [
       { k: "My role", v: "Restored the EMG hand, ran sessions, co-designed" },
       { k: "Output", v: "Preprint, Research Square" },
     ],
-    finding:
-      "Ownership and control are separate, separately designable cues, not one feeling a design has to chase.",
-    limitation:
-      "Bounded by the fidelity of today's prosthetic hardware.",
+    finding: "Even cheap vibration feedback improves usability.",
+    limitation: "Bounded by today's prosthetic hardware.",
     liveUrl: "https://doi.org/10.21203/rs.3.rs-7348715/v1",
     liveLabel: "Read the paper",
     status: "published",
@@ -458,7 +450,7 @@ export const caseStudies: CaseStudy[] = [
       { k: "Status", v: "Prototype" },
     ],
     outcome:
-      "Built end to end, intake through match. A prototype, not yet with real users.",
+      "Built intake workflow for law firms. Prototype, not deployed yet.",
     /* The intake screenshot is a wall of body text and reads as noise at card
        size; the case list shows the product's actual shape at a glance. */
     shot: {
@@ -533,15 +525,9 @@ export const caseStudies: CaseStudy[] = [
     oneLiner:
       "There was no agreement on how to measure whether an upper-limb prosthesis works, which slows adoption. This survey mapped what professionals actually use and value.",
     category: "research",
-    thumb: {
-      src: "/survey/thumb.png",
-      alt: "Grouped bar chart of what percent of each profession uses each assessment test.",
-    },
     /* Panel A only. The published figure has three panels and is unreadable
        at card width; this is the one that carries the finding. The full
        figure still runs at full size inside the case study. */
-    eyebrow: "100 respondents · 4 professions",
-    hook: "Nobody agreed on how to measure whether an upper-limb prosthesis works.",
     figure: {
       src: "/survey/usage-panel-a.png",
       alt: "Bar chart of the percent of each profession (PT/OT, prosthetists, physicians, researchers) that uses each of twelve task-based assessments, with Kruskal-Wallis p-values down the right-hand side. The Box and Block Test is highest across every group.",
@@ -555,10 +541,8 @@ export const caseStudies: CaseStudy[] = [
       { k: "My role", v: "Analysis and visualization only" },
       { k: "Output", v: "J. Multidisciplinary Healthcare" },
     ],
-    finding:
-      "Quick, rigorous tests built on common ground carry the most value across every profession at once.",
-    limitation:
-      "Self-reported use, with physical therapists under-represented.",
+    finding: "Professionals value quick tools that measure performance.",
+    limitation: "Physical therapists were under-represented.",
     liveUrl:
       "https://www.dovepress.com/exploring-the-perspectives-of-different-professions-on-task-based-uppe-peer-reviewed-fulltext-article-JMDH",
     liveLabel: "Read the paper",
@@ -716,11 +700,20 @@ export const caseStudies: CaseStudy[] = [
 
 const bySlug = (slug: string) => caseStudies.find((cs) => cs.slug === slug)!;
 
-/* Display order is defined here, decoupled from array order. */
+/* Display order is defined here, decoupled from array order.
+
+   CaseBase is not on this list and its case study is still built and still
+   reachable at /work/casebase, which is what an application that wants it
+   should link to. It came off the home page because of the company it kept:
+   every other product here is in use, won something, or works, and CaseBase's
+   own line says "prototype, not deployed yet", so on that row it read as the
+   weakest of four rather than as a year of work. It is also the only one a
+   medical device or human factors reader has to translate for themselves.
+   Three products that land in that reader's world beat four where one does
+   not. */
 export const productStudies: CaseStudy[] = [
   "wellspring",
   "autonomous-perception",
-  "casebase",
   "uc-davis-mobile",
 ].map(bySlug);
 
