@@ -22,14 +22,20 @@ export default function Footer({ colourway = false }: { colourway?: boolean }) {
     <footer className="wrap">
       <div className="flex flex-col gap-6 pb-20 md:pb-24">
         {colourway && <Colourway />}
-        <div
-          className={`flex flex-wrap justify-between gap-5 ${
-            /* The widget already draws a rule above itself; a second one
-               here would box the two into a panel, which is the section this
-               was deliberately stopped being. */
-            colourway ? "" : "border-t border-line pt-6"
-          }`}
-        >
+        {/*
+          The closing line gets its own rule whether or not the widget is
+          there. When it is, that means two rules and the widget bounded
+          between them, which was avoided at first on the theory that it would
+          box the widget back into the panel it had stopped being.
+
+          It does not. A panel is a rule on four sides with a fill inside it;
+          two horizontal rules on an open page are a band, and a band is what
+          the widget wants to be, because it is the one thing down here that
+          can be clicked. Closed on both sides it stops bleeding into the
+          sign-off, and the sign-off gets to be a clean last line instead of
+          the second half of a control.
+        */}
+        <div className="flex flex-wrap justify-between gap-5 border-t border-line pt-6">
           <p className="eyebrow text-ink/50">{contact.footnote}</p>
           <p className="eyebrow text-ink/50">© 2026 {site.name}</p>
         </div>

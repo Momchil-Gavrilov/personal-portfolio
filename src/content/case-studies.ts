@@ -100,7 +100,7 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "wellspring",
-    title: "Wellspring Donation Platform",
+    title: "Wellspring Donation App",
     oneLiner:
       "A women's center's donation intake was hours of printing, handwriting, scanning, and retyping. I led the design and built a voice-first web app that removed most of those steps entirely, and it runs their intake today.",
     spec: [

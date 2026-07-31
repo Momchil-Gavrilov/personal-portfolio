@@ -161,7 +161,12 @@ export default function Colourway() {
 
   return (
     <div className="border-t border-line pt-6">
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+      {/* A little more air between the row's parts than inside them: the
+          swatches sit 6px apart, so at 12px the vote link read as a fourth
+          swatch that had lost its border. 16px between groups and 6px within
+          them is enough for the row to arrive as label, control, link rather
+          than as five loose objects. */}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         <span className="eyebrow text-ink/50">{colourway.label}</span>
 
         {/*

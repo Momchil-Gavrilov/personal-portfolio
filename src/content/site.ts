@@ -96,7 +96,7 @@ export const skillGroups = [
   },
   {
     group: "Technical",
-    items: ["R", "Python", "MATLAB", "C/C++", "Figma", "EMG processing", "ROS2"],
+    items: ["R", "Python", "MATLAB", "C/C++", "Figma", "EMG", "ROS2", "CAD - SolidWorks", "Signal processing"],
   },
 ];
 

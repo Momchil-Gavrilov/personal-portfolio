@@ -41,6 +41,37 @@ type SkillsProps = {
   anchor?: boolean;
 };
 
+/*
+  Hanging labels.
+
+  Every row in this band used to be a two-column grid: an 8.5rem label column,
+  then the content. That put the chips and the term lists 10.5rem in from the
+  page's left edge, so the one band on the page whose whole job is to be
+  scanned started further right than every headline, paragraph and card above
+  and below it, and the eye had to find a second left edge for it.
+
+  The labels now hang in the margin outside the 64rem shell and the content
+  starts on the page's own left edge, flush with everything else. Nothing
+  moves except the label, which stops being a column and becomes an
+  annotation.
+
+  `right-full` puts the label immediately left of the content box and `mr-8`
+  clears it; at the `xl` breakpoint the shell is 1024px inside a viewport of
+  at least 1280, so there are 128px of outer margin plus the shell's own 32px
+  of padding to hang into, and the longest label here is about 90px set. Below
+  `xl` there is no margin to hang into, so the label goes back in flow and
+  stacks directly above its content, which keeps the content on the same left
+  edge at every width. That is the part that actually matters; the hang is the
+  part that looks good on a wide screen.
+
+  `top` is a hair above the content's first line rather than zero: the eyebrow
+  is 11px on a 1.4 line and the content it labels is 12 to 13px on a taller
+  one, so matching the boxes leaves the label sitting visibly low.
+*/
+const ROW = "relative flex flex-col gap-2 xl:block";
+const LABEL =
+  "eyebrow text-paper/45 xl:absolute xl:top-[0.3rem] xl:right-full xl:mr-8 xl:whitespace-nowrap";
+
 /* One group's terms as a single line. Separated by a middot rather than by
    space alone: the separator is quieter than the terms it divides, so the row
    reads as one line of vocabulary instead of five loose labels that happen to
@@ -90,14 +121,14 @@ export default function Skills({ show = "both", anchor = true }: SkillsProps) {
           <dl className="flex flex-col">
             {withStandards && (
               <div
-                className={`grid gap-x-8 gap-y-2 md:grid-cols-[8.5rem_minmax(0,1fr)] md:items-baseline ${
+                className={`${ROW} ${
                   withGroups ? "border-b border-paper/12 pb-4" : ""
                 }`}
               >
                 {/* The label stays "Learning", not "Standards". Leading with
                     it is a stronger signal; overstating it would be a worse
                     one. */}
-                <dt className="eyebrow text-paper/45">{standardsNote}</dt>
+                <dt className={LABEL}>{standardsNote}</dt>
                 <dd>
                   <ul className="flex flex-wrap gap-x-2 gap-y-2">
                     {standards.map((item) => (
@@ -114,8 +145,8 @@ export default function Skills({ show = "both", anchor = true }: SkillsProps) {
             )}
 
             {withGroups && labelled && (
-              <div className="grid gap-x-8 gap-y-2 md:grid-cols-[8.5rem_minmax(0,1fr)] md:items-baseline">
-                <dt className="eyebrow text-paper/45">{skillsTitle}</dt>
+              <div className={ROW}>
+                <dt className={LABEL}>{skillsTitle}</dt>
                 <dd className="flex flex-col gap-2 text-[0.8125rem] leading-relaxed text-paper/55">
                   {skillGroups.map((row) => (
                     <p key={row.group}>
@@ -141,11 +172,8 @@ export default function Skills({ show = "both", anchor = true }: SkillsProps) {
                 }`}
               >
                 {skillGroups.map((row) => (
-                  <div
-                    key={row.group}
-                    className="grid gap-x-8 gap-y-1 md:grid-cols-[8.5rem_minmax(0,1fr)] md:items-baseline"
-                  >
-                    <dt className="eyebrow text-paper/45">{row.group}</dt>
+                  <div key={row.group} className={ROW}>
+                    <dt className={LABEL}>{row.group}</dt>
                     <dd className="text-[0.8125rem] leading-relaxed text-paper/55">
                       <Terms items={row.items} />
                     </dd>
