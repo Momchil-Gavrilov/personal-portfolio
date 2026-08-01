@@ -601,7 +601,7 @@ export const caseStudies: CaseStudy[] = [
       { k: "Status", v: "Loader working; car in architecture" },
     ],
     outcome:
-      "Camera, lidar, IMU and ultrasonic beacons fused into a working SLAM map.",
+      "Teaching technology to see the world the way that we do.",
     shot: {
       src: "/robotics/perception-rover.jpg",
       /* The rover, not the Kia. The Kia project is early: sensors on order,

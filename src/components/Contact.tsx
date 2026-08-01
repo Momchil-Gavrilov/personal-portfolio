@@ -24,7 +24,7 @@ export default function Contact() {
       <div className="wrap flex flex-col gap-6 pt-12 pb-10 md:pt-14">
         <Reveal>
           <h2 className="display text-[2rem] sm:text-[2.5rem] lg:text-[3rem]">
-            Let&rsquo;s <em className="not-italic text-primary">talk</em>
+            I&rsquo;d love to learn about <em className="not-italic text-primary">you</em>
           </h2>
         </Reveal>
 

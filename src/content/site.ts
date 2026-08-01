@@ -122,8 +122,8 @@ export const storyTitle = "Why I Do This";
 /* His latest rewrite, verbatim. He has now revised this passage several
    times and been right each time; the only edits here are his own. */
 export const story: string[] = [
-  "Everything started with a single LED blinking on a breadboard. I bought a circuit kit in undergrad out of pure curiosity, and when I made that little light glow, my whole world changed.",
-  "I saw the physicists who gave their lives to define electricity, and the engineers who shaped it so a student like me could make a simple light blink. Then I started seeing it everywhere: the plaster walls, the heat coming from my vent, the bed where I sat. Someone's effort poured into every object in my room, made for a person they would never meet. That's when I felt the pull to be on the other side of that exchange.",
+  "Everything started with a single LED blinking on a breadboard. I bought a circuit kit in undergrad out of pure curiosity, and when I made that light glow, my world changed.",
+  "I saw the physicists who gave their lives to define electricity, and the engineers who shaped it so a student like me could make a light blink. Then I started seeing it everywhere: the four walls around me, the heat coming from my vent, the bed where I sat. Someone's effort poured into every object in my room, made for a person they would never meet. That's when I felt that I wanted to be on the other side of that exchange.",
   "My fascination with people led me to study kinesiology: how we move, think, and interact with the world. When a professor introduced me to brain-computer interfaces, the concept inspired me. Technology that could integrate with a body so seamlessly that it stopped feeling like a tool and started feeling like part of you. I spent the next three years measuring that relationship between people and machines.",
   "But I found that sometimes research didn't make it out of the lab to have the impact it was meant to, so I learned to develop technology. Research taught me what people need. Engineering taught me how to put it in their hands. Now I work for the moment when something I make stops being mine and becomes someone else's.",
 ];
@@ -159,9 +159,9 @@ export const colourway = {
   feedback: "Leave feedback",
   /* Second person and open, because "Feedback" as a placeholder gets
      "looks good" and a question gets an answer. */
-  feedbackPlaceholder: "What would you change about this site?",
+  feedbackPlaceholder: "What is on your mind?",
   feedbackSend: "Send",
-  feedbackThanks: "Thank you. Read and taken seriously.",
+  feedbackThanks: "Thank you. I read every message.",
   feedbackError: "That did not send. Worth another try.",
   feedbackThrottled: "One message a minute. Try again shortly.",
 };
