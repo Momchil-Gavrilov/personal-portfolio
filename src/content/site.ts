@@ -133,22 +133,35 @@ export const contact = {
 };
 
 /*
-  The colourway widget in the footer. Three strings, and no sentences at all.
+  The colourway widget in the footer, and no sentences at all.
 
   It has been through a heading with two paragraphs and a bar chart, then a
-  label with one line of prose, and is now a label, three swatches and a
-  link. Each cut was the same correction: it is a toy in the footer, not a
+  label with one line of prose, and is now a label, three swatches and two
+  links. Each cut was the same correction: it is a toy in the footer, not a
   section, and every word it spends explaining itself makes it look like it
   needs explaining. A reader who has just been asked to book a call should
   not then be asked to read anything about paint.
 
   What is left says it by being usable. The label names the offer, the
   swatches are self-evident, and the vote link changes to "Change my vote"
-  with the results beside it, which is the entire feedback loop in two words
-  and three percentages.
+  with the counts beside it, which is the whole loop in two words and three
+  numbers.
+
+  The second link is the one that asks for words. It is deliberately not
+  about colour: someone who came from a post and has an opinion about the
+  site should not have to find an email address to say it, and the box that
+  is already here is the shortest path between the two.
 */
 export const colourway = {
   label: "Customize your experience",
   cta: "Vote for this one",
   change: "Change my vote",
+  feedback: "Leave feedback",
+  /* Second person and open, because "Feedback" as a placeholder gets
+     "looks good" and a question gets an answer. */
+  feedbackPlaceholder: "What would you change about this site?",
+  feedbackSend: "Send",
+  feedbackThanks: "Thank you. Read and taken seriously.",
+  feedbackError: "That did not send. Worth another try.",
+  feedbackThrottled: "One message a minute. Try again shortly.",
 };

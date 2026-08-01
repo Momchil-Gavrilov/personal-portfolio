@@ -1,32 +1,16 @@
 import { THEMES, type ThemeId, isThemeId } from "@/components/themes";
+import { configured, fingerprint, pipeline } from "@/lib/kv";
 
 /*
   The colourway tally.
 
-  GET returns the counts, POST records one. This is the only part of the site
-  that is not statically prerendered, and it is one route: the pages that
-  render the block still ship as static HTML and fetch the numbers from here
-  after they load.
+  GET returns the counts, POST records one. The pages that render the block
+  still ship as static HTML and fetch the numbers from here after they load.
 
-  Storage is Upstash over its REST API, spoken to with plain `fetch`. Vercel's
-  KV integration is Upstash underneath and sets `KV_REST_API_URL` and
-  `KV_REST_API_TOKEN`; a direct Upstash database sets `UPSTASH_REDIS_REST_*`.
-  Either works and neither needs a client library, which keeps a three-integer
-  feature from adding a dependency to the site.
-
-  With no credentials configured it falls back to counting in memory so the
-  block is fully working in development. That fallback is per server instance
-  and resets on deploy: it is a development convenience, not a database, and
-  the numbers are not real until the environment variables exist.
+  Storage, its two possible sets of credentials and the development fallback
+  all live in `@/lib/kv`, shared with the feedback box.
 */
 export const dynamic = "force-dynamic";
-
-const REST_URL =
-  process.env.KV_REST_API_URL ?? process.env.UPSTASH_REDIS_REST_URL;
-const REST_TOKEN =
-  process.env.KV_REST_API_TOKEN ?? process.env.UPSTASH_REDIS_REST_TOKEN;
-
-const configured = Boolean(REST_URL && REST_TOKEN);
 
 const key = (id: string) => `colourway:votes:${id}`;
 const voterKey = (hash: string) => `colourway:voter:${hash}`;
@@ -42,20 +26,6 @@ type Tally = Record<string, number>;
 const memory: Tally = Object.fromEntries(THEMES.map((t) => [t.id, 0]));
 const memoryVoters = new Map<string, ThemeId>();
 
-async function pipeline(commands: (string | number)[][]) {
-  const res = await fetch(`${REST_URL}/pipeline`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${REST_TOKEN}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(commands),
-    cache: "no-store",
-  });
-  if (!res.ok) throw new Error(`Upstash responded ${res.status}`);
-  return (await res.json()) as { result: unknown }[];
-}
-
 async function readTally(): Promise<Tally> {
   if (!configured) return { ...memory };
   const rows = await pipeline(THEMES.map((t) => ["GET", key(t.id)]));
@@ -65,30 +35,6 @@ async function readTally(): Promise<Tally> {
   return Object.fromEntries(
     THEMES.map((t, i) => [t.id, Math.max(0, Number(rows[i]?.result ?? 0) || 0)])
   );
-}
-
-/*
-  What identifies a returning voter, so their vote can be recognised and
-  moved rather than counted twice.
-
-  The address is hashed with a salt and never stored: what goes into the
-  database is a 16-character digest that cannot be turned back into an IP,
-  which is the least that can be kept while still being able to recognise a
-  repeat. Without `VOTE_SALT` set the digest is still useless as an address,
-  it is simply easier to brute force, and this is a colour poll.
-*/
-async function voterFingerprint(request: Request) {
-  const forwarded = request.headers.get("x-forwarded-for") ?? "";
-  const address = forwarded.split(",")[0]?.trim();
-  if (!address) return null;
-  const data = new TextEncoder().encode(
-    `${process.env.VOTE_SALT ?? "colourway"}:${address}`
-  );
-  const digest = await crypto.subtle.digest("SHA-256", data);
-  return Array.from(new Uint8Array(digest))
-    .slice(0, 8)
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
 }
 
 export async function GET() {
@@ -126,7 +72,7 @@ export async function POST(request: Request) {
     development against the in-memory store.
   */
   try {
-    const voter = await voterFingerprint(request);
+    const voter = await fingerprint(request);
 
     if (!configured) {
       const previous = voter ? memoryVoters.get(voter) : undefined;
