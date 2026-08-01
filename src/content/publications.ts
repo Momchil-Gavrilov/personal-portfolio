@@ -23,6 +23,7 @@ export const publications: Publication[] = [
       "Measuring Intention: The Sense of Agency, Intentional Binding, and the Temporal Difference Limen",
     venue: "Manuscript under review",
     year: "2026",
+    url: "https://osf.io/preprints/psyarxiv/ehsd5_v1",
   },
   {
     authors:
