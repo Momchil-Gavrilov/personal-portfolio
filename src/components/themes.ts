@@ -9,7 +9,7 @@
 */
 export const THEMES = [
   { id: "green", label: "Green", swatch: "#1a4a32" },
-  { id: "navy", label: "Navy", swatch: "#1b3a5c" },
+  { id: "navy", label: "Navy", swatch: "#15324F" },
   { id: "maroon", label: "Maroon", swatch: "#5a1526" },
 ] as const;
 

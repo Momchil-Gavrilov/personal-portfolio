@@ -106,9 +106,9 @@
 }
 
 [data-theme="navy"] {
-  --color-primary: #1b3a5c;
-  --color-primary-deep: #142c47;
-  --color-primary-soft: #2a6191;
+  --color-primary: #15324F;
+  --color-primary-deep: #0B1B2D;
+  --color-primary-soft: #25527E;
 }
 
 [data-theme="maroon"] {
