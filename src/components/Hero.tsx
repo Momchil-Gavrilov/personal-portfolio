@@ -58,6 +58,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary"
+                data-pulse="booking@hero"
               >
                 {site.booking.label}
                 <span aria-hidden="true">→</span>
@@ -67,6 +68,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-ghost"
+                data-pulse="resume@hero"
               >
                 {site.resume.label}
               </a>
@@ -74,7 +76,11 @@ export default function Hero() {
 
             <ul className="flex flex-wrap gap-x-[1.125rem] gap-y-2 text-[0.8125rem] text-ink/60">
               <li>
-                <a className="link-quiet" href={`mailto:${site.email}`}>
+                <a
+                  className="link-quiet"
+                  href={`mailto:${site.email}`}
+                  data-pulse="email@hero"
+                >
                   {site.email}
                 </a>
               </li>
@@ -84,6 +90,7 @@ export default function Hero() {
                   href={site.linkedin.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-pulse="linkedin@hero"
                 >
                   LinkedIn
                 </a>
@@ -94,6 +101,7 @@ export default function Hero() {
                   href={site.github.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-pulse="github@hero"
                 >
                   GitHub
                 </a>

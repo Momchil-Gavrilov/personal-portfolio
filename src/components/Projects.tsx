@@ -64,6 +64,7 @@ export default function Projects() {
             <Link
               href={`/work/${lead.slug}`}
               className="group flex w-full flex-col rounded-card border border-primary/40 p-3"
+              data-pulse="casestudy@work"
             >
               {leadImage && (
                 <DeviceFrame
@@ -104,6 +105,7 @@ export default function Projects() {
                     <Link
                       href={`/work/${cs.slug}`}
                       className="group flex w-full gap-4 rounded-card border border-line p-3 md:gap-5"
+                      data-pulse="casestudy@work"
                     >
                       {/* A fixed box, not `self-stretch`. Stretching looks
                           like the tidier answer and is a trap: the phone

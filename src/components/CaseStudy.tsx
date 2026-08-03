@@ -56,6 +56,7 @@ export default function CaseStudy({ slug }: { slug: string }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary px-[1.125rem] py-2.5"
+                data-pulse="live@studybar"
               >
                 {cs.liveLabel ?? "View live"}
               </a>
@@ -95,6 +96,7 @@ export default function CaseStudy({ slug }: { slug: string }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary mt-7"
+                data-pulse="live@studytop"
               >
                 {cs.liveLabel ?? "View live"}
                 <span aria-hidden="true">→</span>
@@ -246,6 +248,7 @@ export default function CaseStudy({ slug }: { slug: string }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary"
+                data-pulse="live@studyfoot"
               >
                 {cs.liveLabel ?? "View live"}
                 <span aria-hidden="true">→</span>
