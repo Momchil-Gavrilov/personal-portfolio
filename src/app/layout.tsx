@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Instrument_Sans, Newsreader } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import Pulse from "@/components/Pulse";
 import { DEFAULT_THEME, THEME_SCRIPT } from "@/components/themes";
 import "./globals.css";
 
@@ -63,6 +66,14 @@ export default function RootLayout({
       */}
       <body className="min-h-svh" suppressHydrationWarning>
         {children}
+        <Analytics />
+        <SpeedInsights />
+        {/* Vercel's two answer "how many came, and was it fast". `Pulse`
+            answers "how far did they get, and where did they stop", which
+            neither of them offers at any price. It filters by route itself,
+            so mounting it once here covers the home page and the case
+            studies and skips the private pages. */}
+        <Pulse />
       </body>
     </html>
   );

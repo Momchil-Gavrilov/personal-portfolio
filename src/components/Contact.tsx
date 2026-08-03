@@ -36,6 +36,10 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary px-[1.625rem]"
+                /* The one the whole page is built to produce. Its count
+                   against the header's is the closest thing this site has to
+                   a measure of whether the middle of it works. */
+                data-pulse="booking@contact"
               >
                 {site.booking.label}
                 <span aria-hidden="true">→</span>
@@ -45,6 +49,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-ghost px-[1.625rem]"
+                data-pulse="resume@contact"
               >
                 {site.resume.label} (PDF)
               </a>
@@ -53,6 +58,7 @@ export default function Contact() {
               <a
                 className="link-quiet text-ink/70"
                 href={`mailto:${site.email}`}
+                data-pulse="email@contact"
               >
                 {site.email}
               </a>
@@ -61,6 +67,7 @@ export default function Contact() {
                 href={site.linkedin.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-pulse="linkedin@contact"
               >
                 LinkedIn
               </a>
@@ -69,6 +76,7 @@ export default function Contact() {
                 href={site.github.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-pulse="github@contact"
               >
                 GitHub
               </a>

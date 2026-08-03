@@ -14,7 +14,14 @@ export default function Publications() {
   return (
     <section id="publications" className="wrap pt-6 pb-2 md:pt-8 md:pb-2">
       <details className="group">
-        <summary className="flex cursor-pointer list-none items-center gap-3 border-y border-line py-4 [&::-webkit-details-marker]:hidden">
+        {/* Whether the list gets opened at all is the question here, and no
+            amount of scroll measurement can answer it: the section is one row
+            tall until somebody asks for it, so a reader who ignores it and a
+            reader who reads every paper scroll past identically. */}
+        <summary
+          className="flex cursor-pointer list-none items-center gap-3 border-y border-line py-4 [&::-webkit-details-marker]:hidden"
+          data-pulse="expand@publications"
+        >
           <span className="eyebrow text-ink/45">Publications</span>
           <span
             aria-hidden="true"
@@ -40,6 +47,10 @@ export default function Publications() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="link-quiet"
+                    /* Counted as one figure, not one per paper. Which paper
+                       would need a stable id per row, and the honest first
+                       question is whether anyone opens any of them. */
+                    data-pulse="paper@publications"
                   >
                     {pub.title}
                   </a>

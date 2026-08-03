@@ -30,6 +30,7 @@ export default function Research() {
                 <Link
                   href={`/work/${cs.slug}`}
                   className="group flex w-full flex-col"
+                  data-pulse="casestudy@research"
                 >
                   {cs.figure && (
                     <div className="h-52 w-full overflow-hidden rounded-card border border-line bg-white md:h-56">

@@ -75,6 +75,7 @@ export default function Nav() {
               href={site.resume.url}
               target="_blank"
               rel="noopener noreferrer"
+              data-pulse="resume@nav"
             >
               {site.resume.label}
             </a>
@@ -84,6 +85,11 @@ export default function Nav() {
               href={site.booking.url}
               target="_blank"
               rel="noopener noreferrer"
+              /* The same offer sits in the hero and again in the contact
+                 section. Tagging the three separately is what makes it
+                 answerable whether anyone books from the header before the
+                 page has argued for anything. */
+              data-pulse="booking@nav"
               /* .btn hardcodes its own padding and font-size, which beats a
                  same-specificity utility at any breakpoint since .btn is
                  declared after the utilities layer; ! forces every value
